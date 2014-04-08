@@ -1,0 +1,477 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FB4DCBC218F3B884006B6722 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4DCBC118F3B884006B6722 /* Foundation.framework */; };
+		FB4DCBC418F3B884006B6722 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4DCBC318F3B884006B6722 /* CoreGraphics.framework */; };
+		FB4DCBC618F3B884006B6722 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4DCBC518F3B884006B6722 /* UIKit.framework */; };
+		FB4DCBCC18F3B884006B6722 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FB4DCBCA18F3B884006B6722 /* InfoPlist.strings */; };
+		FB4DCBCE18F3B884006B6722 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4DCBCD18F3B884006B6722 /* main.m */; };
+		FB4DCBD218F3B884006B6722 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4DCBD118F3B884006B6722 /* AppDelegate.m */; };
+		FB4DCBD518F3B884006B6722 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB4DCBD318F3B884006B6722 /* Main.storyboard */; };
+		FB4DCBD818F3B884006B6722 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4DCBD718F3B884006B6722 /* FirstViewController.m */; };
+		FB4DCBDB18F3B884006B6722 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4DCBDA18F3B884006B6722 /* SecondViewController.m */; };
+		FB4DCBDD18F3B884006B6722 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB4DCBDC18F3B884006B6722 /* Images.xcassets */; };
+		FB4DCBE418F3B885006B6722 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4DCBE318F3B885006B6722 /* XCTest.framework */; };
+		FB4DCBE518F3B885006B6722 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4DCBC118F3B884006B6722 /* Foundation.framework */; };
+		FB4DCBE618F3B885006B6722 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4DCBC518F3B884006B6722 /* UIKit.framework */; };
+		FB4DCBEE18F3B885006B6722 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FB4DCBEC18F3B885006B6722 /* InfoPlist.strings */; };
+		FB4DCBF018F3B885006B6722 /* dentistTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4DCBEF18F3B885006B6722 /* dentistTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FB4DCBE718F3B885006B6722 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB4DCBB618F3B884006B6722 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB4DCBBD18F3B884006B6722;
+			remoteInfo = dentist;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FB4DCBBE18F3B884006B6722 /* dentist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dentist.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB4DCBC118F3B884006B6722 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FB4DCBC318F3B884006B6722 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		FB4DCBC518F3B884006B6722 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		FB4DCBC918F3B884006B6722 /* dentist-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "dentist-Info.plist"; sourceTree = "<group>"; };
+		FB4DCBCB18F3B884006B6722 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FB4DCBCD18F3B884006B6722 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FB4DCBCF18F3B884006B6722 /* dentist-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "dentist-Prefix.pch"; sourceTree = "<group>"; };
+		FB4DCBD018F3B884006B6722 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FB4DCBD118F3B884006B6722 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FB4DCBD418F3B884006B6722 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FB4DCBD618F3B884006B6722 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		FB4DCBD718F3B884006B6722 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		FB4DCBD918F3B884006B6722 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		FB4DCBDA18F3B884006B6722 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		FB4DCBDC18F3B884006B6722 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FB4DCBE218F3B885006B6722 /* dentistTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dentistTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB4DCBE318F3B885006B6722 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		FB4DCBEB18F3B885006B6722 /* dentistTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "dentistTests-Info.plist"; sourceTree = "<group>"; };
+		FB4DCBED18F3B885006B6722 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FB4DCBEF18F3B885006B6722 /* dentistTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = dentistTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FB4DCBBB18F3B884006B6722 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB4DCBC418F3B884006B6722 /* CoreGraphics.framework in Frameworks */,
+				FB4DCBC618F3B884006B6722 /* UIKit.framework in Frameworks */,
+				FB4DCBC218F3B884006B6722 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB4DCBDF18F3B885006B6722 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB4DCBE418F3B885006B6722 /* XCTest.framework in Frameworks */,
+				FB4DCBE618F3B885006B6722 /* UIKit.framework in Frameworks */,
+				FB4DCBE518F3B885006B6722 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FB4DCBB518F3B884006B6722 = {
+			isa = PBXGroup;
+			children = (
+				FB4DCBC718F3B884006B6722 /* dentist */,
+				FB4DCBE918F3B885006B6722 /* dentistTests */,
+				FB4DCBC018F3B884006B6722 /* Frameworks */,
+				FB4DCBBF18F3B884006B6722 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FB4DCBBF18F3B884006B6722 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FB4DCBBE18F3B884006B6722 /* dentist.app */,
+				FB4DCBE218F3B885006B6722 /* dentistTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FB4DCBC018F3B884006B6722 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FB4DCBC118F3B884006B6722 /* Foundation.framework */,
+				FB4DCBC318F3B884006B6722 /* CoreGraphics.framework */,
+				FB4DCBC518F3B884006B6722 /* UIKit.framework */,
+				FB4DCBE318F3B885006B6722 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FB4DCBC718F3B884006B6722 /* dentist */ = {
+			isa = PBXGroup;
+			children = (
+				FB4DCBD018F3B884006B6722 /* AppDelegate.h */,
+				FB4DCBD118F3B884006B6722 /* AppDelegate.m */,
+				FB4DCBD318F3B884006B6722 /* Main.storyboard */,
+				FB4DCBD618F3B884006B6722 /* FirstViewController.h */,
+				FB4DCBD718F3B884006B6722 /* FirstViewController.m */,
+				FB4DCBD918F3B884006B6722 /* SecondViewController.h */,
+				FB4DCBDA18F3B884006B6722 /* SecondViewController.m */,
+				FB4DCBDC18F3B884006B6722 /* Images.xcassets */,
+				FB4DCBC818F3B884006B6722 /* Supporting Files */,
+			);
+			path = dentist;
+			sourceTree = "<group>";
+		};
+		FB4DCBC818F3B884006B6722 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FB4DCBC918F3B884006B6722 /* dentist-Info.plist */,
+				FB4DCBCA18F3B884006B6722 /* InfoPlist.strings */,
+				FB4DCBCD18F3B884006B6722 /* main.m */,
+				FB4DCBCF18F3B884006B6722 /* dentist-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FB4DCBE918F3B885006B6722 /* dentistTests */ = {
+			isa = PBXGroup;
+			children = (
+				FB4DCBEF18F3B885006B6722 /* dentistTests.m */,
+				FB4DCBEA18F3B885006B6722 /* Supporting Files */,
+			);
+			path = dentistTests;
+			sourceTree = "<group>";
+		};
+		FB4DCBEA18F3B885006B6722 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FB4DCBEB18F3B885006B6722 /* dentistTests-Info.plist */,
+				FB4DCBEC18F3B885006B6722 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FB4DCBBD18F3B884006B6722 /* dentist */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB4DCBF318F3B885006B6722 /* Build configuration list for PBXNativeTarget "dentist" */;
+			buildPhases = (
+				FB4DCBBA18F3B884006B6722 /* Sources */,
+				FB4DCBBB18F3B884006B6722 /* Frameworks */,
+				FB4DCBBC18F3B884006B6722 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = dentist;
+			productName = dentist;
+			productReference = FB4DCBBE18F3B884006B6722 /* dentist.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FB4DCBE118F3B885006B6722 /* dentistTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB4DCBF618F3B885006B6722 /* Build configuration list for PBXNativeTarget "dentistTests" */;
+			buildPhases = (
+				FB4DCBDE18F3B885006B6722 /* Sources */,
+				FB4DCBDF18F3B885006B6722 /* Frameworks */,
+				FB4DCBE018F3B885006B6722 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FB4DCBE818F3B885006B6722 /* PBXTargetDependency */,
+			);
+			name = dentistTests;
+			productName = dentistTests;
+			productReference = FB4DCBE218F3B885006B6722 /* dentistTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FB4DCBB618F3B884006B6722 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = 1010.am;
+				TargetAttributes = {
+					FB4DCBE118F3B885006B6722 = {
+						TestTargetID = FB4DCBBD18F3B884006B6722;
+					};
+				};
+			};
+			buildConfigurationList = FB4DCBB918F3B884006B6722 /* Build configuration list for PBXProject "dentist" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FB4DCBB518F3B884006B6722;
+			productRefGroup = FB4DCBBF18F3B884006B6722 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FB4DCBBD18F3B884006B6722 /* dentist */,
+				FB4DCBE118F3B885006B6722 /* dentistTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FB4DCBBC18F3B884006B6722 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB4DCBDD18F3B884006B6722 /* Images.xcassets in Resources */,
+				FB4DCBCC18F3B884006B6722 /* InfoPlist.strings in Resources */,
+				FB4DCBD518F3B884006B6722 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB4DCBE018F3B885006B6722 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB4DCBEE18F3B885006B6722 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FB4DCBBA18F3B884006B6722 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB4DCBDB18F3B884006B6722 /* SecondViewController.m in Sources */,
+				FB4DCBD218F3B884006B6722 /* AppDelegate.m in Sources */,
+				FB4DCBD818F3B884006B6722 /* FirstViewController.m in Sources */,
+				FB4DCBCE18F3B884006B6722 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB4DCBDE18F3B885006B6722 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB4DCBF018F3B885006B6722 /* dentistTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FB4DCBE818F3B885006B6722 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB4DCBBD18F3B884006B6722 /* dentist */;
+			targetProxy = FB4DCBE718F3B885006B6722 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FB4DCBCA18F3B884006B6722 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB4DCBCB18F3B884006B6722 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		FB4DCBD318F3B884006B6722 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB4DCBD418F3B884006B6722 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FB4DCBEC18F3B885006B6722 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB4DCBED18F3B885006B6722 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FB4DCBF118F3B885006B6722 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		FB4DCBF218F3B885006B6722 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FB4DCBF418F3B885006B6722 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "dentist/dentist-Prefix.pch";
+				INFOPLIST_FILE = "dentist/dentist-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		FB4DCBF518F3B885006B6722 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "dentist/dentist-Prefix.pch";
+				INFOPLIST_FILE = "dentist/dentist-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		FB4DCBF718F3B885006B6722 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/dentist.app/dentist";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "dentist/dentist-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "dentistTests/dentistTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		FB4DCBF818F3B885006B6722 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/dentist.app/dentist";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "dentist/dentist-Prefix.pch";
+				INFOPLIST_FILE = "dentistTests/dentistTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FB4DCBB918F3B884006B6722 /* Build configuration list for PBXProject "dentist" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB4DCBF118F3B885006B6722 /* Debug */,
+				FB4DCBF218F3B885006B6722 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB4DCBF318F3B885006B6722 /* Build configuration list for PBXNativeTarget "dentist" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB4DCBF418F3B885006B6722 /* Debug */,
+				FB4DCBF518F3B885006B6722 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FB4DCBF618F3B885006B6722 /* Build configuration list for PBXNativeTarget "dentistTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB4DCBF718F3B885006B6722 /* Debug */,
+				FB4DCBF818F3B885006B6722 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FB4DCBB618F3B884006B6722 /* Project object */;
+}
