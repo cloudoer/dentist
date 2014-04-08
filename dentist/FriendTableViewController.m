@@ -8,7 +8,7 @@
 
 #import "FriendTableViewController.h"
 #import "AppDelegate.h"
-
+#import "ChatTableViewController.h"
 #import "DDLog.h"
 
 // Log levels: off, error, warn, info, verbose
@@ -25,6 +25,9 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 @implementation FriendTableViewController
 {
     NSFetchedResultsController *fetchedResultsController;
+    
+    NSString *theUser;
+    XMPPJID *theJID;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -189,6 +192,23 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 	[self configurePhotoForCell:cell user:user];
 	
 	return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    XMPPUserCoreDataStorageObject *user = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    theUser = user.jid.user;
+    theJID = user.jid;
+    [self performSegueWithIdentifier:@"FriendToChat" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqual:@"FriendToChat"]) {
+        ChatTableViewController *controller = segue.destinationViewController;
+        controller.userStr = theUser;
+        controller.jid = theJID;
+    }
 }
 
 

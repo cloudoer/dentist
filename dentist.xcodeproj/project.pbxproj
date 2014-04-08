@@ -158,6 +158,10 @@
 		FB4DCFAE18F3BA8A006B6722 /* libidn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4DCF2B18F3BA8A006B6722 /* libidn.a */; };
 		FB6B986118F3C6D100120569 /* LoginTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6B986018F3C6D100120569 /* LoginTableViewController.m */; };
 		FB6B986418F3C8CE00120569 /* FriendTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6B986318F3C8CE00120569 /* FriendTableViewController.m */; };
+		FB6B986718F3D70300120569 /* ChatTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6B986618F3D70300120569 /* ChatTableViewController.m */; };
+		FB6B986A18F3DAF900120569 /* ChatMeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6B986918F3DAF900120569 /* ChatMeCell.m */; };
+		FB6B986D18F3DB0900120569 /* ChatOtherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6B986C18F3DB0900120569 /* ChatOtherCell.m */; };
+		FB6B987018F3E74700120569 /* ChatSendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6B986F18F3E74700120569 /* ChatSendCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -467,6 +471,14 @@
 		FB6B986018F3C6D100120569 /* LoginTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginTableViewController.m; sourceTree = "<group>"; };
 		FB6B986218F3C8CE00120569 /* FriendTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendTableViewController.h; sourceTree = "<group>"; };
 		FB6B986318F3C8CE00120569 /* FriendTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendTableViewController.m; sourceTree = "<group>"; };
+		FB6B986518F3D70300120569 /* ChatTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatTableViewController.h; sourceTree = "<group>"; };
+		FB6B986618F3D70300120569 /* ChatTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatTableViewController.m; sourceTree = "<group>"; };
+		FB6B986818F3DAF900120569 /* ChatMeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatMeCell.h; sourceTree = "<group>"; };
+		FB6B986918F3DAF900120569 /* ChatMeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatMeCell.m; sourceTree = "<group>"; };
+		FB6B986B18F3DB0900120569 /* ChatOtherCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatOtherCell.h; sourceTree = "<group>"; };
+		FB6B986C18F3DB0900120569 /* ChatOtherCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatOtherCell.m; sourceTree = "<group>"; };
+		FB6B986E18F3E74700120569 /* ChatSendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatSendCell.h; sourceTree = "<group>"; };
+		FB6B986F18F3E74700120569 /* ChatSendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatSendCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -549,6 +561,14 @@
 				FB6B986018F3C6D100120569 /* LoginTableViewController.m */,
 				FB6B986218F3C8CE00120569 /* FriendTableViewController.h */,
 				FB6B986318F3C8CE00120569 /* FriendTableViewController.m */,
+				FB6B986518F3D70300120569 /* ChatTableViewController.h */,
+				FB6B986618F3D70300120569 /* ChatTableViewController.m */,
+				FB6B986818F3DAF900120569 /* ChatMeCell.h */,
+				FB6B986918F3DAF900120569 /* ChatMeCell.m */,
+				FB6B986B18F3DB0900120569 /* ChatOtherCell.h */,
+				FB6B986C18F3DB0900120569 /* ChatOtherCell.m */,
+				FB6B986E18F3E74700120569 /* ChatSendCell.h */,
+				FB6B986F18F3E74700120569 /* ChatSendCell.m */,
 				FB4DCBD318F3B884006B6722 /* Main.storyboard */,
 				FB4DCBDC18F3B884006B6722 /* Images.xcassets */,
 				FB4DCBC818F3B884006B6722 /* Supporting Files */,
@@ -1533,6 +1553,7 @@
 				FB4DCF7518F3BA8A006B6722 /* TURNSocket.m in Sources */,
 				FB4DCF4518F3BA8A006B6722 /* XMPPReconnect.m in Sources */,
 				FB4DCF6818F3BA8A006B6722 /* XMPPvCardTempCoreDataStorageObject.m in Sources */,
+				FB6B987018F3E74700120569 /* ChatSendCell.m in Sources */,
 				FB4DCF6D18F3BA8A006B6722 /* XMPPvCardTempEmail.m in Sources */,
 				FB4DCF8D18F3BA8A006B6722 /* XMPPBlocking.m in Sources */,
 				FB4DCF3418F3BA8A006B6722 /* XMPPXFacebookPlatformAuthentication.m in Sources */,
@@ -1546,6 +1567,7 @@
 				FB4DCF5F18F3BA8A006B6722 /* XMPPRoomMessageMemoryStorageObject.m in Sources */,
 				FB4DCF9518F3BA8A006B6722 /* XMPPMessage+XEP_0224.m in Sources */,
 				FB4DCF3018F3BA8A006B6722 /* XMPPDeprecatedPlainAuthentication.m in Sources */,
+				FB6B986D18F3DB0900120569 /* ChatOtherCell.m in Sources */,
 				FB4DCF8918F3BA8A006B6722 /* XMPPMessage+XEP_0172.m in Sources */,
 				FB4DCF7018F3BA8A006B6722 /* XMPPvCardTempTel.m in Sources */,
 				FB4DCF7B18F3BA8A006B6722 /* XMPPSoftwareVersion.m in Sources */,
@@ -1555,6 +1577,7 @@
 				FB4DCF9A18F3BA8A006B6722 /* DDList.m in Sources */,
 				FB4DCFA718F3BA8A006B6722 /* DispatchQueueLogFormatter.m in Sources */,
 				FB4DCF3E18F3BA8A006B6722 /* XMPPParser.m in Sources */,
+				FB6B986718F3D70300120569 /* ChatTableViewController.m in Sources */,
 				FB4DCF4018F3BA8A006B6722 /* XMPPStream.m in Sources */,
 				FB6B986118F3C6D100120569 /* LoginTableViewController.m in Sources */,
 				FB4DCF2F18F3BA8A006B6722 /* XMPPDeprecatedDigestAuthentication.m in Sources */,
@@ -1562,6 +1585,7 @@
 				FB4DCF9118F3BA8A006B6722 /* XMPPTime.m in Sources */,
 				FB4DCF5518F3BA8A006B6722 /* XMPPPrivacy.m in Sources */,
 				FB4DCF8318F3BA8A006B6722 /* XMPPMessageArchiving.xcdatamodeld in Sources */,
+				FB6B986A18F3DAF900120569 /* ChatMeCell.m in Sources */,
 				FB4DCF6518F3BA8A006B6722 /* XMPPvCardAvatarCoreDataStorageObject.m in Sources */,
 				FB4DCF5618F3BA8A006B6722 /* XMPPRoom.xcdatamodeld in Sources */,
 				FB4DCFA518F3BA8A006B6722 /* DDTTYLogger.m in Sources */,

@@ -50,6 +50,8 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 @synthesize xmppvCardAvatarModule;
 @synthesize xmppCapabilities;
 @synthesize xmppCapabilitiesStorage;
+@synthesize xmppMessageArchiving;
+@synthesize xmppMessageArchivingStorage;
 
 - (void)dealloc
 {
@@ -190,6 +192,12 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
     xmppCapabilities.autoFetchHashedCapabilities = YES;
     xmppCapabilities.autoFetchNonHashedCapabilities = NO;
     
+    
+    // MessageArchiving
+    xmppMessageArchivingStorage = [XMPPMessageArchivingCoreDataStorage sharedInstance];
+    xmppMessageArchiving = [[XMPPMessageArchiving alloc] initWithMessageArchivingStorage:xmppMessageArchivingStorage];
+    [xmppMessageArchiving setClientSideMessageArchivingOnly:YES];
+    
 	// Activate xmpp modules
     
 	[xmppReconnect         activate:xmppStream];
@@ -197,11 +205,13 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 	[xmppvCardTempModule   activate:xmppStream];
 	[xmppvCardAvatarModule activate:xmppStream];
 	[xmppCapabilities      activate:xmppStream];
+    [xmppMessageArchiving activate:xmppStream];
     
 	// Add ourself as a delegate to anything we may be interested in
     
 	[xmppStream addDelegate:self delegateQueue:dispatch_get_main_queue()];
 	[xmppRoster addDelegate:self delegateQueue:dispatch_get_main_queue()];
+    [xmppMessageArchiving  addDelegate:self delegateQueue:dispatch_get_main_queue()];
     
 	// Optional:
 	//
@@ -213,6 +223,9 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 	// then the xmpp framework will follow the xmpp specification, and do a SRV lookup for quack.com.
 	//
 	// If you don't specify a hostPort, then the default (5222) will be used.
+    
+    
+    
 	
 	[xmppStream setHostName:@"joy32812.com"];
 	[xmppStream setHostPort:5222];
@@ -227,12 +240,14 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 {
 	[xmppStream removeDelegate:self];
 	[xmppRoster removeDelegate:self];
+    [xmppMessageArchiving removeDelegate:self];
 	
 	[xmppReconnect         deactivate];
 	[xmppRoster            deactivate];
 	[xmppvCardTempModule   deactivate];
 	[xmppvCardAvatarModule deactivate];
 	[xmppCapabilities      deactivate];
+    [xmppMessageArchiving deactivate];
 	
 	[xmppStream disconnect];
 	
@@ -245,6 +260,9 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 	xmppvCardAvatarModule = nil;
 	xmppCapabilities = nil;
 	xmppCapabilitiesStorage = nil;
+    
+    xmppMessageArchiving = nil;
+    xmppMessageArchivingStorage = nil;
 }
 
 // It's easy to create XML elments to send and to read received XML elements.
@@ -459,12 +477,12 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
         
 		if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
 		{
-			UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:displayName
-                                                                message:body
-                                                               delegate:nil
-                                                      cancelButtonTitle:@"Ok"
-                                                      otherButtonTitles:nil];
-			[alertView show];
+//			UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:displayName
+//                                                                message:body
+//                                                               delegate:nil
+//                                                      cancelButtonTitle:@"Ok"
+//                                                      otherButtonTitles:nil];
+//			[alertView show];
 		}
 		else
 		{
