@@ -162,6 +162,7 @@
 		FB6B986A18F3DAF900120569 /* ChatMeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6B986918F3DAF900120569 /* ChatMeCell.m */; };
 		FB6B986D18F3DB0900120569 /* ChatOtherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6B986C18F3DB0900120569 /* ChatOtherCell.m */; };
 		FB6B987018F3E74700120569 /* ChatSendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6B986F18F3E74700120569 /* ChatSendCell.m */; };
+		FB6B987318F3ECB900120569 /* RoomTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6B987218F3ECB900120569 /* RoomTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -479,6 +480,8 @@
 		FB6B986C18F3DB0900120569 /* ChatOtherCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatOtherCell.m; sourceTree = "<group>"; };
 		FB6B986E18F3E74700120569 /* ChatSendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatSendCell.h; sourceTree = "<group>"; };
 		FB6B986F18F3E74700120569 /* ChatSendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatSendCell.m; sourceTree = "<group>"; };
+		FB6B987118F3ECB900120569 /* RoomTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomTableViewController.h; sourceTree = "<group>"; };
+		FB6B987218F3ECB900120569 /* RoomTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -569,6 +572,8 @@
 				FB6B986C18F3DB0900120569 /* ChatOtherCell.m */,
 				FB6B986E18F3E74700120569 /* ChatSendCell.h */,
 				FB6B986F18F3E74700120569 /* ChatSendCell.m */,
+				FB6B987118F3ECB900120569 /* RoomTableViewController.h */,
+				FB6B987218F3ECB900120569 /* RoomTableViewController.m */,
 				FB4DCBD318F3B884006B6722 /* Main.storyboard */,
 				FB4DCBDC18F3B884006B6722 /* Images.xcassets */,
 				FB4DCBC818F3B884006B6722 /* Supporting Files */,
@@ -1512,6 +1517,7 @@
 				FB4DCF4418F3BA8A006B6722 /* XMPPProcessOne.m in Sources */,
 				FB4DCF7C18F3BA8A006B6722 /* XMPPTransports.m in Sources */,
 				FB4DCF3B18F3BA8A006B6722 /* XMPPJID.m in Sources */,
+				FB6B987318F3ECB900120569 /* RoomTableViewController.m in Sources */,
 				FB4DCF3718F3BA8A006B6722 /* NSNumber+XMPP.m in Sources */,
 				FB4DCF8E18F3BA8A006B6722 /* XMPPAutoPing.m in Sources */,
 				FB4DCF8218F3BA8A006B6722 /* XMPPCapabilities.m in Sources */,
