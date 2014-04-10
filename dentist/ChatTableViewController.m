@@ -93,15 +93,17 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 }
 - (IBAction)sendButtonPressed:(UIButton *)sender {
     
+    
+    
     NSString *textToSend = sendTextField.text;
     if (textToSend && textToSend.length > 0) {
-        NSXMLElement *body = [NSXMLElement elementWithName:@"body"];
-        [body setStringValue:textToSend];
         
-        NSXMLElement *message = [NSXMLElement elementWithName:@"message"];
-        [message addAttributeWithName:@"type" stringValue:@"chat"];
-        [message addAttributeWithName:@"to" stringValue:[self.jid full]];
-        [message addChild:body];
+        XMPPMessage *message = [XMPPMessage messageWithType:@"chat" to:self.jid];
+        [message addBody:textToSend];
+        
+        NSXMLElement *bodyElement = [NSXMLElement elementWithName:@"kind" stringValue:@"text"];
+        [message addChild:bodyElement];
+
         
         [[[self appDelegate] xmppStream] sendElement:message];
     }

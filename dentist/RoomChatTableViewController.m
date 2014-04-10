@@ -195,19 +195,34 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
     return cell;
 }
 
+/*
+ NSString *textToSend = sendTextField.text;
+ if (textToSend && textToSend.length > 0) {
+ 
+ XMPPMessage *message = [XMPPMessage messageWithType:@"chat" to:self.jid];
+ [message addBody:textToSend];
+ 
+ NSXMLElement *bodyElement = [NSXMLElement elementWithName:@"kind" stringValue:@"text"];
+ [message addChild:bodyElement];
+ 
+ 
+ [[[self appDelegate] xmppStream] sendElement:message];
+ }
+ sendTextField.text = @"";
+*/
 - (IBAction)sendButtonPressed:(UIButton *)sender {
-    
+ 
     NSString *roomStr = [self.oneRoom.name stringByAppendingString:[NSString stringWithFormat:@"@conference.%@", [self appDelegate].xmppStream.myJID.domain]];
+    XMPPJID *roomJID = [XMPPJID jidWithString:roomStr];
     
     NSString *textToSend = sendTextField.text;
     if (textToSend && textToSend.length > 0) {
-        NSXMLElement *body = [NSXMLElement elementWithName:@"body"];
-        [body setStringValue:textToSend];
         
-        NSXMLElement *message = [NSXMLElement elementWithName:@"message"];
-        [message addAttributeWithName:@"type" stringValue:@"groupchat"];
-        [message addAttributeWithName:@"to" stringValue:roomStr];
-        [message addChild:body];
+        XMPPMessage *message = [XMPPMessage messageWithType:@"groupchat" to:roomJID];
+        [message addBody:textToSend];
+        
+        NSXMLElement *bodyElement = [NSXMLElement elementWithName:@"kind" stringValue:@"text"];
+        [message addChild:bodyElement];
         
         [[[self appDelegate] xmppStream] sendElement:message];
     }
