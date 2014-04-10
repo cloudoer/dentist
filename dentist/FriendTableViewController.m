@@ -48,7 +48,20 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 {
     [super viewWillAppear:animated];
     
-    if (![[self appDelegate] connect])
+    [[self appDelegate] connect];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self performSelector:@selector(checkAuth) withObject:0 afterDelay:5.0];
+    
+}
+
+- (void)checkAuth
+{
+    if (![[[self appDelegate] xmppStream] isAuthenticated])
     {
         [self performSegueWithIdentifier:@"ToLoginModal" sender:self];
     }

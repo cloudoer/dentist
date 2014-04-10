@@ -8,12 +8,16 @@
 
 #import "RoomTableViewController.h"
 #import "AppDelegate.h"
+#import "RoomListCell.h"
 
 @interface RoomTableViewController ()
 
 @end
 
 @implementation RoomTableViewController
+{
+    
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -33,7 +37,7 @@
 {
     [super viewWillAppear:animated];
     
-    [self fetchRoomList];
+    [self fetchRoomListPage:0];
 }
 
 - (void)viewDidLoad
@@ -41,16 +45,19 @@
     [super viewDidLoad];
 }
 
-- (void)fetchRoomList
+
+
+- (void)fetchRoomListPage:(int)page
 {
-    NSString* server = @"okay@conference.joy32812.com"; //or whatever the server address for muc is
-    XMPPJID *servrJID = [XMPPJID jidWithString:server];
-    XMPPIQ *iq = [XMPPIQ iqWithType:@"get" to:servrJID];
-    [iq addAttributeWithName:@"from" stringValue:[[self appDelegate].xmppStream myJID].full];
-    NSXMLElement *query = [NSXMLElement elementWithName:@"query"];
-    [query addAttributeWithName:@"xmlns" stringValue:@"http://jabber.org/protocol/disco#info"];
-    [iq addChild:query];
-    [[self appDelegate].xmppStream sendElement:iq];
+    XMPPJID *myJID = [self appDelegate].xmppStream.myJID;
+    NSString *getPath = [NSString stringWithFormat:@"%@&page=%d&uid=%@", URL_PATH_ROOM_LIST, page, myJID.user];
+    NSLog(@"%@", getPath);
+    
+    [Network httpGetPath:getPath success:^(NSDictionary *response) {
+        NSLog(@"-- %@", response);
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -61,78 +68,25 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return 10;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    RoomListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RoomListCell" forIndexPath:indexPath];
     
     // Configure the cell...
     
     return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return 115;
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

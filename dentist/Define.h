@@ -12,4 +12,9 @@
 #define kXMPPjoyJID @"kXMPPmyJID"
 #define kXMPPjoyPassword @"kXMPPmyPassword"
 
+#define BaseURLString  @"http://115.28.12.26/"
+
+
+#define URL_PATH_ROOM_LIST @"dentist/index.php?r=api/RoomList"
+
 #endif

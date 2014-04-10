@@ -16,4 +16,5 @@
 #import <CoreData/CoreData.h>
 #import "XMPPFramework.h"
 #import "Define.h"
+#import "Network.h"
 #endif

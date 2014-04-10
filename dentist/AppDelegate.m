@@ -211,6 +211,7 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
     
 	[xmppStream addDelegate:self delegateQueue:dispatch_get_main_queue()];
 	[xmppRoster addDelegate:self delegateQueue:dispatch_get_main_queue()];
+    
     [xmppMessageArchiving  addDelegate:self delegateQueue:dispatch_get_main_queue()];
     
 	// Optional:
@@ -225,9 +226,8 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 	// If you don't specify a hostPort, then the default (5222) will be used.
     
     
-    
-	
-	[xmppStream setHostName:@"joy32812.com"];
+//	[xmppStream setHostName:@"115.28.12.26"];
+//	[xmppStream setHostName:@"joy32812.com"];
 	[xmppStream setHostPort:5222];
 	
     
@@ -343,6 +343,7 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
         
 		return NO;
 	}
+    
     
 	return YES;
 }
@@ -562,6 +563,7 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 	}
 	
 }
+
 
 
 @end

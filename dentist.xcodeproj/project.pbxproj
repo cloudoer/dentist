@@ -163,6 +163,21 @@
 		FB6B986D18F3DB0900120569 /* ChatOtherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6B986C18F3DB0900120569 /* ChatOtherCell.m */; };
 		FB6B987018F3E74700120569 /* ChatSendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6B986F18F3E74700120569 /* ChatSendCell.m */; };
 		FB6B987318F3ECB900120569 /* RoomTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6B987218F3ECB900120569 /* RoomTableViewController.m */; };
+		FBCE0D0718F62A8D007C0489 /* PersonalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCE0D0618F62A8D007C0489 /* PersonalTableViewController.m */; };
+		FBCE0D1C18F64643007C0489 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCE0D0A18F64643007C0489 /* AFHTTPRequestOperation.m */; };
+		FBCE0D1D18F64643007C0489 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCE0D0C18F64643007C0489 /* AFHTTPRequestOperationManager.m */; };
+		FBCE0D1E18F64643007C0489 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCE0D0E18F64643007C0489 /* AFHTTPSessionManager.m */; };
+		FBCE0D1F18F64643007C0489 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCE0D1118F64643007C0489 /* AFNetworkReachabilityManager.m */; };
+		FBCE0D2018F64643007C0489 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCE0D1318F64643007C0489 /* AFSecurityPolicy.m */; };
+		FBCE0D2118F64643007C0489 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCE0D1518F64643007C0489 /* AFURLConnectionOperation.m */; };
+		FBCE0D2218F64643007C0489 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCE0D1718F64643007C0489 /* AFURLRequestSerialization.m */; };
+		FBCE0D2318F64643007C0489 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCE0D1918F64643007C0489 /* AFURLResponseSerialization.m */; };
+		FBCE0D2418F64643007C0489 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCE0D1B18F64643007C0489 /* AFURLSessionManager.m */; };
+		FBCE0D2818F64728007C0489 /* Network.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCE0D2618F64728007C0489 /* Network.m */; };
+		FBCE0D2B18F64A94007C0489 /* doctor_avatar_holder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBCE0D2A18F64A94007C0489 /* doctor_avatar_holder@2x.png */; };
+		FBCE0D2F18F64C3E007C0489 /* room_favorite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBCE0D2E18F64C3E007C0489 /* room_favorite@2x.png */; };
+		FBCE0D3218F64C87007C0489 /* RoomListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCE0D3118F64C87007C0489 /* RoomListCell.m */; };
+		FBCE0D3418F64DF5007C0489 /* room_red_dot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBCE0D3318F64DF5007C0489 /* room_red_dot@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -482,6 +497,34 @@
 		FB6B986F18F3E74700120569 /* ChatSendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatSendCell.m; sourceTree = "<group>"; };
 		FB6B987118F3ECB900120569 /* RoomTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomTableViewController.h; sourceTree = "<group>"; };
 		FB6B987218F3ECB900120569 /* RoomTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomTableViewController.m; sourceTree = "<group>"; };
+		FBCE0D0518F62A8D007C0489 /* PersonalTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalTableViewController.h; sourceTree = "<group>"; };
+		FBCE0D0618F62A8D007C0489 /* PersonalTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalTableViewController.m; sourceTree = "<group>"; };
+		FBCE0D0918F64643007C0489 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		FBCE0D0A18F64643007C0489 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		FBCE0D0B18F64643007C0489 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
+		FBCE0D0C18F64643007C0489 /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
+		FBCE0D0D18F64643007C0489 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		FBCE0D0E18F64643007C0489 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		FBCE0D0F18F64643007C0489 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		FBCE0D1018F64643007C0489 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		FBCE0D1118F64643007C0489 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		FBCE0D1218F64643007C0489 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
+		FBCE0D1318F64643007C0489 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
+		FBCE0D1418F64643007C0489 /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		FBCE0D1518F64643007C0489 /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		FBCE0D1618F64643007C0489 /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		FBCE0D1718F64643007C0489 /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		FBCE0D1818F64643007C0489 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		FBCE0D1918F64643007C0489 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		FBCE0D1A18F64643007C0489 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
+		FBCE0D1B18F64643007C0489 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		FBCE0D2618F64728007C0489 /* Network.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Network.m; sourceTree = "<group>"; };
+		FBCE0D2718F64728007C0489 /* Network.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Network.h; sourceTree = "<group>"; };
+		FBCE0D2A18F64A94007C0489 /* doctor_avatar_holder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "doctor_avatar_holder@2x.png"; sourceTree = "<group>"; };
+		FBCE0D2E18F64C3E007C0489 /* room_favorite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "room_favorite@2x.png"; sourceTree = "<group>"; };
+		FBCE0D3018F64C87007C0489 /* RoomListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomListCell.h; sourceTree = "<group>"; };
+		FBCE0D3118F64C87007C0489 /* RoomListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomListCell.m; sourceTree = "<group>"; };
+		FBCE0D3318F64DF5007C0489 /* room_red_dot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "room_red_dot@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -556,6 +599,9 @@
 		FB4DCBC718F3B884006B6722 /* dentist */ = {
 			isa = PBXGroup;
 			children = (
+				FBCE0D2918F64A94007C0489 /* images */,
+				FBCE0D2518F64672007C0489 /* Common */,
+				FBCE0D0818F64643007C0489 /* AFNetworking */,
 				FB4DCDDC18F3BA89006B6722 /* XMPP */,
 				FB6B985E18F3C59300120569 /* Define.h */,
 				FB4DCBD018F3B884006B6722 /* AppDelegate.h */,
@@ -574,6 +620,10 @@
 				FB6B986F18F3E74700120569 /* ChatSendCell.m */,
 				FB6B987118F3ECB900120569 /* RoomTableViewController.h */,
 				FB6B987218F3ECB900120569 /* RoomTableViewController.m */,
+				FBCE0D3018F64C87007C0489 /* RoomListCell.h */,
+				FBCE0D3118F64C87007C0489 /* RoomListCell.m */,
+				FBCE0D0518F62A8D007C0489 /* PersonalTableViewController.h */,
+				FBCE0D0618F62A8D007C0489 /* PersonalTableViewController.m */,
 				FB4DCBD318F3B884006B6722 /* Main.storyboard */,
 				FB4DCBDC18F3B884006B6722 /* Images.xcassets */,
 				FB4DCBC818F3B884006B6722 /* Supporting Files */,
@@ -1412,6 +1462,51 @@
 			path = libidn;
 			sourceTree = "<group>";
 		};
+		FBCE0D0818F64643007C0489 /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				FBCE0D0918F64643007C0489 /* AFHTTPRequestOperation.h */,
+				FBCE0D0A18F64643007C0489 /* AFHTTPRequestOperation.m */,
+				FBCE0D0B18F64643007C0489 /* AFHTTPRequestOperationManager.h */,
+				FBCE0D0C18F64643007C0489 /* AFHTTPRequestOperationManager.m */,
+				FBCE0D0D18F64643007C0489 /* AFHTTPSessionManager.h */,
+				FBCE0D0E18F64643007C0489 /* AFHTTPSessionManager.m */,
+				FBCE0D0F18F64643007C0489 /* AFNetworking.h */,
+				FBCE0D1018F64643007C0489 /* AFNetworkReachabilityManager.h */,
+				FBCE0D1118F64643007C0489 /* AFNetworkReachabilityManager.m */,
+				FBCE0D1218F64643007C0489 /* AFSecurityPolicy.h */,
+				FBCE0D1318F64643007C0489 /* AFSecurityPolicy.m */,
+				FBCE0D1418F64643007C0489 /* AFURLConnectionOperation.h */,
+				FBCE0D1518F64643007C0489 /* AFURLConnectionOperation.m */,
+				FBCE0D1618F64643007C0489 /* AFURLRequestSerialization.h */,
+				FBCE0D1718F64643007C0489 /* AFURLRequestSerialization.m */,
+				FBCE0D1818F64643007C0489 /* AFURLResponseSerialization.h */,
+				FBCE0D1918F64643007C0489 /* AFURLResponseSerialization.m */,
+				FBCE0D1A18F64643007C0489 /* AFURLSessionManager.h */,
+				FBCE0D1B18F64643007C0489 /* AFURLSessionManager.m */,
+			);
+			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		FBCE0D2518F64672007C0489 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				FBCE0D2618F64728007C0489 /* Network.m */,
+				FBCE0D2718F64728007C0489 /* Network.h */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		FBCE0D2918F64A94007C0489 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				FBCE0D2E18F64C3E007C0489 /* room_favorite@2x.png */,
+				FBCE0D3318F64DF5007C0489 /* room_red_dot@2x.png */,
+				FBCE0D2A18F64A94007C0489 /* doctor_avatar_holder@2x.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1489,8 +1584,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB4DCFAD18F3BA8A006B6722 /* build-libidn.sh in Resources */,
+				FBCE0D2F18F64C3E007C0489 /* room_favorite@2x.png in Resources */,
 				FB4DCBDD18F3B884006B6722 /* Images.xcassets in Resources */,
+				FBCE0D2B18F64A94007C0489 /* doctor_avatar_holder@2x.png in Resources */,
 				FB4DCBCC18F3B884006B6722 /* InfoPlist.strings in Resources */,
+				FBCE0D3418F64DF5007C0489 /* room_red_dot@2x.png in Resources */,
 				FB4DCFA818F3BA8A006B6722 /* README.txt in Resources */,
 				FB4DCBD518F3B884006B6722 /* Main.storyboard in Resources */,
 			);
@@ -1516,6 +1614,8 @@
 				FB4DCF3D18F3BA8A006B6722 /* XMPPModule.m in Sources */,
 				FB4DCF4418F3BA8A006B6722 /* XMPPProcessOne.m in Sources */,
 				FB4DCF7C18F3BA8A006B6722 /* XMPPTransports.m in Sources */,
+				FBCE0D3218F64C87007C0489 /* RoomListCell.m in Sources */,
+				FBCE0D2418F64643007C0489 /* AFURLSessionManager.m in Sources */,
 				FB4DCF3B18F3BA8A006B6722 /* XMPPJID.m in Sources */,
 				FB6B987318F3ECB900120569 /* RoomTableViewController.m in Sources */,
 				FB4DCF3718F3BA8A006B6722 /* NSNumber+XMPP.m in Sources */,
@@ -1525,6 +1625,7 @@
 				FB4DCF4D18F3BA8A006B6722 /* XMPPUserMemoryStorageObject.m in Sources */,
 				FB4DCF8C18F3BA8A006B6722 /* XMPPMessageDeliveryReceipts.m in Sources */,
 				FB4DCF3618F3BA8A006B6722 /* NSData+XMPP.m in Sources */,
+				FBCE0D1D18F64643007C0489 /* AFHTTPRequestOperationManager.m in Sources */,
 				FB4DCF4618F3BA8A006B6722 /* XMPPGroupCoreDataStorageObject.m in Sources */,
 				FB4DCF8618F3BA8A006B6722 /* XMPPMessageArchivingCoreDataStorage.m in Sources */,
 				FB4DCF5D18F3BA8A006B6722 /* XMPPRoomOccupantHybridMemoryStorageObject.m in Sources */,
@@ -1554,7 +1655,10 @@
 				FB4DCF3918F3BA8A006B6722 /* XMPPElement.m in Sources */,
 				FB4DCF6C18F3BA8A006B6722 /* XMPPvCardTempBase.m in Sources */,
 				FB4DCF7618F3BA8A006B6722 /* XMPPIQ+XEP_0066.m in Sources */,
+				FBCE0D0718F62A8D007C0489 /* PersonalTableViewController.m in Sources */,
 				FB4DCF9918F3BA8A006B6722 /* NSXMLElement+XEP_0335.m in Sources */,
+				FBCE0D2318F64643007C0489 /* AFURLResponseSerialization.m in Sources */,
+				FBCE0D2818F64728007C0489 /* Network.m in Sources */,
 				FB4DCF6118F3BA8A006B6722 /* XMPPMessage+XEP0045.m in Sources */,
 				FB4DCF7518F3BA8A006B6722 /* TURNSocket.m in Sources */,
 				FB4DCF4518F3BA8A006B6722 /* XMPPReconnect.m in Sources */,
@@ -1569,6 +1673,7 @@
 				FB4DCFA318F3BA8A006B6722 /* DDFileLogger.m in Sources */,
 				FB4DCF9718F3BA8A006B6722 /* XMPPMessage+XEP_0308.m in Sources */,
 				FB4DCF5318F3BA8A006B6722 /* XMPPIQ+LastActivity.m in Sources */,
+				FBCE0D2118F64643007C0489 /* AFURLConnectionOperation.m in Sources */,
 				FB4DCF9218F3BA8A006B6722 /* NSXMLElement+XEP_0203.m in Sources */,
 				FB4DCF5F18F3BA8A006B6722 /* XMPPRoomMessageMemoryStorageObject.m in Sources */,
 				FB4DCF9518F3BA8A006B6722 /* XMPPMessage+XEP_0224.m in Sources */,
@@ -1584,6 +1689,7 @@
 				FB4DCFA718F3BA8A006B6722 /* DispatchQueueLogFormatter.m in Sources */,
 				FB4DCF3E18F3BA8A006B6722 /* XMPPParser.m in Sources */,
 				FB6B986718F3D70300120569 /* ChatTableViewController.m in Sources */,
+				FBCE0D1E18F64643007C0489 /* AFHTTPSessionManager.m in Sources */,
 				FB4DCF4018F3BA8A006B6722 /* XMPPStream.m in Sources */,
 				FB6B986118F3C6D100120569 /* LoginTableViewController.m in Sources */,
 				FB4DCF2F18F3BA8A006B6722 /* XMPPDeprecatedDigestAuthentication.m in Sources */,
@@ -1591,6 +1697,7 @@
 				FB4DCF9118F3BA8A006B6722 /* XMPPTime.m in Sources */,
 				FB4DCF5518F3BA8A006B6722 /* XMPPPrivacy.m in Sources */,
 				FB4DCF8318F3BA8A006B6722 /* XMPPMessageArchiving.xcdatamodeld in Sources */,
+				FBCE0D2218F64643007C0489 /* AFURLRequestSerialization.m in Sources */,
 				FB6B986A18F3DAF900120569 /* ChatMeCell.m in Sources */,
 				FB4DCF6518F3BA8A006B6722 /* XMPPvCardAvatarCoreDataStorageObject.m in Sources */,
 				FB4DCF5618F3BA8A006B6722 /* XMPPRoom.xcdatamodeld in Sources */,
@@ -1629,6 +1736,9 @@
 				FB4DCF6318F3BA8A006B6722 /* XMPPRoom.m in Sources */,
 				FB4DCF9B18F3BA8A006B6722 /* GCDMulticastDelegate.m in Sources */,
 				FB4DCF8418F3BA8A006B6722 /* XMPPMessageArchiving_Contact_CoreDataObject.m in Sources */,
+				FBCE0D2018F64643007C0489 /* AFSecurityPolicy.m in Sources */,
+				FBCE0D1C18F64643007C0489 /* AFHTTPRequestOperation.m in Sources */,
+				FBCE0D1F18F64643007C0489 /* AFNetworkReachabilityManager.m in Sources */,
 				FB4DCF4A18F3BA8A006B6722 /* XMPPUserCoreDataStorageObject.m in Sources */,
 				FB4DCF5B18F3BA8A006B6722 /* XMPPRoomHybridStorage.m in Sources */,
 				FB4DCF5818F3BA8A006B6722 /* XMPPRoomMessageCoreDataStorageObject.m in Sources */,
