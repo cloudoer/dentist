@@ -67,8 +67,8 @@
 
 + (BOOL)statusOKInResponse:(NSDictionary *)response
 {
-    NSString *statusStr = response[@"status"];
-    return [statusStr isEqualToString:@"ok"];
+    int statusStr = [response[@"status"] intValue];
+    return (statusStr == 0);
 }
 
 @end

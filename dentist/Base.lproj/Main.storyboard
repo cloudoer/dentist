@@ -278,8 +278,8 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2014-03-20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vvK-2m-yDu">
-                                            <rect key="frame" x="75" y="97" width="55" height="12"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2014-03-20" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vvK-2m-yDu">
+                                            <rect key="frame" x="75" y="97" width="138" height="12"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -315,6 +315,17 @@
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="avatarImageView" destination="6dh-Q7-JFM" id="9Gp-r2-trY"/>
+                                    <outlet property="clinicLabel" destination="8Wi-eV-9vU" id="qdg-Ll-LZg"/>
+                                    <outlet property="commetLabel" destination="i2x-aD-uYs" id="Ylm-M0-HJb"/>
+                                    <outlet property="contentLabel" destination="y2P-qv-6dz" id="WIa-7Y-yMP"/>
+                                    <outlet property="dateLabel" destination="vvK-2m-yDu" id="FQ5-jM-egs"/>
+                                    <outlet property="favoriateImageView" destination="LYo-tX-8jy" id="8cr-gt-1bc"/>
+                                    <outlet property="msgNewImageView" destination="heV-6D-gqx" id="UDw-BQ-Ad3"/>
+                                    <outlet property="nameLabel" destination="fJH-Yl-cso" id="DIQ-s4-MkK"/>
+                                    <outlet property="theTitleLabel" destination="4LR-i9-uAW" id="cYg-5W-qYE"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -325,10 +336,42 @@
                     <navigationItem key="navigationItem" title="Room" id="IXz-PR-RFq">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="eXc-gH-cCm"/>
                     </navigationItem>
+                    <connections>
+                        <segue destination="0BX-sT-TeM" kind="push" identifier="Room2RoomChat" id="p7C-se-v5N"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fRW-B5-aX0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1218" y="714"/>
+        </scene>
+        <!--Room Chat Table View Controller-->
+        <scene sceneID="wJf-Bs-Pmx">
+            <objects>
+                <tableViewController id="0BX-sT-TeM" customClass="RoomChatTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="7g3-ki-L77">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="QRt-pA-jcQ">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QRt-pA-jcQ" id="uBs-Sq-2q1">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="0BX-sT-TeM" id="f4R-Xg-uSG"/>
+                            <outlet property="delegate" destination="0BX-sT-TeM" id="QVZ-sp-ase"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="UAS-LE-kB6"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kVo-o5-TJ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1635" y="714"/>
         </scene>
         <!--Navigation Controller - Friends-->
         <scene sceneID="io2-O0-Mse">
