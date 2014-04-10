@@ -180,6 +180,8 @@
 		FBCE0D3418F64DF5007C0489 /* room_red_dot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBCE0D3318F64DF5007C0489 /* room_red_dot@2x.png */; };
 		FBCE0D3718F680D3007C0489 /* RoomInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCE0D3618F680D3007C0489 /* RoomInfo.m */; };
 		FBCE0D3A18F68C3A007C0489 /* RoomChatTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCE0D3918F68C3A007C0489 /* RoomChatTableViewController.m */; };
+		FBCE0D3D18F6B1E8007C0489 /* RoomChatMeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCE0D3C18F6B1E8007C0489 /* RoomChatMeCell.m */; };
+		FBCE0D4018F6B1F9007C0489 /* RoomChatOtherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCE0D3F18F6B1F9007C0489 /* RoomChatOtherCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -531,6 +533,10 @@
 		FBCE0D3618F680D3007C0489 /* RoomInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomInfo.m; sourceTree = "<group>"; };
 		FBCE0D3818F68C39007C0489 /* RoomChatTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomChatTableViewController.h; sourceTree = "<group>"; };
 		FBCE0D3918F68C3A007C0489 /* RoomChatTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomChatTableViewController.m; sourceTree = "<group>"; };
+		FBCE0D3B18F6B1E8007C0489 /* RoomChatMeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomChatMeCell.h; sourceTree = "<group>"; };
+		FBCE0D3C18F6B1E8007C0489 /* RoomChatMeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomChatMeCell.m; sourceTree = "<group>"; };
+		FBCE0D3E18F6B1F9007C0489 /* RoomChatOtherCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomChatOtherCell.h; sourceTree = "<group>"; };
+		FBCE0D3F18F6B1F9007C0489 /* RoomChatOtherCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomChatOtherCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -628,6 +634,10 @@
 				FB6B987218F3ECB900120569 /* RoomTableViewController.m */,
 				FBCE0D3818F68C39007C0489 /* RoomChatTableViewController.h */,
 				FBCE0D3918F68C3A007C0489 /* RoomChatTableViewController.m */,
+				FBCE0D3B18F6B1E8007C0489 /* RoomChatMeCell.h */,
+				FBCE0D3C18F6B1E8007C0489 /* RoomChatMeCell.m */,
+				FBCE0D3E18F6B1F9007C0489 /* RoomChatOtherCell.h */,
+				FBCE0D3F18F6B1F9007C0489 /* RoomChatOtherCell.m */,
 				FBCE0D3518F680D3007C0489 /* RoomInfo.h */,
 				FBCE0D3618F680D3007C0489 /* RoomInfo.m */,
 				FBCE0D3018F64C87007C0489 /* RoomListCell.h */,
@@ -1647,6 +1657,7 @@
 				FB4DCF8818F3BA8A006B6722 /* XMPPvCardAvatarModule.m in Sources */,
 				FB4DCF6618F3BA8A006B6722 /* XMPPvCardCoreDataStorage.m in Sources */,
 				FB4DCF6018F3BA8A006B6722 /* XMPPRoomOccupantMemoryStorageObject.m in Sources */,
+				FBCE0D3D18F6B1E8007C0489 /* RoomChatMeCell.m in Sources */,
 				FB4DCBD218F3B884006B6722 /* AppDelegate.m in Sources */,
 				FB4DCF7F18F3BA8A006B6722 /* XMPPCapabilitiesCoreDataStorage.m in Sources */,
 				FB4DCF6A18F3BA8A006B6722 /* XMPPvCardTempAdr.m in Sources */,
@@ -1730,6 +1741,7 @@
 				FB4DCF6F18F3BA8A006B6722 /* XMPPvCardTempModule.m in Sources */,
 				FB4DCF4918F3BA8A006B6722 /* XMPPRosterCoreDataStorage.m in Sources */,
 				FB4DCF7E18F3BA8A006B6722 /* XMPPCapabilities.xcdatamodel in Sources */,
+				FBCE0D4018F6B1F9007C0489 /* RoomChatOtherCell.m in Sources */,
 				FB4DCF7218F3BA8A006B6722 /* XMPPResultSet.m in Sources */,
 				FB6B986418F3C8CE00120569 /* FriendTableViewController.m in Sources */,
 				FB4DCF6E18F3BA8A006B6722 /* XMPPvCardTempLabel.m in Sources */,

@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "RoomListCell.h"
 #import "RoomInfo.h"
+#import "RoomChatTableViewController.h"
 
 @interface RoomTableViewController ()
 
@@ -18,6 +19,7 @@
 @implementation RoomTableViewController
 {
     NSMutableArray *roomArray;
+    RoomInfo *theRoom;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -103,6 +105,20 @@
     // Configure the cell...
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    theRoom = roomArray[indexPath.row];
+    [self performSegueWithIdentifier:@"Room2RoomChat" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"Room2RoomChat"]) {
+        RoomChatTableViewController *controller = segue.destinationViewController;
+        controller.oneRoom = theRoom;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

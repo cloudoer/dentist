@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RoomInfo.h"
 
-@interface RoomChatTableViewController : UITableViewController
+@interface RoomChatTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+
+@property (nonatomic, strong) RoomInfo *oneRoom;
 
 @end

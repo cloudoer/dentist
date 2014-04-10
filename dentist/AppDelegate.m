@@ -198,6 +198,8 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
     xmppMessageArchiving = [[XMPPMessageArchiving alloc] initWithMessageArchivingStorage:xmppMessageArchivingStorage];
     [xmppMessageArchiving setClientSideMessageArchivingOnly:YES];
     
+    
+    
 	// Activate xmpp modules
     
 	[xmppReconnect         activate:xmppStream];
@@ -236,11 +238,28 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 	allowSSLHostNameMismatch = NO;
 }
 
+- (void)joinTheRoom:(NSString *)roomName
+{
+    NSString *roomStr = [roomName stringByAppendingString:[NSString stringWithFormat:@"@conference.%@", xmppStream.myJID.domain]];
+    XMPPJID *roomJID = [XMPPJID jidWithString:roomStr];
+    
+    xmppRoom = [[XMPPRoom alloc] initWithRoomStorage:[XMPPRoomCoreDataStorage sharedInstance] jid:roomJID];
+    [xmppRoom activate:xmppStream];
+    [xmppRoom addDelegate:self delegateQueue:dispatch_get_main_queue()];
+    
+    [xmppRoom joinRoomUsingNickname:xmppStream.myJID.user history:nil];
+}
+
 - (void)teardownStream
 {
 	[xmppStream removeDelegate:self];
 	[xmppRoster removeDelegate:self];
     [xmppMessageArchiving removeDelegate:self];
+    
+    [xmppRoom removeDelegate:self];
+    [xmppRoom deactivate];
+    xmppRoom = nil;
+    xmppRoomCoreDataStorage = nil;
 	
 	[xmppReconnect         deactivate];
 	[xmppRoster            deactivate];

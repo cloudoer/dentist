@@ -25,6 +25,10 @@
     
     XMPPMessageArchiving *xmppMessageArchiving;
     XMPPMessageArchivingCoreDataStorage *xmppMessageArchivingStorage;
+    
+    
+    XMPPRoom *xmppRoom;
+    XMPPRoomCoreDataStorage *xmppRoomCoreDataStorage;
 	
 	NSString *password;
 	
@@ -53,6 +57,8 @@
 
 - (BOOL)connect;
 - (void)disconnect;
+
+- (void)joinTheRoom:(NSString *)roomName;
 
 
 @end

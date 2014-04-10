@@ -7,12 +7,31 @@
 //
 
 #import "RoomChatTableViewController.h"
+#import "AppDelegate.h"
+#import "ChatSendCell.h"
+#import "RoomChatMeCell.h"
+#import "RoomChatOtherCell.h"
+#import "DDLog.h"
+
+// Log levels: off, error, warn, info, verbose
+#if DEBUG
+static const int ddLogLevel = LOG_LEVEL_VERBOSE;
+#else
+static const int ddLogLevel = LOG_LEVEL_INFO;
+#endif
 
 @interface RoomChatTableViewController ()
 
 @end
 
+
+
 @implementation RoomChatTableViewController
+{
+    NSFetchedResultsController *fetchedResultsController;
+    
+    UITextField *sendTextField;
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -27,11 +46,95 @@
 {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.title = self.oneRoom.naturalName;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    [[self appDelegate] joinTheRoom:self.oneRoom.name];
+    
+    
+    NSError *error = nil;
+    if (![[self fetchedResultsController] performFetch:&error])
+    {
+        DDLogError(@"Error performing fetch: %@", error);
+    }
+}
+
+- (NSFetchedResultsController *)fetchedResultsController
+{
+	if (fetchedResultsController == nil)
+	{
+        
+        XMPPRoomCoreDataStorage *storage = [XMPPRoomCoreDataStorage sharedInstance];
+        NSManagedObjectContext *moc = [storage mainThreadManagedObjectContext];
+        NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"XMPPRoomMessageCoreDataStorageObject"
+                                                             inManagedObjectContext:moc];
+        NSFetchRequest *request = [[NSFetchRequest alloc]init];
+        request.entity = entityDescription;
+        request.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"localTimestamp" ascending:YES]];
+        request.fetchBatchSize = 20;
+        request.predicate = [NSPredicate predicateWithFormat:@"roomJIDStr contains %@", self.oneRoom.name];
+        
+        fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                                       managedObjectContext:moc
+		                                                                 sectionNameKeyPath:nil
+		                                                                          cacheName:nil];
+		[fetchedResultsController setDelegate:self];
+		
+		
+		
+	}
+	
+	return fetchedResultsController;
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+{
+	[[self tableView] reloadData];
+}
+
+-(void)printRoomMSG:(NSMutableArray*)messages{
+    @autoreleasepool {
+        for (XMPPRoomMessageCoreDataStorageObject *message in messages) {
+            NSLog(@"messageStr param is %@",message.messageStr);
+            NSXMLElement *element = [[NSXMLElement alloc] initWithXMLString:message.messageStr error:nil];
+            NSLog(@"to param is %@",[element attributeStringValueForName:@"to"]);
+            NSLog(@"NSCore object id param is %@",message.objectID);
+            NSLog(@"body param is %@",message.body);
+            NSLog(@"timestamp param is %@",message.localTimestamp);
+            NSLog(@"outgoing param is %d",message.isFromMe);
+        }
+    }
+}
+- (void)testRoomMessage
+{
+    XMPPRoomCoreDataStorage *storage = [XMPPRoomCoreDataStorage sharedInstance];
+    NSManagedObjectContext *moc = [storage mainThreadManagedObjectContext];
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"XMPPRoomMessageCoreDataStorageObject"
+                                                         inManagedObjectContext:moc];
+    NSFetchRequest *request = [[NSFetchRequest alloc]init];
+    [request setEntity:entityDescription];
+    NSError *error;
+    NSArray *messages = [moc executeFetchRequest:request error:&error];
+    
+    [self printRoomMSG:[[NSMutableArray alloc]initWithArray:messages]];
+}
+
+
+
+- (void)discoverRoom:(NSString *)roomName
+{
+    XMPPStream *stream = [self appDelegate].xmppStream;
+    NSXMLElement *iq = [NSXMLElement elementWithName:@"iq"];
+    [iq addAttributeWithName:@"from" stringValue:stream.myJID.bare];
+    
+    NSString *room = [roomName stringByAppendingString:[NSString stringWithFormat:@"@conference.%@", stream.myJID.domain]];
+    [iq addAttributeWithName:@"to" stringValue:room];
+    [iq addAttributeWithName:@"type" stringValue:@"get"];
+    NSXMLElement *query = [NSXMLElement elementWithName:@"query"];
+    [query addAttributeWithName:@"xmlns" stringValue:@"http://jabber.org/protocol/disco#info"];
+    [iq addChild:query];
+    
+    [stream sendElement:iq];
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,80 +143,75 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (AppDelegate *)appDelegate
+{
+	return (AppDelegate *)[[UIApplication sharedApplication] delegate];
+}
+
+
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section {
+    id  sectionInfo = [[[self fetchedResultsController] sections] objectAtIndex:section];
+    return [sectionInfo numberOfObjects];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
-}
-
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    XMPPRoomMessageCoreDataStorageObject *message = [[self fetchedResultsController] objectAtIndexPath:indexPath];
     
-    // Configure the cell...
+    static NSString *CellIdentifier = @"ChatOtherCell";
+    if (!message.isFromMe) {
+        CellIdentifier = @"RoomChatOtherCell";
+        RoomChatOtherCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        cell.contentLabel.text = message.body;
+        return cell;
+    }else {
+        CellIdentifier = @"RoomChatMeCell";
+        RoomChatMeCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        cell.contentLabel.text = message.body;
+        return cell;
+    }
     
+    return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 76;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 49;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    ChatSendCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChatSendCell"];
+    sendTextField = cell.sendTextField;
     return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (IBAction)sendButtonPressed:(UIButton *)sender {
+    
+    NSString *roomStr = [self.oneRoom.name stringByAppendingString:[NSString stringWithFormat:@"@conference.%@", [self appDelegate].xmppStream.myJID.domain]];
+    
+    NSString *textToSend = sendTextField.text;
+    if (textToSend && textToSend.length > 0) {
+        NSXMLElement *body = [NSXMLElement elementWithName:@"body"];
+        [body setStringValue:textToSend];
+        
+        NSXMLElement *message = [NSXMLElement elementWithName:@"message"];
+        [message addAttributeWithName:@"type" stringValue:@"groupchat"];
+        [message addAttributeWithName:@"to" stringValue:roomStr];
+        [message addChild:body];
+        
+        [[[self appDelegate] xmppStream] sendElement:message];
+    }
+    sendTextField.text = @"";
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

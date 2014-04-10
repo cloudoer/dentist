@@ -55,7 +55,7 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 {
     [super viewDidAppear:animated];
     
-    [self performSelector:@selector(checkAuth) withObject:0 afterDelay:5.0];
+    [self performSelector:@selector(checkAuth) withObject:0 afterDelay:15.0];
     
 }
 
