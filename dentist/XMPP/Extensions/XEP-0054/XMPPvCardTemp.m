@@ -182,6 +182,8 @@ NSString *const kXMPPvCardTempElement = @"vCard";
 }
 
 
+
+
 - (NSString *)formattedName {
 	return [[self elementForName:@"FN"] stringValue];
 }
@@ -446,12 +448,12 @@ NSString *const kXMPPvCardTempElement = @"vCard";
 
 
 - (NSString *)title {
-	return [[self elementForName:@"TITLE"] stringValue];
+	return [[self elementForName:@"title"] stringValue];
 }
 
 
 - (void)setTitle:(NSString *)title {
-	XMPP_VCARD_SET_STRING_CHILD(title, @"TITLE");
+	XMPP_VCARD_SET_STRING_CHILD(title, @"title");
 }
 
 
@@ -825,6 +827,108 @@ NSString *const kXMPPvCardTempElement = @"vCard";
 	XMPP_VCARD_SET_STRING_CHILD(desc, @"DESC");
 }
 
+
+/*
+ * by xiaoyuan wang  2014-04-16
+ * add addtional fields for Yayibao
+ * jabberId, realname, sex, province, city, area, organization, department, title, expert, description
+ */
+- (NSString *)jabberId
+{
+    return [[self elementForName:@"JABBERID"] stringValue];
+}
+- (void)setJabberId:(NSString *)jabberId
+{
+    XMPP_VCARD_SET_STRING_CHILD(jabberId, @"JABBERID");
+}
+
+- (NSString *)realname
+{
+    return [[self elementForName:@"realname"] stringValue];
+}
+- (void)setRealname:(NSString *)realname
+{
+    XMPP_VCARD_SET_STRING_CHILD(realname, @"realname");
+}
+
+- (NSString *)sex
+{
+    return [[self elementForName:@"sex"] stringValue];
+}
+- (void)setSex:(NSString *)sex
+{
+    XMPP_VCARD_SET_STRING_CHILD(sex, @"sex");
+}
+
+// province
+- (NSString *)province
+{
+    return [[self elementForName:@"province"] stringValue];
+}
+- (void)setProvince:(NSString *)province
+{
+    XMPP_VCARD_SET_STRING_CHILD(province, @"province");
+}
+
+// city
+- (NSString *)city
+{
+    return [[self elementForName:@"city"] stringValue];
+}
+- (void)setCity:(NSString *)city
+{
+    XMPP_VCARD_SET_STRING_CHILD(city, @"city");
+}
+
+// area
+- (NSString *)area
+{
+    return [[self elementForName:@"area"] stringValue];
+}
+- (void)setArea:(NSString *)area
+{
+    XMPP_VCARD_SET_STRING_CHILD(area, @"area");
+}
+
+// organization
+- (NSString *)organization
+{
+    return [[self elementForName:@"organization"] stringValue];
+}
+- (void)setOrganization:(NSString *)organization
+{
+    XMPP_VCARD_SET_STRING_CHILD(organization, @"organization");
+}
+
+// department
+- (NSString *)department
+{
+    return [[self elementForName:@"department"] stringValue];
+}
+- (void)setDepartment:(NSString *)department
+{
+    XMPP_VCARD_SET_STRING_CHILD(department, @"department");
+}
+
+// expert
+- (NSString *)expert
+{
+    return [[self elementForName:@"expert"] stringValue];
+}
+- (void)setExpert:(NSString *)expert
+{
+    XMPP_VCARD_SET_STRING_CHILD(expert, @"expert");
+}
+
+// avatar_url
+- (NSString *)avatar_url
+{
+    return [[self elementForName:@"avatar_url"] stringValue];
+}
+- (void)setAvatar_url:(NSString *)avatar_url
+{
+    XMPP_VCARD_SET_STRING_CHILD(avatar_url, @"avatar_url");
+}
 
 #pragma mark Security Types
 

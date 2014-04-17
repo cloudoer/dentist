@@ -86,6 +86,27 @@ extern NSString *const kXMPPvCardTempElement;
 @property (nonatomic, strong) NSString *version;
 @property (nonatomic, strong) NSString *description;
 
+/*
+ * by xiaoyuan wang  2014-04-16
+ * add addtional fields for Yayibao
+ * jabberId, realname, sex, province, city, area, organization, department, title, expert, description
+ */
+@property (nonatomic, strong) NSString *jabberId;
+@property (nonatomic, strong) NSString *realname;
+@property (nonatomic, strong) NSString *sex;
+@property (nonatomic, strong) NSString *province;
+@property (nonatomic, strong) NSString *city;
+@property (nonatomic, strong) NSString *area;
+@property (nonatomic, strong) NSString *organization;
+@property (nonatomic, strong) NSString *department;
+//@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *expert;
+//@property (nonatomic, strong) NSString *description;
+@property (nonatomic, strong) NSString *avatar_url;
+
+
+
+
 @property (nonatomic, assign) XMPPvCardTempClass privacyClass;
 @property (nonatomic, strong) NSData *key;
 @property (nonatomic, strong) NSString *keyType;

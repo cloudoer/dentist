@@ -47,7 +47,7 @@
     XMPPvCardTempModule *vCardModule = [self appDelegate].xmppvCardTempModule;
     XMPPStream *stream = [self appDelegate].xmppStream;
     XMPPJID *jid = [XMPPJID jidWithString:stream.myJID.bare];
-    XMPPvCardTemp *tmp = [vCardModule vCardTempForJID:stream.myJID shouldFetch:YES];
+    XMPPvCardTemp *tmp = [vCardModule vCardTempForJID:jid shouldFetch:YES];
     NSLog(@"youmuyou ---%@", tmp.title);
 }
 
