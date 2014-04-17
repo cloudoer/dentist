@@ -40,6 +40,9 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 @end
 
 @implementation AppDelegate
+{
+    NSMutableDictionary *roomDict;
+}
 
 @synthesize xmppStream;
 @synthesize xmppReconnect;
@@ -245,14 +248,29 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 
 - (void)joinTheRoom:(NSString *)roomName
 {
-    NSString *roomStr = [roomName stringByAppendingString:[NSString stringWithFormat:@"@conference.%@", xmppStream.myJID.domain]];
-    XMPPJID *roomJID = [XMPPJID jidWithString:roomStr];
+    if (roomDict == nil) {
+        roomDict = [[NSMutableDictionary alloc] initWithCapacity:20];
+    }
     
-    xmppRoom = [[XMPPRoom alloc] initWithRoomStorage:[XMPPRoomCoreDataStorage sharedInstance] jid:roomJID];
-    [xmppRoom activate:xmppStream];
-    [xmppRoom addDelegate:self delegateQueue:dispatch_get_main_queue()];
-    
-    [xmppRoom joinRoomUsingNickname:xmppStream.myJID.user history:nil];
+    if ([roomDict.allKeys containsObject:roomName]) {
+        XMPPRoom *xmppRoom = roomDict[roomName];
+        if ([xmppRoom isJoined]) {
+            return;
+        }else {
+            [xmppRoom joinRoomUsingNickname:[LoginFacade sharedUserinfo].realname history:nil];
+        }
+    }else {
+        NSString *roomStr = [roomName stringByAppendingString:[NSString stringWithFormat:@"@conference.%@", xmppStream.myJID.domain]];
+        XMPPJID *roomJID = [XMPPJID jidWithString:roomStr];
+        
+        XMPPRoom *xmppRoom = [[XMPPRoom alloc] initWithRoomStorage:[XMPPRoomCoreDataStorage sharedInstance] jid:roomJID];
+        [xmppRoom activate:xmppStream];
+        [xmppRoom addDelegate:self delegateQueue:dispatch_get_main_queue()];
+        
+        [xmppRoom joinRoomUsingNickname:[LoginFacade sharedUserinfo].realname history:nil];
+        
+        [roomDict setValue:xmppRoom forKey:roomName];
+    }
 }
 
 - (void)teardownStream
@@ -261,9 +279,9 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 	[xmppRoster removeDelegate:self];
     [xmppMessageArchiving removeDelegate:self];
     
-    [xmppRoom removeDelegate:self];
-    [xmppRoom deactivate];
-    xmppRoom = nil;
+//    [xmppRoom removeDelegate:self];
+//    [xmppRoom deactivate];
+//    xmppRoom = nil;
     xmppRoomCoreDataStorage = nil;
 	
 	[xmppReconnect         deactivate];

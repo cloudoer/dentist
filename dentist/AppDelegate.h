@@ -27,7 +27,7 @@
     XMPPMessageArchivingCoreDataStorage *xmppMessageArchivingStorage;
     
     
-    XMPPRoom *xmppRoom;
+//    XMPPRoom *xmppRoom;
     XMPPRoomCoreDataStorage *xmppRoomCoreDataStorage;
 	
 	NSString *password;
