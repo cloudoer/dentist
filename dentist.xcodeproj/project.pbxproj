@@ -2024,6 +2024,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = "dentist/dentist-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/dentist/XMPP/Vendor/libidn",
@@ -2047,6 +2048,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = "dentist/dentist-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/dentist/XMPP/Vendor/libidn",
