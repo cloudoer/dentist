@@ -24,4 +24,6 @@
 @property (nonatomic, copy) NSString *description;
 @property (nonatomic, copy) NSString *avatar_url;
 
++ (Userinfo *)userinfoFromXMPPvCardTemp:(XMPPvCardTemp *)vCardTemp;
+
 @end

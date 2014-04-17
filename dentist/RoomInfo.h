@@ -18,6 +18,7 @@
 @property (nonatomic, copy) NSString *username;
 @property (nonatomic, assign) BOOL isCollection;
 @property (nonatomic, copy) NSString *alias;
+@property (nonatomic, copy) NSString *vCardStr;
 
 
 + (RoomInfo *)roomInfoFromDictionary:(NSDictionary *)dict;

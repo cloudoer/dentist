@@ -20,7 +20,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 static const int ddLogLevel = LOG_LEVEL_INFO;
 #endif
 
-@interface RoomChatTableViewController ()
+@interface RoomChatTableViewController () <UITextFieldDelegate>
 
 @end
 
@@ -192,6 +192,7 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 {
     ChatSendCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChatSendCell"];
     sendTextField = cell.sendTextField;
+    cell.sendTextField.delegate = self;
     return cell;
 }
 
@@ -210,6 +211,13 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
  }
  sendTextField.text = @"";
 */
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    NSLog(@"hahh");
+    return YES;
+}
+
 - (IBAction)sendButtonPressed:(UIButton *)sender {
  
     NSString *roomStr = [self.oneRoom.name stringByAppendingString:[NSString stringWithFormat:@"@conference.%@", [self appDelegate].xmppStream.myJID.domain]];

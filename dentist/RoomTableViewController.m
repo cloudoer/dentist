@@ -11,6 +11,7 @@
 #import "RoomListCell.h"
 #import "RoomInfo.h"
 #import "RoomChatTableViewController.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface RoomTableViewController ()
 
@@ -20,6 +21,9 @@
 {
     NSMutableArray *roomArray;
     RoomInfo *theRoom;
+    
+    BOOL isLoading;
+    int currentPage;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -51,8 +55,18 @@
 {
     [super viewDidLoad];
     [self fetchRoomListPage:0];
+    
+    
+    
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(refreshControlTriggered:) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refreshControl;
 }
 
+- (void)refreshControlTriggered:(UIRefreshControl *)sender
+{
+    [self fetchRoomListPage:0];
+}
 
 
 - (void)fetchRoomListPage:(int)page
@@ -65,6 +79,7 @@
     
     [Network httpGetPath:getPath success:^(NSDictionary *response) {
         if ([Network statusOKInResponse:response]) {
+            currentPage = page;
             if (page == 0) {
                 roomArray = [[NSMutableArray alloc] initWithCapacity:20];
             }
@@ -73,9 +88,12 @@
             }
             
             [self.tableView reloadData];
+            [self.refreshControl endRefreshing];
         }
+        isLoading = NO;
     } failure:^(NSError *error) {
-        
+        [self.refreshControl endRefreshing];
+        isLoading = NO;
     }];
     
 }
@@ -107,11 +125,20 @@
     cell.contentLabel.text = oneInfo.description;
     cell.dateLabel.text = oneInfo.creationDate;
     cell.favoriateImageView.hidden = !oneInfo.isCollection;
+    cell.commetLabel.hidden = YES;
     
+    XMPPvCardTemp *vCardTemp = [Tools xmppVCardTempFromVCardStr:oneInfo.vCardStr];
+    Userinfo *curUser = [Userinfo userinfoFromXMPPvCardTemp:vCardTemp];
     // Configure the cell...
+    
+    [cell.avatarImageView setImageWithURL:[NSURL URLWithString:curUser.avatar_url] placeholderImage:[UIImage imageNamed:@"doctor_avatar_holder.png"]];
+    
+    cell.nameLabel.text = curUser.realname;
+    cell.clinicLabel.text = [NSString stringWithFormat:@"(%@)", curUser.orgName];
     
     return cell;
 }
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -124,6 +151,23 @@
     if ([segue.identifier isEqualToString:@"Room2RoomChat"]) {
         RoomChatTableViewController *controller = segue.destinationViewController;
         controller.oneRoom = theRoom;
+    }
+}
+
+- (void)loadingMoreRoom
+{
+    if (isLoading) return;
+    
+    isLoading = YES;
+    [self fetchRoomListPage:currentPage + 1];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if ([scrollView isKindOfClass:[UITableView class]]) {
+        if (scrollView.contentSize.height >= scrollView.frame.size.height && (scrollView.contentOffset.y + scrollView.frame.size.height) > scrollView.contentSize.height + 80){
+            [self loadingMoreRoom];
+        }
     }
 }
 

@@ -22,6 +22,7 @@
     oneRoom.username = dict[@"username"];
     oneRoom.isCollection = [dict[@"isCollection"] intValue] == 1;
     oneRoom.alias = dict[@"alias"];
+    oneRoom.vCardStr = dict[@"vcard"];
     
     return oneRoom;
 }

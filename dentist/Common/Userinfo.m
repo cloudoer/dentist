@@ -49,4 +49,29 @@
     [aCoder encodeObject:self.avatar_url forKey:@"avatar_url"];
 }
 
+
++ (Userinfo *)userinfoFromXMPPvCardTemp:(XMPPvCardTemp *)vCardTemp
+{
+    Userinfo *userinfo = [[Userinfo alloc] init];
+    userinfo.jabberId = vCardTemp.jabberId;
+    userinfo.realname = vCardTemp.realname;
+    userinfo.sex = vCardTemp.sex;
+    userinfo.province = vCardTemp.province;
+    userinfo.city = vCardTemp.city;
+    userinfo.area = vCardTemp.area;
+    userinfo.orgName = vCardTemp.orgName;
+    if (vCardTemp.orgUnits.count > 0) {
+        userinfo.orgUnit = vCardTemp.orgUnits[0];
+    }
+    
+    userinfo.department = vCardTemp.department;
+    userinfo.title = vCardTemp.title;
+    userinfo.expert = vCardTemp.expert;
+    userinfo.description = vCardTemp.description;
+    userinfo.avatar_url = vCardTemp.avatar_url;
+    
+    
+    return userinfo;
+}
+
 @end

@@ -24,6 +24,8 @@
 		FB01E05818FF9FAE0056609F /* about_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB01E05718FF9FAE0056609F /* about_logo@2x.png */; };
 		FB01E05A18FFA0500056609F /* about_new@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB01E05918FFA0500056609F /* about_new@2x.png */; };
 		FB01E05C18FFA0E30056609F /* about_QR_code@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB01E05B18FFA0E30056609F /* about_QR_code@2x.png */; };
+		FB01E05F18FFCEDF0056609F /* Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = FB01E05E18FFCEDF0056609F /* Tools.m */; };
+		FB01E06218FFD2730056609F /* AddDiscussTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB01E06118FFD2730056609F /* AddDiscussTableViewController.m */; };
 		FB4DCBC218F3B884006B6722 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4DCBC118F3B884006B6722 /* Foundation.framework */; };
 		FB4DCBC418F3B884006B6722 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4DCBC318F3B884006B6722 /* CoreGraphics.framework */; };
 		FB4DCBC618F3B884006B6722 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4DCBC518F3B884006B6722 /* UIKit.framework */; };
@@ -241,6 +243,10 @@
 		FB01E05718FF9FAE0056609F /* about_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about_logo@2x.png"; sourceTree = "<group>"; };
 		FB01E05918FFA0500056609F /* about_new@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about_new@2x.png"; sourceTree = "<group>"; };
 		FB01E05B18FFA0E30056609F /* about_QR_code@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about_QR_code@2x.png"; sourceTree = "<group>"; };
+		FB01E05D18FFCEDF0056609F /* Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tools.h; sourceTree = "<group>"; };
+		FB01E05E18FFCEDF0056609F /* Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tools.m; sourceTree = "<group>"; };
+		FB01E06018FFD2730056609F /* AddDiscussTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDiscussTableViewController.h; sourceTree = "<group>"; };
+		FB01E06118FFD2730056609F /* AddDiscussTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDiscussTableViewController.m; sourceTree = "<group>"; };
 		FB4DCBBE18F3B884006B6722 /* dentist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dentist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB4DCBC118F3B884006B6722 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FB4DCBC318F3B884006B6722 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -716,6 +722,8 @@
 				FBCE0D0618F62A8D007C0489 /* PersonalTableViewController.m */,
 				FB01E05418FF9F040056609F /* AboutTableViewController.h */,
 				FB01E05518FF9F040056609F /* AboutTableViewController.m */,
+				FB01E06018FFD2730056609F /* AddDiscussTableViewController.h */,
+				FB01E06118FFD2730056609F /* AddDiscussTableViewController.m */,
 				FB4DCBD318F3B884006B6722 /* Main.storyboard */,
 				FB4DCBDC18F3B884006B6722 /* Images.xcassets */,
 				FB4DCBC818F3B884006B6722 /* Supporting Files */,
@@ -1590,6 +1598,8 @@
 				FB01E03518FF66200056609F /* LoginFacade.m */,
 				FB01E03718FF66430056609F /* Userinfo.h */,
 				FB01E03818FF66430056609F /* Userinfo.m */,
+				FB01E05D18FFCEDF0056609F /* Tools.h */,
+				FB01E05E18FFCEDF0056609F /* Tools.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1730,6 +1740,7 @@
 				FB6B987318F3ECB900120569 /* RoomTableViewController.m in Sources */,
 				FB4DCF3718F3BA8A006B6722 /* NSNumber+XMPP.m in Sources */,
 				FB4DCF8E18F3BA8A006B6722 /* XMPPAutoPing.m in Sources */,
+				FB01E06218FFD2730056609F /* AddDiscussTableViewController.m in Sources */,
 				FB4DCF8218F3BA8A006B6722 /* XMPPCapabilities.m in Sources */,
 				FB4DCF4118F3BA8A006B6722 /* XMPPBandwidthMonitor.m in Sources */,
 				FB4DCF4D18F3BA8A006B6722 /* XMPPUserMemoryStorageObject.m in Sources */,
@@ -1870,6 +1881,7 @@
 				FB4DCF6718F3BA8A006B6722 /* XMPPvCardCoreDataStorageObject.m in Sources */,
 				FB4DCFA918F3BA8A006B6722 /* NSString+DDXML.m in Sources */,
 				FB4DCF9F18F3BA8A006B6722 /* XMPPStringPrep.m in Sources */,
+				FB01E05F18FFCEDF0056609F /* Tools.m in Sources */,
 				FB4DCBCE18F3B884006B6722 /* main.m in Sources */,
 				FB4DCF9418F3BA8A006B6722 /* XMPPAttentionModule.m in Sources */,
 				FB4DCF4718F3BA8A006B6722 /* XMPPResourceCoreDataStorageObject.m in Sources */,
