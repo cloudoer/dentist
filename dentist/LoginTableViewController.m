@@ -26,6 +26,30 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(xmppLoginSuccess:) name:kXMPPLoginSuccess object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kXMPPLoginSuccess object:nil];
+}
+
+- (void)xmppLoginSuccess:(NSNotification *)aNotification
+{
+    XMPPvCardTempModule *vCardModule = [self appDelegate].xmppvCardTempModule;
+    XMPPvCardTemp *vCardTemp = [vCardModule vCardTempForJID:[self appDelegate].xmppStream.myJID.bareJID shouldFetch:YES];
+    
+    [LoginFacade loginSuccessWithXMPPvCardTemp:vCardTemp];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -53,13 +77,14 @@
     [self setField:jidStr forKey:kXMPPjoyJID];
     [self setField:pwdStr forKey:kXMPPjoyPassword];
     
-    if ([[self appDelegate] connect])
-    {
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }else {
-        UIAlertView *av = [[UIAlertView alloc] initWithTitle:nil message:@"登录失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-        [av show];
-    }
+    [[self appDelegate] connect];
+//    if ()
+//    {
+//        [self dismissViewControllerAnimated:YES completion:nil];
+//    }else {
+//        UIAlertView *av = [[UIAlertView alloc] initWithTitle:nil message:@"登录失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+//        [av show];
+//    }
 }
 
 - (void)didReceiveMemoryWarning

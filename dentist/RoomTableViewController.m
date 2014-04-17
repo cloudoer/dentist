@@ -40,21 +40,22 @@
 {
     [super viewWillAppear:animated];
     
-    [self fetchRoomListPage:0];
+    if (![LoginFacade isLogged]) {
+        [self performSegueWithIdentifier:@"Room2Login" sender:self];
+    }
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self fetchRoomListPage:0];
 }
 
 
 
 - (void)fetchRoomListPage:(int)page
 {
-    if (page == 0) {
-        roomArray = [[NSMutableArray alloc] initWithCapacity:20];
-    }
+    
     
     XMPPJID *myJID = [self appDelegate].xmppStream.myJID;
     NSString *getPath = [NSString stringWithFormat:@"%@&page=%d&uid=%@", URL_PATH_ROOM_LIST, page, myJID.user];
@@ -62,6 +63,9 @@
     
     [Network httpGetPath:getPath success:^(NSDictionary *response) {
         if ([Network statusOKInResponse:response]) {
+            if (page == 0) {
+                roomArray = [[NSMutableArray alloc] initWithCapacity:20];
+            }
             for (NSDictionary *oneDict in response[@"data"]) {
                 [roomArray addObject:[RoomInfo roomInfoFromDictionary:oneDict]];
             }

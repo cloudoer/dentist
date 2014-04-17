@@ -16,7 +16,6 @@
 #import "XMPPRosterCoreDataStorage.h"
 #import "XMPPvCardAvatarModule.h"
 #import "XMPPvCardCoreDataStorage.h"
-
 #import "DDLog.h"
 #import "DDTTYLogger.h"
 
@@ -58,9 +57,15 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 	[self teardownStream];
 }
 
+- (void)setupGlobalAppearence
+{
+//    [[UITabBar appearance] setBackgroundColor:UIColorFromRGB(0x2f3535)];
+}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    [self setupGlobalAppearence];
     
     [self setupStream];
     [DDLog addLogger:[DDTTYLogger sharedInstance]];
@@ -312,6 +317,9 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
     }
 	
 	[[self xmppStream] sendElement:presence];
+    
+    [self fetchVCard];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:kXMPPLoginSuccess object:nil];
 }
 
 - (void)goOffline
@@ -328,6 +336,9 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 - (BOOL)connect
 {
 	if (![xmppStream isDisconnected]) {
+        
+        [self fetchVCard];
+        
 		return YES;
 	}
     
@@ -464,8 +475,18 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 - (void)xmppStreamDidAuthenticate:(XMPPStream *)sender
 {
 	DDLogVerbose(@"%@: %@", THIS_FILE, THIS_METHOD);
+    
+    
 	
 	[self goOnline];
+    
+}
+
+- (void)fetchVCard
+{
+    XMPPvCardTempModule *vCardModule = self.xmppvCardTempModule;
+    XMPPvCardTemp *tmp = [vCardModule vCardTempForJID:self.xmppStream.myJID.bareJID shouldFetch:YES];
+    NSLog(@"youmuyou ---%@", tmp.title);
 }
 
 - (void)xmppStream:(XMPPStream *)sender didNotAuthenticate:(NSXMLElement *)error
@@ -476,6 +497,16 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 - (BOOL)xmppStream:(XMPPStream *)sender didReceiveIQ:(XMPPIQ *)iq
 {
 	DDLogVerbose(@"%@: %@", THIS_FILE, THIS_METHOD);
+    
+    
+    if (![LoginFacade isLogged] && [iq isResultIQ])
+	{
+		NSXMLElement *query = [iq elementForName:kXMPPvCardTempElement xmlns:kXMPPNSvCardTemp];
+		if (query)
+		{
+			[[NSNotificationCenter defaultCenter] postNotificationName:kXMPPLoginSuccess object:nil];
+		}
+	}
 	
 	return NO;
 }

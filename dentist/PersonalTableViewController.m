@@ -9,8 +9,16 @@
 #import "PersonalTableViewController.h"
 #import "AppDelegate.h"
 #import "XMPPvCardTemp.h"
+#import "UIImageView+AFNetworking.h"
 
-@interface PersonalTableViewController ()
+@interface PersonalTableViewController () <UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
+@property (weak, nonatomic) IBOutlet UILabel *realnameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *genderLabel;
+@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+@property (weak, nonatomic) IBOutlet UILabel *orgNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *jobTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *specialtyLabel;
 
 @end
 
@@ -34,21 +42,56 @@
 {
     [super viewDidLoad];
     
+    Userinfo *userinfo = [LoginFacade sharedUserinfo];
+    
+    [self.avatarImageView setImageWithURL:[NSURL URLWithString:userinfo.avatar_url] placeholderImage:nil];
+    self.realnameLabel.text = userinfo.realname;
+    self.genderLabel.text = userinfo.sex;
+    self.addressLabel.text = [NSString stringWithFormat:@"%@ %@ %@", userinfo.province, userinfo.city, userinfo.area];
+    self.orgNameLabel.text = userinfo.orgName;
+    self.jobTitleLabel.text = userinfo.title;
+    self.specialtyLabel.text = userinfo.expert;
     
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [self testVCard];
+- (IBAction)avatarChangButtonPressed:(UIButton *)sender {
+    UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照", @"从相册获取", nil];
+    [as showInView:self.view];
 }
 
-- (void)testVCard
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    XMPPvCardTempModule *vCardModule = [self appDelegate].xmppvCardTempModule;
-    XMPPStream *stream = [self appDelegate].xmppStream;
-    XMPPJID *jid = [XMPPJID jidWithString:stream.myJID.bare];
-    XMPPvCardTemp *tmp = [vCardModule vCardTempForJID:jid shouldFetch:YES];
-    NSLog(@"youmuyou ---%@", tmp.title);
+    if (buttonIndex == 0) {
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+        picker.allowsEditing = YES;
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        picker.cameraDevice=UIImagePickerControllerCameraDeviceFront;
+        
+        [self presentViewController:picker animated:YES completion:NULL];
+    }else if (buttonIndex == 1) {
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+        picker.allowsEditing = YES;
+        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        
+        [self presentViewController:picker animated:YES completion:NULL];
+    }
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    self.avatarImageView.image = chosenImage;
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,81 +99,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
-}
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

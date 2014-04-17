@@ -17,4 +17,6 @@
 #import "XMPPFramework.h"
 #import "Define.h"
 #import "Network.h"
+#import "LoginFacade.h"
+#import "Userinfo.h"
 #endif
