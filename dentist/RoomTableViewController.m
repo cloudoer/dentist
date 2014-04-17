@@ -42,6 +42,8 @@
     
     if (![LoginFacade isLogged]) {
         [self performSegueWithIdentifier:@"Room2Login" sender:self];
+    }else {
+        [[self appDelegate] connect];
     }
 }
 
