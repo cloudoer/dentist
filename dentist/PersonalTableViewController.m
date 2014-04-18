@@ -9,7 +9,7 @@
 #import "PersonalTableViewController.h"
 #import "AppDelegate.h"
 #import "XMPPvCardTemp.h"
-#import "UIImageView+AFNetworking.h"
+#import "UIImageView+WebCache.h"
 
 @interface PersonalTableViewController () <UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
@@ -38,13 +38,21 @@
 	return (AppDelegate *)[[UIApplication sharedApplication] delegate];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    Userinfo *userinfo = [LoginFacade sharedUserinfo];
+    
+    [self.avatarImageView setImageWithURL:[NSURL URLWithString:userinfo.avatar_url] placeholderImage:[UIImage imageNamed:@"tab_me.png"]];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     Userinfo *userinfo = [LoginFacade sharedUserinfo];
     
-    [self.avatarImageView setImageWithURL:[NSURL URLWithString:userinfo.avatar_url] placeholderImage:nil];
+    [self.avatarImageView setImageWithURL:[NSURL URLWithString:userinfo.avatar_url] placeholderImage:[UIImage imageNamed:@"tab_me.png"]];
     self.realnameLabel.text = userinfo.realname;
     self.genderLabel.text = userinfo.sex;
     self.addressLabel.text = [NSString stringWithFormat:@"%@ %@ %@", userinfo.province, userinfo.city, userinfo.area];

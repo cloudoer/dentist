@@ -267,7 +267,7 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
         [xmppRoom activate:xmppStream];
         [xmppRoom addDelegate:self delegateQueue:dispatch_get_main_queue()];
         
-        [xmppRoom joinRoomUsingNickname:[LoginFacade sharedUserinfo].realname history:nil];
+        [xmppRoom joinRoomUsingNickname:[LoginFacade sharedUserinfo].jabberId history:nil];
         
         [roomDict setValue:xmppRoom forKey:roomName];
     }

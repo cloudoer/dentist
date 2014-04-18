@@ -11,7 +11,7 @@
 #import "RoomListCell.h"
 #import "RoomInfo.h"
 #import "RoomChatTableViewController.h"
-#import "UIImageView+AFNetworking.h"
+#import "UIImageView+WebCache.h"
 #import "RoomChatViewController.h"
 
 @interface RoomTableViewController ()
@@ -132,10 +132,10 @@
     Userinfo *curUser = [Userinfo userinfoFromXMPPvCardTemp:vCardTemp];
     // Configure the cell...
     
-    [cell.avatarImageView setImageWithURL:[NSURL URLWithString:curUser.avatar_url] placeholderImage:[UIImage imageNamed:@"doctor_avatar_holder.png"]];
+    [cell.avatarImageView setImageWithURL:[NSURL URLWithString:curUser.avatar_url] placeholderImage:[UIImage imageNamed:@"tab_me.png"]];
     
     cell.nameLabel.text = curUser.realname;
-    cell.clinicLabel.text = [NSString stringWithFormat:@"(%@)", curUser.orgName];
+    if (curUser.orgName) cell.clinicLabel.text = [NSString stringWithFormat:@"(%@)", curUser.orgName];
     
     return cell;
 }

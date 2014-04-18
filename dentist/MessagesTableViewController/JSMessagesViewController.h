@@ -82,10 +82,11 @@ typedef enum {
 @required
 - (NSString *)textForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (NSDate *)timestampForRowAtIndexPath:(NSIndexPath *)indexPath;
-- (UIImage *)avatarImageForIncomingMessage;
-- (UIImage *)avatarImageForOutgoingMessage;
+- (UIImage *)avatarImageForAtIndexPath:(NSIndexPath *)indexPath;
 @optional
 - (id)dataForRowAtIndexPath:(NSIndexPath *)indexPath;
+- (UIImage *)avatarImageForIncomingMessage;
+- (UIImage *)avatarImageForOutgoingMessage;
 @end
 
 

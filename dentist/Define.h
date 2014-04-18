@@ -24,5 +24,6 @@
 
 
 #define URL_PATH_ROOM_LIST @"dentist/index.php?r=api/RoomList"
+#define URL_PATH_ONE_VCARD @"dentist/index.php?r=api/GetVcard"
 
 #endif

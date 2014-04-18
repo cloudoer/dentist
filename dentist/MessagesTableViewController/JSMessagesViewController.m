@@ -255,15 +255,16 @@
         [cell setTimestamp:[self.dataSource timestampForRowAtIndexPath:indexPath]];
     
     if(hasAvatar) {
-        switch (type) {
-            case JSBubbleMessageTypeIncoming:
-                [cell setAvatarImage:[self.dataSource avatarImageForIncomingMessage]];
-                break;
-                
-            case JSBubbleMessageTypeOutgoing:
-                [cell setAvatarImage:[self.dataSource avatarImageForOutgoingMessage]];
-                break;
-        }
+//        switch (type) {
+//            case JSBubbleMessageTypeIncoming:
+//                [cell setAvatarImage:[self.dataSource avatarImageForIncomingMessage]];
+//                break;
+//                
+//            case JSBubbleMessageTypeOutgoing:
+//                [cell setAvatarImage:[self.dataSource avatarImageForOutgoingMessage]];
+//                break;
+//        }
+        [cell setAvatarImage:[self.dataSource avatarImageForAtIndexPath:indexPath]];
     }
     
 	if (kAllowsMedia)

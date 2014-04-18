@@ -8,6 +8,8 @@
 
 #import "RoomChatViewController.h"
 #import "AppDelegate.h"
+#import "SDImageCache.h"
+#import "SDWebImageDownloader.h"
 
 @interface RoomChatViewController () <JSMessagesViewDelegate, JSMessagesViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -16,6 +18,9 @@
 @implementation RoomChatViewController
 {
     NSFetchedResultsController *fetchedResultsController;
+    
+    NSDictionary *vCardDict;
+    NSMutableSet *userSet;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -41,6 +46,7 @@
     
     self.title = self.oneRoom.naturalName;
     
+    vCardDict = [[NSMutableDictionary alloc] initWithCapacity:20];
     
     [[self appDelegate] joinTheRoom:self.oneRoom.name];
     
@@ -65,7 +71,7 @@
         request.entity = entityDescription;
         request.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"localTimestamp" ascending:YES]];
         request.fetchBatchSize = 20;
-        request.predicate = [NSPredicate predicateWithFormat:@"roomJIDStr contains %@", self.oneRoom.name];
+        request.predicate = [NSPredicate predicateWithFormat:@"roomJIDStr contains %@ && roomJIDStr != jidStr", self.oneRoom.name];
         
         fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                        managedObjectContext:moc
@@ -83,6 +89,7 @@
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
 	[[self tableView] reloadData];
+    [self scrollToBottomAnimated:YES];
 }
 
 #pragma mark - Table view data source
@@ -95,14 +102,21 @@
 #pragma mark - Messages view delegate
 - (void)sendPressed:(UIButton *)sender withText:(NSString *)text
 {
-//    [self.messageArray addObject:[NSDictionary dictionaryWithObject:text forKey:@"Text"]];
-//    
-//    [self.timestamps addObject:[NSDate date]];
-//    
-//    if((self.messageArray.count - 1) % 2)
-//        [JSMessageSoundEffect playMessageSentSound];
-//    else
-//        [JSMessageSoundEffect playMessageReceivedSound];
+    NSString *roomStr = [self.oneRoom.name stringByAppendingString:[NSString stringWithFormat:@"@conference.%@", [self appDelegate].xmppStream.myJID.domain]];
+    XMPPJID *roomJID = [XMPPJID jidWithString:roomStr];
+    
+    if (text && text.length > 0) {
+        
+        XMPPMessage *message = [XMPPMessage messageWithType:@"groupchat" to:roomJID];
+        [message addBody:text];
+        
+        
+        NSXMLElement *bodyElement = [NSXMLElement elementWithName:@"kind" stringValue:@"text"];
+        [message addChild:bodyElement];
+        
+        [[[self appDelegate] xmppStream] sendElement:message];
+    }
+    [JSMessageSoundEffect playMessageSentSound];
     
     [self finishSend];
 }
@@ -117,7 +131,8 @@
 
 - (JSBubbleMessageType)messageTypeForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return (indexPath.row % 2) ? JSBubbleMessageTypeIncoming : JSBubbleMessageTypeOutgoing;
+    XMPPRoomMessageCoreDataStorageObject *message = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    return ([message.jid.resource isEqualToString:[LoginFacade sharedUserinfo].realname] || [message.jid.resource isEqualToString:[LoginFacade sharedUserinfo].jabberId]) ? JSBubbleMessageTypeOutgoing : JSBubbleMessageTypeIncoming;
 }
 
 - (JSBubbleMessageStyle)messageStyleForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -201,14 +216,52 @@
     return message.localTimestamp;
 }
 
-- (UIImage *)avatarImageForIncomingMessage
+
+- (UIImage *)avatarImageForAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [UIImage imageNamed:@"doctor_avatar_holder.png"];
+    XMPPRoomMessageCoreDataStorageObject *message = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    XMPPJID *fromJID = message.message.from;
+    NSString *uid = fromJID.resource;
+    NSLog(@"uid --> %@", uid);
+    if (uid == nil) {
+        uid = [LoginFacade sharedUserinfo].jabberId;
+    }
+    if (vCardDict[uid] == nil) {
+        [self fetchAvatarForIndexPath:indexPath withUID:uid];
+        return nil;
+    }
+    
+    Userinfo *currUser = [Userinfo userinfoFromXMPPvCardTempStr:vCardDict[uid]];
+    return [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:currUser.avatar_url];
+    
 }
 
-- (UIImage *)avatarImageForOutgoingMessage
+- (void)fetchAvatarForIndexPath:(NSIndexPath *)indexPath withUID:(NSString *)uidStr
 {
-    return [UIImage imageNamed:@"doctor_avatar_holder.png"];
+    if (userSet == nil) {
+        userSet = [[NSMutableSet alloc] initWithCapacity:20];
+    }
+    if ([userSet containsObject:uidStr]) {
+        return;
+    }
+    [userSet addObject:uidStr];
+    
+    NSString *getPath = [NSString stringWithFormat:@"%@&uid=%@", URL_PATH_ONE_VCARD, uidStr];
+    [Network httpGetPath:getPath success:^(NSDictionary *response) {
+        if ([Network statusOKInResponse:response]) {
+            NSString *vCardStr = response[@"data"];
+            [vCardDict setValue:vCardStr forKey:uidStr];
+            __block Userinfo *currUser = [Userinfo userinfoFromXMPPvCardTempStr:vCardStr];
+
+            [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:currUser.avatar_url] options:SDWebImageDownloaderUseNSURLCache progress:nil completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
+                if (!finished || error || image == nil) {
+                    image = [UIImage imageNamed:@"tab_me.png"];
+                }
+                [[SDImageCache sharedImageCache] storeImage:image forKey:currUser.avatar_url toDisk:YES];
+                [self.tableView reloadData];
+            }];
+        }
+    } failure:nil];
 }
 
 - (id)dataForRowAtIndexPath:(NSIndexPath *)indexPath{

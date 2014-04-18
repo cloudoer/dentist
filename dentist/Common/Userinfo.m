@@ -74,4 +74,11 @@
     return userinfo;
 }
 
++ (Userinfo *)userinfoFromXMPPvCardTempStr:(NSString *)vCardTempStr
+{
+    XMPPvCardTemp *vCardTemp = [Tools xmppVCardTempFromVCardStr:vCardTempStr];
+    Userinfo *curUser = [self userinfoFromXMPPvCardTemp:vCardTemp];
+    return curUser;
+}
+
 @end
