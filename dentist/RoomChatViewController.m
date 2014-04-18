@@ -6,10 +6,14 @@
 //  Copyright (c) 2014 1010.am. All rights reserved.
 //
 
+#import "AFNetworking.h"
+#import "AmrFilePlayer.h"
+
 #import "RoomChatViewController.h"
 #import "AppDelegate.h"
 #import "SDImageCache.h"
 #import "SDWebImageDownloader.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface RoomChatViewController () <JSMessagesViewDelegate, JSMessagesViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -335,6 +339,42 @@
 	
     [self dismissViewControllerAnimated:YES completion:NULL];
     
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    XMPPRoomMessageCoreDataStorageObject *message = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    if ([message.body hasSuffix:@".amr"]) {
+       
+        
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@dentist/images/%@", BaseURLString, message.body]]];
+        AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+        
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *path = [[paths objectAtIndex:0] stringByAppendingPathComponent:message.body];
+        operation.outputStream = [NSOutputStream outputStreamToFileAtPath:path append:NO];
+        
+        [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"Successfully downloaded file to %@", path);
+            
+            NSURL *fileURL = [NSURL URLWithString:path];
+            
+//            NSError *playerError = nil;
+//            AVAudioPlayer *player = [[AVAudioPlayer alloc] initWithContentsOfURL:fileURL error:&playerError];
+//            
+//            if (player == nil)
+//            {
+//                NSLog(@"ERror creating player: %@", [playerError description]);
+//            }
+//            [player play];
+            [[AmrFilePlayer sharedInstance] startPlayWithFilePath:path];
+
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Error: %@", error);
+        }];
+        
+        [operation start];
+    }
 }
 
 
