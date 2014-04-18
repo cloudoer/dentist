@@ -12,6 +12,7 @@
 #import "RoomInfo.h"
 #import "RoomChatTableViewController.h"
 #import "UIImageView+AFNetworking.h"
+#import "RoomChatViewController.h"
 
 @interface RoomTableViewController ()
 
@@ -143,13 +144,16 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     theRoom = roomArray[indexPath.row];
-    [self performSegueWithIdentifier:@"Room2RoomChat" sender:self];
+    [self performSegueWithIdentifier:@"Room2BubbleRoomChat" sender:self];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"Room2RoomChat"]) {
         RoomChatTableViewController *controller = segue.destinationViewController;
+        controller.oneRoom = theRoom;
+    }else if ([segue.identifier isEqualToString:@"Room2BubbleRoomChat"]) {
+        RoomChatViewController *controller = segue.destinationViewController;
         controller.oneRoom = theRoom;
     }
 }
