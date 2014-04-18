@@ -10,7 +10,7 @@
 #import "JSMessagesViewController.h"
 #import "RoomInfo.h"
 
-@interface RoomChatViewController : JSMessagesViewController
+@interface RoomChatViewController : JSMessagesViewController <NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, strong) RoomInfo *oneRoom;
 

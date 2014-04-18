@@ -14,6 +14,9 @@
 @end
 
 @implementation RoomChatViewController
+{
+    NSFetchedResultsController *fetchedResultsController;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,12 +44,52 @@
     
     [[self appDelegate] joinTheRoom:self.oneRoom.name];
     
+    NSError *error = nil;
+    if (![[self fetchedResultsController] performFetch:&error])
+    {
+//        DDLogError(@"Error performing fetch: %@", error);
+    }
+    
+}
+
+- (NSFetchedResultsController *)fetchedResultsController
+{
+	if (fetchedResultsController == nil)
+	{
+        
+        XMPPRoomCoreDataStorage *storage = [XMPPRoomCoreDataStorage sharedInstance];
+        NSManagedObjectContext *moc = [storage mainThreadManagedObjectContext];
+        NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"XMPPRoomMessageCoreDataStorageObject"
+                                                             inManagedObjectContext:moc];
+        NSFetchRequest *request = [[NSFetchRequest alloc]init];
+        request.entity = entityDescription;
+        request.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"localTimestamp" ascending:YES]];
+        request.fetchBatchSize = 20;
+        request.predicate = [NSPredicate predicateWithFormat:@"roomJIDStr contains %@", self.oneRoom.name];
+        
+        fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                                       managedObjectContext:moc
+		                                                                 sectionNameKeyPath:nil
+		                                                                          cacheName:nil];
+		[fetchedResultsController setDelegate:self];
+		
+		
+		
+	}
+	
+	return fetchedResultsController;
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+{
+	[[self tableView] reloadData];
 }
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 15;
+    id  sectionInfo = [[[self fetchedResultsController] sections] objectAtIndex:section];
+    return [sectionInfo numberOfObjects];
 }
 
 #pragma mark - Messages view delegate
@@ -148,22 +191,24 @@
 #pragma mark - Messages view data source
 - (NSString *)textForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return @"fdsf";
+    XMPPRoomMessageCoreDataStorageObject *message = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    return message.body;
 }
 
 - (NSDate *)timestampForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [NSDate date];
+    XMPPRoomMessageCoreDataStorageObject *message = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    return message.localTimestamp;
 }
 
 - (UIImage *)avatarImageForIncomingMessage
 {
-    return [UIImage imageNamed:@"demo-avatar-jobs"];
+    return [UIImage imageNamed:@"doctor_avatar_holder.png"];
 }
 
 - (UIImage *)avatarImageForOutgoingMessage
 {
-    return [UIImage imageNamed:@"demo-avatar-woz"];
+    return [UIImage imageNamed:@"doctor_avatar_holder.png"];
 }
 
 - (id)dataForRowAtIndexPath:(NSIndexPath *)indexPath{
