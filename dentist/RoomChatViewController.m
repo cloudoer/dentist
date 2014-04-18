@@ -110,9 +110,12 @@
         XMPPMessage *message = [XMPPMessage messageWithType:@"groupchat" to:roomJID];
         [message addBody:text];
         
+        NSXMLElement *fromElement = [NSXMLElement elementWithName:@"to" stringValue:[self appDelegate].xmppStream.myJID.bare];
+        [message addChild:fromElement];
         
         NSXMLElement *bodyElement = [NSXMLElement elementWithName:@"kind" stringValue:@"text"];
         [message addChild:bodyElement];
+        
         
         [[[self appDelegate] xmppStream] sendElement:message];
     }
@@ -146,6 +149,12 @@
 //    }else if ([[self.messageArray objectAtIndex:indexPath.row] objectForKey:@"Image"]){
 //        return JSBubbleMediaTypeImage;
 //    }
+    
+    XMPPRoomMessageCoreDataStorageObject *message = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    
+    if ([message.body hasSuffix:@".jpg"] || [message.body hasSuffix:@".png"]) {
+        return JSBubbleMediaTypeImage;
+    }
     
     return JSBubbleMediaTypeText;
 }
@@ -207,8 +216,40 @@
 - (NSString *)textForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     XMPPRoomMessageCoreDataStorageObject *message = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+//    XMPPMessage *msg = message.message;
+//    NSXMLElement *arr = [msg elementForName:@"kind"];
+//    NSXMLElement *brr = [msg elementForName:@"properties"];
+//    NSArray *hh = [brr elementsForName:@"property"];
+//    for (NSXMLElement *xx in hh) {
+//        NSString *zz = [[xx attributeForName:@"kind"] stringValue];
+//        if ([[xx attributeForName:@"kind"] stringValue]) {
+//            NSLog(@"hhhhhh");
+//        }
+//    }
+    
+    if ([message.body hasSuffix:@".jpg"] || [message.body hasSuffix:@".png"]) {
+        return nil;
+    }
+    
+    
+//    NSString *kind = [[msg attributeForName:@"p"] stringValue];
+//    NSLog(@"kind-- %@", kind);
     return message.body;
 }
+
+- (void)fetchImageForIndexPath:(NSIndexPath *)indexPath withImageName:(NSString *)imageName
+{
+    NSString *imageURLStr = [NSString stringWithFormat:@"%@dentist/images/%@", BaseURLString, imageName];
+    
+    [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:imageURLStr] options:SDWebImageDownloaderUseNSURLCache progress:nil completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
+        if (!finished || error || image == nil) {
+            image = [UIImage imageNamed:@"tab_me.png"];
+        }
+        [[SDImageCache sharedImageCache] storeImage:image forKey:imageName toDisk:YES];
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }];
+}
+
 
 - (NSDate *)timestampForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -264,8 +305,16 @@
     } failure:nil];
 }
 
-- (id)dataForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (id)dataForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    XMPPRoomMessageCoreDataStorageObject *message = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    if ([message.body hasSuffix:@".jpg"] || [message.body hasSuffix:@".png"]) {
+        UIImage *image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:message.body];
+        if (image == nil) {
+            [self fetchImageForIndexPath:indexPath withImageName:message.body];
+        }
+        return image;
+    }
     return nil;
     
 }
