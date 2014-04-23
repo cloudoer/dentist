@@ -51,18 +51,18 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
     if (![LoginFacade isLogged]) {
         [self performSegueWithIdentifier:@"Friends2Login" sender:self];
     }else {
-        [[self appDelegate] connect];
+//        [[self appDelegate] connect];
     }
 }
 
 
-- (void)checkAuth
-{
-    if (![[[self appDelegate] xmppStream] isAuthenticated])
-    {
-        [self performSegueWithIdentifier:@"ToLoginModal" sender:self];
-    }
-}
+//- (void)checkAuth
+//{
+//    if (![[[self appDelegate] xmppStream] isAuthenticated])
+//    {
+//        [self performSegueWithIdentifier:@"ToLoginModal" sender:self];
+//    }
+//}
 
 //- (void)viewWillDisappear:(BOOL)animated
 //{
