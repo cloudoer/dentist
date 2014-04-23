@@ -7,8 +7,11 @@
 //
 
 #import "LoginFacade.h"
+#import "Userinfo.h"
 
 #define kSharedUserinfo @"kSharedUserinfo"
+
+#define STORYBOARD_NAEM @"Login"
 
 @implementation LoginFacade
 
@@ -35,6 +38,15 @@
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:userinfo];
     
     [[NSUserDefaults standardUserDefaults] setObject:data forKey:kSharedUserinfo];
+}
+
++ (void)presentLoginViewControllerFrom:(UIViewController *)fromViewController
+{
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:STORYBOARD_NAEM bundle:[NSBundle mainBundle]];
+    
+    UINavigationController *navController = (UINavigationController *)storyBoard.instantiateInitialViewController;
+    
+    [fromViewController presentViewController:navController animated:YES completion:nil];
 }
 
 

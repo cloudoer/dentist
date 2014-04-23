@@ -10,8 +10,6 @@
 		FB01E03118FF64050056609F /* tab_about@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB01E02E18FF64050056609F /* tab_about@2x.png */; };
 		FB01E03218FF64050056609F /* tab_discuss@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB01E02F18FF64050056609F /* tab_discuss@2x.png */; };
 		FB01E03318FF64050056609F /* tab_me@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB01E03018FF64050056609F /* tab_me@2x.png */; };
-		FB01E03618FF66200056609F /* LoginFacade.m in Sources */ = {isa = PBXBuildFile; fileRef = FB01E03518FF66200056609F /* LoginFacade.m */; };
-		FB01E03918FF66430056609F /* Userinfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FB01E03818FF66430056609F /* Userinfo.m */; };
 		FB01E04C18FF83540056609F /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FB01E03C18FF83540056609F /* AFNetworkActivityIndicatorManager.m */; };
 		FB01E04D18FF83540056609F /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = FB01E03E18FF83540056609F /* UIActivityIndicatorView+AFNetworking.m */; };
 		FB01E04E18FF83540056609F /* UIAlertView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = FB01E04018FF83540056609F /* UIAlertView+AFNetworking.m */; };
@@ -235,7 +233,6 @@
 		FB4DCFAC18F3BA8A006B6722 /* DDXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4DCF2518F3BA8A006B6722 /* DDXMLNode.m */; };
 		FB4DCFAD18F3BA8A006B6722 /* build-libidn.sh in Resources */ = {isa = PBXBuildFile; fileRef = FB4DCF2918F3BA8A006B6722 /* build-libidn.sh */; };
 		FB4DCFAE18F3BA8A006B6722 /* libidn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4DCF2B18F3BA8A006B6722 /* libidn.a */; };
-		FB6B986118F3C6D100120569 /* LoginTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6B986018F3C6D100120569 /* LoginTableViewController.m */; };
 		FB6B986418F3C8CE00120569 /* FriendTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6B986318F3C8CE00120569 /* FriendTableViewController.m */; };
 		FB6B986718F3D70300120569 /* ChatTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6B986618F3D70300120569 /* ChatTableViewController.m */; };
 		FB6B986A18F3DAF900120569 /* ChatMeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6B986918F3DAF900120569 /* ChatMeCell.m */; };
@@ -253,6 +250,25 @@
 		FBB7FA49190163B2008B3F8D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB7FA48190163B2008B3F8D /* libz.dylib */; };
 		FBB7FA5419016863008B3F8D /* AudioInputUnit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBB7FA4E19016863008B3F8D /* AudioInputUnit.cpp */; };
 		FBB7FA5619016863008B3F8D /* AudioPlayUnit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBB7FA5219016863008B3F8D /* AudioPlayUnit.cpp */; };
+		FBC919B31908830D00405A89 /* LoginTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC919B21908830D00405A89 /* LoginTableViewController.m */; };
+		FBC919B81908834C00405A89 /* LoginFacade.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC919B51908834C00405A89 /* LoginFacade.m */; };
+		FBC919B91908834C00405A89 /* Userinfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC919B71908834C00405A89 /* Userinfo.m */; };
+		FBC919BB1908836400405A89 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBC919BA1908836400405A89 /* Login.storyboard */; };
+		FBC919BD1908847500405A89 /* Buddy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBC919BC1908847500405A89 /* Buddy.storyboard */; };
+		FBC919BF1908847C00405A89 /* Case.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBC919BE1908847C00405A89 /* Case.storyboard */; };
+		FBC919C11908848500405A89 /* Industry.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBC919C01908848500405A89 /* Industry.storyboard */; };
+		FBC919C31908848B00405A89 /* Me.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBC919C21908848B00405A89 /* Me.storyboard */; };
+		FBC919C51908849300405A89 /* Message.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBC919C41908849300405A89 /* Message.storyboard */; };
+		FBC919C8190884A700405A89 /* BuddyListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC919C7190884A700405A89 /* BuddyListTableViewController.m */; };
+		FBC919CB190884B700405A89 /* BuddyFacade.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC919CA190884B700405A89 /* BuddyFacade.m */; };
+		FBC919CE190885A000405A89 /* CaseFacade.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC919CD190885A000405A89 /* CaseFacade.m */; };
+		FBC919D1190885AF00405A89 /* CaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC919D0190885AF00405A89 /* CaseViewController.m */; };
+		FBC919D41908860500405A89 /* IndustryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC919D31908860500405A89 /* IndustryViewController.m */; };
+		FBC919DA1908862C00405A89 /* IndustryFacade.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC919D91908862C00405A89 /* IndustryFacade.m */; };
+		FBC919DD1908866700405A89 /* MeFacade.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC919DC1908866700405A89 /* MeFacade.m */; };
+		FBC919E01908866F00405A89 /* MeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC919DF1908866F00405A89 /* MeTableViewController.m */; };
+		FBC919E6190886CC00405A89 /* MessageListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC919E5190886CC00405A89 /* MessageListTableViewController.m */; };
+		FBC919E9190886D600405A89 /* MessageFacade.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC919E8190886D600405A89 /* MessageFacade.m */; };
 		FBCE0D0718F62A8D007C0489 /* PersonalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCE0D0618F62A8D007C0489 /* PersonalTableViewController.m */; };
 		FBCE0D1C18F64643007C0489 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCE0D0A18F64643007C0489 /* AFHTTPRequestOperation.m */; };
 		FBCE0D1D18F64643007C0489 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCE0D0C18F64643007C0489 /* AFHTTPRequestOperationManager.m */; };
@@ -332,10 +348,6 @@
 		FB01E02E18FF64050056609F /* tab_about@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_about@2x.png"; sourceTree = "<group>"; };
 		FB01E02F18FF64050056609F /* tab_discuss@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_discuss@2x.png"; sourceTree = "<group>"; };
 		FB01E03018FF64050056609F /* tab_me@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_me@2x.png"; sourceTree = "<group>"; };
-		FB01E03418FF66200056609F /* LoginFacade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginFacade.h; sourceTree = "<group>"; };
-		FB01E03518FF66200056609F /* LoginFacade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginFacade.m; sourceTree = "<group>"; };
-		FB01E03718FF66430056609F /* Userinfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Userinfo.h; sourceTree = "<group>"; };
-		FB01E03818FF66430056609F /* Userinfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Userinfo.m; sourceTree = "<group>"; };
 		FB01E03B18FF83540056609F /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
 		FB01E03C18FF83540056609F /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
 		FB01E03D18FF83540056609F /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
@@ -727,8 +739,6 @@
 		FB4DCF2C18F3BA8A006B6722 /* stringprep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stringprep.h; sourceTree = "<group>"; };
 		FB4DCF2D18F3BA8A006B6722 /* XMPPFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPFramework.h; sourceTree = "<group>"; };
 		FB6B985E18F3C59300120569 /* Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Define.h; path = ../Define.h; sourceTree = "<group>"; };
-		FB6B985F18F3C6D100120569 /* LoginTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginTableViewController.h; sourceTree = "<group>"; };
-		FB6B986018F3C6D100120569 /* LoginTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginTableViewController.m; sourceTree = "<group>"; };
 		FB6B986218F3C8CE00120569 /* FriendTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendTableViewController.h; sourceTree = "<group>"; };
 		FB6B986318F3C8CE00120569 /* FriendTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendTableViewController.m; sourceTree = "<group>"; };
 		FB6B986518F3D70300120569 /* ChatTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatTableViewController.h; sourceTree = "<group>"; };
@@ -760,6 +770,38 @@
 		FBB7FA5219016863008B3F8D /* AudioPlayUnit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioPlayUnit.cpp; sourceTree = "<group>"; };
 		FBB7FA5319016863008B3F8D /* AudioPlayUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayUnit.h; sourceTree = "<group>"; };
 		FBB7FA571901690A008B3F8D /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
+		FBC919B11908830D00405A89 /* LoginTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginTableViewController.h; sourceTree = "<group>"; };
+		FBC919B21908830D00405A89 /* LoginTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginTableViewController.m; sourceTree = "<group>"; };
+		FBC919B41908834C00405A89 /* LoginFacade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginFacade.h; sourceTree = "<group>"; };
+		FBC919B51908834C00405A89 /* LoginFacade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginFacade.m; sourceTree = "<group>"; };
+		FBC919B61908834C00405A89 /* Userinfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Userinfo.h; sourceTree = "<group>"; };
+		FBC919B71908834C00405A89 /* Userinfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Userinfo.m; sourceTree = "<group>"; };
+		FBC919BA1908836400405A89 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		FBC919BC1908847500405A89 /* Buddy.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Buddy.storyboard; sourceTree = "<group>"; };
+		FBC919BE1908847C00405A89 /* Case.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Case.storyboard; sourceTree = "<group>"; };
+		FBC919C01908848500405A89 /* Industry.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Industry.storyboard; sourceTree = "<group>"; };
+		FBC919C21908848B00405A89 /* Me.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Me.storyboard; sourceTree = "<group>"; };
+		FBC919C41908849300405A89 /* Message.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Message.storyboard; sourceTree = "<group>"; };
+		FBC919C6190884A700405A89 /* BuddyListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuddyListTableViewController.h; sourceTree = "<group>"; };
+		FBC919C7190884A700405A89 /* BuddyListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuddyListTableViewController.m; sourceTree = "<group>"; };
+		FBC919C9190884B700405A89 /* BuddyFacade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuddyFacade.h; sourceTree = "<group>"; };
+		FBC919CA190884B700405A89 /* BuddyFacade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuddyFacade.m; sourceTree = "<group>"; };
+		FBC919CC190885A000405A89 /* CaseFacade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaseFacade.h; sourceTree = "<group>"; };
+		FBC919CD190885A000405A89 /* CaseFacade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaseFacade.m; sourceTree = "<group>"; };
+		FBC919CF190885AF00405A89 /* CaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaseViewController.h; sourceTree = "<group>"; };
+		FBC919D0190885AF00405A89 /* CaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaseViewController.m; sourceTree = "<group>"; };
+		FBC919D21908860500405A89 /* IndustryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndustryViewController.h; sourceTree = "<group>"; };
+		FBC919D31908860500405A89 /* IndustryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndustryViewController.m; sourceTree = "<group>"; };
+		FBC919D81908862C00405A89 /* IndustryFacade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndustryFacade.h; sourceTree = "<group>"; };
+		FBC919D91908862C00405A89 /* IndustryFacade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndustryFacade.m; sourceTree = "<group>"; };
+		FBC919DB1908866700405A89 /* MeFacade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeFacade.h; sourceTree = "<group>"; };
+		FBC919DC1908866700405A89 /* MeFacade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeFacade.m; sourceTree = "<group>"; };
+		FBC919DE1908866F00405A89 /* MeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeTableViewController.h; sourceTree = "<group>"; };
+		FBC919DF1908866F00405A89 /* MeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeTableViewController.m; sourceTree = "<group>"; };
+		FBC919E4190886CC00405A89 /* MessageListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageListTableViewController.h; sourceTree = "<group>"; };
+		FBC919E5190886CC00405A89 /* MessageListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageListTableViewController.m; sourceTree = "<group>"; };
+		FBC919E7190886D600405A89 /* MessageFacade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageFacade.h; sourceTree = "<group>"; };
+		FBC919E8190886D600405A89 /* MessageFacade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageFacade.m; sourceTree = "<group>"; };
 		FBCE0D0518F62A8D007C0489 /* PersonalTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalTableViewController.h; sourceTree = "<group>"; };
 		FBCE0D0618F62A8D007C0489 /* PersonalTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalTableViewController.m; sourceTree = "<group>"; };
 		FBCE0D0918F64643007C0489 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -1080,6 +1122,43 @@
 			path = Sounds;
 			sourceTree = "<group>";
 		};
+		FB2683A019087E8C00885927 /* Old_Stuff */ = {
+			isa = PBXGroup;
+			children = (
+				FB6B986218F3C8CE00120569 /* FriendTableViewController.h */,
+				FB6B986318F3C8CE00120569 /* FriendTableViewController.m */,
+				FB6B986518F3D70300120569 /* ChatTableViewController.h */,
+				FB6B986618F3D70300120569 /* ChatTableViewController.m */,
+				FB6B986818F3DAF900120569 /* ChatMeCell.h */,
+				FB6B986918F3DAF900120569 /* ChatMeCell.m */,
+				FB6B986B18F3DB0900120569 /* ChatOtherCell.h */,
+				FB6B986C18F3DB0900120569 /* ChatOtherCell.m */,
+				FB6B986E18F3E74700120569 /* ChatSendCell.h */,
+				FB6B986F18F3E74700120569 /* ChatSendCell.m */,
+				FB6B987118F3ECB900120569 /* RoomTableViewController.h */,
+				FB6B987218F3ECB900120569 /* RoomTableViewController.m */,
+				FBCE0D3818F68C39007C0489 /* RoomChatTableViewController.h */,
+				FBCE0D3918F68C3A007C0489 /* RoomChatTableViewController.m */,
+				FB01E0EC1900CA2F0056609F /* RoomChatViewController.h */,
+				FB01E0ED1900CA2F0056609F /* RoomChatViewController.m */,
+				FBCE0D3B18F6B1E8007C0489 /* RoomChatMeCell.h */,
+				FBCE0D3C18F6B1E8007C0489 /* RoomChatMeCell.m */,
+				FBCE0D3E18F6B1F9007C0489 /* RoomChatOtherCell.h */,
+				FBCE0D3F18F6B1F9007C0489 /* RoomChatOtherCell.m */,
+				FBCE0D3518F680D3007C0489 /* RoomInfo.h */,
+				FBCE0D3618F680D3007C0489 /* RoomInfo.m */,
+				FBCE0D3018F64C87007C0489 /* RoomListCell.h */,
+				FBCE0D3118F64C87007C0489 /* RoomListCell.m */,
+				FBCE0D0518F62A8D007C0489 /* PersonalTableViewController.h */,
+				FBCE0D0618F62A8D007C0489 /* PersonalTableViewController.m */,
+				FB01E05418FF9F040056609F /* AboutTableViewController.h */,
+				FB01E05518FF9F040056609F /* AboutTableViewController.m */,
+				FB01E06018FFD2730056609F /* AddDiscussTableViewController.h */,
+				FB01E06118FFD2730056609F /* AddDiscussTableViewController.m */,
+			);
+			name = Old_Stuff;
+			sourceTree = "<group>";
+		};
 		FB4DCBB518F3B884006B6722 = {
 			isa = PBXGroup;
 			children = (
@@ -1137,38 +1216,13 @@
 				FBCE0D2518F64672007C0489 /* Common */,
 				FB4DCBD018F3B884006B6722 /* AppDelegate.h */,
 				FB4DCBD118F3B884006B6722 /* AppDelegate.m */,
-				FB6B985F18F3C6D100120569 /* LoginTableViewController.h */,
-				FB6B986018F3C6D100120569 /* LoginTableViewController.m */,
-				FB6B986218F3C8CE00120569 /* FriendTableViewController.h */,
-				FB6B986318F3C8CE00120569 /* FriendTableViewController.m */,
-				FB6B986518F3D70300120569 /* ChatTableViewController.h */,
-				FB6B986618F3D70300120569 /* ChatTableViewController.m */,
-				FB6B986818F3DAF900120569 /* ChatMeCell.h */,
-				FB6B986918F3DAF900120569 /* ChatMeCell.m */,
-				FB6B986B18F3DB0900120569 /* ChatOtherCell.h */,
-				FB6B986C18F3DB0900120569 /* ChatOtherCell.m */,
-				FB6B986E18F3E74700120569 /* ChatSendCell.h */,
-				FB6B986F18F3E74700120569 /* ChatSendCell.m */,
-				FB6B987118F3ECB900120569 /* RoomTableViewController.h */,
-				FB6B987218F3ECB900120569 /* RoomTableViewController.m */,
-				FBCE0D3818F68C39007C0489 /* RoomChatTableViewController.h */,
-				FBCE0D3918F68C3A007C0489 /* RoomChatTableViewController.m */,
-				FB01E0EC1900CA2F0056609F /* RoomChatViewController.h */,
-				FB01E0ED1900CA2F0056609F /* RoomChatViewController.m */,
-				FBCE0D3B18F6B1E8007C0489 /* RoomChatMeCell.h */,
-				FBCE0D3C18F6B1E8007C0489 /* RoomChatMeCell.m */,
-				FBCE0D3E18F6B1F9007C0489 /* RoomChatOtherCell.h */,
-				FBCE0D3F18F6B1F9007C0489 /* RoomChatOtherCell.m */,
-				FBCE0D3518F680D3007C0489 /* RoomInfo.h */,
-				FBCE0D3618F680D3007C0489 /* RoomInfo.m */,
-				FBCE0D3018F64C87007C0489 /* RoomListCell.h */,
-				FBCE0D3118F64C87007C0489 /* RoomListCell.m */,
-				FBCE0D0518F62A8D007C0489 /* PersonalTableViewController.h */,
-				FBCE0D0618F62A8D007C0489 /* PersonalTableViewController.m */,
-				FB01E05418FF9F040056609F /* AboutTableViewController.h */,
-				FB01E05518FF9F040056609F /* AboutTableViewController.m */,
-				FB01E06018FFD2730056609F /* AddDiscussTableViewController.h */,
-				FB01E06118FFD2730056609F /* AddDiscussTableViewController.m */,
+				FB5C643319088183003F7260 /* Buddy */,
+				FB5C643419088183003F7260 /* Case */,
+				FB5C643519088183003F7260 /* Industry */,
+				FB5C643619088183003F7260 /* Login */,
+				FB5C643719088183003F7260 /* Me */,
+				FB5C643819088183003F7260 /* Message */,
+				FB2683A019087E8C00885927 /* Old_Stuff */,
 				FB4DCBD318F3B884006B6722 /* Main.storyboard */,
 				FB4DCBDC18F3B884006B6722 /* Images.xcassets */,
 				FB4DCBC818F3B884006B6722 /* Supporting Files */,
@@ -2007,6 +2061,80 @@
 			path = libidn;
 			sourceTree = "<group>";
 		};
+		FB5C643319088183003F7260 /* Buddy */ = {
+			isa = PBXGroup;
+			children = (
+				FBC919BC1908847500405A89 /* Buddy.storyboard */,
+				FBC919C6190884A700405A89 /* BuddyListTableViewController.h */,
+				FBC919C7190884A700405A89 /* BuddyListTableViewController.m */,
+				FBC919C9190884B700405A89 /* BuddyFacade.h */,
+				FBC919CA190884B700405A89 /* BuddyFacade.m */,
+			);
+			path = Buddy;
+			sourceTree = "<group>";
+		};
+		FB5C643419088183003F7260 /* Case */ = {
+			isa = PBXGroup;
+			children = (
+				FBC919BE1908847C00405A89 /* Case.storyboard */,
+				FBC919CC190885A000405A89 /* CaseFacade.h */,
+				FBC919CD190885A000405A89 /* CaseFacade.m */,
+				FBC919CF190885AF00405A89 /* CaseViewController.h */,
+				FBC919D0190885AF00405A89 /* CaseViewController.m */,
+			);
+			path = Case;
+			sourceTree = "<group>";
+		};
+		FB5C643519088183003F7260 /* Industry */ = {
+			isa = PBXGroup;
+			children = (
+				FBC919C01908848500405A89 /* Industry.storyboard */,
+				FBC919D21908860500405A89 /* IndustryViewController.h */,
+				FBC919D31908860500405A89 /* IndustryViewController.m */,
+				FBC919D81908862C00405A89 /* IndustryFacade.h */,
+				FBC919D91908862C00405A89 /* IndustryFacade.m */,
+			);
+			path = Industry;
+			sourceTree = "<group>";
+		};
+		FB5C643619088183003F7260 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				FBC919B41908834C00405A89 /* LoginFacade.h */,
+				FBC919B51908834C00405A89 /* LoginFacade.m */,
+				FBC919B61908834C00405A89 /* Userinfo.h */,
+				FBC919B71908834C00405A89 /* Userinfo.m */,
+				FBC919B11908830D00405A89 /* LoginTableViewController.h */,
+				FBC919B21908830D00405A89 /* LoginTableViewController.m */,
+				FBC919BA1908836400405A89 /* Login.storyboard */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		FB5C643719088183003F7260 /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				FBC919C21908848B00405A89 /* Me.storyboard */,
+				FBC919DB1908866700405A89 /* MeFacade.h */,
+				FBC919DC1908866700405A89 /* MeFacade.m */,
+				FBC919DE1908866F00405A89 /* MeTableViewController.h */,
+				FBC919DF1908866F00405A89 /* MeTableViewController.m */,
+			);
+			path = Me;
+			sourceTree = "<group>";
+		};
+		FB5C643819088183003F7260 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				FBC919C41908849300405A89 /* Message.storyboard */,
+				FBC919E4190886CC00405A89 /* MessageListTableViewController.h */,
+				FBC919E5190886CC00405A89 /* MessageListTableViewController.m */,
+				FBC919E7190886D600405A89 /* MessageFacade.h */,
+				FBC919E8190886D600405A89 /* MessageFacade.m */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
 		FBB7FA2419013729008B3F8D /* PublicUtility */ = {
 			isa = PBXGroup;
 			children = (
@@ -2055,10 +2183,6 @@
 				FB6B985E18F3C59300120569 /* Define.h */,
 				FBCE0D2718F64728007C0489 /* Network.h */,
 				FBCE0D2618F64728007C0489 /* Network.m */,
-				FB01E03418FF66200056609F /* LoginFacade.h */,
-				FB01E03518FF66200056609F /* LoginFacade.m */,
-				FB01E03718FF66430056609F /* Userinfo.h */,
-				FB01E03818FF66430056609F /* Userinfo.m */,
 				FB01E05D18FFCEDF0056609F /* Tools.h */,
 				FB01E05E18FFCEDF0056609F /* Tools.m */,
 			);
@@ -2385,6 +2509,7 @@
 				FBCE0D2F18F64C3E007C0489 /* room_favorite@2x.png in Resources */,
 				FB01E03218FF64050056609F /* tab_discuss@2x.png in Resources */,
 				FB01E0BD1900C9BC0056609F /* bubble-default-incoming-selected@2x.png in Resources */,
+				FBC919BB1908836400405A89 /* Login.storyboard in Resources */,
 				FB01E0C11900C9BC0056609F /* bubble-default-outgoing-green@2x.png in Resources */,
 				FB01E0DC1900C9BC0056609F /* input-bar.png in Resources */,
 				FB01E0BA1900C9BC0056609F /* bubble-default-incoming-green.png in Resources */,
@@ -2392,6 +2517,7 @@
 				FB01E0D81900C9BC0056609F /* bubble-typing.png in Resources */,
 				FB01E05818FF9FAE0056609F /* about_logo@2x.png in Resources */,
 				FB01E0E21900C9BC0056609F /* send-highlighted.png in Resources */,
+				FBC919C51908849300405A89 /* Message.storyboard in Resources */,
 				FB4DCBDD18F3B884006B6722 /* Images.xcassets in Resources */,
 				FB01E0BC1900C9BC0056609F /* bubble-default-incoming-selected.png in Resources */,
 				FB01E0DB1900C9BC0056609F /* input-bar-flat@2x.png in Resources */,
@@ -2401,6 +2527,7 @@
 				FB01E0CF1900C9BC0056609F /* bubble-flat-outgoing@2x.png in Resources */,
 				FB4DCBCC18F3B884006B6722 /* InfoPlist.strings in Resources */,
 				FBCE0D3418F64DF5007C0489 /* room_red_dot@2x.png in Resources */,
+				FBC919C31908848B00405A89 /* Me.storyboard in Resources */,
 				FB01E05C18FFA0E30056609F /* about_QR_code@2x.png in Resources */,
 				FB01E0BF1900C9BC0056609F /* bubble-default-incoming@2x.png in Resources */,
 				FB01E0C91900C9BC0056609F /* bubble-flat-incoming@2x.png in Resources */,
@@ -2408,6 +2535,7 @@
 				FB01E0C71900C9BC0056609F /* bubble-flat-incoming-selected@2x.png in Resources */,
 				FB01E0BE1900C9BC0056609F /* bubble-default-incoming.png in Resources */,
 				FB01E0CC1900C9BC0056609F /* bubble-flat-outgoing-selected.png in Resources */,
+				FBC919C11908848500405A89 /* Industry.storyboard in Resources */,
 				FB4DCFA818F3BA8A006B6722 /* README.txt in Resources */,
 				FB01E0DF1900C9BC0056609F /* input-field@2x.png in Resources */,
 				FB01E0CD1900C9BC0056609F /* bubble-flat-outgoing-selected@2x.png in Resources */,
@@ -2417,7 +2545,9 @@
 				FB01E0C51900C9BC0056609F /* bubble-default-outgoing@2x.png in Resources */,
 				FB01E0C21900C9BC0056609F /* bubble-default-outgoing-selected.png in Resources */,
 				FB01E0D31900C9BC0056609F /* bubble-square-incoming@2x.png in Resources */,
+				FBC919BD1908847500405A89 /* Buddy.storyboard in Resources */,
 				FB01E0E41900C9BC0056609F /* send.png in Resources */,
+				FBC919BF1908847C00405A89 /* Case.storyboard in Resources */,
 				FB01E0BB1900C9BC0056609F /* bubble-default-incoming-green@2x.png in Resources */,
 				FB4DCBD518F3B884006B6722 /* Main.storyboard in Resources */,
 				FB01E0DE1900C9BC0056609F /* input-field.png in Resources */,
@@ -2478,6 +2608,7 @@
 				FB4DCF8718F3BA8A006B6722 /* XMPPMessageArchiving.m in Sources */,
 				FB4DCF5118F3BA8A006B6722 /* XMPPIQ+JabberRPCResonse.m in Sources */,
 				FBD1FDF8190132AA00A263F8 /* Thread.cpp in Sources */,
+				FBC919DD1908866700405A89 /* MeFacade.m in Sources */,
 				FBD1FD881900F13F00A263F8 /* UIImageView+WebCache.m in Sources */,
 				FBD1FDF5190132AA00A263F8 /* Shared.cpp in Sources */,
 				FB4DCF3318F3BA8A006B6722 /* XMPPSCRAMSHA1Authentication.m in Sources */,
@@ -2489,6 +2620,7 @@
 				FB4DCF6018F3BA8A006B6722 /* XMPPRoomOccupantMemoryStorageObject.m in Sources */,
 				FBCE0D3D18F6B1E8007C0489 /* RoomChatMeCell.m in Sources */,
 				FB4DCBD218F3B884006B6722 /* AppDelegate.m in Sources */,
+				FBC919C8190884A700405A89 /* BuddyListTableViewController.m in Sources */,
 				FB01E05018FF83540056609F /* UIImageView+AFNetworking.m in Sources */,
 				FB01E0E91900C9BC0056609F /* UIColor+JSMessagesView.m in Sources */,
 				FB4DCF7F18F3BA8A006B6722 /* XMPPCapabilitiesCoreDataStorage.m in Sources */,
@@ -2503,6 +2635,7 @@
 				FB4DCF9C18F3BA8A006B6722 /* RFImageToDataTransformer.m in Sources */,
 				FB4DCF4318F3BA8A006B6722 /* XMPPGoogleSharedStatus.m in Sources */,
 				FB4DCF5A18F3BA8A006B6722 /* XMPPRoomHybrid.xcdatamodeld in Sources */,
+				FBC919E01908866F00405A89 /* MeTableViewController.m in Sources */,
 				FBD1FDF0190132AA00A263F8 /* Options.cpp in Sources */,
 				FB4DCF4E18F3BA8A006B6722 /* XMPPRoster.m in Sources */,
 				FB4DCF9D18F3BA8A006B6722 /* XMPPIDTracker.m in Sources */,
@@ -2517,6 +2650,7 @@
 				FB4DCF9918F3BA8A006B6722 /* NSXMLElement+XEP_0335.m in Sources */,
 				FBD1FDA51901327F00A263F8 /* SP.cpp in Sources */,
 				FBCE0D2318F64643007C0489 /* AFURLResponseSerialization.m in Sources */,
+				FBC919CE190885A000405A89 /* CaseFacade.m in Sources */,
 				FBCE0D2818F64728007C0489 /* Network.m in Sources */,
 				FB01E0B21900C9BB0056609F /* JSBubbleMessageCell.m in Sources */,
 				FB4DCF6118F3BA8A006B6722 /* XMPPMessage+XEP0045.m in Sources */,
@@ -2541,6 +2675,7 @@
 				FB4DCF9718F3BA8A006B6722 /* XMPPMessage+XEP_0308.m in Sources */,
 				FB4DCF5318F3BA8A006B6722 /* XMPPIQ+LastActivity.m in Sources */,
 				FBCE0D2118F64643007C0489 /* AFURLConnectionOperation.m in Sources */,
+				FBC919E9190886D600405A89 /* MessageFacade.m in Sources */,
 				FB4DCF9218F3BA8A006B6722 /* NSXMLElement+XEP_0203.m in Sources */,
 				FBD1FDFC190132AA00A263F8 /* Unicode.cpp in Sources */,
 				FBD1FD7C1900F13F00A263F8 /* NSData+ImageContentType.m in Sources */,
@@ -2550,7 +2685,6 @@
 				FB4DCF3018F3BA8A006B6722 /* XMPPDeprecatedPlainAuthentication.m in Sources */,
 				FB6B986D18F3DB0900120569 /* ChatOtherCell.m in Sources */,
 				FB4DCF8918F3BA8A006B6722 /* XMPPMessage+XEP_0172.m in Sources */,
-				FB01E03918FF66430056609F /* Userinfo.m in Sources */,
 				FB4DCF7018F3BA8A006B6722 /* XMPPvCardTempTel.m in Sources */,
 				FB4DCF7B18F3BA8A006B6722 /* XMPPSoftwareVersion.m in Sources */,
 				FB4DCF3218F3BA8A006B6722 /* XMPPPlainAuthentication.m in Sources */,
@@ -2561,20 +2695,23 @@
 				FB01E0EE1900CA2F0056609F /* RoomChatViewController.m in Sources */,
 				FB4DCFA718F3BA8A006B6722 /* DispatchQueueLogFormatter.m in Sources */,
 				FB4DCF3E18F3BA8A006B6722 /* XMPPParser.m in Sources */,
+				FBC919B81908834C00405A89 /* LoginFacade.m in Sources */,
 				FB6B986718F3D70300120569 /* ChatTableViewController.m in Sources */,
 				FBCE0D1E18F64643007C0489 /* AFHTTPSessionManager.m in Sources */,
 				FBD1FDE8190132AA00A263F8 /* Cond.cpp in Sources */,
+				FBC919B31908830D00405A89 /* LoginTableViewController.m in Sources */,
 				FBD1FDA41901327F00A263F8 /* ReStartableThread.cpp in Sources */,
 				FBD1FDF7190132AA00A263F8 /* StringUtil.cpp in Sources */,
 				FB4DCF4018F3BA8A006B6722 /* XMPPStream.m in Sources */,
-				FB6B986118F3C6D100120569 /* LoginTableViewController.m in Sources */,
 				FB4DCF2F18F3BA8A006B6722 /* XMPPDeprecatedDigestAuthentication.m in Sources */,
+				FBC919DA1908862C00405A89 /* IndustryFacade.m in Sources */,
 				FB4DCF8F18F3BA8A006B6722 /* XMPPPing.m in Sources */,
 				FB4DCF9118F3BA8A006B6722 /* XMPPTime.m in Sources */,
 				FB4DCF5518F3BA8A006B6722 /* XMPPPrivacy.m in Sources */,
 				FB4DCF8318F3BA8A006B6722 /* XMPPMessageArchiving.xcdatamodeld in Sources */,
 				FBCE0D2218F64643007C0489 /* AFURLRequestSerialization.m in Sources */,
 				FB6B986A18F3DAF900120569 /* ChatMeCell.m in Sources */,
+				FBC919D41908860500405A89 /* IndustryViewController.m in Sources */,
 				FBD1FDF3190132AA00A263F8 /* RecMutex.cpp in Sources */,
 				FB4DCF6518F3BA8A006B6722 /* XMPPvCardAvatarCoreDataStorageObject.m in Sources */,
 				FBB7FA3119013729008B3F8D /* CAXException.cpp in Sources */,
@@ -2593,9 +2730,11 @@
 				FB4DCF5718F3BA8A006B6722 /* XMPPRoomCoreDataStorage.m in Sources */,
 				FBD1FDEF190132AA00A263F8 /* MutexProtocol.cpp in Sources */,
 				FB01E0B41900C9BB0056609F /* JSDismissiveTextView.m in Sources */,
+				FBC919CB190884B700405A89 /* BuddyFacade.m in Sources */,
 				FBD1FDFD190132AA00A263F8 /* UUID.cpp in Sources */,
 				FB4DCF7D18F3BA8A006B6722 /* NSString+XEP_0106.m in Sources */,
 				FB4DCF6218F3BA8A006B6722 /* XMPPMUC.m in Sources */,
+				FBC919B91908834C00405A89 /* Userinfo.m in Sources */,
 				FB01E05318FF83540056609F /* UIWebView+AFNetworking.m in Sources */,
 				FB4DCF4218F3BA8A006B6722 /* XMPPCoreDataStorage.m in Sources */,
 				FBD1FD801900F13F00A263F8 /* SDWebImageDownloader.m in Sources */,
@@ -2603,6 +2742,7 @@
 				FB4DCF3818F3BA8A006B6722 /* NSXMLElement+XMPP.m in Sources */,
 				FB4DCFAA18F3BA8A006B6722 /* DDXMLDocument.m in Sources */,
 				FB4DCF9818F3BA8A006B6722 /* XMPPMessage+XEP_0333.m in Sources */,
+				FBC919E6190886CC00405A89 /* MessageListTableViewController.m in Sources */,
 				FB4DCF6F18F3BA8A006B6722 /* XMPPvCardTempModule.m in Sources */,
 				FB4DCF4918F3BA8A006B6722 /* XMPPRosterCoreDataStorage.m in Sources */,
 				FB4DCF7E18F3BA8A006B6722 /* XMPPCapabilities.xcdatamodel in Sources */,
@@ -2635,7 +2775,6 @@
 				FB4DCF8418F3BA8A006B6722 /* XMPPMessageArchiving_Contact_CoreDataObject.m in Sources */,
 				FBCE0D2018F64643007C0489 /* AFSecurityPolicy.m in Sources */,
 				FBCE0D1C18F64643007C0489 /* AFHTTPRequestOperation.m in Sources */,
-				FB01E03618FF66200056609F /* LoginFacade.m in Sources */,
 				FBD1FD8C190131A000A263F8 /* AmrFilePlayer.mm in Sources */,
 				FBCE0D1F18F64643007C0489 /* AFNetworkReachabilityManager.m in Sources */,
 				FBB7FA3019013729008B3F8D /* CAStreamBasicDescription.cpp in Sources */,
@@ -2662,6 +2801,7 @@
 				FB01E0B61900C9BC0056609F /* JSMessageSoundEffect.m in Sources */,
 				FBD1FD811900F13F00A263F8 /* SDWebImageDownloaderOperation.m in Sources */,
 				FBB7FA5419016863008B3F8D /* AudioInputUnit.cpp in Sources */,
+				FBC919D1190885AF00405A89 /* CaseViewController.m in Sources */,
 				FB4DCF3F18F3BA8A006B6722 /* XMPPPresence.m in Sources */,
 				FB4DCF5E18F3BA8A006B6722 /* XMPPRoomMemoryStorage.m in Sources */,
 				FBD1FDEA190132AA00A263F8 /* CountDownLatch.cpp in Sources */,

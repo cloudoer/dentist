@@ -64,10 +64,41 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 {
 //    [[UITabBar appearance] setBackgroundColor:UIColorFromRGB(0x2f3535)];
 }
+
+- (void)setupTheTabBarViewController
+{
+    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    
+    NSMutableArray *controllers = [NSMutableArray arrayWithArray:tabBarController.viewControllers];
+    
+    [controllers addObject:[MessageFacade instantiateInitialViewController]];
+    [controllers addObject:[CaseFacade instantiateInitialViewController]];
+    [controllers addObject:[IndustryFacade instantiateInitialViewController]];
+    [controllers addObject:[BuddyFacade instantiateInitialViewController]];
+    [controllers addObject:[MeFacade instantiateInitialViewController]];
+    
+    tabBarController.viewControllers = controllers;
+    
+    // 消息
+    [tabBarController.viewControllers[0] tabBarItem].image = [UIImage imageNamed:@"first"];
+    [tabBarController.viewControllers[0] tabBarItem].title = @"消息";
+    // 病例
+        [tabBarController.viewControllers[1] tabBarItem].image = [UIImage imageNamed:@"second"];
+        [tabBarController.viewControllers[1] tabBarItem].title = @"病例";
+    // 行业资讯
+    [tabBarController.viewControllers[2] tabBarItem].image = [UIImage imageNamed:@"first"];
+    [tabBarController.viewControllers[2] tabBarItem].title = @"资讯";
+    // 通讯录
+    [tabBarController.viewControllers[3] tabBarItem].image = [UIImage imageNamed:@"second"];
+    [tabBarController.viewControllers[3] tabBarItem].title = @"通讯录";
+    // 我
+    [tabBarController.viewControllers[4] tabBarItem].image = [UIImage imageNamed:@"first"];
+    [tabBarController.viewControllers[4] tabBarItem].title = @"我";
+}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    
+    [self setupTheTabBarViewController];
     [self setupGlobalAppearence];
     
     [self setupStream];
@@ -248,6 +279,7 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 
 - (void)joinTheRoom:(NSString *)roomName
 {
+    /*
     if (roomDict == nil) {
         roomDict = [[NSMutableDictionary alloc] initWithCapacity:20];
     }
@@ -270,7 +302,7 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
         [xmppRoom joinRoomUsingNickname:[LoginFacade sharedUserinfo].jabberId history:nil];
         
         [roomDict setValue:xmppRoom forKey:roomName];
-    }
+    }*/
 }
 
 - (void)teardownStream

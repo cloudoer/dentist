@@ -19,4 +19,6 @@
 
 + (void)loginSuccessWithXMPPvCardTemp:(XMPPvCardTemp *)vCardTemp;
 
++ (void)presentLoginViewControllerFrom:(UIViewController *)fromViewController;
+
 @end

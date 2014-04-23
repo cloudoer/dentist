@@ -17,7 +17,12 @@
 #import "XMPPFramework.h"
 #import "Define.h"
 #import "Network.h"
-#import "LoginFacade.h"
 #import "Userinfo.h"
 #import "Tools.h"
+#import "LoginFacade.h"
+#import "MeFacade.h"
+#import "BuddyFacade.h"
+#import "IndustryFacade.h"
+#import "CaseFacade.h"
+#import "MessageFacade.h"
 #endif
