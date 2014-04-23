@@ -48,16 +48,13 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 {
     [super viewWillAppear:animated];
     
-    [[self appDelegate] connect];
+    if (![LoginFacade isLogged]) {
+        [self performSegueWithIdentifier:@"Friends2Login" sender:self];
+    }else {
+        [[self appDelegate] connect];
+    }
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    
-    [self performSelector:@selector(checkAuth) withObject:0 afterDelay:15.0];
-    
-}
 
 - (void)checkAuth
 {

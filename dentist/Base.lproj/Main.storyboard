@@ -16,6 +16,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <segue destination="i3X-oN-yfT" kind="relationship" relationship="viewControllers" id="WKR-jV-ma4"/>
                         <segue destination="e2s-av-faD" kind="relationship" relationship="viewControllers" id="rg1-Om-c7I"/>
                         <segue destination="DJ2-m4-hrD" kind="relationship" relationship="viewControllers" id="0lc-MY-eBI"/>
                         <segue destination="aOM-Ot-oDt" kind="relationship" relationship="viewControllers" id="ouj-0O-eZq"/>
@@ -50,7 +51,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Friends" id="5Qd-yV-Qia"/>
                     <connections>
-                        <segue destination="dqo-rf-2Xo" kind="modal" identifier="ToLoginModal" id="b87-4w-ykz"/>
+                        <segue destination="dqo-rf-2Xo" kind="modal" identifier="Friends2Login" id="b87-4w-ykz"/>
                         <segue destination="XpO-G0-oGh" kind="push" identifier="FriendToChat" id="HMB-Ig-BLj"/>
                     </connections>
                 </tableViewController>
@@ -174,7 +175,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="18610636739@115.28.12.26" borderStyle="bezel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dqx-O2-WCF">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="alice@joy32812.com" borderStyle="bezel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dqx-O2-WCF">
                                                     <rect key="frame" x="110" y="30" width="172" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -196,7 +197,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" borderStyle="bezel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dep-4P-Pde">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="aaaaaa" borderStyle="bezel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dep-4P-Pde">
                                                     <rect key="frame" x="112" y="20" width="174" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -953,6 +954,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="ege-QJ-Afr"/>
+        <segue reference="b87-4w-ykz"/>
     </inferredMetricsTieBreakers>
 </document>
