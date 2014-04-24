@@ -23,24 +23,6 @@
 	return (AppDelegate *)[[UIApplication sharedApplication] delegate];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    if (![LoginFacade isLogged]) {
-        [LoginFacade presentLoginViewControllerFrom:self];
-    }else {
-//        [[self appDelegate] connect];
-//        NSError *error = nil;
-//        if (![self.fetchedResultsController performFetch:&error])
-//        {
-//            //        DDLogError(@"Error performing fetch: %@", error);
-//        }
-
-    }
-    
-    
-}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
