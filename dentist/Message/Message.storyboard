@@ -29,10 +29,32 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="牙医宝" id="t9v-dj-PzH"/>
+                    <connections>
+                        <segue destination="oQ4-zj-dbo" kind="push" identifier="MsgList2Detail" id="HfM-Eb-Oeb"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T6Y-ju-Dkg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="741" y="21"/>
+            <point key="canvasLocation" x="509" y="15"/>
+        </scene>
+        <!--Msg Detail View Controller-->
+        <scene sceneID="wd5-jX-RZg">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="oQ4-zj-dbo" customClass="MsgDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NGn-9O-Zjf"/>
+                        <viewControllerLayoutGuide type="bottom" id="XFO-la-Y5q"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pP5-aI-ID0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="CEl-wW-FUV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Se-zb-FYa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="900" y="15"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9yY-Z1-diV">
@@ -50,7 +72,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LME-Jo-i1O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="215" y="21"/>
+            <point key="canvasLocation" x="121" y="15"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

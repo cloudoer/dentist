@@ -8,6 +8,7 @@
 
 #import "MessageListTableViewController.h"
 #import "AppDelegate.h"
+#import "MsgDetailViewController.h"
 
 @interface MessageListTableViewController ()
 
@@ -19,6 +20,8 @@
     
     NSMutableArray *latestMsgArray;
     NSArray *finalBuddyArray;
+    
+    NSString *clickedBareJIDStr;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -146,6 +149,23 @@
     cell.textLabel.text = message.body;
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    XMPPMessageArchiving_Message_CoreDataObject *message = finalBuddyArray[indexPath.row];
+    clickedBareJIDStr = message.bareJidStr;
+    
+    [self performSegueWithIdentifier:@"MsgList2Detail" sender:self];
+    
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"MsgList2Detail"]) {
+        MsgDetailViewController *controller = segue.destinationViewController;
+        controller.bareJIDStr = clickedBareJIDStr;
+    }
 }
 
 - (void)didReceiveMemoryWarning

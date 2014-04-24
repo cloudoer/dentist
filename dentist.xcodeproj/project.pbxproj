@@ -262,6 +262,7 @@
 		FBC919E01908866F00405A89 /* MeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC919DF1908866F00405A89 /* MeTableViewController.m */; };
 		FBC919E6190886CC00405A89 /* MessageListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC919E5190886CC00405A89 /* MessageListTableViewController.m */; };
 		FBC919E9190886D600405A89 /* MessageFacade.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC919E8190886D600405A89 /* MessageFacade.m */; };
+		FBC919EF1908FD7000405A89 /* MsgDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC919EE1908FD7000405A89 /* MsgDetailViewController.m */; };
 		FBCE0D0718F62A8D007C0489 /* PersonalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCE0D0618F62A8D007C0489 /* PersonalTableViewController.m */; };
 		FBCE0D1C18F64643007C0489 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCE0D0A18F64643007C0489 /* AFHTTPRequestOperation.m */; };
 		FBCE0D1D18F64643007C0489 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCE0D0C18F64643007C0489 /* AFHTTPRequestOperationManager.m */; };
@@ -751,6 +752,8 @@
 		FBC919E5190886CC00405A89 /* MessageListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageListTableViewController.m; sourceTree = "<group>"; };
 		FBC919E7190886D600405A89 /* MessageFacade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageFacade.h; sourceTree = "<group>"; };
 		FBC919E8190886D600405A89 /* MessageFacade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageFacade.m; sourceTree = "<group>"; };
+		FBC919ED1908FD7000405A89 /* MsgDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgDetailViewController.h; sourceTree = "<group>"; };
+		FBC919EE1908FD7000405A89 /* MsgDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgDetailViewController.m; sourceTree = "<group>"; };
 		FBCE0D0518F62A8D007C0489 /* PersonalTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalTableViewController.h; sourceTree = "<group>"; };
 		FBCE0D0618F62A8D007C0489 /* PersonalTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalTableViewController.m; sourceTree = "<group>"; };
 		FBCE0D0918F64643007C0489 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -1995,6 +1998,8 @@
 				FBC919E5190886CC00405A89 /* MessageListTableViewController.m */,
 				FBC919E7190886D600405A89 /* MessageFacade.h */,
 				FBC919E8190886D600405A89 /* MessageFacade.m */,
+				FBC919ED1908FD7000405A89 /* MsgDetailViewController.h */,
+				FBC919EE1908FD7000405A89 /* MsgDetailViewController.m */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -2332,6 +2337,7 @@
 				FB4DCF3418F3BA8A006B6722 /* XMPPXFacebookPlatformAuthentication.m in Sources */,
 				FB4DCFA118F3BA8A006B6722 /* DDAbstractDatabaseLogger.m in Sources */,
 				FB4DCFA418F3BA8A006B6722 /* DDLog.m in Sources */,
+				FBC919EF1908FD7000405A89 /* MsgDetailViewController.m in Sources */,
 				FB4DCFA618F3BA8A006B6722 /* ContextFilterLogFormatter.m in Sources */,
 				FB4DCFA318F3BA8A006B6722 /* DDFileLogger.m in Sources */,
 				FB4DCF9718F3BA8A006B6722 /* XMPPMessage+XEP_0308.m in Sources */,
