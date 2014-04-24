@@ -7,7 +7,6 @@
 //
 
 #import "AFNetworking.h"
-#import "AmrFilePlayer.h"
 
 #import "RoomChatViewController.h"
 #import "AppDelegate.h"
@@ -341,6 +340,7 @@
     
 }
 
+/*
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     XMPPRoomMessageCoreDataStorageObject *message = [[self fetchedResultsController] objectAtIndexPath:indexPath];
@@ -375,7 +375,7 @@
         
         [operation start];
     }
-}
+}*/
 
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker

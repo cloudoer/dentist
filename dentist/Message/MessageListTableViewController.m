@@ -7,6 +7,7 @@
 //
 
 #import "MessageListTableViewController.h"
+#import "AppDelegate.h"
 
 @interface MessageListTableViewController ()
 
@@ -23,6 +24,10 @@
     return self;
 }
 
+- (AppDelegate *)appDelegate
+{
+	return (AppDelegate *)[[UIApplication sharedApplication] delegate];
+}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -31,7 +36,7 @@
     if (![LoginFacade isLogged]) {
         [LoginFacade presentLoginViewControllerFrom:self];
     }else {
-        //        [[self appDelegate] connect];
+        [[self appDelegate] connect];
         //        NSError *error = nil;
         //        if (![self.fetchedResultsController performFetch:&error])
         //        {

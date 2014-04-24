@@ -239,17 +239,10 @@
 		FB6B986D18F3DB0900120569 /* ChatOtherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6B986C18F3DB0900120569 /* ChatOtherCell.m */; };
 		FB6B987018F3E74700120569 /* ChatSendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6B986F18F3E74700120569 /* ChatSendCell.m */; };
 		FB6B987318F3ECB900120569 /* RoomTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6B987218F3ECB900120569 /* RoomTableViewController.m */; };
-		FBB7FA2E19013729008B3F8D /* CADebugMacros.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBB7FA2519013729008B3F8D /* CADebugMacros.cpp */; };
-		FBB7FA2F19013729008B3F8D /* CADebugPrintf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBB7FA2719013729008B3F8D /* CADebugPrintf.cpp */; };
-		FBB7FA3019013729008B3F8D /* CAStreamBasicDescription.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBB7FA2A19013729008B3F8D /* CAStreamBasicDescription.cpp */; };
-		FBB7FA3119013729008B3F8D /* CAXException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBB7FA2C19013729008B3F8D /* CAXException.cpp */; };
 		FBB7FA3319013A69008B3F8D /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB7FA3219013A69008B3F8D /* CoreAudio.framework */; };
-		FBB7FA411901636E008B3F8D /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB7FA401901636E008B3F8D /* GHUnitIOS.framework */; };
 		FBB7FA4319016396008B3F8D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB7FA4219016396008B3F8D /* MobileCoreServices.framework */; };
 		FBB7FA47190163AA008B3F8D /* libbz2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB7FA46190163AA008B3F8D /* libbz2.dylib */; };
 		FBB7FA49190163B2008B3F8D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB7FA48190163B2008B3F8D /* libz.dylib */; };
-		FBB7FA5419016863008B3F8D /* AudioInputUnit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBB7FA4E19016863008B3F8D /* AudioInputUnit.cpp */; };
-		FBB7FA5619016863008B3F8D /* AudioPlayUnit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBB7FA5219016863008B3F8D /* AudioPlayUnit.cpp */; };
 		FBC919B31908830D00405A89 /* LoginTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC919B21908830D00405A89 /* LoginTableViewController.m */; };
 		FBC919B81908834C00405A89 /* LoginFacade.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC919B51908834C00405A89 /* LoginFacade.m */; };
 		FBC919B91908834C00405A89 /* Userinfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC919B71908834C00405A89 /* Userinfo.m */; };
@@ -302,36 +295,6 @@
 		FBD1FD861900F13F00A263F8 /* UIImage+MultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD1FD761900F13F00A263F8 /* UIImage+MultiFormat.m */; };
 		FBD1FD871900F13F00A263F8 /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD1FD781900F13F00A263F8 /* UIImage+WebP.m */; };
 		FBD1FD881900F13F00A263F8 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD1FD7A1900F13F00A263F8 /* UIImageView+WebCache.m */; };
-		FBD1FD8C190131A000A263F8 /* AmrFilePlayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = FBD1FD8B190131A000A263F8 /* AmrFilePlayer.mm */; };
-		FBD1FDA21901327F00A263F8 /* BytesBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBD1FD9A1901327F00A263F8 /* BytesBuffer.cpp */; };
-		FBD1FDA31901327F00A263F8 /* HexDump.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBD1FD9C1901327F00A263F8 /* HexDump.cpp */; };
-		FBD1FDA41901327F00A263F8 /* ReStartableThread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBD1FD9E1901327F00A263F8 /* ReStartableThread.cpp */; };
-		FBD1FDA51901327F00A263F8 /* SP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBD1FDA01901327F00A263F8 /* SP.cpp */; };
-		FBD1FDE7190132AA00A263F8 /* ArgVector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBD1FDD0190132AA00A263F8 /* ArgVector.cpp */; };
-		FBD1FDE8190132AA00A263F8 /* Cond.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBD1FDD1190132AA00A263F8 /* Cond.cpp */; };
-		FBD1FDE9190132AA00A263F8 /* ConvertUTF.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBD1FDD2190132AA00A263F8 /* ConvertUTF.cpp */; };
-		FBD1FDEA190132AA00A263F8 /* CountDownLatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBD1FDD3190132AA00A263F8 /* CountDownLatch.cpp */; };
-		FBD1FDEB190132AA00A263F8 /* CtrlCHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBD1FDD4190132AA00A263F8 /* CtrlCHandler.cpp */; };
-		FBD1FDEC190132AA00A263F8 /* Exception.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBD1FDD5190132AA00A263F8 /* Exception.cpp */; };
-		FBD1FDED190132AA00A263F8 /* FileUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBD1FDD6190132AA00A263F8 /* FileUtil.cpp */; };
-		FBD1FDEE190132AA00A263F8 /* InputUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBD1FDD7190132AA00A263F8 /* InputUtil.cpp */; };
-		FBD1FDEF190132AA00A263F8 /* MutexProtocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBD1FDD8190132AA00A263F8 /* MutexProtocol.cpp */; };
-		FBD1FDF0190132AA00A263F8 /* Options.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBD1FDD9190132AA00A263F8 /* Options.cpp */; };
-		FBD1FDF1190132AA00A263F8 /* OutputUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBD1FDDA190132AA00A263F8 /* OutputUtil.cpp */; };
-		FBD1FDF2190132AA00A263F8 /* Random.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBD1FDDB190132AA00A263F8 /* Random.cpp */; };
-		FBD1FDF3190132AA00A263F8 /* RecMutex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBD1FDDC190132AA00A263F8 /* RecMutex.cpp */; };
-		FBD1FDF4190132AA00A263F8 /* RWRecMutex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBD1FDDD190132AA00A263F8 /* RWRecMutex.cpp */; };
-		FBD1FDF5190132AA00A263F8 /* Shared.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBD1FDDE190132AA00A263F8 /* Shared.cpp */; };
-		FBD1FDF6190132AA00A263F8 /* StaticMutex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBD1FDDF190132AA00A263F8 /* StaticMutex.cpp */; };
-		FBD1FDF7190132AA00A263F8 /* StringUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBD1FDE0190132AA00A263F8 /* StringUtil.cpp */; };
-		FBD1FDF8190132AA00A263F8 /* Thread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBD1FDE1190132AA00A263F8 /* Thread.cpp */; };
-		FBD1FDF9190132AA00A263F8 /* ThreadException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBD1FDE2190132AA00A263F8 /* ThreadException.cpp */; };
-		FBD1FDFA190132AA00A263F8 /* Time.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBD1FDE3190132AA00A263F8 /* Time.cpp */; };
-		FBD1FDFB190132AA00A263F8 /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBD1FDE4190132AA00A263F8 /* Timer.cpp */; };
-		FBD1FDFC190132AA00A263F8 /* Unicode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBD1FDE5190132AA00A263F8 /* Unicode.cpp */; };
-		FBD1FDFD190132AA00A263F8 /* UUID.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBD1FDE6190132AA00A263F8 /* UUID.cpp */; };
-		FBD1FE091901337900A263F8 /* libopencore-amrnb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD1FE071901337900A263F8 /* libopencore-amrnb.a */; };
-		FBD1FE0A1901337A00A263F8 /* libopencore-amrwb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD1FE081901337900A263F8 /* libopencore-amrwb.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -751,24 +714,10 @@
 		FB6B986F18F3E74700120569 /* ChatSendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatSendCell.m; sourceTree = "<group>"; };
 		FB6B987118F3ECB900120569 /* RoomTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomTableViewController.h; sourceTree = "<group>"; };
 		FB6B987218F3ECB900120569 /* RoomTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomTableViewController.m; sourceTree = "<group>"; };
-		FBB7FA2519013729008B3F8D /* CADebugMacros.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CADebugMacros.cpp; sourceTree = "<group>"; };
-		FBB7FA2619013729008B3F8D /* CADebugMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADebugMacros.h; sourceTree = "<group>"; };
-		FBB7FA2719013729008B3F8D /* CADebugPrintf.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CADebugPrintf.cpp; sourceTree = "<group>"; };
-		FBB7FA2819013729008B3F8D /* CADebugPrintf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADebugPrintf.h; sourceTree = "<group>"; };
-		FBB7FA2919013729008B3F8D /* CAMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAMath.h; sourceTree = "<group>"; };
-		FBB7FA2A19013729008B3F8D /* CAStreamBasicDescription.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CAStreamBasicDescription.cpp; sourceTree = "<group>"; };
-		FBB7FA2B19013729008B3F8D /* CAStreamBasicDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAStreamBasicDescription.h; sourceTree = "<group>"; };
-		FBB7FA2C19013729008B3F8D /* CAXException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CAXException.cpp; sourceTree = "<group>"; };
-		FBB7FA2D19013729008B3F8D /* CAXException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAXException.h; sourceTree = "<group>"; };
 		FBB7FA3219013A69008B3F8D /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
-		FBB7FA401901636E008B3F8D /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GHUnitIOS.framework; sourceTree = "<group>"; };
 		FBB7FA4219016396008B3F8D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		FBB7FA46190163AA008B3F8D /* libbz2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbz2.dylib; path = usr/lib/libbz2.dylib; sourceTree = SDKROOT; };
 		FBB7FA48190163B2008B3F8D /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		FBB7FA4E19016863008B3F8D /* AudioInputUnit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioInputUnit.cpp; sourceTree = "<group>"; };
-		FBB7FA4F19016863008B3F8D /* AudioInputUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioInputUnit.h; sourceTree = "<group>"; };
-		FBB7FA5219016863008B3F8D /* AudioPlayUnit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioPlayUnit.cpp; sourceTree = "<group>"; };
-		FBB7FA5319016863008B3F8D /* AudioPlayUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayUnit.h; sourceTree = "<group>"; };
 		FBB7FA571901690A008B3F8D /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
 		FBC919B11908830D00405A89 /* LoginTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginTableViewController.h; sourceTree = "<group>"; };
 		FBC919B21908830D00405A89 /* LoginTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginTableViewController.m; sourceTree = "<group>"; };
@@ -867,82 +816,6 @@
 		FBD1FD781900F13F00A263F8 /* UIImage+WebP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WebP.m"; sourceTree = "<group>"; };
 		FBD1FD791900F13F00A263F8 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		FBD1FD7A1900F13F00A263F8 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
-		FBD1FD8A190131A000A263F8 /* AmrFilePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmrFilePlayer.h; sourceTree = "<group>"; };
-		FBD1FD8B190131A000A263F8 /* AmrFilePlayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AmrFilePlayer.mm; sourceTree = "<group>"; };
-		FBD1FD9A1901327F00A263F8 /* BytesBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BytesBuffer.cpp; sourceTree = "<group>"; };
-		FBD1FD9B1901327F00A263F8 /* BytesBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BytesBuffer.h; sourceTree = "<group>"; };
-		FBD1FD9C1901327F00A263F8 /* HexDump.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HexDump.cpp; sourceTree = "<group>"; };
-		FBD1FD9D1901327F00A263F8 /* HexDump.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HexDump.h; sourceTree = "<group>"; };
-		FBD1FD9E1901327F00A263F8 /* ReStartableThread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ReStartableThread.cpp; sourceTree = "<group>"; };
-		FBD1FD9F1901327F00A263F8 /* ReStartableThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReStartableThread.h; sourceTree = "<group>"; };
-		FBD1FDA01901327F00A263F8 /* SP.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SP.cpp; sourceTree = "<group>"; };
-		FBD1FDA11901327F00A263F8 /* SP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SP.h; sourceTree = "<group>"; };
-		FBD1FDA9190132AA00A263F8 /* AbstractMutex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractMutex.h; sourceTree = "<group>"; };
-		FBD1FDAA190132AA00A263F8 /* ArgVector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArgVector.h; sourceTree = "<group>"; };
-		FBD1FDAB190132AA00A263F8 /* Cache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cache.h; sourceTree = "<group>"; };
-		FBD1FDAC190132AA00A263F8 /* Cond.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cond.h; sourceTree = "<group>"; };
-		FBD1FDAD190132AA00A263F8 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
-		FBD1FDAE190132AA00A263F8 /* ConvertUTF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConvertUTF.h; sourceTree = "<group>"; };
-		FBD1FDAF190132AA00A263F8 /* CountDownLatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountDownLatch.h; sourceTree = "<group>"; };
-		FBD1FDB0190132AA00A263F8 /* CtrlCHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CtrlCHandler.h; sourceTree = "<group>"; };
-		FBD1FDB1190132AA00A263F8 /* DisableWarnings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisableWarnings.h; sourceTree = "<group>"; };
-		FBD1FDB2190132AA00A263F8 /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exception.h; sourceTree = "<group>"; };
-		FBD1FDB3190132AA00A263F8 /* FileUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUtil.h; sourceTree = "<group>"; };
-		FBD1FDB4190132AA00A263F8 /* Functional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Functional.h; sourceTree = "<group>"; };
-		FBD1FDB5190132AA00A263F8 /* Handle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Handle.h; sourceTree = "<group>"; };
-		FBD1FDB6190132AA00A263F8 /* IceUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IceUtil.h; sourceTree = "<group>"; };
-		FBD1FDB7190132AA00A263F8 /* InputUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputUtil.h; sourceTree = "<group>"; };
-		FBD1FDB8190132AA00A263F8 /* Iterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Iterator.h; sourceTree = "<group>"; };
-		FBD1FDB9190132AA00A263F8 /* Lock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lock.h; sourceTree = "<group>"; };
-		FBD1FDBA190132AA00A263F8 /* Monitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Monitor.h; sourceTree = "<group>"; };
-		FBD1FDBB190132AA00A263F8 /* Mutex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mutex.h; sourceTree = "<group>"; };
-		FBD1FDBC190132AA00A263F8 /* MutexProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MutexProtocol.h; sourceTree = "<group>"; };
-		FBD1FDBD190132AA00A263F8 /* MutexPtrLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MutexPtrLock.h; sourceTree = "<group>"; };
-		FBD1FDBE190132AA00A263F8 /* MutexPtrTryLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MutexPtrTryLock.h; sourceTree = "<group>"; };
-		FBD1FDBF190132AA00A263F8 /* Options.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Options.h; sourceTree = "<group>"; };
-		FBD1FDC0190132AA00A263F8 /* OutputUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutputUtil.h; sourceTree = "<group>"; };
-		FBD1FDC1190132AA00A263F8 /* Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Random.h; sourceTree = "<group>"; };
-		FBD1FDC2190132AA00A263F8 /* RecMutex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecMutex.h; sourceTree = "<group>"; };
-		FBD1FDC3190132AA00A263F8 /* RWRecMutex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWRecMutex.h; sourceTree = "<group>"; };
-		FBD1FDC4190132AA00A263F8 /* ScopedArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScopedArray.h; sourceTree = "<group>"; };
-		FBD1FDC5190132AA00A263F8 /* Shared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shared.h; sourceTree = "<group>"; };
-		FBD1FDC6190132AA00A263F8 /* StaticMutex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaticMutex.h; sourceTree = "<group>"; };
-		FBD1FDC7190132AA00A263F8 /* StringUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringUtil.h; sourceTree = "<group>"; };
-		FBD1FDC8190132AA00A263F8 /* Thread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thread.h; sourceTree = "<group>"; };
-		FBD1FDC9190132AA00A263F8 /* ThreadException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreadException.h; sourceTree = "<group>"; };
-		FBD1FDCA190132AA00A263F8 /* Time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Time.h; sourceTree = "<group>"; };
-		FBD1FDCB190132AA00A263F8 /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
-		FBD1FDCC190132AA00A263F8 /* Unicode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Unicode.h; sourceTree = "<group>"; };
-		FBD1FDCD190132AA00A263F8 /* UUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUID.h; sourceTree = "<group>"; };
-		FBD1FDD0190132AA00A263F8 /* ArgVector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ArgVector.cpp; sourceTree = "<group>"; };
-		FBD1FDD1190132AA00A263F8 /* Cond.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Cond.cpp; sourceTree = "<group>"; };
-		FBD1FDD2190132AA00A263F8 /* ConvertUTF.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConvertUTF.cpp; sourceTree = "<group>"; };
-		FBD1FDD3190132AA00A263F8 /* CountDownLatch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CountDownLatch.cpp; sourceTree = "<group>"; };
-		FBD1FDD4190132AA00A263F8 /* CtrlCHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CtrlCHandler.cpp; sourceTree = "<group>"; };
-		FBD1FDD5190132AA00A263F8 /* Exception.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Exception.cpp; sourceTree = "<group>"; };
-		FBD1FDD6190132AA00A263F8 /* FileUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileUtil.cpp; sourceTree = "<group>"; };
-		FBD1FDD7190132AA00A263F8 /* InputUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputUtil.cpp; sourceTree = "<group>"; };
-		FBD1FDD8190132AA00A263F8 /* MutexProtocol.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MutexProtocol.cpp; sourceTree = "<group>"; };
-		FBD1FDD9190132AA00A263F8 /* Options.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Options.cpp; sourceTree = "<group>"; };
-		FBD1FDDA190132AA00A263F8 /* OutputUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OutputUtil.cpp; sourceTree = "<group>"; };
-		FBD1FDDB190132AA00A263F8 /* Random.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Random.cpp; sourceTree = "<group>"; };
-		FBD1FDDC190132AA00A263F8 /* RecMutex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RecMutex.cpp; sourceTree = "<group>"; };
-		FBD1FDDD190132AA00A263F8 /* RWRecMutex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RWRecMutex.cpp; sourceTree = "<group>"; };
-		FBD1FDDE190132AA00A263F8 /* Shared.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shared.cpp; sourceTree = "<group>"; };
-		FBD1FDDF190132AA00A263F8 /* StaticMutex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StaticMutex.cpp; sourceTree = "<group>"; };
-		FBD1FDE0190132AA00A263F8 /* StringUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StringUtil.cpp; sourceTree = "<group>"; };
-		FBD1FDE1190132AA00A263F8 /* Thread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Thread.cpp; sourceTree = "<group>"; };
-		FBD1FDE2190132AA00A263F8 /* ThreadException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ThreadException.cpp; sourceTree = "<group>"; };
-		FBD1FDE3190132AA00A263F8 /* Time.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Time.cpp; sourceTree = "<group>"; };
-		FBD1FDE4190132AA00A263F8 /* Timer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Timer.cpp; sourceTree = "<group>"; };
-		FBD1FDE5190132AA00A263F8 /* Unicode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Unicode.cpp; sourceTree = "<group>"; };
-		FBD1FDE6190132AA00A263F8 /* UUID.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UUID.cpp; sourceTree = "<group>"; };
-		FBD1FE011901337900A263F8 /* interf_dec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interf_dec.h; sourceTree = "<group>"; };
-		FBD1FE021901337900A263F8 /* interf_enc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interf_enc.h; sourceTree = "<group>"; };
-		FBD1FE041901337900A263F8 /* dec_if.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dec_if.h; sourceTree = "<group>"; };
-		FBD1FE051901337900A263F8 /* if_rom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = if_rom.h; sourceTree = "<group>"; };
-		FBD1FE071901337900A263F8 /* libopencore-amrnb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a"; sourceTree = "<group>"; };
-		FBD1FE081901337900A263F8 /* libopencore-amrwb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrwb.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -962,12 +835,9 @@
 				FB4DCFAE18F3BA8A006B6722 /* libidn.a in Frameworks */,
 				FB4DCDD118F3BA1C006B6722 /* CFNetwork.framework in Frameworks */,
 				FB4DCDCF18F3BA16006B6722 /* CoreLocation.framework in Frameworks */,
-				FBB7FA411901636E008B3F8D /* GHUnitIOS.framework in Frameworks */,
 				FB4DCDCD18F3BA10006B6722 /* CoreData.framework in Frameworks */,
-				FBD1FE091901337900A263F8 /* libopencore-amrnb.a in Frameworks */,
 				FB4DCBC418F3B884006B6722 /* CoreGraphics.framework in Frameworks */,
 				FB4DCBC618F3B884006B6722 /* UIKit.framework in Frameworks */,
-				FBD1FE0A1901337A00A263F8 /* libopencore-amrwb.a in Frameworks */,
 				FB4DCBC218F3B884006B6722 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1185,7 +1055,6 @@
 				FBB7FA48190163B2008B3F8D /* libz.dylib */,
 				FBB7FA46190163AA008B3F8D /* libbz2.dylib */,
 				FBB7FA4219016396008B3F8D /* MobileCoreServices.framework */,
-				FBB7FA401901636E008B3F8D /* GHUnitIOS.framework */,
 				FBB7FA3219013A69008B3F8D /* CoreAudio.framework */,
 				FB01E0651900C92B0056609F /* AudioToolbox.framework */,
 				FB4DCDD818F3BA36006B6722 /* libresolv.dylib */,
@@ -1206,11 +1075,6 @@
 		FB4DCBC718F3B884006B6722 /* dentist */ = {
 			isa = PBXGroup;
 			children = (
-				FBB7FA2419013729008B3F8D /* PublicUtility */,
-				FBD1FDFE1901337900A263F8 /* amr */,
-				FBD1FDA6190132AA00A263F8 /* ice-lib */,
-				FBD1FD991901327F00A263F8 /* ring */,
-				FBD1FD89190131A000A263F8 /* ArmFile */,
 				FB01E0671900C9AB0056609F /* 3rd */,
 				FBCE0D2918F64A94007C0489 /* images */,
 				FBCE0D2518F64672007C0489 /* Common */,
@@ -2135,22 +1999,6 @@
 			path = Message;
 			sourceTree = "<group>";
 		};
-		FBB7FA2419013729008B3F8D /* PublicUtility */ = {
-			isa = PBXGroup;
-			children = (
-				FBB7FA2519013729008B3F8D /* CADebugMacros.cpp */,
-				FBB7FA2619013729008B3F8D /* CADebugMacros.h */,
-				FBB7FA2719013729008B3F8D /* CADebugPrintf.cpp */,
-				FBB7FA2819013729008B3F8D /* CADebugPrintf.h */,
-				FBB7FA2919013729008B3F8D /* CAMath.h */,
-				FBB7FA2A19013729008B3F8D /* CAStreamBasicDescription.cpp */,
-				FBB7FA2B19013729008B3F8D /* CAStreamBasicDescription.h */,
-				FBB7FA2C19013729008B3F8D /* CAXException.cpp */,
-				FBB7FA2D19013729008B3F8D /* CAXException.h */,
-			);
-			path = PublicUtility;
-			sourceTree = "<group>";
-		};
 		FBCE0D0818F64643007C0489 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -2239,178 +2087,6 @@
 				FBD1FD7A1900F13F00A263F8 /* UIImageView+WebCache.m */,
 			);
 			path = SDWebImage;
-			sourceTree = "<group>";
-		};
-		FBD1FD89190131A000A263F8 /* ArmFile */ = {
-			isa = PBXGroup;
-			children = (
-				FBB7FA4E19016863008B3F8D /* AudioInputUnit.cpp */,
-				FBB7FA4F19016863008B3F8D /* AudioInputUnit.h */,
-				FBB7FA5219016863008B3F8D /* AudioPlayUnit.cpp */,
-				FBB7FA5319016863008B3F8D /* AudioPlayUnit.h */,
-				FBD1FD8A190131A000A263F8 /* AmrFilePlayer.h */,
-				FBD1FD8B190131A000A263F8 /* AmrFilePlayer.mm */,
-			);
-			path = ArmFile;
-			sourceTree = "<group>";
-		};
-		FBD1FD991901327F00A263F8 /* ring */ = {
-			isa = PBXGroup;
-			children = (
-				FBD1FD9A1901327F00A263F8 /* BytesBuffer.cpp */,
-				FBD1FD9B1901327F00A263F8 /* BytesBuffer.h */,
-				FBD1FD9C1901327F00A263F8 /* HexDump.cpp */,
-				FBD1FD9D1901327F00A263F8 /* HexDump.h */,
-				FBD1FD9E1901327F00A263F8 /* ReStartableThread.cpp */,
-				FBD1FD9F1901327F00A263F8 /* ReStartableThread.h */,
-				FBD1FDA01901327F00A263F8 /* SP.cpp */,
-				FBD1FDA11901327F00A263F8 /* SP.h */,
-			);
-			path = ring;
-			sourceTree = "<group>";
-		};
-		FBD1FDA6190132AA00A263F8 /* ice-lib */ = {
-			isa = PBXGroup;
-			children = (
-				FBD1FDA7190132AA00A263F8 /* include */,
-				FBD1FDCE190132AA00A263F8 /* src */,
-			);
-			path = "ice-lib";
-			sourceTree = "<group>";
-		};
-		FBD1FDA7190132AA00A263F8 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				FBD1FDA8190132AA00A263F8 /* IceUtil */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		FBD1FDA8190132AA00A263F8 /* IceUtil */ = {
-			isa = PBXGroup;
-			children = (
-				FBD1FDA9190132AA00A263F8 /* AbstractMutex.h */,
-				FBD1FDAA190132AA00A263F8 /* ArgVector.h */,
-				FBD1FDAB190132AA00A263F8 /* Cache.h */,
-				FBD1FDAC190132AA00A263F8 /* Cond.h */,
-				FBD1FDAD190132AA00A263F8 /* Config.h */,
-				FBD1FDAE190132AA00A263F8 /* ConvertUTF.h */,
-				FBD1FDAF190132AA00A263F8 /* CountDownLatch.h */,
-				FBD1FDB0190132AA00A263F8 /* CtrlCHandler.h */,
-				FBD1FDB1190132AA00A263F8 /* DisableWarnings.h */,
-				FBD1FDB2190132AA00A263F8 /* Exception.h */,
-				FBD1FDB3190132AA00A263F8 /* FileUtil.h */,
-				FBD1FDB4190132AA00A263F8 /* Functional.h */,
-				FBD1FDB5190132AA00A263F8 /* Handle.h */,
-				FBD1FDB6190132AA00A263F8 /* IceUtil.h */,
-				FBD1FDB7190132AA00A263F8 /* InputUtil.h */,
-				FBD1FDB8190132AA00A263F8 /* Iterator.h */,
-				FBD1FDB9190132AA00A263F8 /* Lock.h */,
-				FBD1FDBA190132AA00A263F8 /* Monitor.h */,
-				FBD1FDBB190132AA00A263F8 /* Mutex.h */,
-				FBD1FDBC190132AA00A263F8 /* MutexProtocol.h */,
-				FBD1FDBD190132AA00A263F8 /* MutexPtrLock.h */,
-				FBD1FDBE190132AA00A263F8 /* MutexPtrTryLock.h */,
-				FBD1FDBF190132AA00A263F8 /* Options.h */,
-				FBD1FDC0190132AA00A263F8 /* OutputUtil.h */,
-				FBD1FDC1190132AA00A263F8 /* Random.h */,
-				FBD1FDC2190132AA00A263F8 /* RecMutex.h */,
-				FBD1FDC3190132AA00A263F8 /* RWRecMutex.h */,
-				FBD1FDC4190132AA00A263F8 /* ScopedArray.h */,
-				FBD1FDC5190132AA00A263F8 /* Shared.h */,
-				FBD1FDC6190132AA00A263F8 /* StaticMutex.h */,
-				FBD1FDC7190132AA00A263F8 /* StringUtil.h */,
-				FBD1FDC8190132AA00A263F8 /* Thread.h */,
-				FBD1FDC9190132AA00A263F8 /* ThreadException.h */,
-				FBD1FDCA190132AA00A263F8 /* Time.h */,
-				FBD1FDCB190132AA00A263F8 /* Timer.h */,
-				FBD1FDCC190132AA00A263F8 /* Unicode.h */,
-				FBD1FDCD190132AA00A263F8 /* UUID.h */,
-			);
-			path = IceUtil;
-			sourceTree = "<group>";
-		};
-		FBD1FDCE190132AA00A263F8 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				FBD1FDCF190132AA00A263F8 /* IceUtil */,
-			);
-			path = src;
-			sourceTree = "<group>";
-		};
-		FBD1FDCF190132AA00A263F8 /* IceUtil */ = {
-			isa = PBXGroup;
-			children = (
-				FBD1FDD0190132AA00A263F8 /* ArgVector.cpp */,
-				FBD1FDD1190132AA00A263F8 /* Cond.cpp */,
-				FBD1FDD2190132AA00A263F8 /* ConvertUTF.cpp */,
-				FBD1FDD3190132AA00A263F8 /* CountDownLatch.cpp */,
-				FBD1FDD4190132AA00A263F8 /* CtrlCHandler.cpp */,
-				FBD1FDD5190132AA00A263F8 /* Exception.cpp */,
-				FBD1FDD6190132AA00A263F8 /* FileUtil.cpp */,
-				FBD1FDD7190132AA00A263F8 /* InputUtil.cpp */,
-				FBD1FDD8190132AA00A263F8 /* MutexProtocol.cpp */,
-				FBD1FDD9190132AA00A263F8 /* Options.cpp */,
-				FBD1FDDA190132AA00A263F8 /* OutputUtil.cpp */,
-				FBD1FDDB190132AA00A263F8 /* Random.cpp */,
-				FBD1FDDC190132AA00A263F8 /* RecMutex.cpp */,
-				FBD1FDDD190132AA00A263F8 /* RWRecMutex.cpp */,
-				FBD1FDDE190132AA00A263F8 /* Shared.cpp */,
-				FBD1FDDF190132AA00A263F8 /* StaticMutex.cpp */,
-				FBD1FDE0190132AA00A263F8 /* StringUtil.cpp */,
-				FBD1FDE1190132AA00A263F8 /* Thread.cpp */,
-				FBD1FDE2190132AA00A263F8 /* ThreadException.cpp */,
-				FBD1FDE3190132AA00A263F8 /* Time.cpp */,
-				FBD1FDE4190132AA00A263F8 /* Timer.cpp */,
-				FBD1FDE5190132AA00A263F8 /* Unicode.cpp */,
-				FBD1FDE6190132AA00A263F8 /* UUID.cpp */,
-			);
-			path = IceUtil;
-			sourceTree = "<group>";
-		};
-		FBD1FDFE1901337900A263F8 /* amr */ = {
-			isa = PBXGroup;
-			children = (
-				FBD1FDFF1901337900A263F8 /* include */,
-				FBD1FE061901337900A263F8 /* lib */,
-			);
-			path = amr;
-			sourceTree = "<group>";
-		};
-		FBD1FDFF1901337900A263F8 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				FBD1FE001901337900A263F8 /* opencore-amrnb */,
-				FBD1FE031901337900A263F8 /* opencore-amrwb */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		FBD1FE001901337900A263F8 /* opencore-amrnb */ = {
-			isa = PBXGroup;
-			children = (
-				FBD1FE011901337900A263F8 /* interf_dec.h */,
-				FBD1FE021901337900A263F8 /* interf_enc.h */,
-			);
-			path = "opencore-amrnb";
-			sourceTree = "<group>";
-		};
-		FBD1FE031901337900A263F8 /* opencore-amrwb */ = {
-			isa = PBXGroup;
-			children = (
-				FBD1FE041901337900A263F8 /* dec_if.h */,
-				FBD1FE051901337900A263F8 /* if_rom.h */,
-			);
-			path = "opencore-amrwb";
-			sourceTree = "<group>";
-		};
-		FBD1FE061901337900A263F8 /* lib */ = {
-			isa = PBXGroup;
-			children = (
-				FBD1FE071901337900A263F8 /* libopencore-amrnb.a */,
-				FBD1FE081901337900A263F8 /* libopencore-amrwb.a */,
-			);
-			path = lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2586,10 +2262,8 @@
 				FB01E0EB1900C9BC0056609F /* UIView+AnimationOptionsForCurve.m in Sources */,
 				FBCE0D2418F64643007C0489 /* AFURLSessionManager.m in Sources */,
 				FB4DCF3B18F3BA8A006B6722 /* XMPPJID.m in Sources */,
-				FBD1FDF4190132AA00A263F8 /* RWRecMutex.cpp in Sources */,
 				FB6B987318F3ECB900120569 /* RoomTableViewController.m in Sources */,
 				FB4DCF3718F3BA8A006B6722 /* NSNumber+XMPP.m in Sources */,
-				FBB7FA2E19013729008B3F8D /* CADebugMacros.cpp in Sources */,
 				FB4DCF8E18F3BA8A006B6722 /* XMPPAutoPing.m in Sources */,
 				FB01E06218FFD2730056609F /* AddDiscussTableViewController.m in Sources */,
 				FB01E0B81900C9BC0056609F /* JSMessageTextView.m in Sources */,
@@ -2607,14 +2281,11 @@
 				FB4DCF7418F3BA8A006B6722 /* XMPPPubSub.m in Sources */,
 				FB4DCF8718F3BA8A006B6722 /* XMPPMessageArchiving.m in Sources */,
 				FB4DCF5118F3BA8A006B6722 /* XMPPIQ+JabberRPCResonse.m in Sources */,
-				FBD1FDF8190132AA00A263F8 /* Thread.cpp in Sources */,
 				FBC919DD1908866700405A89 /* MeFacade.m in Sources */,
 				FBD1FD881900F13F00A263F8 /* UIImageView+WebCache.m in Sources */,
-				FBD1FDF5190132AA00A263F8 /* Shared.cpp in Sources */,
 				FB4DCF3318F3BA8A006B6722 /* XMPPSCRAMSHA1Authentication.m in Sources */,
 				FB4DCFAB18F3BA8A006B6722 /* DDXMLElement.m in Sources */,
 				FB4DCF8818F3BA8A006B6722 /* XMPPvCardAvatarModule.m in Sources */,
-				FBD1FDE7190132AA00A263F8 /* ArgVector.cpp in Sources */,
 				FB01E04C18FF83540056609F /* AFNetworkActivityIndicatorManager.m in Sources */,
 				FB4DCF6618F3BA8A006B6722 /* XMPPvCardCoreDataStorage.m in Sources */,
 				FB4DCF6018F3BA8A006B6722 /* XMPPRoomOccupantMemoryStorageObject.m in Sources */,
@@ -2625,21 +2296,16 @@
 				FB01E0E91900C9BC0056609F /* UIColor+JSMessagesView.m in Sources */,
 				FB4DCF7F18F3BA8A006B6722 /* XMPPCapabilitiesCoreDataStorage.m in Sources */,
 				FB4DCF6A18F3BA8A006B6722 /* XMPPvCardTempAdr.m in Sources */,
-				FBD1FDF2190132AA00A263F8 /* Random.cpp in Sources */,
 				FB4DCF3118F3BA8A006B6722 /* XMPPDigestMD5Authentication.m in Sources */,
-				FBD1FDEC190132AA00A263F8 /* Exception.cpp in Sources */,
 				FB4DCF5418F3BA8A006B6722 /* XMPPLastActivity.m in Sources */,
 				FB4DCF8118F3BA8A006B6722 /* XMPPCapsResourceCoreDataStorageObject.m in Sources */,
-				FBD1FDF9190132AA00A263F8 /* ThreadException.cpp in Sources */,
 				FB4DCF4B18F3BA8A006B6722 /* XMPPResourceMemoryStorageObject.m in Sources */,
 				FB4DCF9C18F3BA8A006B6722 /* RFImageToDataTransformer.m in Sources */,
 				FB4DCF4318F3BA8A006B6722 /* XMPPGoogleSharedStatus.m in Sources */,
 				FB4DCF5A18F3BA8A006B6722 /* XMPPRoomHybrid.xcdatamodeld in Sources */,
 				FBC919E01908866F00405A89 /* MeTableViewController.m in Sources */,
-				FBD1FDF0190132AA00A263F8 /* Options.cpp in Sources */,
 				FB4DCF4E18F3BA8A006B6722 /* XMPPRoster.m in Sources */,
 				FB4DCF9D18F3BA8A006B6722 /* XMPPIDTracker.m in Sources */,
-				FBB7FA5619016863008B3F8D /* AudioPlayUnit.cpp in Sources */,
 				FB4DCF7818F3BA8A006B6722 /* NSDate+XMPPDateTimeProfiles.m in Sources */,
 				FB4DCFAC18F3BA8A006B6722 /* DDXMLNode.m in Sources */,
 				FB4DCF3C18F3BA8A006B6722 /* XMPPMessage.m in Sources */,
@@ -2648,7 +2314,6 @@
 				FB4DCF7618F3BA8A006B6722 /* XMPPIQ+XEP_0066.m in Sources */,
 				FBCE0D0718F62A8D007C0489 /* PersonalTableViewController.m in Sources */,
 				FB4DCF9918F3BA8A006B6722 /* NSXMLElement+XEP_0335.m in Sources */,
-				FBD1FDA51901327F00A263F8 /* SP.cpp in Sources */,
 				FBCE0D2318F64643007C0489 /* AFURLResponseSerialization.m in Sources */,
 				FBC919CE190885A000405A89 /* CaseFacade.m in Sources */,
 				FBCE0D2818F64728007C0489 /* Network.m in Sources */,
@@ -2658,8 +2323,6 @@
 				FBD1FD851900F13F00A263F8 /* UIImage+GIF.m in Sources */,
 				FBD1FD871900F13F00A263F8 /* UIImage+WebP.m in Sources */,
 				FB4DCF7518F3BA8A006B6722 /* TURNSocket.m in Sources */,
-				FBD1FDA21901327F00A263F8 /* BytesBuffer.cpp in Sources */,
-				FBD1FDFA190132AA00A263F8 /* Time.cpp in Sources */,
 				FB4DCF4518F3BA8A006B6722 /* XMPPReconnect.m in Sources */,
 				FB4DCF6818F3BA8A006B6722 /* XMPPvCardTempCoreDataStorageObject.m in Sources */,
 				FBD1FD841900F13F00A263F8 /* UIButton+WebCache.m in Sources */,
@@ -2670,17 +2333,14 @@
 				FB4DCFA118F3BA8A006B6722 /* DDAbstractDatabaseLogger.m in Sources */,
 				FB4DCFA418F3BA8A006B6722 /* DDLog.m in Sources */,
 				FB4DCFA618F3BA8A006B6722 /* ContextFilterLogFormatter.m in Sources */,
-				FBD1FDFB190132AA00A263F8 /* Timer.cpp in Sources */,
 				FB4DCFA318F3BA8A006B6722 /* DDFileLogger.m in Sources */,
 				FB4DCF9718F3BA8A006B6722 /* XMPPMessage+XEP_0308.m in Sources */,
 				FB4DCF5318F3BA8A006B6722 /* XMPPIQ+LastActivity.m in Sources */,
 				FBCE0D2118F64643007C0489 /* AFURLConnectionOperation.m in Sources */,
 				FBC919E9190886D600405A89 /* MessageFacade.m in Sources */,
 				FB4DCF9218F3BA8A006B6722 /* NSXMLElement+XEP_0203.m in Sources */,
-				FBD1FDFC190132AA00A263F8 /* Unicode.cpp in Sources */,
 				FBD1FD7C1900F13F00A263F8 /* NSData+ImageContentType.m in Sources */,
 				FB4DCF5F18F3BA8A006B6722 /* XMPPRoomMessageMemoryStorageObject.m in Sources */,
-				FBD1FDF6190132AA00A263F8 /* StaticMutex.cpp in Sources */,
 				FB4DCF9518F3BA8A006B6722 /* XMPPMessage+XEP_0224.m in Sources */,
 				FB4DCF3018F3BA8A006B6722 /* XMPPDeprecatedPlainAuthentication.m in Sources */,
 				FB6B986D18F3DB0900120569 /* ChatOtherCell.m in Sources */,
@@ -2689,7 +2349,6 @@
 				FB4DCF7B18F3BA8A006B6722 /* XMPPSoftwareVersion.m in Sources */,
 				FB4DCF3218F3BA8A006B6722 /* XMPPPlainAuthentication.m in Sources */,
 				FB4DCF4818F3BA8A006B6722 /* XMPPRoster.xcdatamodel in Sources */,
-				FBD1FDA31901327F00A263F8 /* HexDump.cpp in Sources */,
 				FB4DCF8018F3BA8A006B6722 /* XMPPCapsCoreDataStorageObject.m in Sources */,
 				FB4DCF9A18F3BA8A006B6722 /* DDList.m in Sources */,
 				FB01E0EE1900CA2F0056609F /* RoomChatViewController.m in Sources */,
@@ -2698,10 +2357,7 @@
 				FBC919B81908834C00405A89 /* LoginFacade.m in Sources */,
 				FB6B986718F3D70300120569 /* ChatTableViewController.m in Sources */,
 				FBCE0D1E18F64643007C0489 /* AFHTTPSessionManager.m in Sources */,
-				FBD1FDE8190132AA00A263F8 /* Cond.cpp in Sources */,
 				FBC919B31908830D00405A89 /* LoginTableViewController.m in Sources */,
-				FBD1FDA41901327F00A263F8 /* ReStartableThread.cpp in Sources */,
-				FBD1FDF7190132AA00A263F8 /* StringUtil.cpp in Sources */,
 				FB4DCF4018F3BA8A006B6722 /* XMPPStream.m in Sources */,
 				FB4DCF2F18F3BA8A006B6722 /* XMPPDeprecatedDigestAuthentication.m in Sources */,
 				FBC919DA1908862C00405A89 /* IndustryFacade.m in Sources */,
@@ -2712,9 +2368,7 @@
 				FBCE0D2218F64643007C0489 /* AFURLRequestSerialization.m in Sources */,
 				FB6B986A18F3DAF900120569 /* ChatMeCell.m in Sources */,
 				FBC919D41908860500405A89 /* IndustryViewController.m in Sources */,
-				FBD1FDF3190132AA00A263F8 /* RecMutex.cpp in Sources */,
 				FB4DCF6518F3BA8A006B6722 /* XMPPvCardAvatarCoreDataStorageObject.m in Sources */,
-				FBB7FA3119013729008B3F8D /* CAXException.cpp in Sources */,
 				FB4DCF5618F3BA8A006B6722 /* XMPPRoom.xcdatamodeld in Sources */,
 				FB4DCFA518F3BA8A006B6722 /* DDTTYLogger.m in Sources */,
 				FB4DCF9E18F3BA8A006B6722 /* XMPPSRVResolver.m in Sources */,
@@ -2728,10 +2382,8 @@
 				FB4DCF5918F3BA8A006B6722 /* XMPPRoomOccupantCoreDataStorageObject.m in Sources */,
 				FB4DCF6B18F3BA8A006B6722 /* XMPPvCardTempAdrTypes.m in Sources */,
 				FB4DCF5718F3BA8A006B6722 /* XMPPRoomCoreDataStorage.m in Sources */,
-				FBD1FDEF190132AA00A263F8 /* MutexProtocol.cpp in Sources */,
 				FB01E0B41900C9BB0056609F /* JSDismissiveTextView.m in Sources */,
 				FBC919CB190884B700405A89 /* BuddyFacade.m in Sources */,
-				FBD1FDFD190132AA00A263F8 /* UUID.cpp in Sources */,
 				FB4DCF7D18F3BA8A006B6722 /* NSString+XEP_0106.m in Sources */,
 				FB4DCF6218F3BA8A006B6722 /* XMPPMUC.m in Sources */,
 				FBC919B91908834C00405A89 /* Userinfo.m in Sources */,
@@ -2748,9 +2400,6 @@
 				FB4DCF7E18F3BA8A006B6722 /* XMPPCapabilities.xcdatamodel in Sources */,
 				FBCE0D4018F6B1F9007C0489 /* RoomChatOtherCell.m in Sources */,
 				FB4DCF7218F3BA8A006B6722 /* XMPPResultSet.m in Sources */,
-				FBB7FA2F19013729008B3F8D /* CADebugPrintf.cpp in Sources */,
-				FBD1FDEE190132AA00A263F8 /* InputUtil.cpp in Sources */,
-				FBD1FDEB190132AA00A263F8 /* CtrlCHandler.cpp in Sources */,
 				FB6B986418F3C8CE00120569 /* FriendTableViewController.m in Sources */,
 				FB4DCF6E18F3BA8A006B6722 /* XMPPvCardTempLabel.m in Sources */,
 				FB4DCF8A18F3BA8A006B6722 /* XMPPPresence+XEP_0172.m in Sources */,
@@ -2761,7 +2410,6 @@
 				FB4DCF3A18F3BA8A006B6722 /* XMPPIQ.m in Sources */,
 				FBCE0D3718F680D3007C0489 /* RoomInfo.m in Sources */,
 				FB4DCF7318F3BA8A006B6722 /* XMPPIQ+XEP_0060.m in Sources */,
-				FBD1FDF1190132AA00A263F8 /* OutputUtil.cpp in Sources */,
 				FB4DCF2E18F3BA8A006B6722 /* XMPPAnonymousAuthentication.m in Sources */,
 				FB01E05118FF83540056609F /* UIProgressView+AFNetworking.m in Sources */,
 				FB01E04D18FF83540056609F /* UIActivityIndicatorView+AFNetworking.m in Sources */,
@@ -2775,9 +2423,7 @@
 				FB4DCF8418F3BA8A006B6722 /* XMPPMessageArchiving_Contact_CoreDataObject.m in Sources */,
 				FBCE0D2018F64643007C0489 /* AFSecurityPolicy.m in Sources */,
 				FBCE0D1C18F64643007C0489 /* AFHTTPRequestOperation.m in Sources */,
-				FBD1FD8C190131A000A263F8 /* AmrFilePlayer.mm in Sources */,
 				FBCE0D1F18F64643007C0489 /* AFNetworkReachabilityManager.m in Sources */,
-				FBB7FA3019013729008B3F8D /* CAStreamBasicDescription.cpp in Sources */,
 				FB4DCF4A18F3BA8A006B6722 /* XMPPUserCoreDataStorageObject.m in Sources */,
 				FB4DCF5B18F3BA8A006B6722 /* XMPPRoomHybridStorage.m in Sources */,
 				FB01E05618FF9F040056609F /* AboutTableViewController.m in Sources */,
@@ -2788,23 +2434,19 @@
 				FB4DCF6718F3BA8A006B6722 /* XMPPvCardCoreDataStorageObject.m in Sources */,
 				FB4DCFA918F3BA8A006B6722 /* NSString+DDXML.m in Sources */,
 				FB4DCF9F18F3BA8A006B6722 /* XMPPStringPrep.m in Sources */,
-				FBD1FDED190132AA00A263F8 /* FileUtil.cpp in Sources */,
 				FB01E05F18FFCEDF0056609F /* Tools.m in Sources */,
 				FB4DCBCE18F3B884006B6722 /* main.m in Sources */,
 				FB4DCF9418F3BA8A006B6722 /* XMPPAttentionModule.m in Sources */,
 				FB4DCF4718F3BA8A006B6722 /* XMPPResourceCoreDataStorageObject.m in Sources */,
 				FB4DCF5C18F3BA8A006B6722 /* XMPPRoomMessageHybridCoreDataStorageObject.m in Sources */,
 				FB4DCF9018F3BA8A006B6722 /* XMPPAutoTime.m in Sources */,
-				FBD1FDE9190132AA00A263F8 /* ConvertUTF.cpp in Sources */,
 				FBD1FD7B1900F13F00A263F8 /* MKAnnotationView+WebCache.m in Sources */,
 				FBD1FD7E1900F13F00A263F8 /* SDWebImageCompat.m in Sources */,
 				FB01E0B61900C9BC0056609F /* JSMessageSoundEffect.m in Sources */,
 				FBD1FD811900F13F00A263F8 /* SDWebImageDownloaderOperation.m in Sources */,
-				FBB7FA5419016863008B3F8D /* AudioInputUnit.cpp in Sources */,
 				FBC919D1190885AF00405A89 /* CaseViewController.m in Sources */,
 				FB4DCF3F18F3BA8A006B6722 /* XMPPPresence.m in Sources */,
 				FB4DCF5E18F3BA8A006B6722 /* XMPPRoomMemoryStorage.m in Sources */,
-				FBD1FDEA190132AA00A263F8 /* CountDownLatch.cpp in Sources */,
 				FB4DCF7118F3BA8A006B6722 /* NSXMLElement+XEP_0059.m in Sources */,
 				FB4DCF8B18F3BA8A006B6722 /* XMPPMessage+XEP_0184.m in Sources */,
 				FB01E04F18FF83540056609F /* UIButton+AFNetworking.m in Sources */,
@@ -2961,18 +2603,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/dentist/XMPP/Vendor/libidn",
-					"$(PROJECT_DIR)/dentist/amr/lib",
-					"$(SRCROOT)/dentist/amr/lib",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				OTHER_CFLAGS = (
-					"-Identist/Ice-lib/include",
-					"-Identist/Ice-lib/src",
-					"-Identist/amr/include/opencore-amrnb",
-					"-Identist/PublicUtility",
-					"-Identist/ring",
-					"-Identist/audio",
-				);
+				OTHER_CFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -3000,17 +2633,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/dentist/XMPP/Vendor/libidn",
-					"$(PROJECT_DIR)/dentist/amr/lib",
-					"$(SRCROOT)/dentist/amr/lib",
 				);
-				OTHER_CFLAGS = (
-					"-Identist/Ice-lib/include",
-					"-Identist/Ice-lib/src",
-					"-Identist/amr/include/opencore-amrnb",
-					"-Identist/PublicUtility",
-					"-Identist/ring",
-					"-Identist/audio",
-				);
+				OTHER_CFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
