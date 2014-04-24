@@ -340,6 +340,7 @@ static XMPPMessageArchivingCoreDataStorage *sharedInstance;
 	
 	if ([messageBody length] == 0)
 	{
+        return;
 		// Message doesn't have a body.
 		// Check to see if it has a chat state (composing, paused, etc).
 		

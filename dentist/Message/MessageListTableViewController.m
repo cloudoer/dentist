@@ -16,6 +16,9 @@
 @implementation MessageListTableViewController
 {
     NSFetchedResultsController *fetchedResultsController;
+    
+    NSMutableArray *latestMsgArray;
+    NSArray *finalBuddyArray;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -62,7 +65,7 @@
                                                              inManagedObjectContext:moc];
         NSFetchRequest *request = [[NSFetchRequest alloc]init];
         request.entity = entityDescription;
-        request.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"timestamp" ascending:YES]];
+        request.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"bareJidStr" ascending:NO], [[NSSortDescriptor alloc] initWithKey:@"timestamp" ascending:NO]];
         request.fetchBatchSize = 20;
 //        request.predicate = [NSPredicate predicateWithFormat:@"bareJidStr contains %@", self.userStr];
 //        [request setReturnsDistinctResults:YES];
@@ -100,15 +103,40 @@
     }
 }
 
+- (void)getLatestMsgArray
+{
+    
+    latestMsgArray = [[NSMutableArray alloc] initWithCapacity:20];
+    for (XMPPMessageArchiving_Message_CoreDataObject *msg in [self fetchedResultsController].fetchedObjects) {
+        if (latestMsgArray.count == 0) {
+            [latestMsgArray addObject:msg];
+        }else {
+            XMPPMessageArchiving_Message_CoreDataObject *lastMsg = latestMsgArray[latestMsgArray.count - 1];
+            if (![lastMsg.bareJidStr isEqualToString:msg.bareJidStr]) {
+                [latestMsgArray addObject:msg];
+            }
+        }
+    }
+    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"timestamp" ascending:NO];
+    finalBuddyArray = [latestMsgArray sortedArrayUsingDescriptors:@[sort]];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section {
-    id  sectionInfo = [[[self fetchedResultsController] sections] objectAtIndex:section];
-    return [sectionInfo numberOfObjects];
+    [self getLatestMsgArray];
+    
+    if (finalBuddyArray == nil) {
+        return 0;
+    }
+    return finalBuddyArray.count;
+//    id  sectionInfo = [[[self fetchedResultsController] sections] objectAtIndex:section];
+//    return [sectionInfo numberOfObjects];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    XMPPMessageArchiving_Message_CoreDataObject *message = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+//    XMPPMessageArchiving_Message_CoreDataObject *message = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    XMPPMessageArchiving_Message_CoreDataObject *message = finalBuddyArray[indexPath.row];
     
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
