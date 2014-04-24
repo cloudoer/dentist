@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BuddyListTableViewController : UITableViewController
+@interface BuddyListTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 @end
