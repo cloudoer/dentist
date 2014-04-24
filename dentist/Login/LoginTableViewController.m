@@ -71,6 +71,9 @@
 }
 
 - (IBAction)loginButtonPressed:(UIButton *)sender {
+    
+    [[self appDelegate] disconnect];
+    
     NSString *jidStr = self.jidTextField.text;
     NSString *pwdStr = self.pwdTextField.text;
     

@@ -30,12 +30,12 @@
     if (![LoginFacade isLogged]) {
         [LoginFacade presentLoginViewControllerFrom:self];
     }else {
-        [[self appDelegate] connect];
-        NSError *error = nil;
-        if (![fetchedResultsController performFetch:&error])
-        {
-            //        DDLogError(@"Error performing fetch: %@", error);
-        }
+//        [[self appDelegate] connect];
+//        NSError *error = nil;
+//        if (![self.fetchedResultsController performFetch:&error])
+//        {
+//            //        DDLogError(@"Error performing fetch: %@", error);
+//        }
 
     }
     
@@ -119,7 +119,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     NSError *error = nil;
-    if (![fetchedResultsController performFetch:&error])
+    if (![self.fetchedResultsController performFetch:&error])
     {
 //        DDLogError(@"Error performing fetch: %@", error);
     }
