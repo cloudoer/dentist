@@ -61,7 +61,7 @@
         request.entity = entityDescription;
         request.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"timestamp" ascending:YES]];
         request.fetchBatchSize = 20;
-//        request.predicate = [NSPredicate predicateWithFormat:@"bareJidStr contains %@", self.userStr];
+        request.predicate = [NSPredicate predicateWithFormat:@"bareJidStr contains %@", self.bareJIDStr];
         
         fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                        managedObjectContext:moc
