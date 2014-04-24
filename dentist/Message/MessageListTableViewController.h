@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MessageListTableViewController : UITableViewController
+@interface MessageListTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 @end
