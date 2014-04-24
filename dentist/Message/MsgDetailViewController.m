@@ -75,6 +75,7 @@
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
+    [JSMessageSoundEffect playMessageReceivedSound];
 	[[self tableView] reloadData];
     [self scrollToBottomAnimated:YES];
 }
