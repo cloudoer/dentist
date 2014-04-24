@@ -263,6 +263,10 @@
 		FBC919E6190886CC00405A89 /* MessageListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC919E5190886CC00405A89 /* MessageListTableViewController.m */; };
 		FBC919E9190886D600405A89 /* MessageFacade.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC919E8190886D600405A89 /* MessageFacade.m */; };
 		FBC919EF1908FD7000405A89 /* MsgDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC919EE1908FD7000405A89 /* MsgDetailViewController.m */; };
+		FBC91A8C1909D76D00405A89 /* amrFileCodec.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC91A7D1909D76D00405A89 /* amrFileCodec.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FBC91A8D1909D76D00405A89 /* libopencore-amrnb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC91A861909D76D00405A89 /* libopencore-amrnb.a */; };
+		FBC91A8E1909D76D00405A89 /* libopencore-amrwb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC91A871909D76D00405A89 /* libopencore-amrwb.a */; };
+		FBC91A8F1909D76D00405A89 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC91A8A1909D76D00405A89 /* GTMBase64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FBCE0D0718F62A8D007C0489 /* PersonalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCE0D0618F62A8D007C0489 /* PersonalTableViewController.m */; };
 		FBCE0D1C18F64643007C0489 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCE0D0A18F64643007C0489 /* AFHTTPRequestOperation.m */; };
 		FBCE0D1D18F64643007C0489 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCE0D0C18F64643007C0489 /* AFHTTPRequestOperationManager.m */; };
@@ -754,6 +758,17 @@
 		FBC919E8190886D600405A89 /* MessageFacade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageFacade.m; sourceTree = "<group>"; };
 		FBC919ED1908FD7000405A89 /* MsgDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgDetailViewController.h; sourceTree = "<group>"; };
 		FBC919EE1908FD7000405A89 /* MsgDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgDetailViewController.m; sourceTree = "<group>"; };
+		FBC91A7C1909D76D00405A89 /* amrFileCodec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = amrFileCodec.h; sourceTree = "<group>"; };
+		FBC91A7D1909D76D00405A89 /* amrFileCodec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = amrFileCodec.m; sourceTree = "<group>"; };
+		FBC91A801909D76D00405A89 /* interf_dec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interf_dec.h; sourceTree = "<group>"; };
+		FBC91A811909D76D00405A89 /* interf_enc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interf_enc.h; sourceTree = "<group>"; };
+		FBC91A831909D76D00405A89 /* dec_if.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dec_if.h; sourceTree = "<group>"; };
+		FBC91A841909D76D00405A89 /* if_rom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = if_rom.h; sourceTree = "<group>"; };
+		FBC91A861909D76D00405A89 /* libopencore-amrnb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a"; sourceTree = "<group>"; };
+		FBC91A871909D76D00405A89 /* libopencore-amrwb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrwb.a"; sourceTree = "<group>"; };
+		FBC91A891909D76D00405A89 /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
+		FBC91A8A1909D76D00405A89 /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
+		FBC91A8B1909D76D00405A89 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
 		FBCE0D0518F62A8D007C0489 /* PersonalTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalTableViewController.h; sourceTree = "<group>"; };
 		FBCE0D0618F62A8D007C0489 /* PersonalTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalTableViewController.m; sourceTree = "<group>"; };
 		FBCE0D0918F64643007C0489 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -830,9 +845,11 @@
 				FBB7FA47190163AA008B3F8D /* libbz2.dylib in Frameworks */,
 				FBB7FA4319016396008B3F8D /* MobileCoreServices.framework in Frameworks */,
 				FBB7FA3319013A69008B3F8D /* CoreAudio.framework in Frameworks */,
+				FBC91A8E1909D76D00405A89 /* libopencore-amrwb.a in Frameworks */,
 				FB01E0661900C92B0056609F /* AudioToolbox.framework in Frameworks */,
 				FB4DCDD918F3BA36006B6722 /* libresolv.dylib in Frameworks */,
 				FB4DCDD718F3BA2F006B6722 /* libxml2.dylib in Frameworks */,
+				FBC91A8D1909D76D00405A89 /* libopencore-amrnb.a in Frameworks */,
 				FB4DCDD518F3BA29006B6722 /* Security.framework in Frameworks */,
 				FB4DCDD318F3BA24006B6722 /* SystemConfiguration.framework in Frameworks */,
 				FB4DCFAE18F3BA8A006B6722 /* libidn.a in Frameworks */,
@@ -885,6 +902,8 @@
 		FB01E0671900C9AB0056609F /* 3rd */ = {
 			isa = PBXGroup;
 			children = (
+				FBC91A7B1909D76D00405A89 /* AmrAudio */,
+				FBC91A881909D76D00405A89 /* BASE64 */,
 				FBD1FD5D1900F13F00A263F8 /* SDWebImage */,
 				FB01E0681900C9BB0056609F /* MessagesTableViewController */,
 				FBCE0D0818F64643007C0489 /* AFNetworking */,
@@ -2004,6 +2023,63 @@
 			path = Message;
 			sourceTree = "<group>";
 		};
+		FBC91A7B1909D76D00405A89 /* AmrAudio */ = {
+			isa = PBXGroup;
+			children = (
+				FBC91A7C1909D76D00405A89 /* amrFileCodec.h */,
+				FBC91A7D1909D76D00405A89 /* amrFileCodec.m */,
+				FBC91A7E1909D76D00405A89 /* include */,
+				FBC91A851909D76D00405A89 /* lib */,
+			);
+			path = AmrAudio;
+			sourceTree = "<group>";
+		};
+		FBC91A7E1909D76D00405A89 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				FBC91A7F1909D76D00405A89 /* opencore-amrnb */,
+				FBC91A821909D76D00405A89 /* opencore-amrwb */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		FBC91A7F1909D76D00405A89 /* opencore-amrnb */ = {
+			isa = PBXGroup;
+			children = (
+				FBC91A801909D76D00405A89 /* interf_dec.h */,
+				FBC91A811909D76D00405A89 /* interf_enc.h */,
+			);
+			path = "opencore-amrnb";
+			sourceTree = "<group>";
+		};
+		FBC91A821909D76D00405A89 /* opencore-amrwb */ = {
+			isa = PBXGroup;
+			children = (
+				FBC91A831909D76D00405A89 /* dec_if.h */,
+				FBC91A841909D76D00405A89 /* if_rom.h */,
+			);
+			path = "opencore-amrwb";
+			sourceTree = "<group>";
+		};
+		FBC91A851909D76D00405A89 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				FBC91A861909D76D00405A89 /* libopencore-amrnb.a */,
+				FBC91A871909D76D00405A89 /* libopencore-amrwb.a */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		FBC91A881909D76D00405A89 /* BASE64 */ = {
+			isa = PBXGroup;
+			children = (
+				FBC91A891909D76D00405A89 /* GTMBase64.h */,
+				FBC91A8A1909D76D00405A89 /* GTMBase64.m */,
+				FBC91A8B1909D76D00405A89 /* GTMDefines.h */,
+			);
+			path = BASE64;
+			sourceTree = "<group>";
+		};
 		FBCE0D0818F64643007C0489 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -2285,6 +2361,7 @@
 				FB4DCF5D18F3BA8A006B6722 /* XMPPRoomOccupantHybridMemoryStorageObject.m in Sources */,
 				FB4DCF7418F3BA8A006B6722 /* XMPPPubSub.m in Sources */,
 				FB4DCF8718F3BA8A006B6722 /* XMPPMessageArchiving.m in Sources */,
+				FBC91A8F1909D76D00405A89 /* GTMBase64.m in Sources */,
 				FB4DCF5118F3BA8A006B6722 /* XMPPIQ+JabberRPCResonse.m in Sources */,
 				FBC919DD1908866700405A89 /* MeFacade.m in Sources */,
 				FBD1FD881900F13F00A263F8 /* UIImageView+WebCache.m in Sources */,
@@ -2382,6 +2459,7 @@
 				FBD1FD861900F13F00A263F8 /* UIImage+MultiFormat.m in Sources */,
 				FB4DCF9618F3BA8A006B6722 /* NSXMLElement+XEP_0297.m in Sources */,
 				FBCE0D3A18F68C3A007C0489 /* RoomChatTableViewController.m in Sources */,
+				FBC91A8C1909D76D00405A89 /* amrFileCodec.m in Sources */,
 				FB01E0B71900C9BC0056609F /* JSMessagesViewController.m in Sources */,
 				FB4DCF8518F3BA8A006B6722 /* XMPPMessageArchiving_Message_CoreDataObject.m in Sources */,
 				FBD1FD831900F13F00A263F8 /* SDWebImagePrefetcher.m in Sources */,
@@ -2609,6 +2687,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/dentist/XMPP/Vendor/libidn",
+					"$(PROJECT_DIR)/dentist/AmrAudio/lib",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "";
@@ -2639,6 +2718,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/dentist/XMPP/Vendor/libidn",
+					"$(PROJECT_DIR)/dentist/AmrAudio/lib",
 				);
 				OTHER_CFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";

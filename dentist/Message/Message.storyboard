@@ -28,7 +28,18 @@
                             <outlet property="delegate" destination="7WD-Ti-rtw" id="YwE-bC-nm0"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="牙医宝" id="t9v-dj-PzH"/>
+                    <navigationItem key="navigationItem" title="牙医宝" id="t9v-dj-PzH">
+                        <barButtonItem key="leftBarButtonItem" title="record" id="vFY-5E-1Vy">
+                            <connections>
+                                <action selector="record:" destination="7WD-Ti-rtw" id="bmf-kr-y2n"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="play" id="T4r-XL-OgM">
+                            <connections>
+                                <action selector="play:" destination="7WD-Ti-rtw" id="Ed8-HY-lQ9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="oQ4-zj-dbo" kind="push" identifier="MsgList2Detail" id="HfM-Eb-Oeb"/>
                     </connections>
