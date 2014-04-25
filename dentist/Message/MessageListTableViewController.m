@@ -12,6 +12,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "amrFileCodec.h"
 #import "GTMBase64.h"
+#import "MsgListCell.h"
 
 @interface MessageListTableViewController () <AVAudioRecorderDelegate,
 AVAudioSessionDelegate,
@@ -184,19 +185,47 @@ AVAudioPlayerDelegate>
 //    return [sectionInfo numberOfObjects];
 }
 
+- (void)configurePhotoForCell:(UITableViewCell *)cell user:(XMPPUserCoreDataStorageObject *)user
+{
+	// Our xmppRosterStorage will cache photos as they arrive from the xmppvCardAvatarModule.
+	// We only need to ask the avatar module for a photo, if the roster doesn't have it.
+	
+	if (user.photo != nil)
+	{
+		cell.imageView.image = user.photo;
+	}
+	else
+	{
+		NSData *photoData = [[[self appDelegate] xmppvCardAvatarModule] photoDataForJID:user.jid];
+        
+		if (photoData != nil)
+			cell.imageView.image = [UIImage imageWithData:photoData];
+		else
+			cell.imageView.image = [UIImage imageNamed:@"defaultPerson"];
+	}
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 //    XMPPMessageArchiving_Message_CoreDataObject *message = [[self fetchedResultsController] objectAtIndexPath:indexPath];
     XMPPMessageArchiving_Message_CoreDataObject *message = finalBuddyArray[indexPath.row];
     
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    cell.textLabel.text = message.body;
+    static NSString *CellIdentifier = @"MsgListCell";
+    MsgListCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    cell.msgLabel.text = message.body;
+    
+    XMPPUserCoreDataStorageObject *user = [[XMPPRosterCoreDataStorage sharedInstance] userForJID:message.bareJid xmppStream:[self appDelegate].xmppStream managedObjectContext:[[self appDelegate] managedObjectContext_roster]];
+    
+    cell.nameLabel.text = user.nickname;
+    [self configurePhotoForCell:cell user:user];
+    
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

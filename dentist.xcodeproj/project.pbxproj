@@ -268,6 +268,7 @@
 		FBC91A8E1909D76D00405A89 /* libopencore-amrwb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC91A871909D76D00405A89 /* libopencore-amrwb.a */; };
 		FBC91A8F1909D76D00405A89 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC91A8A1909D76D00405A89 /* GTMBase64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FBC91A921909DCB700405A89 /* ImageDecodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC91A911909DCB700405A89 /* ImageDecodeViewController.m */; };
+		FBC91A951909EB9A00405A89 /* MsgListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC91A941909EB9A00405A89 /* MsgListCell.m */; };
 		FBCE0D0718F62A8D007C0489 /* PersonalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCE0D0618F62A8D007C0489 /* PersonalTableViewController.m */; };
 		FBCE0D1C18F64643007C0489 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCE0D0A18F64643007C0489 /* AFHTTPRequestOperation.m */; };
 		FBCE0D1D18F64643007C0489 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCE0D0C18F64643007C0489 /* AFHTTPRequestOperationManager.m */; };
@@ -772,6 +773,8 @@
 		FBC91A8B1909D76D00405A89 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
 		FBC91A901909DCB700405A89 /* ImageDecodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDecodeViewController.h; sourceTree = "<group>"; };
 		FBC91A911909DCB700405A89 /* ImageDecodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDecodeViewController.m; sourceTree = "<group>"; };
+		FBC91A931909EB9A00405A89 /* MsgListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgListCell.h; sourceTree = "<group>"; };
+		FBC91A941909EB9A00405A89 /* MsgListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgListCell.m; sourceTree = "<group>"; };
 		FBCE0D0518F62A8D007C0489 /* PersonalTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalTableViewController.h; sourceTree = "<group>"; };
 		FBCE0D0618F62A8D007C0489 /* PersonalTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalTableViewController.m; sourceTree = "<group>"; };
 		FBCE0D0918F64643007C0489 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -2018,6 +2021,8 @@
 				FBC919C41908849300405A89 /* Message.storyboard */,
 				FBC919E4190886CC00405A89 /* MessageListTableViewController.h */,
 				FBC919E5190886CC00405A89 /* MessageListTableViewController.m */,
+				FBC91A931909EB9A00405A89 /* MsgListCell.h */,
+				FBC91A941909EB9A00405A89 /* MsgListCell.m */,
 				FBC919E7190886D600405A89 /* MessageFacade.h */,
 				FBC919E8190886D600405A89 /* MessageFacade.m */,
 				FBC919ED1908FD7000405A89 /* MsgDetailViewController.h */,
@@ -2464,6 +2469,7 @@
 				FBD1FD861900F13F00A263F8 /* UIImage+MultiFormat.m in Sources */,
 				FB4DCF9618F3BA8A006B6722 /* NSXMLElement+XEP_0297.m in Sources */,
 				FBCE0D3A18F68C3A007C0489 /* RoomChatTableViewController.m in Sources */,
+				FBC91A951909EB9A00405A89 /* MsgListCell.m in Sources */,
 				FBC91A8C1909D76D00405A89 /* amrFileCodec.m in Sources */,
 				FB01E0B71900C9BC0056609F /* JSMessagesViewController.m in Sources */,
 				FB4DCF8518F3BA8A006B6722 /* XMPPMessageArchiving_Message_CoreDataObject.m in Sources */,
