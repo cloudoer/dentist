@@ -232,6 +232,16 @@
     
 }
 
+- (UIImage *)avatarImageForIncomingMessage
+{
+    return nil;
+}
+
+- (UIImage *)avatarImageForOutgoingMessage
+{
+    return nil;
+}
+
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {

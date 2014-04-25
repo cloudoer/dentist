@@ -123,10 +123,12 @@ static id<JSMessageInputViewDelegate> __delegate;
         self.textView.layer.cornerRadius = 6.0f;
     }
     
+    self.textView.returnKeyType = UIReturnKeySend;
+    self.textView.enablesReturnKeyAutomatically = YES;
 //    self.textView.contentInset = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
 //    self.textView.keyboardAppearance = UIKeyboardAppearanceDefault;
 //    self.textView.keyboardType = UIKeyboardTypeDefault;
-//    self.textView.returnKeyType = UIReturnKeyDefault;
+
 //    self.textView.scrollEnabled = YES;
 //    self.textView.scrollsToTop = NO;
 //    self.textView.userInteractionEnabled = YES;
