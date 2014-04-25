@@ -61,11 +61,70 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="CEl-wW-FUV"/>
+                    <navigationItem key="navigationItem" id="CEl-wW-FUV">
+                        <barButtonItem key="rightBarButtonItem" title="image" id="35C-KL-afv">
+                            <connections>
+                                <segue destination="Zfu-SM-BJ1" kind="push" id="mR3-R4-y2K"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Se-zb-FYa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="900" y="15"/>
+        </scene>
+        <!--Image Decode View Controller-->
+        <scene sceneID="2Y7-ZU-1A5">
+            <objects>
+                <viewController id="Zfu-SM-BJ1" customClass="ImageDecodeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rlw-eS-739"/>
+                        <viewControllerLayoutGuide type="bottom" id="xvx-GH-CEa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ftY-9D-XPa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CaP-hc-2g0">
+                                <rect key="frame" x="60" y="140" width="95" height="101"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m1h-Ga-vAz">
+                                <rect key="frame" x="60" y="91" width="53" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Choose">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="choose:" destination="Zfu-SM-BJ1" eventType="touchUpInside" id="dbe-Gd-XCY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbk-xs-K2f">
+                                <rect key="frame" x="63" y="295" width="54" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Decode">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="decode:" destination="Zfu-SM-BJ1" eventType="touchUpInside" id="Ktx-of-C6a"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q0H-Zg-Dch">
+                                <rect key="frame" x="60" y="360" width="95" height="101"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="N4y-T4-nEv"/>
+                    <connections>
+                        <outlet property="afterImageView" destination="Q0H-Zg-Dch" id="aZH-GN-JcB"/>
+                        <outlet property="beforeImageView" destination="CaP-hc-2g0" id="8WO-eS-fck"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eof-Ld-yln" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1331" y="15"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9yY-Z1-diV">
