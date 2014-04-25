@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14425CBE190A0FFA00CC46F4 /* NewRecordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14425CBD190A0FFA00CC46F4 /* NewRecordsViewController.m */; };
+		14425CC1190A138700CC46F4 /* MyRecordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14425CC0190A138700CC46F4 /* MyRecordsViewController.m */; };
+		14425CCD190A149C00CC46F4 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 14425CC4190A149C00CC46F4 /* UIImage+Alpha.m */; };
+		14425CCE190A149C00CC46F4 /* UIImage+Cut.m in Sources */ = {isa = PBXBuildFile; fileRef = 14425CC6190A149C00CC46F4 /* UIImage+Cut.m */; };
+		14425CCF190A149C00CC46F4 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 14425CC8190A149C00CC46F4 /* UIImage+Resize.m */; };
+		14425CD0190A149C00CC46F4 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 14425CCA190A149C00CC46F4 /* UIImage+RoundedCorner.m */; };
+		14425CD1190A149C00CC46F4 /* UIImage+SplitImageIntoTwoParts.m in Sources */ = {isa = PBXBuildFile; fileRef = 14425CCC190A149C00CC46F4 /* UIImage+SplitImageIntoTwoParts.m */; };
+		14425CD4190A3F7A00CC46F4 /* TagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14425CD3190A3F7A00CC46F4 /* TagViewController.m */; };
+		14425CDE190A4A6300CC46F4 /* NSUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 14425CD7190A4A6200CC46F4 /* NSUtil.m */; };
+		14425CDF190A4A6300CC46F4 /* FileUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 14425CD9190A4A6300CC46F4 /* FileUtil.m */; };
+		14425CE0190A4A6300CC46F4 /* UIAlertViewBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 14425CDB190A4A6300CC46F4 /* UIAlertViewBlock.m */; };
+		14425CE1190A4A6300CC46F4 /* UIActionSheetBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 14425CDD190A4A6300CC46F4 /* UIActionSheetBlock.m */; };
 		FB01E03118FF64050056609F /* tab_about@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB01E02E18FF64050056609F /* tab_about@2x.png */; };
 		FB01E03218FF64050056609F /* tab_discuss@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB01E02F18FF64050056609F /* tab_discuss@2x.png */; };
 		FB01E03318FF64050056609F /* tab_me@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB01E03018FF64050056609F /* tab_me@2x.png */; };
@@ -317,6 +329,30 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		14425CBC190A0FFA00CC46F4 /* NewRecordsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewRecordsViewController.h; sourceTree = "<group>"; };
+		14425CBD190A0FFA00CC46F4 /* NewRecordsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewRecordsViewController.m; sourceTree = "<group>"; };
+		14425CBF190A138700CC46F4 /* MyRecordsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRecordsViewController.h; sourceTree = "<group>"; };
+		14425CC0190A138700CC46F4 /* MyRecordsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRecordsViewController.m; sourceTree = "<group>"; };
+		14425CC3190A149C00CC46F4 /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Alpha.h"; sourceTree = "<group>"; };
+		14425CC4190A149C00CC46F4 /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
+		14425CC5190A149C00CC46F4 /* UIImage+Cut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Cut.h"; sourceTree = "<group>"; };
+		14425CC6190A149C00CC46F4 /* UIImage+Cut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Cut.m"; sourceTree = "<group>"; };
+		14425CC7190A149C00CC46F4 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		14425CC8190A149C00CC46F4 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		14425CC9190A149C00CC46F4 /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
+		14425CCA190A149C00CC46F4 /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
+		14425CCB190A149C00CC46F4 /* UIImage+SplitImageIntoTwoParts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SplitImageIntoTwoParts.h"; sourceTree = "<group>"; };
+		14425CCC190A149C00CC46F4 /* UIImage+SplitImageIntoTwoParts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SplitImageIntoTwoParts.m"; sourceTree = "<group>"; };
+		14425CD2190A3F7A00CC46F4 /* TagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagViewController.h; sourceTree = "<group>"; };
+		14425CD3190A3F7A00CC46F4 /* TagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagViewController.m; sourceTree = "<group>"; };
+		14425CD6190A4A6200CC46F4 /* NSUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSUtil.h; sourceTree = "<group>"; };
+		14425CD7190A4A6200CC46F4 /* NSUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSUtil.m; sourceTree = "<group>"; };
+		14425CD8190A4A6200CC46F4 /* FileUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUtil.h; sourceTree = "<group>"; };
+		14425CD9190A4A6300CC46F4 /* FileUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileUtil.m; sourceTree = "<group>"; };
+		14425CDA190A4A6300CC46F4 /* UIAlertViewBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAlertViewBlock.h; sourceTree = "<group>"; };
+		14425CDB190A4A6300CC46F4 /* UIAlertViewBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIAlertViewBlock.m; sourceTree = "<group>"; };
+		14425CDC190A4A6300CC46F4 /* UIActionSheetBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIActionSheetBlock.h; sourceTree = "<group>"; };
+		14425CDD190A4A6300CC46F4 /* UIActionSheetBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIActionSheetBlock.m; sourceTree = "<group>"; };
 		FB01E02E18FF64050056609F /* tab_about@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_about@2x.png"; sourceTree = "<group>"; };
 		FB01E02F18FF64050056609F /* tab_discuss@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_discuss@2x.png"; sourceTree = "<group>"; };
 		FB01E03018FF64050056609F /* tab_me@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_me@2x.png"; sourceTree = "<group>"; };
@@ -888,6 +924,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		14425CC2190A149C00CC46F4 /* UIImage-Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				14425CC3190A149C00CC46F4 /* UIImage+Alpha.h */,
+				14425CC4190A149C00CC46F4 /* UIImage+Alpha.m */,
+				14425CC5190A149C00CC46F4 /* UIImage+Cut.h */,
+				14425CC6190A149C00CC46F4 /* UIImage+Cut.m */,
+				14425CC7190A149C00CC46F4 /* UIImage+Resize.h */,
+				14425CC8190A149C00CC46F4 /* UIImage+Resize.m */,
+				14425CC9190A149C00CC46F4 /* UIImage+RoundedCorner.h */,
+				14425CCA190A149C00CC46F4 /* UIImage+RoundedCorner.m */,
+				14425CCB190A149C00CC46F4 /* UIImage+SplitImageIntoTwoParts.h */,
+				14425CCC190A149C00CC46F4 /* UIImage+SplitImageIntoTwoParts.m */,
+			);
+			path = "UIImage-Extensions";
+			sourceTree = "<group>";
+		};
+		14425CD5190A4A2700CC46F4 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				14425CD6190A4A6200CC46F4 /* NSUtil.h */,
+				14425CD7190A4A6200CC46F4 /* NSUtil.m */,
+				14425CD8190A4A6200CC46F4 /* FileUtil.h */,
+				14425CD9190A4A6300CC46F4 /* FileUtil.m */,
+				14425CDA190A4A6300CC46F4 /* UIAlertViewBlock.h */,
+				14425CDB190A4A6300CC46F4 /* UIAlertViewBlock.m */,
+				14425CDC190A4A6300CC46F4 /* UIActionSheetBlock.h */,
+				14425CDD190A4A6300CC46F4 /* UIActionSheetBlock.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		FB01E03A18FF83540056609F /* UIKit+AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -915,6 +983,8 @@
 		FB01E0671900C9AB0056609F /* 3rd */ = {
 			isa = PBXGroup;
 			children = (
+				14425CD5190A4A2700CC46F4 /* Utils */,
+				14425CC2190A149C00CC46F4 /* UIImage-Extensions */,
 				FBC91A96190A32B400405A89 /* MessagesTableViewController */,
 				FBC91A7B1909D76D00405A89 /* AmrAudio */,
 				FBC91A881909D76D00405A89 /* BASE64 */,
@@ -1917,6 +1987,12 @@
 				FBC919DC1908866700405A89 /* MeFacade.m */,
 				FBC919DE1908866F00405A89 /* MeTableViewController.h */,
 				FBC919DF1908866F00405A89 /* MeTableViewController.m */,
+				14425CBC190A0FFA00CC46F4 /* NewRecordsViewController.h */,
+				14425CBD190A0FFA00CC46F4 /* NewRecordsViewController.m */,
+				14425CBF190A138700CC46F4 /* MyRecordsViewController.h */,
+				14425CC0190A138700CC46F4 /* MyRecordsViewController.m */,
+				14425CD2190A3F7A00CC46F4 /* TagViewController.h */,
+				14425CD3190A3F7A00CC46F4 /* TagViewController.m */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -2359,6 +2435,7 @@
 				FB01E05218FF83540056609F /* UIRefreshControl+AFNetworking.m in Sources */,
 				FB4DCF3D18F3BA8A006B6722 /* XMPPModule.m in Sources */,
 				FB4DCF4418F3BA8A006B6722 /* XMPPProcessOne.m in Sources */,
+				14425CD0190A149C00CC46F4 /* UIImage+RoundedCorner.m in Sources */,
 				FB4DCF7C18F3BA8A006B6722 /* XMPPTransports.m in Sources */,
 				FBCE0D3218F64C87007C0489 /* RoomListCell.m in Sources */,
 				FBCE0D2418F64643007C0489 /* AFURLSessionManager.m in Sources */,
@@ -2372,9 +2449,12 @@
 				FB4DCF4D18F3BA8A006B6722 /* XMPPUserMemoryStorageObject.m in Sources */,
 				FBD1FD7D1900F13F00A263F8 /* SDImageCache.m in Sources */,
 				FB4DCF8C18F3BA8A006B6722 /* XMPPMessageDeliveryReceipts.m in Sources */,
+				14425CCF190A149C00CC46F4 /* UIImage+Resize.m in Sources */,
 				FB4DCF3618F3BA8A006B6722 /* NSData+XMPP.m in Sources */,
 				FBCE0D1D18F64643007C0489 /* AFHTTPRequestOperationManager.m in Sources */,
 				FB4DCF4618F3BA8A006B6722 /* XMPPGroupCoreDataStorageObject.m in Sources */,
+				FB01E0B51900C9BB0056609F /* JSMessageInputView.m in Sources */,
+				14425CC1190A138700CC46F4 /* MyRecordsViewController.m in Sources */,
 				FB4DCF8618F3BA8A006B6722 /* XMPPMessageArchivingCoreDataStorage.m in Sources */,
 				FB4DCF5D18F3BA8A006B6722 /* XMPPRoomOccupantHybridMemoryStorageObject.m in Sources */,
 				FB4DCF7418F3BA8A006B6722 /* XMPPPubSub.m in Sources */,
@@ -2395,6 +2475,7 @@
 				FB01E05018FF83540056609F /* UIImageView+AFNetworking.m in Sources */,
 				FB4DCF7F18F3BA8A006B6722 /* XMPPCapabilitiesCoreDataStorage.m in Sources */,
 				FB4DCF6A18F3BA8A006B6722 /* XMPPvCardTempAdr.m in Sources */,
+				14425CCE190A149C00CC46F4 /* UIImage+Cut.m in Sources */,
 				FBC91AE7190A32B500405A89 /* JSBubbleView.m in Sources */,
 				FB4DCF3118F3BA8A006B6722 /* XMPPDigestMD5Authentication.m in Sources */,
 				FB4DCF5418F3BA8A006B6722 /* XMPPLastActivity.m in Sources */,
@@ -2450,6 +2531,7 @@
 				FB4DCF3018F3BA8A006B6722 /* XMPPDeprecatedPlainAuthentication.m in Sources */,
 				FB6B986D18F3DB0900120569 /* ChatOtherCell.m in Sources */,
 				FB4DCF8918F3BA8A006B6722 /* XMPPMessage+XEP_0172.m in Sources */,
+				14425CE1190A4A6300CC46F4 /* UIActionSheetBlock.m in Sources */,
 				FB4DCF7018F3BA8A006B6722 /* XMPPvCardTempTel.m in Sources */,
 				FB4DCF7B18F3BA8A006B6722 /* XMPPSoftwareVersion.m in Sources */,
 				FB4DCF3218F3BA8A006B6722 /* XMPPPlainAuthentication.m in Sources */,
@@ -2461,6 +2543,7 @@
 				FB4DCFA718F3BA8A006B6722 /* DispatchQueueLogFormatter.m in Sources */,
 				FB4DCF3E18F3BA8A006B6722 /* XMPPParser.m in Sources */,
 				FBC919B81908834C00405A89 /* LoginFacade.m in Sources */,
+				14425CCD190A149C00CC46F4 /* UIImage+Alpha.m in Sources */,
 				FBC91AE6190A32B500405A89 /* JSBubbleMessageCell.m in Sources */,
 				FB6B986718F3D70300120569 /* ChatTableViewController.m in Sources */,
 				FBCE0D1E18F64643007C0489 /* AFHTTPSessionManager.m in Sources */,
@@ -2478,6 +2561,7 @@
 				FBC919D41908860500405A89 /* IndustryViewController.m in Sources */,
 				FB4DCF6518F3BA8A006B6722 /* XMPPvCardAvatarCoreDataStorageObject.m in Sources */,
 				FB4DCF5618F3BA8A006B6722 /* XMPPRoom.xcdatamodeld in Sources */,
+				14425CDE190A4A6300CC46F4 /* NSUtil.m in Sources */,
 				FB4DCFA518F3BA8A006B6722 /* DDTTYLogger.m in Sources */,
 				FB4DCF9E18F3BA8A006B6722 /* XMPPSRVResolver.m in Sources */,
 				FB4DCF4F18F3BA8A006B6722 /* XMPPSystemInputActivityMonitor.m in Sources */,
@@ -2510,6 +2594,7 @@
 				FBCE0D4018F6B1F9007C0489 /* RoomChatOtherCell.m in Sources */,
 				FB4DCF7218F3BA8A006B6722 /* XMPPResultSet.m in Sources */,
 				FB6B986418F3C8CE00120569 /* FriendTableViewController.m in Sources */,
+				14425CDF190A4A6300CC46F4 /* FileUtil.m in Sources */,
 				FB4DCF6E18F3BA8A006B6722 /* XMPPvCardTempLabel.m in Sources */,
 				FB4DCF8A18F3BA8A006B6722 /* XMPPPresence+XEP_0172.m in Sources */,
 				FB4DCF5218F3BA8A006B6722 /* XMPPJabberRPCModule.m in Sources */,
@@ -2528,6 +2613,7 @@
 				FB4DCF6318F3BA8A006B6722 /* XMPPRoom.m in Sources */,
 				FB01E04E18FF83540056609F /* UIAlertView+AFNetworking.m in Sources */,
 				FB4DCF9B18F3BA8A006B6722 /* GCDMulticastDelegate.m in Sources */,
+				14425CD1190A149C00CC46F4 /* UIImage+SplitImageIntoTwoParts.m in Sources */,
 				FB4DCF8418F3BA8A006B6722 /* XMPPMessageArchiving_Contact_CoreDataObject.m in Sources */,
 				FBCE0D2018F64643007C0489 /* AFSecurityPolicy.m in Sources */,
 				FBCE0D1C18F64643007C0489 /* AFHTTPRequestOperation.m in Sources */,
@@ -2542,8 +2628,11 @@
 				FBC91B1D190A32B500405A89 /* UIButton+JSMessagesView.m in Sources */,
 				FB4DCFA918F3BA8A006B6722 /* NSString+DDXML.m in Sources */,
 				FB4DCF9F18F3BA8A006B6722 /* XMPPStringPrep.m in Sources */,
+				14425CE0190A4A6300CC46F4 /* UIAlertViewBlock.m in Sources */,
+				14425CBE190A0FFA00CC46F4 /* NewRecordsViewController.m in Sources */,
 				FB01E05F18FFCEDF0056609F /* Tools.m in Sources */,
 				FB4DCBCE18F3B884006B6722 /* main.m in Sources */,
+				14425CD4190A3F7A00CC46F4 /* TagViewController.m in Sources */,
 				FB4DCF9418F3BA8A006B6722 /* XMPPAttentionModule.m in Sources */,
 				FB4DCF4718F3BA8A006B6722 /* XMPPResourceCoreDataStorageObject.m in Sources */,
 				FB4DCF5C18F3BA8A006B6722 /* XMPPRoomMessageHybridCoreDataStorageObject.m in Sources */,
