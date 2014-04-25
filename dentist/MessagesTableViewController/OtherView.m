@@ -36,6 +36,7 @@
         [btn setTitle:_items[i] forState:UIControlStateNormal];
         [btn setBackgroundColor:[UIColor greenColor]];
         [btn addTarget:self action:@selector(otherBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        btn.tag = i;
         [self addSubview:btn];
     }
 }

@@ -26,7 +26,7 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="王大锤" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iei-vs-Vy4">
-                                            <rect key="frame" x="80" y="6" width="51" height="21"/>
+                                            <rect key="frame" x="80" y="6" width="220" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -86,13 +86,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="CEl-wW-FUV">
-                        <barButtonItem key="rightBarButtonItem" title="image" id="35C-KL-afv">
-                            <connections>
-                                <segue destination="Zfu-SM-BJ1" kind="push" id="mR3-R4-y2K"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="CEl-wW-FUV"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Se-zb-FYa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

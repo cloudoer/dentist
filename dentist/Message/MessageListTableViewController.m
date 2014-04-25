@@ -212,12 +212,17 @@ AVAudioPlayerDelegate>
     
     static NSString *CellIdentifier = @"MsgListCell";
     MsgListCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    cell.msgLabel.text = message.body;
     
-    XMPPUserCoreDataStorageObject *user = [[XMPPRosterCoreDataStorage sharedInstance] userForJID:message.bareJid xmppStream:[self appDelegate].xmppStream managedObjectContext:[[self appDelegate] managedObjectContext_roster]];
+    XMPPMessage *msg = message.message;
+    NSString *kind = [[msg elementForName:@"kind"] stringValue];
+    if ([kind isEqualToString:@"image"]) {
+        cell.msgLabel.text = @"[图片]";
+    }else {
+        cell.msgLabel.text = message.body;
+    }
     
-    cell.nameLabel.text = user.nickname;
-    [self configurePhotoForCell:cell user:user];
+    cell.nameLabel.text = message.bareJidStr;
+    
     
     
     return cell;
@@ -361,7 +366,6 @@ AVAudioPlayerDelegate>
         [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
     }
 }
-
 
 - (void)didReceiveMemoryWarning
 {

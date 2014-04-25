@@ -8,6 +8,7 @@
 
 #import "MsgDetailViewController.h"
 #import "AppDelegate.h"
+#import "GTMBase64.h"
 
 @interface MsgDetailViewController () <JSMessagesViewDelegate, JSMessagesViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -90,20 +91,7 @@
 #pragma mark - Messages view delegate
 - (void)sendPressed:(UIButton *)sender withText:(NSString *)textToSend
 {
-    if (textToSend && textToSend.length > 0) {
-        
-        XMPPMessage *message = [XMPPMessage messageWithType:@"chat" to:[XMPPJID jidWithString:self.bareJIDStr]];
-        [message addBody:textToSend];
-        
-        NSXMLElement *bodyElement = [NSXMLElement elementWithName:@"kind" stringValue:@"text"];
-        [message addChild:bodyElement];
-        
-        
-        [[[self appDelegate] xmppStream] sendElement:message];
-    }
-    [JSMessageSoundEffect playMessageSentSound];
-    
-    [self finishSend];
+    [self sendTheText:textToSend withKind:@"text"];
 }
 
 - (void)cameraPressed:(id)sender{
@@ -127,6 +115,14 @@
 
 - (JSBubbleMediaType)messageMediaTypeForRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    XMPPMessageArchiving_Message_CoreDataObject *message = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    
+    XMPPMessage *msg = message.message;
+    NSString *kind = [[msg elementForName:@"kind"] stringValue];
+    if ([kind isEqualToString:@"image"]) {
+        return JSBubbleMediaTypeImage;
+    }
+
     return JSBubbleMediaTypeText;
 }
 
@@ -187,6 +183,12 @@
 - (NSString *)textForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     XMPPMessageArchiving_Message_CoreDataObject *message = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    
+    XMPPMessage *msg = message.message;
+    NSString *kind = [[msg elementForName:@"kind"] stringValue];
+    if ([kind isEqualToString:@"image"]) {
+        return nil;
+    }
 
     return message.body;
 }
@@ -200,36 +202,86 @@
 }
 
 
-- (UIImage *)avatarImageForAtIndexPath:(NSIndexPath *)indexPath
-{
-    return nil;
-    
-}
-
 
 
 - (id)dataForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return nil;
+    XMPPMessageArchiving_Message_CoreDataObject *message = [[self fetchedResultsController] objectAtIndexPath:indexPath];
     
+    XMPPMessage *msg = message.message;
+    NSString *kind = [[msg elementForName:@"kind"] stringValue];
+    if ([kind isEqualToString:@"image"]) {
+        NSData* data = [[NSData alloc] initWithBase64EncodedString:message.body options:0];
+        return [UIImage imageWithData:data];
+    }
+    return nil;
 }
 
-#pragma UIImagePicker Delegate
+#pragma mark - other btn click
+- (void)otherPhotoBtnPressed:(UIButton *)sender {
+    NSLog(@"otherPhotoBtnPressed");
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate                 = self;
+    picker.sourceType               = UIImagePickerControllerSourceTypePhotoLibrary;
+    picker.allowsEditing = YES;
+    [self presentViewController:picker animated:YES completion:NULL];
+    
+}
+- (void)otherCameraBtnPressed:(UIButton *)sender {
+    NSLog(@"otherCameraBtnPressed");
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate                 = self;
+    picker.sourceType               = UIImagePickerControllerSourceTypeCamera;
+    picker.allowsEditing = YES;
+    [self presentViewController:picker animated:YES completion:NULL];
+}
+
 
 #pragma mark - Image picker delegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    //	NSLog(@"Chose image!  Details:  %@", info);
-    //
-    //    self.willSendImage = [info objectForKey:UIImagePickerControllerEditedImage];
-    //    [self.messageArray addObject:[NSDictionary dictionaryWithObject:self.willSendImage forKey:@"Image"]];
-    //    [self.timestamps addObject:[NSDate date]];
-    //    [self.tableView reloadData];
-    [self scrollToBottomAnimated:YES];
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
     
+    CGFloat compression = 0.9f;
+    CGFloat maxCompression = 0.1f;
+    int maxFileSize = 250*1024;
+    
+    NSData *imageData = UIImageJPEGRepresentation(chosenImage, compression);
+    
+    while ([imageData length] > maxFileSize && compression > maxCompression)
+    {
+        compression -= 0.1;
+        imageData = UIImageJPEGRepresentation(chosenImage, compression);
+    }
+    
+    
+    NSString *imageDataBase64Str = [[NSString alloc] initWithData:[GTMBase64 encodeData:imageData] encoding:NSUTF8StringEncoding];
+    
+    [self sendTheText:imageDataBase64Str withKind:@"image"];
 	
     [self dismissViewControllerAnimated:YES completion:NULL];
     
+}
+
+- (void)sendTheText:(NSString *)textToSend withKind:(NSString *)kind
+{
+    if (textToSend && textToSend.length > 0) {
+        
+        XMPPMessage *message = [XMPPMessage messageWithType:@"chat" to:[XMPPJID jidWithString:self.bareJIDStr]];
+        [message addBody:textToSend];
+        
+        NSXMLElement *bodyElement = [NSXMLElement elementWithName:@"kind" stringValue:kind];
+        [message addChild:bodyElement];
+        
+        
+        [[[self appDelegate] xmppStream] sendElement:message];
+        
+        [JSMessageSoundEffect playMessageSentSound];
+        
+        [self finishSend];
+    }
+    
+
 }
 
 - (UIImage *)avatarImageForIncomingMessage

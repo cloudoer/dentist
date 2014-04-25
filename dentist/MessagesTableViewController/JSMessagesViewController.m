@@ -84,8 +84,13 @@ typedef enum {
     }
     
     CGSize size = self.view.frame.size;
+    
+    int yorigin = 0;
+    if (IS_OS_7_OR_LATER) {
+        yorigin = 64;
+    }
 	
-    CGRect tableFrame = CGRectMake(0.0f, 0.0f, size.width, size.height - INPUT_HEIGHT);
+    CGRect tableFrame = CGRectMake(0.0f, yorigin, size.width, size.height - INPUT_HEIGHT - yorigin);
 	self.tableView = [[UITableView alloc] initWithFrame:tableFrame style:UITableViewStylePlain];
 	self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	self.tableView.dataSource = self;
