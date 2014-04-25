@@ -7,7 +7,6 @@
 //
 
 #import "NSUtil.h"
-#import "Reachability.h"
 
 //常用时间格式
 #define kFormatterTimeNormal @"yyyy-MM-dd HH:mm:ss"
@@ -72,7 +71,6 @@
         //        timeString = [NSString stringWithFormat:@"%@",[dateformatter stringFromDate:d]];
         //        [dateformatter release];
     }
-    [date release];
     return timeString;
 }
 
@@ -124,51 +122,18 @@
     NSDateFormatter *datef=[[NSDateFormatter alloc] init];
     [datef setDateFormat:formatter];
     str = [datef stringFromDate:date];
-    [datef release];
     return str;
 }
 
 + (NSString *)formatterDateStr:(NSString *)date formatter:(NSString *)formatter {
     
-    NSDateFormatter *datef=[[[NSDateFormatter alloc] init] autorelease];
+    NSDateFormatter *datef=[[NSDateFormatter alloc] init];
     [datef setDateFormat:kFormatterTimeNormal];
     NSDate *date_ = [datef dateFromString:date];
     [datef setDateFormat:formatter];
     return  [datef stringFromDate:date_];
 }
 
-+ (NSString *)netCheck{
-    Reachability *r = [Reachability reachabilityWithHostName:@"www.apple.com"];
-    NSString *netWork;
-    switch ([r currentReachabilityStatus]) {
-        case NotReachable:
-            netWork = [[NSString alloc] initWithString:@"没有网络"];
-            break;
-        case ReachableViaWWAN:
-            netWork = [[NSString alloc] initWithString:@"正在使用3G网络"];
-            break;
-        case ReachableViaWiFi:
-            netWork = [[NSString alloc] initWithString:@"正在使用wifi网络"];
-            break;
-        default:
-            netWork = [[NSString alloc] initWithString:@"没有网络"];
-            break;
-    }
-    return [netWork autorelease];
-}
-
-+ (BOOL)isNetCheck {
-    Reachability *r = [Reachability reachabilityWithHostName:@"www.apple.com"];
-    switch ([r currentReachabilityStatus]) {
-        case NotReachable:
-            return NO;
-        case ReachableViaWWAN:
-            break;
-        case ReachableViaWiFi:
-            break;
-    }
-    return YES;
-}
     //"publish_time": "2012-04-19 11:30:08"    format:@"yyyy-MM-dd HH:mm:SS"
 + (double)DistanceTime:(NSString *)time format:(NSString *)format type:(dayType)type
 {
@@ -215,7 +180,7 @@
 
 + (NSString *)trimSpace:(NSString *)string {
     NSCharacterSet *whiteSpace = [NSCharacterSet whitespaceAndNewlineCharacterSet];
-    NSString *str = [[[NSString alloc]initWithString:[string stringByTrimmingCharactersInSet:whiteSpace]] autorelease];
+    NSString *str = [[NSString alloc]initWithString:[string stringByTrimmingCharactersInSet:whiteSpace]];
     return str;
 }
 

@@ -105,14 +105,14 @@ typedef enum
  *
  *	@return	得到当前网络状况
  */
-+ (NSString *)netCheck;
+//+ (NSString *)netCheck;
 
 /**
  *	@brief	得到当前网络状况
  *
  *	@return	是否链接网络
  */
-+ (BOOL)isNetCheck;
+//+ (BOOL)isNetCheck;
 
 /**
  *	@brief	判断时间间隔

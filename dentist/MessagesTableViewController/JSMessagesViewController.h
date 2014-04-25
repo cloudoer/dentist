@@ -61,9 +61,19 @@ typedef enum {
 
 
 @protocol JSMessagesViewDelegate <NSObject>
+
 @required
 - (void)sendPressed:(UIButton *)sender withText:(NSString *)text;
 - (void)cameraPressed:(id)sender;
+- (void)recodingPressed:(UIButton *)sender;
+- (void)emojiPressed:(UIButton *)sender;
+
+//other
+- (void)otherBtnPressed:(UIButton *)sender;
+- (void)otherPhotoBtnPressed:(UIButton *)sender;
+- (void)otherCameraBtnPressed:(UIButton *)sender;
+
+- (void)longPressBtnPressed:(UIButton *)sender;
 - (JSBubbleMessageType)messageTypeForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (JSBubbleMessageStyle)messageStyleForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (JSBubbleMediaType)messageMediaTypeForRowAtIndexPath:(NSIndexPath *)indexPath;
@@ -82,11 +92,10 @@ typedef enum {
 @required
 - (NSString *)textForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (NSDate *)timestampForRowAtIndexPath:(NSIndexPath *)indexPath;
-- (UIImage *)avatarImageForAtIndexPath:(NSIndexPath *)indexPath;
-@optional
-- (id)dataForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (UIImage *)avatarImageForIncomingMessage;
 - (UIImage *)avatarImageForOutgoingMessage;
+@optional
+- (id)dataForRowAtIndexPath:(NSIndexPath *)indexPath;
 @end
 
 

@@ -107,9 +107,11 @@
 
 - (void)handlePanGesture:(UIPanGestureRecognizer *)pan
 {
-    if(!self.keyboardView || self.keyboardView.hidden)
-        return;
-    
+//    if(!self.keyboardView || self.keyboardView.hidden)
+//        return;
+    if(self.keyboardDelegate && [self.keyboardDelegate respondsToSelector:@selector(keyboardWillBeDismissed)])
+        [self.keyboardDelegate keyboardWillBeDismissed];
+    /*
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenHeight = screenRect.size.height;
     
@@ -135,6 +137,7 @@
                                      
                                      if(self.keyboardDelegate && [self.keyboardDelegate respondsToSelector:@selector(keyboardWillBeDismissed)])
                                          [self.keyboardDelegate keyboardWillBeDismissed];
+                                     NSLog(@"keyboardWillBeDismissed");
                                  }
                                  completion:^(BOOL finished) {
                                      self.keyboardView.hidden = YES;
@@ -152,6 +155,7 @@
                                  animations:^{
                                      if(self.keyboardDelegate && [self.keyboardDelegate respondsToSelector:@selector(keyboardWillSnapBackToPoint:)]) {
                                          [self.keyboardDelegate keyboardWillSnapBackToPoint:CGPointMake(0.0f, self.previousKeyboardY)];
+                                          NSLog(@"keyboardWillSnapBackToPoint");
                                      }
                                      
                                      self.keyboardView.frame = CGRectMake(0.0f,
@@ -179,9 +183,12 @@
                 
                 if(self.keyboardDelegate && [self.keyboardDelegate respondsToSelector:@selector(keyboardDidScrollToPoint:)])
                     [self.keyboardDelegate keyboardDidScrollToPoint:CGPointMake(0.0f, newKeyboardY)];
+                  NSLog(@"keyboardDidScrollToPoint");
+                
             }
             break;
     }
+     */
 }
 
 @end
