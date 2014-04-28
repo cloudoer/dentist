@@ -59,6 +59,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="avatarImageView" destination="9lA-LM-UR9" id="z04-T9-1dY"/>
                                     <outlet property="nameLabel" destination="ISu-9i-Ego" id="YiA-8f-sWc"/>
                                 </connections>
                             </tableViewCell>

@@ -101,15 +101,29 @@
     return [sectionInfo numberOfObjects];
 }
 
+- (void)configureCell:(UITableViewCell *)theCell atIndexPath:(NSIndexPath *)indexPath {
+    Buddy *buddy = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    BuddyContentCell *cell = (BuddyContentCell *)theCell;
+    
+    cell.nameLabel.text = buddy.realname;
+    
+    NSData* data = [[NSData alloc] initWithBase64EncodedString:buddy.photoStr options:0];
+    UIImage* image = [UIImage imageWithData:data];
+    cell.avatarImageView.image = image;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Buddy *buddy = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    
     
     BuddyContentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BuddyContentCell" forIndexPath:indexPath];
-    cell.nameLabel.text = buddy.realname;
+    
+    [self configureCell:cell atIndexPath:indexPath];
     
     return cell;
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {
