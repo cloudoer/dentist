@@ -10,6 +10,6 @@
 
 @interface CaseViewController : UIViewController
 
-+ (UIViewController *)instantiateInitialViewController;
+//+ (UIViewController *)instantiateInitialViewController;
 
 @end

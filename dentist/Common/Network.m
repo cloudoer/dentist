@@ -53,15 +53,14 @@
              success:(void (^)(NSDictionary *responseObject))success
              failure:(void (^)(NSError *error))failure
 {
-    NSURL *baseURL = [NSURL URLWithString:BaseURLString];
-    
-    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:baseURL];
+
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json", nil];
-    [manager POST:path parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+    [manager POST:[BaseURLString stringByAppendingPathComponent:path] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         success(responseObject);
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        failure(error);;
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failure(error);
     }];
 }
 
