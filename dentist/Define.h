@@ -15,6 +15,7 @@
 #define kXMPPLoginSuccess @"kXMPPLoginSuccess"
 
 #define BaseURLString  @"http://tijian8.cn/yayibao/"
+//#define BaseURLString  @"http://tijian8.cn/"
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 #define IS_IPHONE5 (([[UIScreen mainScreen] bounds].size.height-568)?NO:YES)
@@ -22,8 +23,16 @@
 #define IS_OS_6_OR_LATER    ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0)
 #define IS_OS_7_OR_LATER    ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)
 
+#define BASE_URL @"http://tijian8.cn/yayibao/"
+
+//* 我的病历*********************
+#define RELATIVE_URL_RECORDS_INDEX @"index.php?r   = app/cases/"
+#define RELATIVE_URL_RECORDS_SUBMIT  @"index.php?r = app/cases/submit"
+#define RELATIVE_URL_MY_RECORDS @"index.php?r=app/cases/listByUid/uid/1"
+#define RELATIVE_URL_RECORDS_SUBMIT_TEST  @"index.php?r=app/cases/test"
 
 #define URL_PATH_ROOM_LIST @"dentist/index.php?r=api/RoomList"
 #define URL_PATH_ONE_VCARD @"dentist/index.php?r=api/GetVcard"
+#define URL_PATH_ALL_BUDDY @"yayibao/index.php?r=app/user/getFriends"
 
 #endif
