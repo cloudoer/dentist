@@ -7,7 +7,7 @@
 //
 
 #import "BuddyManager.h"
-
+#import "Buddy.h"
 
 
 @implementation BuddyManager
@@ -121,5 +121,53 @@ static BuddyManager *sharedInstance;
     return _persistentStoreCoordinator;
 }
 
+
+- (void)addBuddyWithDictionary:(NSDictionary *)oneBuddy
+{
+    NSString *entityName = @"Buddy";
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
+    request.predicate = [NSPredicate predicateWithFormat:@"uid = %@", oneBuddy[@"id"]];
+    NSError *error;
+    NSArray *matches = [context executeFetchRequest:request error:&error];
+    if (!matches || error || matches.count > 1) {
+        // something went wrong!
+    }else if (matches.count == 1) {
+        Buddy *buddy = matches.firstObject;
+//        product.number = [NSNumber numberWithInt:(product.number.intValue + 1)];
+//        product.addDate = [NSDate date];
+        buddy.uid = [NSNumber numberWithInt:[oneBuddy[@"id"] intValue]];
+        buddy.username = oneBuddy[@"username"];
+        buddy.realname = oneBuddy[@"realname"];
+        buddy.phone = oneBuddy[@"phone"];
+        buddy.photoStr = oneBuddy[@"photo"];
+        buddy.gender = [oneBuddy[@"sex"] isEqualToString:@"1"] ? @"男" : @"女";
+        buddy.brand = oneBuddy[@"brand"];
+        buddy.jobTitle = oneBuddy[@"job_title"];
+        buddy.desc = oneBuddy[@"description"];
+        buddy.address = oneBuddy[@"area"];
+        buddy.addDate = [NSDate date];
+    }else {
+        
+        Buddy *buddy = [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:context];
+        buddy.uid = [NSNumber numberWithInt:[oneBuddy[@"id"] intValue]];
+        buddy.username = oneBuddy[@"username"];
+        buddy.realname = oneBuddy[@"realname"];
+        buddy.phone = oneBuddy[@"phone"];
+        buddy.photoStr = oneBuddy[@"photo"];
+        buddy.gender = [oneBuddy[@"sex"] isEqualToString:@"1"] ? @"男" : @"女";
+        buddy.brand = oneBuddy[@"brand"];
+        buddy.jobTitle = oneBuddy[@"job_title"];
+        buddy.desc = oneBuddy[@"description"];
+        buddy.address = oneBuddy[@"area"];
+        buddy.addDate = [NSDate date];
+    }
+    
+    if (![context save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
+}
 
 @end

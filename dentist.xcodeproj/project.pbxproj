@@ -40,9 +40,11 @@
 		FB01E0EE1900CA2F0056609F /* RoomChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB01E0ED1900CA2F0056609F /* RoomChatViewController.m */; };
 		FB0C1AED190DC89400A3690E /* BuddyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0C1AEC190DC89400A3690E /* BuddyManager.m */; };
 		FB0C1AF0190DCE2B00A3690E /* Buddy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB0C1AEE190DCE2B00A3690E /* Buddy.xcdatamodeld */; };
-		FB0C1AFC190DCFF000A3690E /* Buddy.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0C1AFB190DCFF000A3690E /* Buddy.m */; };
 		FB0C1B00190DD2D900A3690E /* AddBuddyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0C1AFF190DD2D900A3690E /* AddBuddyTableViewController.m */; };
 		FB0C1B03190DD51C00A3690E /* ResultBuddyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0C1B02190DD51C00A3690E /* ResultBuddyTableViewController.m */; };
+		FB0C1B06190DEEB900A3690E /* BuddyHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0C1B05190DEEB900A3690E /* BuddyHeaderCell.m */; };
+		FB0C1B09190DEEDD00A3690E /* BuddyContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0C1B08190DEEDD00A3690E /* BuddyContentCell.m */; };
+		FB0C1B0C190E2EF300A3690E /* Buddy.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0C1B0B190E2EF300A3690E /* Buddy.m */; };
 		FB4DCBC218F3B884006B6722 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4DCBC118F3B884006B6722 /* Foundation.framework */; };
 		FB4DCBC418F3B884006B6722 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4DCBC318F3B884006B6722 /* CoreGraphics.framework */; };
 		FB4DCBC618F3B884006B6722 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4DCBC518F3B884006B6722 /* UIKit.framework */; };
@@ -393,12 +395,16 @@
 		FB0C1AEB190DC89400A3690E /* BuddyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuddyManager.h; sourceTree = "<group>"; };
 		FB0C1AEC190DC89400A3690E /* BuddyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuddyManager.m; sourceTree = "<group>"; };
 		FB0C1AEF190DCE2B00A3690E /* Buddy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Buddy.xcdatamodel; sourceTree = "<group>"; };
-		FB0C1AFA190DCFF000A3690E /* Buddy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Buddy.h; sourceTree = "<group>"; };
-		FB0C1AFB190DCFF000A3690E /* Buddy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Buddy.m; sourceTree = "<group>"; };
 		FB0C1AFE190DD2D900A3690E /* AddBuddyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddBuddyTableViewController.h; sourceTree = "<group>"; };
 		FB0C1AFF190DD2D900A3690E /* AddBuddyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBuddyTableViewController.m; sourceTree = "<group>"; };
 		FB0C1B01190DD51C00A3690E /* ResultBuddyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultBuddyTableViewController.h; sourceTree = "<group>"; };
 		FB0C1B02190DD51C00A3690E /* ResultBuddyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultBuddyTableViewController.m; sourceTree = "<group>"; };
+		FB0C1B04190DEEB900A3690E /* BuddyHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuddyHeaderCell.h; sourceTree = "<group>"; };
+		FB0C1B05190DEEB900A3690E /* BuddyHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuddyHeaderCell.m; sourceTree = "<group>"; };
+		FB0C1B07190DEEDD00A3690E /* BuddyContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuddyContentCell.h; sourceTree = "<group>"; };
+		FB0C1B08190DEEDD00A3690E /* BuddyContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuddyContentCell.m; sourceTree = "<group>"; };
+		FB0C1B0A190E2EF300A3690E /* Buddy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Buddy.h; sourceTree = "<group>"; };
+		FB0C1B0B190E2EF300A3690E /* Buddy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Buddy.m; sourceTree = "<group>"; };
 		FB4DCBBE18F3B884006B6722 /* dentist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dentist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB4DCBC118F3B884006B6722 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FB4DCBC318F3B884006B6722 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -1015,9 +1021,9 @@
 			children = (
 				FB0C1AEB190DC89400A3690E /* BuddyManager.h */,
 				FB0C1AEC190DC89400A3690E /* BuddyManager.m */,
+				FB0C1B0A190E2EF300A3690E /* Buddy.h */,
+				FB0C1B0B190E2EF300A3690E /* Buddy.m */,
 				FB0C1AEE190DCE2B00A3690E /* Buddy.xcdatamodeld */,
-				FB0C1AFA190DCFF000A3690E /* Buddy.h */,
-				FB0C1AFB190DCFF000A3690E /* Buddy.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1961,6 +1967,10 @@
 				FBC919BC1908847500405A89 /* Buddy.storyboard */,
 				FBC919C6190884A700405A89 /* BuddyListTableViewController.h */,
 				FBC919C7190884A700405A89 /* BuddyListTableViewController.m */,
+				FB0C1B04190DEEB900A3690E /* BuddyHeaderCell.h */,
+				FB0C1B05190DEEB900A3690E /* BuddyHeaderCell.m */,
+				FB0C1B07190DEEDD00A3690E /* BuddyContentCell.h */,
+				FB0C1B08190DEEDD00A3690E /* BuddyContentCell.m */,
 				FBC919C9190884B700405A89 /* BuddyFacade.h */,
 				FBC919CA190884B700405A89 /* BuddyFacade.m */,
 				FB0C1AFE190DD2D900A3690E /* AddBuddyTableViewController.h */,
@@ -2552,8 +2562,8 @@
 				FBC919EF1908FD7000405A89 /* MsgDetailViewController.m in Sources */,
 				FB4DCFA618F3BA8A006B6722 /* ContextFilterLogFormatter.m in Sources */,
 				FB4DCFA318F3BA8A006B6722 /* DDFileLogger.m in Sources */,
-				FB0C1AFC190DCFF000A3690E /* Buddy.m in Sources */,
 				FB4DCF9718F3BA8A006B6722 /* XMPPMessage+XEP_0308.m in Sources */,
+				FB0C1B09190DEEDD00A3690E /* BuddyContentCell.m in Sources */,
 				FB4DCF5318F3BA8A006B6722 /* XMPPIQ+LastActivity.m in Sources */,
 				FBCE0D2118F64643007C0489 /* AFURLConnectionOperation.m in Sources */,
 				FB0C1B00190DD2D900A3690E /* AddBuddyTableViewController.m in Sources */,
@@ -2621,7 +2631,9 @@
 				FB4DCF3818F3BA8A006B6722 /* NSXMLElement+XMPP.m in Sources */,
 				FB4DCFAA18F3BA8A006B6722 /* DDXMLDocument.m in Sources */,
 				FB4DCF9818F3BA8A006B6722 /* XMPPMessage+XEP_0333.m in Sources */,
+				FB0C1B0C190E2EF300A3690E /* Buddy.m in Sources */,
 				FBC919E6190886CC00405A89 /* MessageListTableViewController.m in Sources */,
+				FB0C1B06190DEEB900A3690E /* BuddyHeaderCell.m in Sources */,
 				FB4DCF6F18F3BA8A006B6722 /* XMPPvCardTempModule.m in Sources */,
 				FB4DCF4918F3BA8A006B6722 /* XMPPRosterCoreDataStorage.m in Sources */,
 				FB4DCF7E18F3BA8A006B6722 /* XMPPCapabilities.xcdatamodel in Sources */,

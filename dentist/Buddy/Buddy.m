@@ -21,5 +21,6 @@
 @dynamic jobTitle;
 @dynamic desc;
 @dynamic address;
+@dynamic addDate;
 
 @end

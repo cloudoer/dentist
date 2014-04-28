@@ -22,5 +22,6 @@
 @property (nonatomic, retain) NSString * jobTitle;
 @property (nonatomic, retain) NSString * desc;
 @property (nonatomic, retain) NSString * address;
+@property (nonatomic, retain) NSDate * addDate;
 
 @end
