@@ -41,6 +41,8 @@
 		FB0C1AED190DC89400A3690E /* BuddyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0C1AEC190DC89400A3690E /* BuddyManager.m */; };
 		FB0C1AF0190DCE2B00A3690E /* Buddy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB0C1AEE190DCE2B00A3690E /* Buddy.xcdatamodeld */; };
 		FB0C1AFC190DCFF000A3690E /* Buddy.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0C1AFB190DCFF000A3690E /* Buddy.m */; };
+		FB0C1B00190DD2D900A3690E /* AddBuddyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0C1AFF190DD2D900A3690E /* AddBuddyTableViewController.m */; };
+		FB0C1B03190DD51C00A3690E /* ResultBuddyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0C1B02190DD51C00A3690E /* ResultBuddyTableViewController.m */; };
 		FB4DCBC218F3B884006B6722 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4DCBC118F3B884006B6722 /* Foundation.framework */; };
 		FB4DCBC418F3B884006B6722 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4DCBC318F3B884006B6722 /* CoreGraphics.framework */; };
 		FB4DCBC618F3B884006B6722 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4DCBC518F3B884006B6722 /* UIKit.framework */; };
@@ -393,6 +395,10 @@
 		FB0C1AEF190DCE2B00A3690E /* Buddy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Buddy.xcdatamodel; sourceTree = "<group>"; };
 		FB0C1AFA190DCFF000A3690E /* Buddy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Buddy.h; sourceTree = "<group>"; };
 		FB0C1AFB190DCFF000A3690E /* Buddy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Buddy.m; sourceTree = "<group>"; };
+		FB0C1AFE190DD2D900A3690E /* AddBuddyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddBuddyTableViewController.h; sourceTree = "<group>"; };
+		FB0C1AFF190DD2D900A3690E /* AddBuddyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBuddyTableViewController.m; sourceTree = "<group>"; };
+		FB0C1B01190DD51C00A3690E /* ResultBuddyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultBuddyTableViewController.h; sourceTree = "<group>"; };
+		FB0C1B02190DD51C00A3690E /* ResultBuddyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultBuddyTableViewController.m; sourceTree = "<group>"; };
 		FB4DCBBE18F3B884006B6722 /* dentist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dentist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB4DCBC118F3B884006B6722 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FB4DCBC318F3B884006B6722 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -1002,6 +1008,18 @@
 				FB01E03A18FF83540056609F /* UIKit+AFNetworking */,
 			);
 			name = 3rd;
+			sourceTree = "<group>";
+		};
+		FB0C1AFD190DD29600A3690E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FB0C1AEB190DC89400A3690E /* BuddyManager.h */,
+				FB0C1AEC190DC89400A3690E /* BuddyManager.m */,
+				FB0C1AEE190DCE2B00A3690E /* Buddy.xcdatamodeld */,
+				FB0C1AFA190DCFF000A3690E /* Buddy.h */,
+				FB0C1AFB190DCFF000A3690E /* Buddy.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		FB2683A019087E8C00885927 /* Old_Stuff */ = {
@@ -1945,11 +1963,11 @@
 				FBC919C7190884A700405A89 /* BuddyListTableViewController.m */,
 				FBC919C9190884B700405A89 /* BuddyFacade.h */,
 				FBC919CA190884B700405A89 /* BuddyFacade.m */,
-				FB0C1AEB190DC89400A3690E /* BuddyManager.h */,
-				FB0C1AEC190DC89400A3690E /* BuddyManager.m */,
-				FB0C1AEE190DCE2B00A3690E /* Buddy.xcdatamodeld */,
-				FB0C1AFA190DCFF000A3690E /* Buddy.h */,
-				FB0C1AFB190DCFF000A3690E /* Buddy.m */,
+				FB0C1AFE190DD2D900A3690E /* AddBuddyTableViewController.h */,
+				FB0C1AFF190DD2D900A3690E /* AddBuddyTableViewController.m */,
+				FB0C1B01190DD51C00A3690E /* ResultBuddyTableViewController.h */,
+				FB0C1B02190DD51C00A3690E /* ResultBuddyTableViewController.m */,
+				FB0C1AFD190DD29600A3690E /* Model */,
 			);
 			path = Buddy;
 			sourceTree = "<group>";
@@ -2509,6 +2527,7 @@
 				FB4DCF3C18F3BA8A006B6722 /* XMPPMessage.m in Sources */,
 				FB4DCF3918F3BA8A006B6722 /* XMPPElement.m in Sources */,
 				FB4DCF6C18F3BA8A006B6722 /* XMPPvCardTempBase.m in Sources */,
+				FB0C1B03190DD51C00A3690E /* ResultBuddyTableViewController.m in Sources */,
 				FB4DCF7618F3BA8A006B6722 /* XMPPIQ+XEP_0066.m in Sources */,
 				FBCE0D0718F62A8D007C0489 /* PersonalTableViewController.m in Sources */,
 				FB4DCF9918F3BA8A006B6722 /* NSXMLElement+XEP_0335.m in Sources */,
@@ -2537,6 +2556,7 @@
 				FB4DCF9718F3BA8A006B6722 /* XMPPMessage+XEP_0308.m in Sources */,
 				FB4DCF5318F3BA8A006B6722 /* XMPPIQ+LastActivity.m in Sources */,
 				FBCE0D2118F64643007C0489 /* AFURLConnectionOperation.m in Sources */,
+				FB0C1B00190DD2D900A3690E /* AddBuddyTableViewController.m in Sources */,
 				FBC919E9190886D600405A89 /* MessageFacade.m in Sources */,
 				FB4DCF9218F3BA8A006B6722 /* NSXMLElement+XEP_0203.m in Sources */,
 				FBD1FD7C1900F13F00A263F8 /* NSData+ImageContentType.m in Sources */,
