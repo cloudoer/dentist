@@ -38,6 +38,9 @@
 		FB01E06218FFD2730056609F /* AddDiscussTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB01E06118FFD2730056609F /* AddDiscussTableViewController.m */; };
 		FB01E0661900C92B0056609F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB01E0651900C92B0056609F /* AudioToolbox.framework */; };
 		FB01E0EE1900CA2F0056609F /* RoomChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB01E0ED1900CA2F0056609F /* RoomChatViewController.m */; };
+		FB0C1AED190DC89400A3690E /* BuddyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0C1AEC190DC89400A3690E /* BuddyManager.m */; };
+		FB0C1AF0190DCE2B00A3690E /* Buddy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB0C1AEE190DCE2B00A3690E /* Buddy.xcdatamodeld */; };
+		FB0C1AFC190DCFF000A3690E /* Buddy.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0C1AFB190DCFF000A3690E /* Buddy.m */; };
 		FB4DCBC218F3B884006B6722 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4DCBC118F3B884006B6722 /* Foundation.framework */; };
 		FB4DCBC418F3B884006B6722 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4DCBC318F3B884006B6722 /* CoreGraphics.framework */; };
 		FB4DCBC618F3B884006B6722 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4DCBC518F3B884006B6722 /* UIKit.framework */; };
@@ -385,6 +388,11 @@
 		FB01E0651900C92B0056609F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		FB01E0EC1900CA2F0056609F /* RoomChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomChatViewController.h; sourceTree = "<group>"; };
 		FB01E0ED1900CA2F0056609F /* RoomChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomChatViewController.m; sourceTree = "<group>"; };
+		FB0C1AEB190DC89400A3690E /* BuddyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuddyManager.h; sourceTree = "<group>"; };
+		FB0C1AEC190DC89400A3690E /* BuddyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuddyManager.m; sourceTree = "<group>"; };
+		FB0C1AEF190DCE2B00A3690E /* Buddy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Buddy.xcdatamodel; sourceTree = "<group>"; };
+		FB0C1AFA190DCFF000A3690E /* Buddy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Buddy.h; sourceTree = "<group>"; };
+		FB0C1AFB190DCFF000A3690E /* Buddy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Buddy.m; sourceTree = "<group>"; };
 		FB4DCBBE18F3B884006B6722 /* dentist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dentist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB4DCBC118F3B884006B6722 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FB4DCBC318F3B884006B6722 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -1937,6 +1945,11 @@
 				FBC919C7190884A700405A89 /* BuddyListTableViewController.m */,
 				FBC919C9190884B700405A89 /* BuddyFacade.h */,
 				FBC919CA190884B700405A89 /* BuddyFacade.m */,
+				FB0C1AEB190DC89400A3690E /* BuddyManager.h */,
+				FB0C1AEC190DC89400A3690E /* BuddyManager.m */,
+				FB0C1AEE190DCE2B00A3690E /* Buddy.xcdatamodeld */,
+				FB0C1AFA190DCFF000A3690E /* Buddy.h */,
+				FB0C1AFB190DCFF000A3690E /* Buddy.m */,
 			);
 			path = Buddy;
 			sourceTree = "<group>";
@@ -2453,7 +2466,6 @@
 				FB4DCF3618F3BA8A006B6722 /* NSData+XMPP.m in Sources */,
 				FBCE0D1D18F64643007C0489 /* AFHTTPRequestOperationManager.m in Sources */,
 				FB4DCF4618F3BA8A006B6722 /* XMPPGroupCoreDataStorageObject.m in Sources */,
-				FB01E0B51900C9BB0056609F /* JSMessageInputView.m in Sources */,
 				14425CC1190A138700CC46F4 /* MyRecordsViewController.m in Sources */,
 				FB4DCF8618F3BA8A006B6722 /* XMPPMessageArchivingCoreDataStorage.m in Sources */,
 				FB4DCF5D18F3BA8A006B6722 /* XMPPRoomOccupantHybridMemoryStorageObject.m in Sources */,
@@ -2475,6 +2487,7 @@
 				FB01E05018FF83540056609F /* UIImageView+AFNetworking.m in Sources */,
 				FB4DCF7F18F3BA8A006B6722 /* XMPPCapabilitiesCoreDataStorage.m in Sources */,
 				FB4DCF6A18F3BA8A006B6722 /* XMPPvCardTempAdr.m in Sources */,
+				FB0C1AF0190DCE2B00A3690E /* Buddy.xcdatamodeld in Sources */,
 				14425CCE190A149C00CC46F4 /* UIImage+Cut.m in Sources */,
 				FBC91AE7190A32B500405A89 /* JSBubbleView.m in Sources */,
 				FB4DCF3118F3BA8A006B6722 /* XMPPDigestMD5Authentication.m in Sources */,
@@ -2520,6 +2533,7 @@
 				FBC919EF1908FD7000405A89 /* MsgDetailViewController.m in Sources */,
 				FB4DCFA618F3BA8A006B6722 /* ContextFilterLogFormatter.m in Sources */,
 				FB4DCFA318F3BA8A006B6722 /* DDFileLogger.m in Sources */,
+				FB0C1AFC190DCFF000A3690E /* Buddy.m in Sources */,
 				FB4DCF9718F3BA8A006B6722 /* XMPPMessage+XEP_0308.m in Sources */,
 				FB4DCF5318F3BA8A006B6722 /* XMPPIQ+LastActivity.m in Sources */,
 				FBCE0D2118F64643007C0489 /* AFURLConnectionOperation.m in Sources */,
@@ -2634,6 +2648,7 @@
 				FB4DCBCE18F3B884006B6722 /* main.m in Sources */,
 				14425CD4190A3F7A00CC46F4 /* TagViewController.m in Sources */,
 				FB4DCF9418F3BA8A006B6722 /* XMPPAttentionModule.m in Sources */,
+				FB0C1AED190DC89400A3690E /* BuddyManager.m in Sources */,
 				FB4DCF4718F3BA8A006B6722 /* XMPPResourceCoreDataStorageObject.m in Sources */,
 				FB4DCF5C18F3BA8A006B6722 /* XMPPRoomMessageHybridCoreDataStorageObject.m in Sources */,
 				FB4DCF9018F3BA8A006B6722 /* XMPPAutoTime.m in Sources */,
@@ -2914,6 +2929,16 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
+		FB0C1AEE190DCE2B00A3690E /* Buddy.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FB0C1AEF190DCE2B00A3690E /* Buddy.xcdatamodel */,
+			);
+			currentVersion = FB0C1AEF190DCE2B00A3690E /* Buddy.xcdatamodel */;
+			path = Buddy.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		FB4DCE4F18F3BA89006B6722 /* XMPPRoom.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
