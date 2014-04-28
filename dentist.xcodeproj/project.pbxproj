@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		142E9590190E439200246EEB /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 142E958F190E439200246EEB /* MBProgressHUD.m */; };
+		142E9593190E4DB900246EEB /* RecordDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 142E9592190E4DB900246EEB /* RecordDetailViewController.m */; };
 		14425CBE190A0FFA00CC46F4 /* NewRecordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14425CBD190A0FFA00CC46F4 /* NewRecordsViewController.m */; };
 		14425CC1190A138700CC46F4 /* MyRecordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14425CC0190A138700CC46F4 /* MyRecordsViewController.m */; };
 		14425CCD190A149C00CC46F4 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 14425CC4190A149C00CC46F4 /* UIImage+Alpha.m */; };
@@ -346,6 +347,8 @@
 /* Begin PBXFileReference section */
 		142E958E190E439200246EEB /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		142E958F190E439200246EEB /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		142E9591190E4DB900246EEB /* RecordDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordDetailViewController.h; sourceTree = "<group>"; };
+		142E9592190E4DB900246EEB /* RecordDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordDetailViewController.m; sourceTree = "<group>"; };
 		14425CBC190A0FFA00CC46F4 /* NewRecordsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewRecordsViewController.h; sourceTree = "<group>"; };
 		14425CBD190A0FFA00CC46F4 /* NewRecordsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewRecordsViewController.m; sourceTree = "<group>"; };
 		14425CBF190A138700CC46F4 /* MyRecordsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRecordsViewController.h; sourceTree = "<group>"; };
@@ -2094,6 +2097,8 @@
 				14425CD3190A3F7A00CC46F4 /* TagViewController.m */,
 				14425CE5190A584B00CC46F4 /* PhotoesView.h */,
 				14425CE6190A584B00CC46F4 /* PhotoesView.m */,
+				142E9591190E4DB900246EEB /* RecordDetailViewController.h */,
+				142E9592190E4DB900246EEB /* RecordDetailViewController.m */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -2744,6 +2749,7 @@
 				14425CE0190A4A6300CC46F4 /* UIAlertViewBlock.m in Sources */,
 				14425CBE190A0FFA00CC46F4 /* NewRecordsViewController.m in Sources */,
 				FB01E05F18FFCEDF0056609F /* Tools.m in Sources */,
+				142E9593190E4DB900246EEB /* RecordDetailViewController.m in Sources */,
 				FB4DCBCE18F3B884006B6722 /* main.m in Sources */,
 				14425CD4190A3F7A00CC46F4 /* TagViewController.m in Sources */,
 				FB4DCF9418F3BA8A006B6722 /* XMPPAttentionModule.m in Sources */,

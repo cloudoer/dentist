@@ -12,6 +12,7 @@
 #import "TagViewController.h"
 #import "NSUtil.h"
 #import "GTMBase64.h"
+
 @interface NewRecordsViewController ()<UITextFieldDelegate, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, ELCImagePickerControllerDelegate>
 {
     int status;
@@ -127,12 +128,16 @@
         NSString *msg;
         if (![NSUtil trimSpace:self.recordsName.text].length) {
             msg = @"病历名称不能为空";
+            status = 0;
         } else if (![NSUtil trimSpace:self.age.text].length) {
             msg = @"年龄不能为空";
+            status = 0;
         } else if (![NSUtil trimSpace:self.recordsDes.text].length) {
             msg = @"病历描述不能为空";
+            status = 0;
         } else if (!cell.textLabel.text.length) {
             msg = @"标签不能为空";
+            status = 0;
         }
         
         if (msg) {

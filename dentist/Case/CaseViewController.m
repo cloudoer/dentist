@@ -7,9 +7,10 @@
 //
 
 #import "CaseViewController.h"
+#import "RecordDetailViewController.h"
 
 #define RELATIVE_URL_CASES @"index.php?r=app/cases/"
-@interface CaseViewController ()
+@interface CaseViewController () <UIWebViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 
@@ -31,6 +32,7 @@
     [super viewDidLoad];
 
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[BaseURLString stringByAppendingPathComponent:RELATIVE_URL_CASES]]]];
+    [MBProgressHUD showHUDAddedTo:self.webView animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,5 +51,28 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    if ([[request URL].relativeString hasPrefix:@"http://tijian8.cn/yayibao/index.php?r=app/cases/view"]) {
+        UIStoryboard *storyBoard                 = [UIStoryboard storyboardWithName:@"Me" bundle:[NSBundle mainBundle]];
+        RecordDetailViewController *recordDetail = [storyBoard instantiateViewControllerWithIdentifier:@"recordDetail"];
+        recordDetail.request                     = request;
+        [self.navigationController pushViewController:recordDetail animated:YES];
+        return NO;
+    }
+    
+    return YES;
+}
+- (void)webViewDidStartLoad:(UIWebView *)webView {
+    
+}
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [MBProgressHUD hideAllHUDsForView:self.webView animated:YES];
+}
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    [MBProgressHUD hideAllHUDsForView:self.webView animated:YES];
+    [NSUtil alertNotice:@"提示" withMSG:@"数据请求失败,请稍后重试" cancleButtonTitle:@"确定" otherButtonTitle:nil];
+}
+
 
 @end
