@@ -8,7 +8,10 @@
 
 #import "CaseViewController.h"
 
+#define RELATIVE_URL_CASES @"index.php?r=app/cases/"
 @interface CaseViewController ()
+
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 @end
 
@@ -26,7 +29,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[BaseURLString stringByAppendingPathComponent:RELATIVE_URL_CASES]]]];
 }
 
 - (void)didReceiveMemoryWarning
