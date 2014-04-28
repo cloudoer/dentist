@@ -203,6 +203,9 @@
                             <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <outlet property="delegate" destination="I2o-hG-3O9" id="rwN-I4-7YA"/>
+                            </connections>
                         </webView>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Xh2-uZ-wmG">
@@ -232,7 +235,38 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IUT-dm-luB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1289" y="-567"/>
+            <point key="canvasLocation" x="1312" y="-557"/>
+        </scene>
+        <!--Record Detail View Controller-->
+        <scene sceneID="Vfe-KY-BTg">
+            <objects>
+                <viewController storyboardIdentifier="recordDetail" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3sP-2H-DFe" customClass="RecordDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="h2x-sC-Hd7"/>
+                        <viewControllerLayoutGuide type="bottom" id="ef0-uZ-pgv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="anq-cF-7tv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GiS-aq-42e">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="3sP-2H-DFe" id="bFX-bQ-3mF"/>
+                                </connections>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="GiS-aq-42e" id="2Hd-N6-EMU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yIe-Po-emi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1763" y="-1260"/>
         </scene>
         <!--New Records View Controller - 新建病历-->
         <scene sceneID="hKm-ad-eew">

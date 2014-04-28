@@ -27,6 +27,8 @@
 #import "MessageFacade.h"
 #import "WLConstants.h"
 #import "BuddyManager.h"
+#import "MBProgressHUD.h"
+#import "NSUtil.h"
 #endif
 
 

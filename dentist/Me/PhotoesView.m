@@ -97,6 +97,7 @@
         CGRect frame = self.addBtn.frame;
         frame.origin.x -= (kMarginSpace + kCarPhotoWidth);
         self.addBtn.frame = frame;
+        self.mainView.contentSize = CGSizeMake(kMarginSpace + (kMarginSpace + kCarPhotoWidth) * (self.images.count + 1), HEIGHT(_mainView));
     } completion:^(BOOL finished) {
         [view removeFromSuperview];
     }];

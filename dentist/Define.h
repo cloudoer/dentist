@@ -26,9 +26,9 @@
 #define BASE_URL @"http://tijian8.cn/yayibao/"
 
 //* 我的病历*********************
-#define RELATIVE_URL_RECORDS_INDEX @"index.php?r   = app/cases/"
-#define RELATIVE_URL_RECORDS_SUBMIT  @"index.php?r = app/cases/submit"
-#define RELATIVE_URL_MY_RECORDS @"index.php?r=app/cases/listByUid/uid/1"
+#define RELATIVE_URL_RECORDS_INDEX @"index.php?r=app/cases/"
+#define RELATIVE_URL_RECORDS_SUBMIT  @"index.php?r=app/cases/submit"
+#define RELATIVE_URL_MY_RECORDS(USERID) [NSString stringWithFormat:@"index.php?r=app/cases/listByUid/uid/%@", (USERID)]
 #define RELATIVE_URL_RECORDS_SUBMIT_TEST  @"index.php?r=app/cases/test"
 
 #define URL_PATH_ROOM_LIST @"dentist/index.php?r=api/RoomList"
