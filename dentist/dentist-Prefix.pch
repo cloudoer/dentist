@@ -25,7 +25,9 @@
 #import "IndustryFacade.h"
 #import "CaseFacade.h"
 #import "MessageFacade.h"
+#import "WLConstants.h"
 #import "BuddyManager.h"
 #endif
+
 
 

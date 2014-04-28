@@ -7,8 +7,10 @@
 //
 
 #import "MeTableViewController.h"
+#import "UIImage+Cut.h"
 
 @interface MeTableViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *avatorImageView;
 
 @end
 
@@ -27,11 +29,9 @@
 {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+   UIImage *avator = PNGIMAGENAMED(@"avator");
+   avator = [avator clipImageWithScaleWithsize:CGSizeMake(49 , 49 )];
+    self.avatorImageView.image = avator;
 }
 
 - (void)didReceiveMemoryWarning
