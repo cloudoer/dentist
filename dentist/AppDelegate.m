@@ -363,8 +363,8 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 	
 	[[self xmppStream] sendElement:presence];
     
-    [self fetchVCard];
-//    [[NSNotificationCenter defaultCenter] postNotificationName:kXMPPLoginSuccess object:nil];
+//    [self fetchVCard];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kXMPPLoginSuccess object:nil];
 }
 
 - (void)goOffline
@@ -382,7 +382,7 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 {
 	if (![xmppStream isDisconnected]) {
         
-        [self fetchVCard];
+//        [self fetchVCard];
         
 		return YES;
 	}

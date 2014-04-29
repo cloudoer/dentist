@@ -40,10 +40,15 @@
 
 - (void)xmppLoginSuccess:(NSNotification *)aNotification
 {
-    XMPPvCardTempModule *vCardModule = [self appDelegate].xmppvCardTempModule;
-    XMPPvCardTemp *vCardTemp = [vCardModule vCardTempForJID:[self appDelegate].xmppStream.myJID.bareJID shouldFetch:YES];
+//    XMPPvCardTempModule *vCardModule = [self appDelegate].xmppvCardTempModule;
+//    XMPPvCardTemp *vCardTemp = [vCardModule vCardTempForJID:[self appDelegate].xmppStream.myJID.bareJID shouldFetch:YES];
     
-    [LoginFacade loginSuccessWithXMPPvCardTemp:vCardTemp];
+//    [LoginFacade loginSuccessWithXMPPvCardTemp:vCardTemp];
+    
+    
+    
+    // request Userinfo from our API
+    
     
     [self dismissViewControllerAnimated:YES completion:nil];
     
