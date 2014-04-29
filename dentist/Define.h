@@ -33,6 +33,6 @@
 
 #define URL_PATH_ROOM_LIST @"dentist/index.php?r=api/RoomList"
 #define URL_PATH_ONE_VCARD @"dentist/index.php?r=api/GetVcard"
-#define URL_PATH_ALL_BUDDY @"yayibao/index.php?r=app/user/getFriends"
+#define URL_PATH_ALL_BUDDY @"index.php?r=app/user/getFriends"
 
 #endif
