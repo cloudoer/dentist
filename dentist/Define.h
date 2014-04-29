@@ -40,5 +40,6 @@
 #define URL_PATH_ALL_BUDDY @"index.php?r=app/user/getFriends"
 
 #define URL_PATH_REG_CAPTCHA @"index.php?r=app/user/getCaptchaForRegister"
+#define URL_PATH_REG_DONE @"index.php?r=app/user/register"
 
 #endif

@@ -212,6 +212,7 @@
 		FB5014AF190F3B0B00264C9A /* BuddyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5014AE190F3B0B00264C9A /* BuddyRequest.m */; };
 		FB5014B2190F3B0B00264C9A /* Buddy.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5014B1190F3B0B00264C9A /* Buddy.m */; };
 		FB5014B5190F924700264C9A /* RegOneTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5014B4190F924700264C9A /* RegOneTableViewController.m */; };
+		FB5014B8190F9D7C00264C9A /* RegTwoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5014B7190F9D7C00264C9A /* RegTwoTableViewController.m */; };
 		FB6B986418F3C8CE00120569 /* FriendTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6B986318F3C8CE00120569 /* FriendTableViewController.m */; };
 		FB6B986718F3D70300120569 /* ChatTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6B986618F3D70300120569 /* ChatTableViewController.m */; };
 		FB6B986A18F3DAF900120569 /* ChatMeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6B986918F3DAF900120569 /* ChatMeCell.m */; };
@@ -751,6 +752,8 @@
 		FB5014B1190F3B0B00264C9A /* Buddy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Buddy.m; sourceTree = "<group>"; };
 		FB5014B3190F924700264C9A /* RegOneTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegOneTableViewController.h; sourceTree = "<group>"; };
 		FB5014B4190F924700264C9A /* RegOneTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegOneTableViewController.m; sourceTree = "<group>"; };
+		FB5014B6190F9D7C00264C9A /* RegTwoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegTwoTableViewController.h; sourceTree = "<group>"; };
+		FB5014B7190F9D7C00264C9A /* RegTwoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegTwoTableViewController.m; sourceTree = "<group>"; };
 		FB6B985E18F3C59300120569 /* Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Define.h; path = ../Define.h; sourceTree = "<group>"; };
 		FB6B986218F3C8CE00120569 /* FriendTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendTableViewController.h; sourceTree = "<group>"; };
 		FB6B986318F3C8CE00120569 /* FriendTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendTableViewController.m; sourceTree = "<group>"; };
@@ -2126,6 +2129,8 @@
 				FBC919B21908830D00405A89 /* LoginTableViewController.m */,
 				FB5014B3190F924700264C9A /* RegOneTableViewController.h */,
 				FB5014B4190F924700264C9A /* RegOneTableViewController.m */,
+				FB5014B6190F9D7C00264C9A /* RegTwoTableViewController.h */,
+				FB5014B7190F9D7C00264C9A /* RegTwoTableViewController.m */,
 				FBC919BA1908836400405A89 /* Login.storyboard */,
 			);
 			path = Login;
@@ -2803,6 +2808,7 @@
 				FB4DCF6718F3BA8A006B6722 /* XMPPvCardCoreDataStorageObject.m in Sources */,
 				FBC91B1D190A32B500405A89 /* UIButton+JSMessagesView.m in Sources */,
 				142E95AA190F4BB400246EEB /* EmojiPictographs.m in Sources */,
+				FB5014B8190F9D7C00264C9A /* RegTwoTableViewController.m in Sources */,
 				FB4DCFA918F3BA8A006B6722 /* NSString+DDXML.m in Sources */,
 				FB4DCF9F18F3BA8A006B6722 /* XMPPStringPrep.m in Sources */,
 				14425CE0190A4A6300CC46F4 /* UIAlertViewBlock.m in Sources */,

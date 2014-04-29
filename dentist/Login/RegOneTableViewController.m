@@ -7,6 +7,7 @@
 //
 
 #import "RegOneTableViewController.h"
+#import "RegTwoTableViewController.h"
 
 @interface RegOneTableViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
@@ -34,6 +35,7 @@
 
 - (IBAction)nextStepButtonPressed:(UIButton *)sender {
     
+    [self performSegueWithIdentifier:@"RegOne2Two" sender:self];
     
 }
 
@@ -58,6 +60,17 @@
     } failure:^(NSError *error) {
         
     }];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqual:@"RegOne2Two"]) {
+        RegTwoTableViewController *controller = segue.destinationViewController;
+        
+        controller.phone = self.phoneTextField.text;
+        controller.captcha = self.captchTextField.text;
+        controller.password = self.passTextField.text;
+    }
 }
 
 
