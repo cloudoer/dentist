@@ -9,6 +9,7 @@
 #import "BuddyManager.h"
 #import "Buddy.h"
 #import "BuddyNewMessage.h"
+#import "AppDelegate.h"
 
 
 @implementation BuddyManager
@@ -199,6 +200,28 @@ static BuddyManager *sharedInstance;
     if (![context save:&error]) {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
     }
+    
+    
+    [self addBadgeForMessageTab];
+}
+
+- (void)addBadgeForMessageTab
+{
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    
+    UITabBarController *tabBarController = (UITabBarController *)appDelegate.window.rootViewController;
+    
+    NSArray *controllers = tabBarController.viewControllers;
+    UIViewController *messageListController = controllers[0];
+    int num = [self numberOfNewMessageUser];
+    if (num == 0) {
+        messageListController.tabBarItem.badgeValue = nil;
+    }
+    else {
+        messageListController.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d", num];
+    }
+    
+    
 }
 - (void)removeBuddyNewMessageFrom:(NSString *)user
 {
@@ -222,6 +245,8 @@ static BuddyManager *sharedInstance;
     if (![context save:&error]) {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
     }
+    
+    [self addBadgeForMessageTab];
 }
 
 - (NSInteger)numberOfNewMessageUser
