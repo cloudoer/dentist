@@ -22,4 +22,10 @@
 
 - (void)addBuddyWithDictionary:(NSDictionary *)oneBuddy;
 
+
+- (void)addBuddyNewMessageFrom:(NSString *)user;
+- (void)removeBuddyNewMessageFrom:(NSString *)user;
+- (NSInteger)numberOfNewMessageUser;
+- (BOOL)containBuddyNewMessegeFrom:(NSString *)user;
+
 @end

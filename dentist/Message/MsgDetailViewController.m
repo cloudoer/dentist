@@ -33,6 +33,13 @@
     return self;
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    NSString *user = [self.bareJIDStr componentsSeparatedByString:@"@"][0];
+    [[BuddyManager sharedBuddyManager] removeBuddyNewMessageFrom:user];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

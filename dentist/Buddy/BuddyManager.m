@@ -8,6 +8,8 @@
 
 #import "BuddyManager.h"
 #import "Buddy.h"
+#import "BuddyNewMessage.h"
+#import "AppDelegate.h"
 
 
 @implementation BuddyManager
@@ -168,6 +170,122 @@ static BuddyManager *sharedInstance;
     if (![context save:&error]) {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
     }
+}
+
+
+
+
+- (void)addBuddyNewMessageFrom:(NSString *)user
+{
+    NSString *entityName = @"BuddyNewMessage";
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
+    request.predicate = [NSPredicate predicateWithFormat:@"user ==[c] %@", user];
+    NSError *error;
+    NSArray *matches = [context executeFetchRequest:request error:&error];
+    if (!matches || error || matches.count > 1) {
+        // something went wrong!
+    }else if (matches.count == 1) {
+        BuddyNewMessage *buddyNewMessage = matches.firstObject;
+        buddyNewMessage.number = [NSNumber numberWithInt:(buddyNewMessage.number.intValue + 1)];
+    }else {
+        
+        BuddyNewMessage *buddyNewMessage = [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:context];
+        buddyNewMessage.user = user;
+        buddyNewMessage.number = [NSNumber numberWithInt:1];
+    }
+    
+    if (![context save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
+    
+    
+    [self addBadgeForMessageTab];
+}
+
+- (void)addBadgeForMessageTab
+{
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    
+    UITabBarController *tabBarController = (UITabBarController *)appDelegate.window.rootViewController;
+    
+    NSArray *controllers = tabBarController.viewControllers;
+    UIViewController *messageListController = controllers[0];
+    int num = [self numberOfNewMessageUser];
+    if (num == 0) {
+        messageListController.tabBarItem.badgeValue = nil;
+    }
+    else {
+        messageListController.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d", num];
+    }
+    
+    
+}
+- (void)removeBuddyNewMessageFrom:(NSString *)user
+{
+    NSString *entityName = @"BuddyNewMessage";
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
+    request.predicate = [NSPredicate predicateWithFormat:@"user ==[c] %@", user];
+    NSError *error;
+    NSArray *matches = [context executeFetchRequest:request error:&error];
+    if (!matches || error || matches.count > 1) {
+        // something went wrong!
+    }else if (matches.count == 1) {
+       BuddyNewMessage *buddyNewMessage = matches.firstObject;
+        [context deleteObject:buddyNewMessage];
+    }else {
+        // something went wrong!
+    }
+    
+    if (![context save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
+    
+    [self addBadgeForMessageTab];
+}
+
+- (NSInteger)numberOfNewMessageUser
+{
+    NSString *entityName = @"BuddyNewMessage";
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
+    NSError *error;
+    NSArray *matches = [context executeFetchRequest:request error:&error];
+    if (!matches || error) {
+        // something went wrong!
+    }else {
+        return matches.count;
+    }
+    
+    return 0;
+}
+
+- (BOOL)containBuddyNewMessegeFrom:(NSString *)user
+{
+    NSString *entityName = @"BuddyNewMessage";
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
+    request.predicate = [NSPredicate predicateWithFormat:@"user ==[c] %@", user];
+    NSError *error;
+    NSArray *matches = [context executeFetchRequest:request error:&error];
+    if (!matches || error || matches.count > 1) {
+        // something went wrong!
+    }else if (matches.count == 1) {
+        return YES;
+    }else {
+        
+    }
+    
+    return NO;
 }
 
 @end

@@ -571,6 +571,8 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 		NSString *body = [[message elementForName:@"body"] stringValue];
 		NSString *displayName = [user displayName];
         
+        [[BuddyManager sharedBuddyManager] addBuddyNewMessageFrom:message.from.user];
+        
 		if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
 		{
 //			UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:displayName
