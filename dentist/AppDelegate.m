@@ -79,21 +79,16 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
     
     tabBarController.viewControllers = controllers;
     
-    // 消息
-    [tabBarController.viewControllers[0] tabBarItem].image = [UIImage imageNamed:@"first"];
-    [tabBarController.viewControllers[0] tabBarItem].title = @"消息";
-    // 病例
-        [tabBarController.viewControllers[1] tabBarItem].image = [UIImage imageNamed:@"second"];
-        [tabBarController.viewControllers[1] tabBarItem].title = @"病例";
-    // 行业资讯
-    [tabBarController.viewControllers[2] tabBarItem].image = [UIImage imageNamed:@"first"];
-    [tabBarController.viewControllers[2] tabBarItem].title = @"资讯";
-    // 通讯录
-    [tabBarController.viewControllers[3] tabBarItem].image = [UIImage imageNamed:@"second"];
-    [tabBarController.viewControllers[3] tabBarItem].title = @"通讯录";
-    // 我
-    [tabBarController.viewControllers[4] tabBarItem].image = [UIImage imageNamed:@"first"];
-    [tabBarController.viewControllers[4] tabBarItem].title = @"我";
+    NSArray *titles = @[@"消息", @"病例", @"资讯", @"通讯录", @"我"];
+    NSArray *images = @[@"tabbar_item_msg", @"tabbar_item_case",
+                        @"tabbar_item_news", @"tabbar_item_contacts", @"tabbar_item_me"];
+    
+    for (int i = 0; i < controllers.count; i++) {
+        [tabBarController.viewControllers[i] tabBarItem].image = PNGIMAGENAMED(images[i]);
+        [tabBarController.viewControllers[i] tabBarItem].title = titles[i];
+    }
+    
+    tabBarController.tabBar.barTintColor = RGBCOLOR(34., 39., 42.);
 }
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

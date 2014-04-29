@@ -15,7 +15,6 @@
 + (UIViewController *)instantiateInitialViewController
 {
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:STORYBOARD_NAEM bundle:[NSBundle mainBundle]];
-    
     return storyBoard.instantiateInitialViewController;
 }
 

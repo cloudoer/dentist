@@ -41,6 +41,7 @@
 #import "EmojiView.h"
 #import "OtherView.h"
 #import "WLConstants.h"
+#import "Emoji.h"
 
 #define INPUT_HEIGHT     46.0f
 
@@ -213,7 +214,31 @@ typedef enum {
 - (void)init4EmojiView {
     self.emojiView = [[EmojiView alloc] initWithFrame:CGRectMake(0, DEVICE_HEIGHT, DEVICE_WIDTH, KEYBOARD_HEIGHT)];
     [self.view addSubview:_emojiView];
+    [self.emojiView emojiSeleted:^(NSString *emotion) {
+
+        UITextView *textView = self.inputToolBarView.textView;
+        if ([emotion isEqualToString:@"删除"]) {
+            NSString *newStr;
+            if (textView.text.length) {
+                if ([[Emoji allEmoji] containsObject:[textView.text substringFromIndex:textView.text.length - 2]]) {
+                    newStr = [textView.text substringToIndex:textView.text.length-2];
+                }else{
+                    newStr = [textView.text substringToIndex:textView.text.length-1];
+                }
+                textView.text=newStr;
+            }
+        }else{
+            self.inputToolBarView.textView.text = [NSString stringWithFormat:@"%@%@",textView.text,emotion];
+        }
+    }];
+    
+    [self.emojiView emojiSend:^{
+        if (self.inputToolBarView.textView.text.length) {
+            [self sendPressed:nil];
+        }
+    }];
 }
+
 
 - (void)init4OtherView {
     self.otherView = [[OtherView alloc] initWithFrame:CGRectMake(0, DEVICE_HEIGHT, DEVICE_WIDTH, KEYBOARD_HEIGHT)];
@@ -617,9 +642,11 @@ typedef enum {
     CGFloat maxHeight = [JSMessageInputView maxHeight];
     CGSize size = [textView sizeThatFits:CGSizeMake(textView.frame.size.width, maxHeight)];
     CGFloat textViewContentHeight = size.height;
-    
+    if (status == INPUT_VIEW_STATUS_OTHER || status == INPUT_VIEW_STATUS_EMOJI) {
+        self.previousTextViewContentHeight = 35.5;
+    }
     // End of textView.contentSize replacement code
-    
+
     BOOL isShrinking = textViewContentHeight < self.previousTextViewContentHeight;
     CGFloat changeInHeight = textViewContentHeight - self.previousTextViewContentHeight;
     
@@ -629,7 +656,7 @@ typedef enum {
     else {
         changeInHeight = MIN(changeInHeight, maxHeight - self.previousTextViewContentHeight);
     }
-    
+
     if(changeInHeight != 0.0f) {
         //        if(!isShrinking)
         //            [self.inputToolBarView adjustTextViewHeightBy:changeInHeight];
@@ -644,7 +671,7 @@ typedef enum {
                              self.tableView.contentInset = insets;
                              self.tableView.scrollIndicatorInsets = insets;
                              [self scrollToBottomAnimated:NO];
-                             
+
                              if(isShrinking) {
                                  // if shrinking the view, animate text view frame BEFORE input view frame
                                  [self.inputToolBarView adjustTextViewHeightBy:changeInHeight];
@@ -656,6 +683,7 @@ typedef enum {
                                                                       inputViewFrame.size.width,
                                                                       inputViewFrame.size.height + changeInHeight);
                              
+                             
                              if(!isShrinking) {
                                  [self.inputToolBarView adjustTextViewHeightBy:changeInHeight];
                              }
@@ -665,6 +693,8 @@ typedef enum {
         
         
         self.previousTextViewContentHeight = MIN(textViewContentHeight, maxHeight);
+    } else if (status == INPUT_VIEW_STATUS_OTHER && ![textView isFirstResponder]) {
+        self.tableView.contentInset = self.originalTableViewContentInset;
     }
     
     isNull = ([textView.text trimWhitespace].length > 0);

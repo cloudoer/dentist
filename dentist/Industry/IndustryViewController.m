@@ -27,6 +27,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    DEFAULT_NAVIGATION_BAR_TINT_COLOR
+    DEFAULT_NAVIGATION_TINT_COLOR
 }
 
 - (void)didReceiveMemoryWarning

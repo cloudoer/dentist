@@ -23,6 +23,10 @@
 #define IS_OS_6_OR_LATER    ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0)
 #define IS_OS_7_OR_LATER    ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)
 
+#define DEFAULT_THEME_COLOR RGBCOLOR(34., 39., 42.)
+#define DEFAULT_NAVIGATION_BAR_TINT_COLOR self.navigationController.navigationBar.barTintColor = RGBCOLOR(34., 39., 42.);
+#define DEFAULT_NAVIGATION_TINT_COLOR self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+
 #define BASE_URL @"http://tijian8.cn/yayibao/"
 
 //* 我的病历*********************
