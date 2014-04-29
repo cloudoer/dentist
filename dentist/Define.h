@@ -30,10 +30,13 @@
 #define BASE_URL @"http://tijian8.cn/yayibao/"
 
 //* 我的病历*********************
-#define RELATIVE_URL_RECORDS_INDEX @"index.php?r=app/cases/"
+#define RELATIVE_URL_RECORDS_INDEX(USERID) [NSString stringWithFormat:@"index.php?r=app/cases/index/uid/%@", (USERID)]
 #define RELATIVE_URL_RECORDS_SUBMIT  @"index.php?r=app/cases/submit"
 #define RELATIVE_URL_MY_RECORDS(USERID) [NSString stringWithFormat:@"index.php?r=app/cases/listByUid/uid/%@", (USERID)]
 #define RELATIVE_URL_RECORDS_SUBMIT_TEST  @"index.php?r=app/cases/test"
+
+//*  资讯  ************************
+#define RELATIVE_URL_NEWS_INDEX(USERID) [NSString stringWithFormat:@"index.php?r=app/news/index/uid/%@", (USERID)]
 
 #define URL_PATH_ROOM_LIST @"dentist/index.php?r=api/RoomList"
 #define URL_PATH_ONE_VCARD @"dentist/index.php?r=api/GetVcard"

@@ -34,7 +34,7 @@
     DEFAULT_NAVIGATION_BAR_TINT_COLOR
     DEFAULT_NAVIGATION_TINT_COLOR
     
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[BaseURLString stringByAppendingPathComponent:RELATIVE_URL_CASES]]]];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[BaseURLString stringByAppendingPathComponent:RELATIVE_URL_RECORDS_INDEX(@(1))]]]];
     [MBProgressHUD showHUDAddedTo:self.webView animated:YES];
 }
 
