@@ -35,4 +35,6 @@
 #define URL_PATH_ONE_VCARD @"dentist/index.php?r=api/GetVcard"
 #define URL_PATH_ALL_BUDDY @"index.php?r=app/user/getFriends"
 
+#define URL_PATH_REG_CAPTCHA @"index.php?r=app/user/getCaptchaForRegister"
+
 #endif

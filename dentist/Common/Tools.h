@@ -11,4 +11,7 @@
 
 @interface Tools : NSObject
 + (XMPPvCardTemp *)xmppVCardTempFromVCardStr:(NSString *)vCardStr;
+
+
++ (void)showAlertViewWithText:(NSString *)text;
 @end

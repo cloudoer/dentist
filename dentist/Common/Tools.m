@@ -24,4 +24,10 @@
     return (XMPPvCardTemp *)elem;
 }
 
++ (void)showAlertViewWithText:(NSString *)text
+{
+    UIAlertView *av = [[UIAlertView alloc] initWithTitle:nil message:text delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    [av show];
+}
+
 @end
