@@ -39,12 +39,17 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="room_red_dot.png" translatesAutoresizingMaskIntoConstraints="NO" id="kIS-NU-NSm">
+                                            <rect key="frame" x="289" y="12" width="9" height="9"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="avatarImageView" destination="y8G-TT-PEY" id="8vY-S6-BEY"/>
                                     <outlet property="msgLabel" destination="eBi-Se-vv4" id="R1U-Y1-7pn"/>
                                     <outlet property="nameLabel" destination="Iei-vs-Vy4" id="gPi-Mi-axt"/>
+                                    <outlet property="redDotImageView" destination="kIS-NU-NSm" id="WLv-Zs-lxR"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -164,6 +169,9 @@
             <point key="canvasLocation" x="121" y="15"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="room_red_dot.png" width="9" height="9"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

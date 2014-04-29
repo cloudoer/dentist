@@ -2,7 +2,7 @@
 //  Buddy.m
 //  dentist
 //
-//  Created by xiaoyuan wang on 4/28/14.
+//  Created by xiaoyuan wang on 4/29/14.
 //  Copyright (c) 2014 1010.am. All rights reserved.
 //
 
@@ -11,16 +11,16 @@
 
 @implementation Buddy
 
-@dynamic uid;
-@dynamic username;
-@dynamic realname;
+@dynamic addDate;
+@dynamic address;
+@dynamic brand;
+@dynamic desc;
+@dynamic gender;
+@dynamic jobTitle;
 @dynamic phone;
 @dynamic photoStr;
-@dynamic gender;
-@dynamic brand;
-@dynamic jobTitle;
-@dynamic desc;
-@dynamic address;
-@dynamic addDate;
+@dynamic realname;
+@dynamic uid;
+@dynamic username;
 
 @end

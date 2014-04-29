@@ -13,7 +13,17 @@
         <attribute name="uid" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="BuddyNewMessage" representedClassName="BuddyNewMessage" syncable="YES">
+        <attribute name="number" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="user" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="BuddyRequest" representedClassName="BuddyRequest" syncable="YES">
+        <attribute name="fromMe" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="user" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Buddy" positionX="-63" positionY="-18" width="128" height="208"/>
+        <element name="BuddyNewMessage" positionX="88" positionY="29" width="128" height="73"/>
+        <element name="BuddyRequest" positionX="241" positionY="29" width="128" height="73"/>
     </elements>
 </model>

@@ -69,6 +69,13 @@ AVAudioPlayerDelegate>
     
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self.tableView reloadData];
+}
+
 - (NSFetchedResultsController *)fetchedResultsController
 {
 	if (fetchedResultsController == nil)
@@ -222,6 +229,10 @@ AVAudioPlayerDelegate>
     }
     
     cell.nameLabel.text = message.bareJidStr;
+    cell.redDotImageView.hidden = YES;
+    if ([[BuddyManager sharedBuddyManager] containBuddyNewMessegeFrom:message.message.from.user]) {
+        cell.redDotImageView.hidden = NO;
+    }
     
     
     
