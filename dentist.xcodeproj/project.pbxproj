@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		142E9590190E439200246EEB /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 142E958F190E439200246EEB /* MBProgressHUD.m */; };
 		142E9593190E4DB900246EEB /* RecordDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 142E9592190E4DB900246EEB /* RecordDetailViewController.m */; };
+		142E95A7190F4BB400246EEB /* Emoji.m in Sources */ = {isa = PBXBuildFile; fileRef = 142E9596190F4BB400246EEB /* Emoji.m */; };
+		142E95A8190F4BB400246EEB /* EmojiEmoticons.m in Sources */ = {isa = PBXBuildFile; fileRef = 142E9598190F4BB400246EEB /* EmojiEmoticons.m */; };
+		142E95A9190F4BB400246EEB /* EmojiMapSymbols.m in Sources */ = {isa = PBXBuildFile; fileRef = 142E959A190F4BB400246EEB /* EmojiMapSymbols.m */; };
+		142E95AA190F4BB400246EEB /* EmojiPictographs.m in Sources */ = {isa = PBXBuildFile; fileRef = 142E959C190F4BB400246EEB /* EmojiPictographs.m */; };
+		142E95AB190F4BB400246EEB /* EmojiTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = 142E959E190F4BB400246EEB /* EmojiTransport.m */; };
+		142E95AD190F4BB400246EEB /* FacialView.m in Sources */ = {isa = PBXBuildFile; fileRef = 142E95A2190F4BB400246EEB /* FacialView.m */; };
+		142E95B3190F596E00246EEB /* faceDelete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 142E95B2190F596E00246EEB /* faceDelete@2x.png */; };
 		14425CBE190A0FFA00CC46F4 /* NewRecordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14425CBD190A0FFA00CC46F4 /* NewRecordsViewController.m */; };
 		14425CC1190A138700CC46F4 /* MyRecordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14425CC0190A138700CC46F4 /* MyRecordsViewController.m */; };
 		14425CCD190A149C00CC46F4 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 14425CC4190A149C00CC46F4 /* UIImage+Alpha.m */; };
@@ -349,6 +356,19 @@
 		142E958F190E439200246EEB /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		142E9591190E4DB900246EEB /* RecordDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordDetailViewController.h; sourceTree = "<group>"; };
 		142E9592190E4DB900246EEB /* RecordDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordDetailViewController.m; sourceTree = "<group>"; };
+		142E9595190F4BB400246EEB /* Emoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Emoji.h; sourceTree = "<group>"; };
+		142E9596190F4BB400246EEB /* Emoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Emoji.m; sourceTree = "<group>"; };
+		142E9597190F4BB400246EEB /* EmojiEmoticons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmojiEmoticons.h; sourceTree = "<group>"; };
+		142E9598190F4BB400246EEB /* EmojiEmoticons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmojiEmoticons.m; sourceTree = "<group>"; };
+		142E9599190F4BB400246EEB /* EmojiMapSymbols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmojiMapSymbols.h; sourceTree = "<group>"; };
+		142E959A190F4BB400246EEB /* EmojiMapSymbols.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmojiMapSymbols.m; sourceTree = "<group>"; };
+		142E959B190F4BB400246EEB /* EmojiPictographs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmojiPictographs.h; sourceTree = "<group>"; };
+		142E959C190F4BB400246EEB /* EmojiPictographs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmojiPictographs.m; sourceTree = "<group>"; };
+		142E959D190F4BB400246EEB /* EmojiTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmojiTransport.h; sourceTree = "<group>"; };
+		142E959E190F4BB400246EEB /* EmojiTransport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmojiTransport.m; sourceTree = "<group>"; };
+		142E95A1190F4BB400246EEB /* FacialView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacialView.h; sourceTree = "<group>"; };
+		142E95A2190F4BB400246EEB /* FacialView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacialView.m; sourceTree = "<group>"; };
+		142E95B2190F596E00246EEB /* faceDelete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "faceDelete@2x.png"; sourceTree = "<group>"; };
 		14425CBC190A0FFA00CC46F4 /* NewRecordsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewRecordsViewController.h; sourceTree = "<group>"; };
 		14425CBD190A0FFA00CC46F4 /* NewRecordsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewRecordsViewController.m; sourceTree = "<group>"; };
 		14425CBF190A138700CC46F4 /* MyRecordsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRecordsViewController.h; sourceTree = "<group>"; };
@@ -980,6 +1000,26 @@
 				142E958F190E439200246EEB /* MBProgressHUD.m */,
 			);
 			path = MBProgress;
+			sourceTree = "<group>";
+		};
+		142E9594190F4BB400246EEB /* Emoji-master */ = {
+			isa = PBXGroup;
+			children = (
+				142E95B2190F596E00246EEB /* faceDelete@2x.png */,
+				142E9595190F4BB400246EEB /* Emoji.h */,
+				142E9596190F4BB400246EEB /* Emoji.m */,
+				142E9597190F4BB400246EEB /* EmojiEmoticons.h */,
+				142E9598190F4BB400246EEB /* EmojiEmoticons.m */,
+				142E9599190F4BB400246EEB /* EmojiMapSymbols.h */,
+				142E959A190F4BB400246EEB /* EmojiMapSymbols.m */,
+				142E959B190F4BB400246EEB /* EmojiPictographs.h */,
+				142E959C190F4BB400246EEB /* EmojiPictographs.m */,
+				142E959D190F4BB400246EEB /* EmojiTransport.h */,
+				142E959E190F4BB400246EEB /* EmojiTransport.m */,
+				142E95A1190F4BB400246EEB /* FacialView.h */,
+				142E95A2190F4BB400246EEB /* FacialView.m */,
+			);
+			path = "Emoji-master";
 			sourceTree = "<group>";
 		};
 		14425CC2190A149C00CC46F4 /* UIImage-Extensions */ = {
@@ -2181,6 +2221,7 @@
 		FBC91A96190A32B400405A89 /* MessagesTableViewController */ = {
 			isa = PBXGroup;
 			children = (
+				142E9594190F4BB400246EEB /* Emoji-master */,
 				FBC91A97190A32B400405A89 /* EmojiView.h */,
 				FBC91A98190A32B400405A89 /* EmojiView.m */,
 				FBC91A99190A32B400405A89 /* JSBubbleMessageCell.h */,
@@ -2451,6 +2492,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBC91B06190A32B500405A89 /* bubble-square-incoming-selected@2x.png in Resources */,
+				142E95B3190F596E00246EEB /* faceDelete@2x.png in Resources */,
 				FBC91AF4190A32B500405A89 /* bubble-default-incoming@2x.png in Resources */,
 				FB4DCFAD18F3BA8A006B6722 /* build-libidn.sh in Resources */,
 				FB01E03118FF64050056609F /* tab_about@2x.png in Resources */,
@@ -2550,10 +2592,12 @@
 				FB6B987318F3ECB900120569 /* RoomTableViewController.m in Sources */,
 				FB4DCF3718F3BA8A006B6722 /* NSNumber+XMPP.m in Sources */,
 				FB4DCF8E18F3BA8A006B6722 /* XMPPAutoPing.m in Sources */,
+				142E95AD190F4BB400246EEB /* FacialView.m in Sources */,
 				FB01E06218FFD2730056609F /* AddDiscussTableViewController.m in Sources */,
 				FB4DCF8218F3BA8A006B6722 /* XMPPCapabilities.m in Sources */,
 				FB4DCF4118F3BA8A006B6722 /* XMPPBandwidthMonitor.m in Sources */,
 				FB4DCF4D18F3BA8A006B6722 /* XMPPUserMemoryStorageObject.m in Sources */,
+				142E95A8190F4BB400246EEB /* EmojiEmoticons.m in Sources */,
 				FBD1FD7D1900F13F00A263F8 /* SDImageCache.m in Sources */,
 				FB4DCF8C18F3BA8A006B6722 /* XMPPMessageDeliveryReceipts.m in Sources */,
 				14425CCF190A149C00CC46F4 /* UIImage+Resize.m in Sources */,
@@ -2680,6 +2724,7 @@
 				FBD1FD861900F13F00A263F8 /* UIImage+MultiFormat.m in Sources */,
 				FB4DCF9618F3BA8A006B6722 /* NSXMLElement+XEP_0297.m in Sources */,
 				FBCE0D3A18F68C3A007C0489 /* RoomChatTableViewController.m in Sources */,
+				142E95A9190F4BB400246EEB /* EmojiMapSymbols.m in Sources */,
 				FBC91A951909EB9A00405A89 /* MsgListCell.m in Sources */,
 				FBC91A8C1909D76D00405A89 /* amrFileCodec.m in Sources */,
 				FB4DCF8518F3BA8A006B6722 /* XMPPMessageArchiving_Message_CoreDataObject.m in Sources */,
@@ -2717,6 +2762,7 @@
 				FB4DCF7918F3BA8A006B6722 /* XMPPDateTimeProfiles.m in Sources */,
 				FB4DCF7718F3BA8A006B6722 /* XMPPMessage+XEP_0066.m in Sources */,
 				FB4DCF3A18F3BA8A006B6722 /* XMPPIQ.m in Sources */,
+				142E95A7190F4BB400246EEB /* Emoji.m in Sources */,
 				FBCE0D3718F680D3007C0489 /* RoomInfo.m in Sources */,
 				FB4DCF7318F3BA8A006B6722 /* XMPPIQ+XEP_0060.m in Sources */,
 				FB4DCF2E18F3BA8A006B6722 /* XMPPAnonymousAuthentication.m in Sources */,
@@ -2744,9 +2790,11 @@
 				FB4DCFA018F3BA8A006B6722 /* GCDAsyncSocket.m in Sources */,
 				FB4DCF6718F3BA8A006B6722 /* XMPPvCardCoreDataStorageObject.m in Sources */,
 				FBC91B1D190A32B500405A89 /* UIButton+JSMessagesView.m in Sources */,
+				142E95AA190F4BB400246EEB /* EmojiPictographs.m in Sources */,
 				FB4DCFA918F3BA8A006B6722 /* NSString+DDXML.m in Sources */,
 				FB4DCF9F18F3BA8A006B6722 /* XMPPStringPrep.m in Sources */,
 				14425CE0190A4A6300CC46F4 /* UIAlertViewBlock.m in Sources */,
+				142E95AB190F4BB400246EEB /* EmojiTransport.m in Sources */,
 				14425CBE190A0FFA00CC46F4 /* NewRecordsViewController.m in Sources */,
 				FB01E05F18FFCEDF0056609F /* Tools.m in Sources */,
 				142E9593190E4DB900246EEB /* RecordDetailViewController.m in Sources */,

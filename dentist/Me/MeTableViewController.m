@@ -30,9 +30,14 @@
 {
     [super viewDidLoad];
     
-   UIImage *avator = PNGIMAGENAMED(@"avator");
-   avator = [avator clipImageWithScaleWithsize:CGSizeMake(49 , 49 )];
+    DEFAULT_NAVIGATION_BAR_TINT_COLOR
+    DEFAULT_NAVIGATION_TINT_COLOR
+    
+   
+    UIImage *avator = PNGIMAGENAMED(@"avator");
+    avator = [avator clipImageWithScaleWithsize:CGSizeMake(49 , 49 )];
     self.avatorImageView.image = avator;
+    
 }
 
 - (void)didReceiveMemoryWarning

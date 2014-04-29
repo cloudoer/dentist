@@ -111,6 +111,9 @@ AVAudioPlayerDelegate>
 {
     [super viewDidLoad];
     
+    DEFAULT_NAVIGATION_BAR_TINT_COLOR
+    DEFAULT_NAVIGATION_TINT_COLOR
+    
     NSError *error = nil;
     if (![[self fetchedResultsController] performFetch:&error])
     {

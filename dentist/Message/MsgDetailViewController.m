@@ -77,8 +77,9 @@
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
     [JSMessageSoundEffect playMessageReceivedSound];
-	[[self tableView] reloadData];
-    [self scrollToBottomAnimated:YES];
+    [self finishSend];
+//	[[self tableView] reloadData];
+//    [self scrollToBottomAnimated:YES];
 }
 
 #pragma mark - Table view data source
@@ -94,13 +95,13 @@
     [self sendTheText:textToSend withKind:@"text"];
 }
 
-- (void)cameraPressed:(id)sender{
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    picker.delegate = self;
-    picker.allowsEditing = YES;
-    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    [self presentViewController:picker animated:YES completion:NULL];
-}
+//- (void)cameraPressed:(id)sender{
+//    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+//    picker.delegate = self;
+//    picker.allowsEditing = YES;
+//    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+//    [self presentViewController:picker animated:YES completion:NULL];
+//}
 
 - (JSBubbleMessageType)messageTypeForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -223,7 +224,7 @@
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate                 = self;
     picker.sourceType               = UIImagePickerControllerSourceTypePhotoLibrary;
-    picker.allowsEditing = YES;
+    picker.allowsEditing            = YES;
     [self presentViewController:picker animated:YES completion:NULL];
     
 }
@@ -232,7 +233,7 @@
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate                 = self;
     picker.sourceType               = UIImagePickerControllerSourceTypeCamera;
-    picker.allowsEditing = YES;
+    picker.allowsEditing            = YES;
     [self presentViewController:picker animated:YES completion:NULL];
 }
 
@@ -278,7 +279,6 @@
         
         [JSMessageSoundEffect playMessageSentSound];
         
-        [self finishSend];
     }
     
 
