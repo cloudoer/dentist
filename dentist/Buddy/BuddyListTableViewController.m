@@ -12,6 +12,7 @@
 #import "BuddyHeaderCell.h"
 #import "Buddy.h"
 #import "pinyin.h"
+#import "ProfileTableViewController.h"
 
 @interface BuddyListTableViewController ()
 
@@ -24,6 +25,8 @@
     
     NSMutableDictionary *buddyDict;
     NSArray *letterArray;
+    
+    Buddy *theBuddy;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -205,6 +208,10 @@
             [self performSegueWithIdentifier:@"BuddyList2Service" sender:self];
         }
     }else {
+        NSString *key = letterArray[indexPath.section - 1];
+        NSArray *buddyArray = buddyDict[key];
+        theBuddy = buddyArray[indexPath.row];
+        
         [self performSegueWithIdentifier:@"BuddyList2Profile" sender:self];
     }
 }
@@ -218,6 +225,16 @@
     int section = [letterArray indexOfObject:title];
 //    [tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:i] atScrollPosition:UITableViewScrollPositionTop animated:YES];
     return section;
+}
+
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"BuddyList2Profile"]) {
+        ProfileTableViewController *controller = segue.destinationViewController;
+        controller.buddy = theBuddy;
+    }
 }
 
 

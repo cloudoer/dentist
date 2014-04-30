@@ -58,4 +58,10 @@
     return message.body;
 }
 
+
++ (UIImage *)imageFromBase64Str:(NSString *)base64Str {
+    NSData* data = [[NSData alloc] initWithBase64EncodedString:base64Str options:0];
+    return [UIImage imageWithData:data];
+}
+
 @end
