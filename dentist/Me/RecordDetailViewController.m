@@ -29,6 +29,8 @@
 {
     [super viewDidLoad];
 
+    self.title = @"病历详情";
+    
     [self.webView loadRequest:self.request];
     [MBProgressHUD showHUDAddedTo:self.webView animated:YES];
 }
