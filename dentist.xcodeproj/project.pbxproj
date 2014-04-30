@@ -213,6 +213,7 @@
 		FB5014B2190F3B0B00264C9A /* Buddy.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5014B1190F3B0B00264C9A /* Buddy.m */; };
 		FB5014B5190F924700264C9A /* RegOneTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5014B4190F924700264C9A /* RegOneTableViewController.m */; };
 		FB5014B8190F9D7C00264C9A /* RegTwoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5014B7190F9D7C00264C9A /* RegTwoTableViewController.m */; };
+		FB5014BC1910A78B00264C9A /* pinyin.c in Sources */ = {isa = PBXBuildFile; fileRef = FB5014BA1910A78B00264C9A /* pinyin.c */; };
 		FB6B986418F3C8CE00120569 /* FriendTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6B986318F3C8CE00120569 /* FriendTableViewController.m */; };
 		FB6B986718F3D70300120569 /* ChatTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6B986618F3D70300120569 /* ChatTableViewController.m */; };
 		FB6B986A18F3DAF900120569 /* ChatMeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6B986918F3DAF900120569 /* ChatMeCell.m */; };
@@ -754,6 +755,8 @@
 		FB5014B4190F924700264C9A /* RegOneTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegOneTableViewController.m; sourceTree = "<group>"; };
 		FB5014B6190F9D7C00264C9A /* RegTwoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegTwoTableViewController.h; sourceTree = "<group>"; };
 		FB5014B7190F9D7C00264C9A /* RegTwoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegTwoTableViewController.m; sourceTree = "<group>"; };
+		FB5014BA1910A78B00264C9A /* pinyin.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pinyin.c; sourceTree = "<group>"; };
+		FB5014BB1910A78B00264C9A /* pinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pinyin.h; sourceTree = "<group>"; };
 		FB6B985E18F3C59300120569 /* Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Define.h; path = ../Define.h; sourceTree = "<group>"; };
 		FB6B986218F3C8CE00120569 /* FriendTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendTableViewController.h; sourceTree = "<group>"; };
 		FB6B986318F3C8CE00120569 /* FriendTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendTableViewController.m; sourceTree = "<group>"; };
@@ -1109,6 +1112,7 @@
 		FB01E0671900C9AB0056609F /* 3rd */ = {
 			isa = PBXGroup;
 			children = (
+				FB5014B91910A78B00264C9A /* pinyin */,
 				142E958D190E439200246EEB /* MBProgress */,
 				14425D62190C0F3400CC46F4 /* ELCImagePicker */,
 				14425CD5190A4A2700CC46F4 /* Utils */,
@@ -2073,6 +2077,15 @@
 			path = libidn;
 			sourceTree = "<group>";
 		};
+		FB5014B91910A78B00264C9A /* pinyin */ = {
+			isa = PBXGroup;
+			children = (
+				FB5014BA1910A78B00264C9A /* pinyin.c */,
+				FB5014BB1910A78B00264C9A /* pinyin.h */,
+			);
+			path = pinyin;
+			sourceTree = "<group>";
+		};
 		FB5C643319088183003F7260 /* Buddy */ = {
 			isa = PBXGroup;
 			children = (
@@ -2615,6 +2628,7 @@
 				142E95A8190F4BB400246EEB /* EmojiEmoticons.m in Sources */,
 				FBD1FD7D1900F13F00A263F8 /* SDImageCache.m in Sources */,
 				FB4DCF8C18F3BA8A006B6722 /* XMPPMessageDeliveryReceipts.m in Sources */,
+				FB5014BC1910A78B00264C9A /* pinyin.c in Sources */,
 				14425CCF190A149C00CC46F4 /* UIImage+Resize.m in Sources */,
 				FB4DCF3618F3BA8A006B6722 /* NSData+XMPP.m in Sources */,
 				FBCE0D1D18F64643007C0489 /* AFHTTPRequestOperationManager.m in Sources */,

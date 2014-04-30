@@ -56,7 +56,7 @@ AVAudioPlayerDelegate>
     
     [[self appDelegate] connect];
     if (![LoginFacade isLogged]) {
-        [LoginFacade presentLoginViewControllerFrom:self];
+//        [LoginFacade presentLoginViewControllerFrom:self];
     }else {
         [[self appDelegate] connect];
         //        NSError *error = nil;
