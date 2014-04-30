@@ -9,6 +9,11 @@
 #ifndef dentist_Define_h
 #define dentist_Define_h
 
+typedef enum : NSUInteger {
+    GENDER_MALE = 1,
+    GENDER_FEMALE,
+} GENDER;
+
 #define kXMPPjoyJID @"kXMPPmyJID"
 #define kXMPPjoyPassword @"kXMPPmyPassword"
 
