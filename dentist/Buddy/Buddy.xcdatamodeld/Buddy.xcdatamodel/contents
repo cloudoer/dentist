@@ -19,11 +19,12 @@
     </entity>
     <entity name="BuddyRequest" representedClassName="BuddyRequest" syncable="YES">
         <attribute name="fromMe" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="success" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="user" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="Buddy" positionX="-63" positionY="-18" width="128" height="208"/>
         <element name="BuddyNewMessage" positionX="88" positionY="29" width="128" height="73"/>
-        <element name="BuddyRequest" positionX="241" positionY="29" width="128" height="73"/>
+        <element name="BuddyRequest" positionX="241" positionY="29" width="128" height="88"/>
     </elements>
 </model>

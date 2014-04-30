@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface BuddyHeaderCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *headNameLabel;
 
 @end

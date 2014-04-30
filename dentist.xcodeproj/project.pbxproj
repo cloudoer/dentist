@@ -60,6 +60,10 @@
 		FB0C1B03190DD51C00A3690E /* ResultBuddyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0C1B02190DD51C00A3690E /* ResultBuddyTableViewController.m */; };
 		FB0C1B06190DEEB900A3690E /* BuddyHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0C1B05190DEEB900A3690E /* BuddyHeaderCell.m */; };
 		FB0C1B09190DEEDD00A3690E /* BuddyContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0C1B08190DEEDD00A3690E /* BuddyContentCell.m */; };
+		FB25F18D1910CEF3007C2FF2 /* BuddyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FB25F18C1910CEF3007C2FF2 /* BuddyRequest.m */; };
+		FB25F1901910D2F4007C2FF2 /* gender_female@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB25F18E1910D2F4007C2FF2 /* gender_female@2x.png */; };
+		FB25F1911910D2F4007C2FF2 /* gender_male@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB25F18F1910D2F4007C2FF2 /* gender_male@2x.png */; };
+		FB25F1941910D449007C2FF2 /* ProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB25F1931910D449007C2FF2 /* ProfileTableViewController.m */; };
 		FB4DCBC218F3B884006B6722 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4DCBC118F3B884006B6722 /* Foundation.framework */; };
 		FB4DCBC418F3B884006B6722 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4DCBC318F3B884006B6722 /* CoreGraphics.framework */; };
 		FB4DCBC618F3B884006B6722 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4DCBC518F3B884006B6722 /* UIKit.framework */; };
@@ -210,10 +214,10 @@
 		FB4DCFAD18F3BA8A006B6722 /* build-libidn.sh in Resources */ = {isa = PBXBuildFile; fileRef = FB4DCF2918F3BA8A006B6722 /* build-libidn.sh */; };
 		FB4DCFAE18F3BA8A006B6722 /* libidn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4DCF2B18F3BA8A006B6722 /* libidn.a */; };
 		FB5014AC190F3B0A00264C9A /* BuddyNewMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5014AB190F3B0A00264C9A /* BuddyNewMessage.m */; };
-		FB5014AF190F3B0B00264C9A /* BuddyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5014AE190F3B0B00264C9A /* BuddyRequest.m */; };
 		FB5014B2190F3B0B00264C9A /* Buddy.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5014B1190F3B0B00264C9A /* Buddy.m */; };
 		FB5014B5190F924700264C9A /* RegOneTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5014B4190F924700264C9A /* RegOneTableViewController.m */; };
 		FB5014B8190F9D7C00264C9A /* RegTwoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5014B7190F9D7C00264C9A /* RegTwoTableViewController.m */; };
+		FB5014BC1910A78B00264C9A /* pinyin.c in Sources */ = {isa = PBXBuildFile; fileRef = FB5014BA1910A78B00264C9A /* pinyin.c */; };
 		FB6B986418F3C8CE00120569 /* FriendTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6B986318F3C8CE00120569 /* FriendTableViewController.m */; };
 		FB6B986718F3D70300120569 /* ChatTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6B986618F3D70300120569 /* ChatTableViewController.m */; };
 		FB6B986A18F3DAF900120569 /* ChatMeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6B986918F3DAF900120569 /* ChatMeCell.m */; };
@@ -456,6 +460,12 @@
 		FB0C1B05190DEEB900A3690E /* BuddyHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuddyHeaderCell.m; sourceTree = "<group>"; };
 		FB0C1B07190DEEDD00A3690E /* BuddyContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuddyContentCell.h; sourceTree = "<group>"; };
 		FB0C1B08190DEEDD00A3690E /* BuddyContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuddyContentCell.m; sourceTree = "<group>"; };
+		FB25F18B1910CEF3007C2FF2 /* BuddyRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuddyRequest.h; sourceTree = "<group>"; };
+		FB25F18C1910CEF3007C2FF2 /* BuddyRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuddyRequest.m; sourceTree = "<group>"; };
+		FB25F18E1910D2F4007C2FF2 /* gender_female@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gender_female@2x.png"; sourceTree = "<group>"; };
+		FB25F18F1910D2F4007C2FF2 /* gender_male@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gender_male@2x.png"; sourceTree = "<group>"; };
+		FB25F1921910D449007C2FF2 /* ProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileTableViewController.h; sourceTree = "<group>"; };
+		FB25F1931910D449007C2FF2 /* ProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTableViewController.m; sourceTree = "<group>"; };
 		FB4DCBBE18F3B884006B6722 /* dentist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dentist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB4DCBC118F3B884006B6722 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FB4DCBC318F3B884006B6722 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -749,14 +759,14 @@
 		FB4DCF2D18F3BA8A006B6722 /* XMPPFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPFramework.h; sourceTree = "<group>"; };
 		FB5014AA190F3B0A00264C9A /* BuddyNewMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuddyNewMessage.h; sourceTree = "<group>"; };
 		FB5014AB190F3B0A00264C9A /* BuddyNewMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuddyNewMessage.m; sourceTree = "<group>"; };
-		FB5014AD190F3B0B00264C9A /* BuddyRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuddyRequest.h; sourceTree = "<group>"; };
-		FB5014AE190F3B0B00264C9A /* BuddyRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuddyRequest.m; sourceTree = "<group>"; };
 		FB5014B0190F3B0B00264C9A /* Buddy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Buddy.h; sourceTree = "<group>"; };
 		FB5014B1190F3B0B00264C9A /* Buddy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Buddy.m; sourceTree = "<group>"; };
 		FB5014B3190F924700264C9A /* RegOneTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegOneTableViewController.h; sourceTree = "<group>"; };
 		FB5014B4190F924700264C9A /* RegOneTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegOneTableViewController.m; sourceTree = "<group>"; };
 		FB5014B6190F9D7C00264C9A /* RegTwoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegTwoTableViewController.h; sourceTree = "<group>"; };
 		FB5014B7190F9D7C00264C9A /* RegTwoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegTwoTableViewController.m; sourceTree = "<group>"; };
+		FB5014BA1910A78B00264C9A /* pinyin.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pinyin.c; sourceTree = "<group>"; };
+		FB5014BB1910A78B00264C9A /* pinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pinyin.h; sourceTree = "<group>"; };
 		FB6B985E18F3C59300120569 /* Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Define.h; path = ../Define.h; sourceTree = "<group>"; };
 		FB6B986218F3C8CE00120569 /* FriendTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendTableViewController.h; sourceTree = "<group>"; };
 		FB6B986318F3C8CE00120569 /* FriendTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendTableViewController.m; sourceTree = "<group>"; };
@@ -1112,6 +1122,7 @@
 		FB01E0671900C9AB0056609F /* 3rd */ = {
 			isa = PBXGroup;
 			children = (
+				FB5014B91910A78B00264C9A /* pinyin */,
 				142E958D190E439200246EEB /* MBProgress */,
 				14425D62190C0F3400CC46F4 /* ELCImagePicker */,
 				14425CD5190A4A2700CC46F4 /* Utils */,
@@ -1133,10 +1144,10 @@
 				FB0C1AEB190DC89400A3690E /* BuddyManager.h */,
 				FB0C1AEC190DC89400A3690E /* BuddyManager.m */,
 				FB0C1AEE190DCE2B00A3690E /* Buddy.xcdatamodeld */,
+				FB25F18B1910CEF3007C2FF2 /* BuddyRequest.h */,
+				FB25F18C1910CEF3007C2FF2 /* BuddyRequest.m */,
 				FB5014B0190F3B0B00264C9A /* Buddy.h */,
 				FB5014B1190F3B0B00264C9A /* Buddy.m */,
-				FB5014AD190F3B0B00264C9A /* BuddyRequest.h */,
-				FB5014AE190F3B0B00264C9A /* BuddyRequest.m */,
 				FB5014AA190F3B0A00264C9A /* BuddyNewMessage.h */,
 				FB5014AB190F3B0A00264C9A /* BuddyNewMessage.m */,
 			);
@@ -2076,6 +2087,15 @@
 			path = libidn;
 			sourceTree = "<group>";
 		};
+		FB5014B91910A78B00264C9A /* pinyin */ = {
+			isa = PBXGroup;
+			children = (
+				FB5014BA1910A78B00264C9A /* pinyin.c */,
+				FB5014BB1910A78B00264C9A /* pinyin.h */,
+			);
+			path = pinyin;
+			sourceTree = "<group>";
+		};
 		FB5C643319088183003F7260 /* Buddy */ = {
 			isa = PBXGroup;
 			children = (
@@ -2092,6 +2112,8 @@
 				FB0C1AFF190DD2D900A3690E /* AddBuddyTableViewController.m */,
 				FB0C1B01190DD51C00A3690E /* ResultBuddyTableViewController.h */,
 				FB0C1B02190DD51C00A3690E /* ResultBuddyTableViewController.m */,
+				FB25F1921910D449007C2FF2 /* ProfileTableViewController.h */,
+				FB25F1931910D449007C2FF2 /* ProfileTableViewController.m */,
 				FB0C1AFD190DD29600A3690E /* Model */,
 			);
 			path = Buddy;
@@ -2386,6 +2408,8 @@
 		FBCE0D2918F64A94007C0489 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				FB25F18E1910D2F4007C2FF2 /* gender_female@2x.png */,
+				FB25F18F1910D2F4007C2FF2 /* gender_male@2x.png */,
 				FB01E05B18FFA0E30056609F /* about_QR_code@2x.png */,
 				FB01E05918FFA0500056609F /* about_new@2x.png */,
 				FB01E05718FF9FAE0056609F /* about_logo@2x.png */,
@@ -2514,6 +2538,7 @@
 				FBC91B06190A32B500405A89 /* bubble-square-incoming-selected@2x.png in Resources */,
 				142E95B3190F596E00246EEB /* faceDelete@2x.png in Resources */,
 				FBC91AF4190A32B500405A89 /* bubble-default-incoming@2x.png in Resources */,
+				FB25F1901910D2F4007C2FF2 /* gender_female@2x.png in Resources */,
 				FB4DCFAD18F3BA8A006B6722 /* build-libidn.sh in Resources */,
 				FB01E03118FF64050056609F /* tab_about@2x.png in Resources */,
 				FBC91B01190A32B500405A89 /* bubble-flat-outgoing-selected.png in Resources */,
@@ -2553,6 +2578,7 @@
 				FBC91B08190A32B500405A89 /* bubble-square-incoming@2x.png in Resources */,
 				FBCE0D3418F64DF5007C0489 /* room_red_dot@2x.png in Resources */,
 				FBC91B19190A32B500405A89 /* send.png in Resources */,
+				FB25F1911910D2F4007C2FF2 /* gender_male@2x.png in Resources */,
 				FBC919C31908848B00405A89 /* Me.storyboard in Resources */,
 				FBC91B1B190A32B500405A89 /* messageReceived.aiff in Resources */,
 				FBC91AFB190A32B500405A89 /* bubble-flat-incoming-selected.png in Resources */,
@@ -2620,6 +2646,7 @@
 				142E95A8190F4BB400246EEB /* EmojiEmoticons.m in Sources */,
 				FBD1FD7D1900F13F00A263F8 /* SDImageCache.m in Sources */,
 				FB4DCF8C18F3BA8A006B6722 /* XMPPMessageDeliveryReceipts.m in Sources */,
+				FB5014BC1910A78B00264C9A /* pinyin.c in Sources */,
 				14425CCF190A149C00CC46F4 /* UIImage+Resize.m in Sources */,
 				FB4DCF3618F3BA8A006B6722 /* NSData+XMPP.m in Sources */,
 				FBCE0D1D18F64643007C0489 /* AFHTTPRequestOperationManager.m in Sources */,
@@ -2644,6 +2671,7 @@
 				FBC919C8190884A700405A89 /* BuddyListTableViewController.m in Sources */,
 				FB01E05018FF83540056609F /* UIImageView+AFNetworking.m in Sources */,
 				FB4DCF7F18F3BA8A006B6722 /* XMPPCapabilitiesCoreDataStorage.m in Sources */,
+				FB25F1941910D449007C2FF2 /* ProfileTableViewController.m in Sources */,
 				FB4DCF6A18F3BA8A006B6722 /* XMPPvCardTempAdr.m in Sources */,
 				FB0C1AF0190DCE2B00A3690E /* Buddy.xcdatamodeld in Sources */,
 				14425CCE190A149C00CC46F4 /* UIImage+Cut.m in Sources */,
@@ -2685,6 +2713,7 @@
 				FBD1FD841900F13F00A263F8 /* UIButton+WebCache.m in Sources */,
 				FB6B987018F3E74700120569 /* ChatSendCell.m in Sources */,
 				FBC91AE5190A32B500405A89 /* EmojiView.m in Sources */,
+				FB25F18D1910CEF3007C2FF2 /* BuddyRequest.m in Sources */,
 				FB4DCF6D18F3BA8A006B6722 /* XMPPvCardTempEmail.m in Sources */,
 				FB4DCF8D18F3BA8A006B6722 /* XMPPBlocking.m in Sources */,
 				FB4DCF3418F3BA8A006B6722 /* XMPPXFacebookPlatformAuthentication.m in Sources */,

@@ -9,7 +9,10 @@
 #import "BuddyListTableViewController.h"
 #import "AppDelegate.h"
 #import "BuddyContentCell.h"
+#import "BuddyHeaderCell.h"
 #import "Buddy.h"
+#import "pinyin.h"
+#import "ProfileTableViewController.h"
 
 @interface BuddyListTableViewController ()
 
@@ -18,6 +21,12 @@
 @implementation BuddyListTableViewController
 {
     NSFetchedResultsController *fetchedResultsController;
+    
+    
+    NSMutableDictionary *buddyDict;
+    NSArray *letterArray;
+    
+    Buddy *theBuddy;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -98,14 +107,48 @@
 	[[self tableView] reloadData];
 }
 
+- (void)getBuddyDict
+{
+    buddyDict = [[NSMutableDictionary alloc] initWithCapacity:30];
+    for (Buddy *buddy in [self fetchedResultsController].fetchedObjects) {
+        char ch=pinyinFirstLetter([buddy.realname characterAtIndex:0]);
+        NSString* letter=[[NSString stringWithFormat:@"%c",ch] uppercaseString];
+        
+        NSMutableArray *buddyArray = [NSMutableArray arrayWithArray:buddyDict[letter]];
+        if (buddyArray == nil) {
+            buddyArray = [[NSMutableArray alloc] initWithCapacity:20];
+        }
+        [buddyArray addObject:buddy];
+        buddyDict[letter] = buddyArray;
+    }
+    
+    NSArray *keyArray = buddyDict.allKeys;
+    
+    letterArray = [keyArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    [self getBuddyDict];
+    return 1 + letterArray.count;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    id  sectionInfo = [[[self fetchedResultsController] sections] objectAtIndex:section];
-    return [sectionInfo numberOfObjects];
+    if (section == 0) {
+        return 2;
+    }else {
+        NSString *key = letterArray[section - 1];
+        NSArray *buddyArray = buddyDict[key];
+        return buddyArray.count;
+    }
 }
 
 - (void)configureCell:(UITableViewCell *)theCell atIndexPath:(NSIndexPath *)indexPath {
-    Buddy *buddy = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    NSString *key = letterArray[indexPath.section - 1];
+    NSArray *buddyArray = buddyDict[key];
+    
+    Buddy *buddy = buddyArray[indexPath.row];
     BuddyContentCell *cell = (BuddyContentCell *)theCell;
     
     cell.nameLabel.text = buddy.realname;
@@ -117,18 +160,81 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.section == 0) {
+        BuddyContentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BuddyContentCell" forIndexPath:indexPath];
+        if (indexPath.row == 0) {
+            cell.nameLabel.text = @"新好友";
+        }else if (indexPath.row == 1) {
+            cell.nameLabel.text = @"服务号";
+        }
+        
+        return cell;
+    }else {
+        BuddyContentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BuddyContentCell" forIndexPath:indexPath];
+        
+        [self configureCell:cell atIndexPath:indexPath];
+        
+        return cell;
+    }
     
-    
-    BuddyContentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BuddyContentCell" forIndexPath:indexPath];
-    
-    [self configureCell:cell atIndexPath:indexPath];
-    
-    return cell;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    if (section > 0) {
+        
+        NSString *key = letterArray[section - 1];
+        BuddyHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BuddyHeaderCell"];
+        cell.headNameLabel.text = key;
+        return cell;
+    }
+    return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (section > 0) {
+        return 30;
+    }
+    return 0;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            [self performSegueWithIdentifier:@"BuddyList2New" sender:self];
+        }else if(indexPath.row == 1) {
+            [self performSegueWithIdentifier:@"BuddyList2Service" sender:self];
+        }
+    }else {
+        NSString *key = letterArray[indexPath.section - 1];
+        NSArray *buddyArray = buddyDict[key];
+        theBuddy = buddyArray[indexPath.row];
+        
+        [self performSegueWithIdentifier:@"BuddyList2Profile" sender:self];
+    }
+}
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+    return letterArray;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
     
+    int section = [letterArray indexOfObject:title];
+//    [tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:i] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    return section;
+}
+
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"BuddyList2Profile"]) {
+        ProfileTableViewController *controller = segue.destinationViewController;
+        controller.buddy = theBuddy;
+    }
 }
 
 
