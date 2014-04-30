@@ -10,7 +10,6 @@
 #import <objc/runtime.h>
 
 
-
 @implementation Tools
 
 + (XMPPvCardTemp *)xmppVCardTempFromVCardStr:(NSString *)vCardStr
@@ -57,5 +56,4 @@
     
     return message.body;
 }
-
 @end

@@ -89,6 +89,7 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
     }
     
     tabBarController.tabBar.barTintColor = RGBCOLOR(34., 39., 42.);
+
 }
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

@@ -31,6 +31,7 @@
     return userinfo;
 }
 
+/*
 + (void)loginSuccessWithXMPPvCardTemp:(XMPPvCardTemp *)vCardTemp
 {
     Userinfo *userinfo = [Userinfo userinfoFromXMPPvCardTemp:vCardTemp];
@@ -39,6 +40,7 @@
     
     [[NSUserDefaults standardUserDefaults] setObject:data forKey:kSharedUserinfo];
 }
+ */
 
 + (void)presentLoginViewControllerFrom:(UIViewController *)fromViewController
 {
@@ -49,5 +51,12 @@
     [fromViewController presentViewController:navController animated:YES completion:nil];
 }
 
-
++ (void)loginSuccessWithHttpgetPath:(NSDictionary *)dic {
+    Userinfo *userinfo = [Userinfo userinfoFromHttpget:dic];
+    
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:userinfo];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:data forKey:kSharedUserinfo];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
 @end

@@ -17,8 +17,9 @@
 
 + (Userinfo *)sharedUserinfo;
 
-+ (void)loginSuccessWithXMPPvCardTemp:(XMPPvCardTemp *)vCardTemp;
+//+ (void)loginSuccessWithXMPPvCardTemp:(XMPPvCardTemp *)vCardTemp;
 
 + (void)presentLoginViewControllerFrom:(UIViewController *)fromViewController;
 
++ (void)loginSuccessWithHttpgetPath:(NSDictionary *)dic;
 @end

@@ -137,8 +137,10 @@
 
 - (JSBubbleMessageType)messageTypeForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    XMPPRoomMessageCoreDataStorageObject *message = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-    return ([message.jid.resource isEqualToString:[LoginFacade sharedUserinfo].realname] || [message.jid.resource isEqualToString:[LoginFacade sharedUserinfo].jabberId]) ? JSBubbleMessageTypeOutgoing : JSBubbleMessageTypeIncoming;
+//    XMPPRoomMessageCoreDataStorageObject *message = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+//    return ([message.jid.resource isEqualToString:[LoginFacade sharedUserinfo].realname] || [message.jid.resource isEqualToString:[LoginFacade sharedUserinfo].jabberId]) ? JSBubbleMessageTypeOutgoing : JSBubbleMessageTypeIncoming;
+    
+    return JSBubbleMessageTypeIncoming;
 }
 
 - (JSBubbleMessageStyle)messageStyleForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -260,6 +262,7 @@
     return message.localTimestamp;
 }
 
+/*
 
 - (UIImage *)avatarImageForAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -279,6 +282,7 @@
     return [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:currUser.avatar_url];
     
 }
+ */
 
 - (void)fetchAvatarForIndexPath:(NSIndexPath *)indexPath withUID:(NSString *)uidStr
 {
@@ -290,6 +294,7 @@
     }
     [userSet addObject:uidStr];
     
+    /*
     NSString *getPath = [NSString stringWithFormat:@"%@&uid=%@", URL_PATH_ONE_VCARD, uidStr];
     [Network httpGetPath:getPath success:^(NSDictionary *response) {
         if ([Network statusOKInResponse:response]) {
@@ -306,6 +311,7 @@
             }];
         }
     } failure:nil];
+     */
 }
 
 - (id)dataForRowAtIndexPath:(NSIndexPath *)indexPath {

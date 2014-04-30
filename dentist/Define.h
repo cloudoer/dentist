@@ -39,11 +39,15 @@
 //*  资讯  ************************
 #define RELATIVE_URL_NEWS_INDEX(USERID) [NSString stringWithFormat:@"index.php?r=app/news/index/uid/%@", (USERID)]
 
+
+
 #define URL_PATH_ROOM_LIST @"dentist/index.php?r=api/RoomList"
 #define URL_PATH_ONE_VCARD @"dentist/index.php?r=api/GetVcard"
 #define URL_PATH_ALL_BUDDY @"index.php?r=app/user/getFriends"
 
+//* 登陆注册 ************************
 #define URL_PATH_REG_CAPTCHA @"index.php?r=app/user/getCaptchaForRegister"
 #define URL_PATH_REG_DONE @"index.php?r=app/user/register"
+#define URL_PATH_USER_INFO(USERID) [NSString stringWithFormat:@"index.php?r=app/user/getInfo/username/%@", (USERID)]
 
 #endif

@@ -43,7 +43,7 @@
     [super viewWillAppear:animated];
     Userinfo *userinfo = [LoginFacade sharedUserinfo];
     
-    [self.avatarImageView setImageWithURL:[NSURL URLWithString:userinfo.avatar_url] placeholderImage:[UIImage imageNamed:@"tab_me.png"]];
+    [self.avatarImageView setImageWithURL:[NSURL URLWithString:userinfo.photo] placeholderImage:[UIImage imageNamed:@"tab_me.png"]];
 }
 
 - (void)viewDidLoad
@@ -52,13 +52,13 @@
     
     Userinfo *userinfo = [LoginFacade sharedUserinfo];
     
-    [self.avatarImageView setImageWithURL:[NSURL URLWithString:userinfo.avatar_url] placeholderImage:[UIImage imageNamed:@"tab_me.png"]];
-    self.realnameLabel.text = userinfo.realname;
-    self.genderLabel.text = userinfo.sex;
-    self.addressLabel.text = [NSString stringWithFormat:@"%@ %@ %@", userinfo.province, userinfo.city, userinfo.area];
-    self.orgNameLabel.text = userinfo.orgName;
-    self.jobTitleLabel.text = userinfo.title;
-    self.specialtyLabel.text = userinfo.expert;
+//    [self.avatarImageView setImageWithURL:[NSURL URLWithString:userinfo.avatar_url] placeholderImage:[UIImage imageNamed:@"tab_me.png"]];
+//    self.realnameLabel.text = userinfo.realname;
+//    self.genderLabel.text = userinfo.sex;
+//    self.addressLabel.text = [NSString stringWithFormat:@"%@ %@ %@", userinfo.province, userinfo.city, userinfo.area];
+//    self.orgNameLabel.text = userinfo.orgName;
+//    self.jobTitleLabel.text = userinfo.title;
+//    self.specialtyLabel.text = userinfo.expert;
     
 }
 

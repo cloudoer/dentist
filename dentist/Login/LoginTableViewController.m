@@ -9,7 +9,7 @@
 #import "LoginTableViewController.h"
 #import "AppDelegate.h"
 
-@interface LoginTableViewController ()
+@interface LoginTableViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *jidTextField;
 @property (weak, nonatomic) IBOutlet UITextField *pwdTextField;
 
@@ -40,19 +40,20 @@
 
 - (void)xmppLoginSuccess:(NSNotification *)aNotification
 {
-//    XMPPvCardTempModule *vCardModule = [self appDelegate].xmppvCardTempModule;
-//    XMPPvCardTemp *vCardTemp = [vCardModule vCardTempForJID:[self appDelegate].xmppStream.myJID.bareJID shouldFetch:YES];
-    
-//    [LoginFacade loginSuccessWithXMPPvCardTemp:vCardTemp];
-    
-    
-    
-    // request Userinfo from our API
-    
+
+    NSLog(@"%@", URL_PATH_USER_INFO([self appDelegate].xmppStream.myJID.user));
+    [Network httpGetPath:URL_PATH_USER_INFO([self appDelegate].xmppStream.myJID.user) success:^(NSDictionary *response) {
+        if ([Network statusOKInResponse:response]) {
+            
+            [LoginFacade loginSuccessWithHttpgetPath:response[@"data"]];
+            
+        } else
+            [Tools showAlertViewWithText:response[@"data"][@"info"]];
+    } failure:^(NSError *error) {
+        
+    }];
     
     [self dismissViewControllerAnimated:YES completion:nil];
-    
-    
 }
 
 - (void)viewDidLoad
@@ -78,11 +79,15 @@
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 20.;
+}
+
 - (IBAction)loginButtonPressed:(UIButton *)sender {
     
     [[self appDelegate] disconnect];
     
-    NSString *jidStr = self.jidTextField.text;
+    NSString *jidStr = [self.jidTextField.text stringByAppendingString:@"@tijian8.cn"];
     NSString *pwdStr = self.pwdTextField.text;
     
     [self setField:jidStr forKey:kXMPPjoyJID];
