@@ -9,6 +9,8 @@
 #import "Tools.h"
 #import <objc/runtime.h>
 
+
+
 @implementation Tools
 
 + (XMPPvCardTemp *)xmppVCardTempFromVCardStr:(NSString *)vCardStr
@@ -28,6 +30,32 @@
 {
     UIAlertView *av = [[UIAlertView alloc] initWithTitle:nil message:text delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
     [av show];
+}
+
++ (CHAT_TYPE)typeForMessage:(XMPPMessageArchiving_Message_CoreDataObject *)message
+{
+    NSString *body = message.body;
+    if ([body hasPrefix:@"[image]"]) {
+        return CHAT_TYPE_IMAGE;
+    }else if ([body hasPrefix:@"[audio]"]) {
+        return CHAT_TYPE_AUDIO;
+    }
+    
+    return CHAT_TYPE_TEXT;
+}
+
++ (NSString *)bodyWithoutPrefixForMessage:(XMPPMessageArchiving_Message_CoreDataObject *)message
+{
+    NSString *body = message.body;
+    if ([body hasPrefix:@"[image]"]) {
+        return [body substringFromIndex:@"[image]".length];
+    }else if ([body hasPrefix:@"[audio]"]) {
+        return [body substringFromIndex:@"[audio]".length];
+    }else if ([body hasPrefix:@"[text]"]) {
+        return [body substringFromIndex:@"[text]".length];
+    }
+    
+    return message.body;
 }
 
 @end

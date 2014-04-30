@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "GTMBase64.h"
 
+
 @interface MsgDetailViewController () <JSMessagesViewDelegate, JSMessagesViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @end
@@ -99,7 +100,7 @@
 #pragma mark - Messages view delegate
 - (void)sendPressed:(UIButton *)sender withText:(NSString *)textToSend
 {
-    [self sendTheText:textToSend withKind:@"text"];
+    [self sendTheText:textToSend withKind:CHAT_TYPE_TEXT];
 }
 
 //- (void)cameraPressed:(id)sender{
@@ -121,16 +122,17 @@
     return JSBubbleMessageStyleFlat;
 }
 
+
+
+
 - (JSBubbleMediaType)messageMediaTypeForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     XMPPMessageArchiving_Message_CoreDataObject *message = [[self fetchedResultsController] objectAtIndexPath:indexPath];
     
-    XMPPMessage *msg = message.message;
-    NSString *kind = [[msg elementForName:@"kind"] stringValue];
-    if ([kind isEqualToString:@"image"]) {
+    if ([Tools typeForMessage:message] != CHAT_TYPE_TEXT) {
         return JSBubbleMediaTypeImage;
     }
-
+    
     return JSBubbleMediaTypeText;
 }
 
@@ -192,13 +194,11 @@
 {
     XMPPMessageArchiving_Message_CoreDataObject *message = [[self fetchedResultsController] objectAtIndexPath:indexPath];
     
-    XMPPMessage *msg = message.message;
-    NSString *kind = [[msg elementForName:@"kind"] stringValue];
-    if ([kind isEqualToString:@"image"]) {
+    if ([Tools typeForMessage:message] != CHAT_TYPE_TEXT) {
         return nil;
     }
 
-    return message.body;
+    return [Tools bodyWithoutPrefixForMessage:message];
 }
 
 
@@ -216,12 +216,12 @@
     
     XMPPMessageArchiving_Message_CoreDataObject *message = [[self fetchedResultsController] objectAtIndexPath:indexPath];
     
-    XMPPMessage *msg = message.message;
-    NSString *kind = [[msg elementForName:@"kind"] stringValue];
-    if ([kind isEqualToString:@"image"]) {
-        NSData* data = [[NSData alloc] initWithBase64EncodedString:message.body options:0];
+    if ([Tools typeForMessage:message] != CHAT_TYPE_TEXT) {
+        NSString *realbody = [Tools bodyWithoutPrefixForMessage:message];
+        NSData* data = [[NSData alloc] initWithBase64EncodedString:realbody options:0];
         return [UIImage imageWithData:data];
     }
+    
     return nil;
 }
 
@@ -265,21 +265,36 @@
     
     NSString *imageDataBase64Str = [[NSString alloc] initWithData:[GTMBase64 encodeData:imageData] encoding:NSUTF8StringEncoding];
     
-    [self sendTheText:imageDataBase64Str withKind:@"image"];
+    [self sendTheText:imageDataBase64Str withKind:CHAT_TYPE_IMAGE];
 	
     [self dismissViewControllerAnimated:YES completion:NULL];
     
 }
 
-- (void)sendTheText:(NSString *)textToSend withKind:(NSString *)kind
+- (void)sendTheText:(NSString *)textToSend withKind:(CHAT_TYPE)kind
 {
     if (textToSend && textToSend.length > 0) {
         
         XMPPMessage *message = [XMPPMessage messageWithType:@"chat" to:[XMPPJID jidWithString:self.bareJIDStr]];
-        [message addBody:textToSend];
         
-        NSXMLElement *bodyElement = [NSXMLElement elementWithName:@"kind" stringValue:kind];
-        [message addChild:bodyElement];
+        NSString *finalText = @"";
+        
+        if (kind == CHAT_TYPE_TEXT) {
+            finalText = @"[text]";
+        }else if (kind == CHAT_TYPE_IMAGE) {
+            finalText = @"[image]";
+        }else if (kind == CHAT_TYPE_AUDIO) {
+            finalText = @"[audio]";
+        }
+        
+        finalText = [finalText stringByAppendingString:textToSend];
+        
+        [message addBody:finalText];
+        
+        
+        
+//        NSXMLElement *bodyElement = [NSXMLElement elementWithName:@"kind" stringValue:kind];
+//        [message addChild:bodyElement];
         
         
         [[[self appDelegate] xmppStream] sendElement:message];

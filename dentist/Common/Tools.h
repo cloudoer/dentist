@@ -9,9 +9,19 @@
 #import <Foundation/Foundation.h>
 #import "XMPPvCardTemp.h"
 
+typedef enum : NSUInteger {
+    CHAT_TYPE_TEXT,
+    CHAT_TYPE_IMAGE,
+    CHAT_TYPE_AUDIO,
+} CHAT_TYPE;
+
 @interface Tools : NSObject
 + (XMPPvCardTemp *)xmppVCardTempFromVCardStr:(NSString *)vCardStr;
 
 
 + (void)showAlertViewWithText:(NSString *)text;
+
+
++ (CHAT_TYPE)typeForMessage:(XMPPMessageArchiving_Message_CoreDataObject *)message;
++ (NSString *)bodyWithoutPrefixForMessage:(XMPPMessageArchiving_Message_CoreDataObject *)message;
 @end

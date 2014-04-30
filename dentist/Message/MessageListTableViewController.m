@@ -54,6 +54,7 @@ AVAudioPlayerDelegate>
 {
     [super viewWillAppear:animated];
     
+    [[self appDelegate] connect];
     if (![LoginFacade isLogged]) {
         [LoginFacade presentLoginViewControllerFrom:self];
     }else {
@@ -223,12 +224,11 @@ AVAudioPlayerDelegate>
     static NSString *CellIdentifier = @"MsgListCell";
     MsgListCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    XMPPMessage *msg = message.message;
-    NSString *kind = [[msg elementForName:@"kind"] stringValue];
-    if ([kind isEqualToString:@"image"]) {
-        cell.msgLabel.text = @"[图片]";
+    
+    if ([Tools typeForMessage:message] == CHAT_TYPE_TEXT) {
+        cell.msgLabel.text = [Tools bodyWithoutPrefixForMessage:message];
     }else {
-        cell.msgLabel.text = message.body;
+        cell.msgLabel.text = @"[图片]";
     }
     
     cell.nameLabel.text = message.bareJidStr;
