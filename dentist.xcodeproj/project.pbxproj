@@ -64,6 +64,7 @@
 		FB25F1901910D2F4007C2FF2 /* gender_female@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB25F18E1910D2F4007C2FF2 /* gender_female@2x.png */; };
 		FB25F1911910D2F4007C2FF2 /* gender_male@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB25F18F1910D2F4007C2FF2 /* gender_male@2x.png */; };
 		FB25F1941910D449007C2FF2 /* ProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB25F1931910D449007C2FF2 /* ProfileTableViewController.m */; };
+		FB25F1971910E2D2007C2FF2 /* MyInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB25F1961910E2D2007C2FF2 /* MyInfoTableViewController.m */; };
 		FB4DCBC218F3B884006B6722 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4DCBC118F3B884006B6722 /* Foundation.framework */; };
 		FB4DCBC418F3B884006B6722 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4DCBC318F3B884006B6722 /* CoreGraphics.framework */; };
 		FB4DCBC618F3B884006B6722 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4DCBC518F3B884006B6722 /* UIKit.framework */; };
@@ -466,6 +467,8 @@
 		FB25F18F1910D2F4007C2FF2 /* gender_male@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gender_male@2x.png"; sourceTree = "<group>"; };
 		FB25F1921910D449007C2FF2 /* ProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileTableViewController.h; sourceTree = "<group>"; };
 		FB25F1931910D449007C2FF2 /* ProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTableViewController.m; sourceTree = "<group>"; };
+		FB25F1951910E2D2007C2FF2 /* MyInfoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyInfoTableViewController.h; sourceTree = "<group>"; };
+		FB25F1961910E2D2007C2FF2 /* MyInfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyInfoTableViewController.m; sourceTree = "<group>"; };
 		FB4DCBBE18F3B884006B6722 /* dentist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dentist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB4DCBC118F3B884006B6722 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FB4DCBC318F3B884006B6722 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -2181,6 +2184,8 @@
 				14425CE6190A584B00CC46F4 /* PhotoesView.m */,
 				142E9591190E4DB900246EEB /* RecordDetailViewController.h */,
 				142E9592190E4DB900246EEB /* RecordDetailViewController.m */,
+				FB25F1951910E2D2007C2FF2 /* MyInfoTableViewController.h */,
+				FB25F1961910E2D2007C2FF2 /* MyInfoTableViewController.m */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -2689,6 +2694,7 @@
 				FB4DCF5A18F3BA8A006B6722 /* XMPPRoomHybrid.xcdatamodeld in Sources */,
 				FBC91AED190A32B500405A89 /* NSString+JSMessagesView.m in Sources */,
 				FBC919E01908866F00405A89 /* MeTableViewController.m in Sources */,
+				FB25F1971910E2D2007C2FF2 /* MyInfoTableViewController.m in Sources */,
 				FB4DCF4E18F3BA8A006B6722 /* XMPPRoster.m in Sources */,
 				FB4DCF9D18F3BA8A006B6722 /* XMPPIDTracker.m in Sources */,
 				FB4DCF7818F3BA8A006B6722 /* NSDate+XMPPDateTimeProfiles.m in Sources */,
@@ -2785,7 +2791,6 @@
 				FB4DCF6B18F3BA8A006B6722 /* XMPPvCardTempAdrTypes.m in Sources */,
 				FB4DCF5718F3BA8A006B6722 /* XMPPRoomCoreDataStorage.m in Sources */,
 				FBC919CB190884B700405A89 /* BuddyFacade.m in Sources */,
-				FB5014AF190F3B0B00264C9A /* BuddyRequest.m in Sources */,
 				142E95B61910A5CA00246EEB /* RegThreeTableViewController.m in Sources */,
 				FB4DCF7D18F3BA8A006B6722 /* NSString+XEP_0106.m in Sources */,
 				FB4DCF6218F3BA8A006B6722 /* XMPPMUC.m in Sources */,

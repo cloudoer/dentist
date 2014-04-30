@@ -21,7 +21,7 @@
         self.photo    = [aDecoder decodeObjectForKey:@"photo"];
         self.jobTitle = [aDecoder decodeObjectForKey:@"title"];
         self.desc     = [aDecoder decodeObjectForKey:@"description"];
-        self.photo    = [aDecoder decodeObjectForKey:@"avatar_url"];
+        self.phone    = [aDecoder decodeObjectForKey:@"phone"];
         self.brand    = [aDecoder decodeObjectForKey:@"brand"];
     }
     
@@ -38,7 +38,7 @@
     [aCoder encodeObject:self.photo forKey:@"photo"];
     [aCoder encodeObject:self.jobTitle forKey:@"title"];
     [aCoder encodeObject:self.desc forKey:@"description"];
-    [aCoder encodeObject:self.photo forKey:@"avatar_url"];
+    [aCoder encodeObject:self.phone forKey:@"phone"];
     [aCoder encodeObject:self.brand forKey:@"brand"];
 }
 
