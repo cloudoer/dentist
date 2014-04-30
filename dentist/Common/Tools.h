@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "XMPPvCardTemp.h"
+#import "Userinfo.h"
 
 typedef enum : NSUInteger {
     CHAT_TYPE_TEXT,
@@ -25,8 +26,11 @@ typedef enum : NSUInteger {
 + (CHAT_TYPE)typeForMessage:(XMPPMessageArchiving_Message_CoreDataObject *)message;
 + (NSString *)bodyWithoutPrefixForMessage:(XMPPMessageArchiving_Message_CoreDataObject *)message;
 
+<<<<<<< HEAD
+=======
 
 
 + (UIImage *)imageFromBase64Str:(NSString *)base64Str;
 
+>>>>>>> upstream/master
 @end

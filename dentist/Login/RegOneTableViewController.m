@@ -8,11 +8,21 @@
 
 #import "RegOneTableViewController.h"
 #import "RegTwoTableViewController.h"
+#import "NSUtil.h"
 
-@interface RegOneTableViewController ()
+#define TOTAL_TIME  300
+
+@interface RegOneTableViewController () <UITextFieldDelegate>
+{
+    NSTimer *sendTimer;
+    int timeDes;
+}
+
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
 @property (weak, nonatomic) IBOutlet UITextField *captchTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passTextField;
+@property (weak, nonatomic) IBOutlet UITextField *regPwdTextField;
+@property (weak, nonatomic) IBOutlet UIButton *sendBtn;
 
 @end
 
@@ -30,23 +40,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.tableView.tableFooterView = [UIView new];
+    timeDes = TOTAL_TIME;
 }
 
-- (IBAction)nextStepButtonPressed:(UIButton *)sender {
-    
+
+- (IBAction)nextStep:(UIBarButtonItem *)sender {
+   
+   
     [self performSegueWithIdentifier:@"RegOne2Two" sender:self];
     
 }
 
 
-
 - (IBAction)smsButtonPressed:(UIButton *)sender {
+    
     NSString *phoneStr = self.phoneTextField.text;
     
-    if (phoneStr == nil || phoneStr.length <= 0) {
-        UIAlertView *av = [[UIAlertView alloc] initWithTitle:nil message:@"请输入手机号" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-        [av show];
+    if (!phoneStr.length) {
+        [NSUtil alertNotice:@"错误提示" withMSG:@"请输入手机号" cancleButtonTitle:@"确定" otherButtonTitle:nil];
         return;
     }
     
@@ -54,12 +66,24 @@
     [Network httpGetPath:getPath success:^(NSDictionary *response) {
         if ([Network statusOKInResponse:response]) {
             [Tools showAlertViewWithText:@"短信已发出"];
+            sender.enabled = NO;
+            sendTimer = [NSTimer scheduledTimerWithTimeInterval:1. target:self selector:@selector(countDown) userInfo:nil repeats:YES];
         }else {
-            [Tools showAlertViewWithText:@"出错"];
+            [Tools showAlertViewWithText:@"重复手机号,请换个手机号"];
         }
     } failure:^(NSError *error) {
-        
+        [Tools showAlertViewWithText:@"出错"];
     }];
+}
+
+- (void)countDown {
+    timeDes--;
+    if (timeDes == 0) {
+        self.sendBtn.enabled = YES;
+        [self.sendBtn setTitle:@"重发验证码" forState:UIControlStateNormal];
+        timeDes = TOTAL_TIME;
+    } else
+        [self.sendBtn setTitle:[NSString stringWithFormat:@"重发验证码（%d）", timeDes] forState:UIControlStateNormal];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -80,5 +104,36 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (BOOL)regPhoneNO {
+    NSString *phoneNO = self.phoneTextField.text;
+    NSString *regex   = @"^[1][3-8]+\\d{9}";
+    NSPredicate *prd  = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
+    if ([prd evaluateWithObject:phoneNO] && [phoneNO length] == 11) {
+        return YES;
+    }
+    return NO;
+}
 
+- (BOOL)regPwd {
+    NSString *pwd   = self.passTextField.text;
+    NSString *rePwd = self.regPwdTextField.text;
+    if ([NSUtil trimSpace:pwd].length && [NSUtil trimSpace:rePwd].length && [pwd isEqualToString:rePwd]) {
+        return YES;
+    }
+    return NO;
+}
+
+#pragma mark -
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (textField == self.phoneTextField) {
+        [self.captchTextField becomeFirstResponder];
+    } else if (textField == self.captchTextField) {
+        [self.passTextField becomeFirstResponder];
+    } else if (textField == self.passTextField) {
+        [self.regPwdTextField becomeFirstResponder];
+    } else if (textField == self.regPwdTextField) {
+        [self.regPwdTextField resignFirstResponder];
+    }
+    return YES;
+}
 @end

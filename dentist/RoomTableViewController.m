@@ -128,14 +128,14 @@
     cell.favoriateImageView.hidden = !oneInfo.isCollection;
     cell.commetLabel.hidden = YES;
     
-    XMPPvCardTemp *vCardTemp = [Tools xmppVCardTempFromVCardStr:oneInfo.vCardStr];
-    Userinfo *curUser = [Userinfo userinfoFromXMPPvCardTemp:vCardTemp];
+//    XMPPvCardTemp *vCardTemp = [Tools xmppVCardTempFromVCardStr:oneInfo.vCardStr];
+//    Userinfo *curUser = [Userinfo userinfoFromXMPPvCardTemp:vCardTemp];
     // Configure the cell...
     
-    [cell.avatarImageView setImageWithURL:[NSURL URLWithString:curUser.avatar_url] placeholderImage:[UIImage imageNamed:@"tab_me.png"]];
+//    [cell.avatarImageView setImageWithURL:[NSURL URLWithString:curUser.avatar_url] placeholderImage:[UIImage imageNamed:@"tab_me.png"]];
     
-    cell.nameLabel.text = curUser.realname;
-    if (curUser.orgName) cell.clinicLabel.text = [NSString stringWithFormat:@"(%@)", curUser.orgName];
+//    cell.nameLabel.text = curUser.realname;
+//    if (curUser.orgName) cell.clinicLabel.text = [NSString stringWithFormat:@"(%@)", curUser.orgName];
     
     return cell;
 }

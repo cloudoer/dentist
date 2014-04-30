@@ -10,21 +10,21 @@
 
 @interface Userinfo : NSObject <NSCoding>
 
-@property (nonatomic, copy) NSString *jabberId;
-@property (nonatomic, copy) NSString *realname;
-@property (nonatomic, copy) NSString *sex;
-@property (nonatomic, copy) NSString *province;
-@property (nonatomic, copy) NSString *city;
-@property (nonatomic, copy) NSString *area;
-@property (nonatomic, copy) NSString *orgName;
-@property (nonatomic, copy) NSString *orgUnit;
-@property (nonatomic, copy) NSString *department;
-@property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSString *expert;
-@property (nonatomic, copy) NSString *description;
-@property (nonatomic, copy) NSString *avatar_url;
+@property (nonatomic, retain) NSString * address;
+@property (nonatomic, retain) NSString * brand;
+@property (nonatomic, retain) NSString * desc;
+@property (nonatomic, assign) NSInteger  gender;
+@property (nonatomic, retain) NSString * jobTitle;
+@property (nonatomic, retain) NSString * phone;
+@property (nonatomic, retain) NSString * realname;
+@property (nonatomic, retain) NSNumber * uid;
+@property (nonatomic, retain) NSString * username;
+@property (nonatomic, retain) NSString * photo;
 
-+ (Userinfo *)userinfoFromXMPPvCardTemp:(XMPPvCardTemp *)vCardTemp;
-+ (Userinfo *)userinfoFromXMPPvCardTempStr:(NSString *)vCardTempStr;
+
+//+ (Userinfo *)userinfoFromXMPPvCardTemp:(XMPPvCardTemp *)vCardTemp;
+//+ (Userinfo *)userinfoFromXMPPvCardTempStr:(NSString *)vCardTempStr;
++ (Userinfo *)userinfoFromHttpget:(NSDictionary *)dic;
+
 
 @end

@@ -13,20 +13,16 @@
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     if (self = [super init]) {
-        self.jabberId = [aDecoder decodeObjectForKey:@"jabberId"];
+        self.uid      = [aDecoder decodeObjectForKey:@"jabberId"];
         self.realname = [aDecoder decodeObjectForKey:@"realname"];
-        self.sex = [aDecoder decodeObjectForKey:@"sex"];
-        self.province = [aDecoder decodeObjectForKey:@"province"];
-        self.city = [aDecoder decodeObjectForKey:@"city"];
-        self.area = [aDecoder decodeObjectForKey:@"area"];
-        self.orgName = [aDecoder decodeObjectForKey:@"orgName"];
-        self.orgUnit = [aDecoder decodeObjectForKey:@"orgUnit"];
-        self.department = [aDecoder decodeObjectForKey:@"department"];
-        self.title = [aDecoder decodeObjectForKey:@"title"];
-        self.expert = [aDecoder decodeObjectForKey:@"expert"];
-        self.description = [aDecoder decodeObjectForKey:@"description"];
-        self.avatar_url = [aDecoder decodeObjectForKey:@"avatar_url"];
-        
+        self.gender   = [[aDecoder decodeObjectForKey:@"sex"] integerValue];
+        self.address  = [aDecoder decodeObjectForKey:@"area"];
+        self.username = [aDecoder decodeObjectForKey:@"username"];
+        self.photo    = [aDecoder decodeObjectForKey:@"photo"];
+        self.jobTitle = [aDecoder decodeObjectForKey:@"title"];
+        self.desc     = [aDecoder decodeObjectForKey:@"description"];
+        self.photo    = [aDecoder decodeObjectForKey:@"avatar_url"];
+        self.brand    = [aDecoder decodeObjectForKey:@"brand"];
     }
     
     return self;
@@ -34,22 +30,35 @@
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
-    [aCoder encodeObject:self.jabberId forKey:@"jabberId"];
+    [aCoder encodeObject:self.uid forKey:@"jabberId"];
     [aCoder encodeObject:self.realname forKey:@"realname"];
-    [aCoder encodeObject:self.sex forKey:@"sex"];
-    [aCoder encodeObject:self.province forKey:@"province"];
-    [aCoder encodeObject:self.city forKey:@"city"];
-    [aCoder encodeObject:self.area forKey:@"area"];
-    [aCoder encodeObject:self.orgName forKey:@"orgName"];
-    [aCoder encodeObject:self.orgUnit forKey:@"orgUnit"];
-    [aCoder encodeObject:self.department forKey:@"department"];
-    [aCoder encodeObject:self.title forKey:@"title"];
-    [aCoder encodeObject:self.expert forKey:@"expert"];
-    [aCoder encodeObject:self.description forKey:@"description"];
-    [aCoder encodeObject:self.avatar_url forKey:@"avatar_url"];
+    [aCoder encodeObject:[NSNumber numberWithInteger:self.gender] forKey:@"sex"];
+    [aCoder encodeObject:self.address forKey:@"area"];
+    [aCoder encodeObject:self.username forKey:@"username"];
+    [aCoder encodeObject:self.photo forKey:@"photo"];
+    [aCoder encodeObject:self.jobTitle forKey:@"title"];
+    [aCoder encodeObject:self.desc forKey:@"description"];
+    [aCoder encodeObject:self.photo forKey:@"avatar_url"];
+    [aCoder encodeObject:self.brand forKey:@"brand"];
 }
 
 
++ (Userinfo *)userinfoFromHttpget:(NSDictionary *)dic {
+    Userinfo *userinfo = [[Userinfo alloc] init];
+    userinfo.uid       = dic[@"id"];
+    userinfo.username  = dic[@"username"];
+    userinfo.realname  = dic[@"realname"];
+    userinfo.phone     = dic[@"phone"];
+    userinfo.photo     = dic[@"photo"];
+    userinfo.gender    = [dic[@"sex"] integerValue];
+    userinfo.desc      = dic[@"description"];
+    userinfo.jobTitle  = dic[@"job_title"];
+    userinfo.brand     = dic[@"brand"];
+    userinfo.address   = dic[@"area"];
+    return userinfo;
+}
+
+/*
 + (Userinfo *)userinfoFromXMPPvCardTemp:(XMPPvCardTemp *)vCardTemp
 {
     Userinfo *userinfo = [[Userinfo alloc] init];
@@ -80,5 +89,8 @@
     Userinfo *curUser = [self userinfoFromXMPPvCardTemp:vCardTemp];
     return curUser;
 }
+
+ */
+
 
 @end

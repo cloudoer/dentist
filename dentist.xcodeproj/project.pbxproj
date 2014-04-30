@@ -16,6 +16,7 @@
 		142E95AB190F4BB400246EEB /* EmojiTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = 142E959E190F4BB400246EEB /* EmojiTransport.m */; };
 		142E95AD190F4BB400246EEB /* FacialView.m in Sources */ = {isa = PBXBuildFile; fileRef = 142E95A2190F4BB400246EEB /* FacialView.m */; };
 		142E95B3190F596E00246EEB /* faceDelete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 142E95B2190F596E00246EEB /* faceDelete@2x.png */; };
+		142E95B61910A5CA00246EEB /* RegThreeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 142E95B51910A5CA00246EEB /* RegThreeTableViewController.m */; };
 		14425CBE190A0FFA00CC46F4 /* NewRecordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14425CBD190A0FFA00CC46F4 /* NewRecordsViewController.m */; };
 		14425CC1190A138700CC46F4 /* MyRecordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14425CC0190A138700CC46F4 /* MyRecordsViewController.m */; };
 		14425CCD190A149C00CC46F4 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 14425CC4190A149C00CC46F4 /* UIImage+Alpha.m */; };
@@ -376,6 +377,8 @@
 		142E95A1190F4BB400246EEB /* FacialView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacialView.h; sourceTree = "<group>"; };
 		142E95A2190F4BB400246EEB /* FacialView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacialView.m; sourceTree = "<group>"; };
 		142E95B2190F596E00246EEB /* faceDelete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "faceDelete@2x.png"; sourceTree = "<group>"; };
+		142E95B41910A5CA00246EEB /* RegThreeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegThreeTableViewController.h; sourceTree = "<group>"; };
+		142E95B51910A5CA00246EEB /* RegThreeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegThreeTableViewController.m; sourceTree = "<group>"; };
 		14425CBC190A0FFA00CC46F4 /* NewRecordsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewRecordsViewController.h; sourceTree = "<group>"; };
 		14425CBD190A0FFA00CC46F4 /* NewRecordsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewRecordsViewController.m; sourceTree = "<group>"; };
 		14425CBF190A138700CC46F4 /* MyRecordsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRecordsViewController.h; sourceTree = "<group>"; };
@@ -2153,6 +2156,8 @@
 				FB5014B4190F924700264C9A /* RegOneTableViewController.m */,
 				FB5014B6190F9D7C00264C9A /* RegTwoTableViewController.h */,
 				FB5014B7190F9D7C00264C9A /* RegTwoTableViewController.m */,
+				142E95B41910A5CA00246EEB /* RegThreeTableViewController.h */,
+				142E95B51910A5CA00246EEB /* RegThreeTableViewController.m */,
 				FBC919BA1908836400405A89 /* Login.storyboard */,
 			);
 			path = Login;
@@ -2780,6 +2785,8 @@
 				FB4DCF6B18F3BA8A006B6722 /* XMPPvCardTempAdrTypes.m in Sources */,
 				FB4DCF5718F3BA8A006B6722 /* XMPPRoomCoreDataStorage.m in Sources */,
 				FBC919CB190884B700405A89 /* BuddyFacade.m in Sources */,
+				FB5014AF190F3B0B00264C9A /* BuddyRequest.m in Sources */,
+				142E95B61910A5CA00246EEB /* RegThreeTableViewController.m in Sources */,
 				FB4DCF7D18F3BA8A006B6722 /* NSString+XEP_0106.m in Sources */,
 				FB4DCF6218F3BA8A006B6722 /* XMPPMUC.m in Sources */,
 				FBC919B91908834C00405A89 /* Userinfo.m in Sources */,
