@@ -55,7 +55,7 @@ AVAudioPlayerDelegate>
     [super viewWillAppear:animated];
     
     if (![LoginFacade isLogged]) {
-//        [LoginFacade presentLoginViewControllerFrom:self];
+        [LoginFacade presentLoginViewControllerFrom:self];
     }else {
         [[self appDelegate] connect];
         

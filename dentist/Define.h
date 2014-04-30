@@ -49,5 +49,6 @@
 #define URL_PATH_REG_CAPTCHA @"index.php?r=app/user/getCaptchaForRegister"
 #define URL_PATH_REG_DONE @"index.php?r=app/user/register"
 #define URL_PATH_USER_INFO(USERID) [NSString stringWithFormat:@"index.php?r=app/user/getInfo/username/%@", (USERID)]
+#define URL_PATH_VERIFY_CAPTCHA @"index.php?r=app/user/verifyCaptcha"
 
 #endif
