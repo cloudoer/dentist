@@ -198,7 +198,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            [self performSegueWithIdentifier:@"BuddyList2New" sender:self];
+        }else if(indexPath.row == 1) {
+            [self performSegueWithIdentifier:@"BuddyList2Service" sender:self];
+        }
+    }else {
+        [self performSegueWithIdentifier:@"BuddyList2Profile" sender:self];
+    }
 }
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
