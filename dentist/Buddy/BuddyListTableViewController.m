@@ -39,7 +39,9 @@
 
 - (void)getBuddyList
 {
-    NSString *getPath = [NSString stringWithFormat:@"%@&uid=%d", URL_PATH_ALL_BUDDY, 2];
+    Userinfo *userinfo = [LoginFacade sharedUserinfo];
+    NSString *getPath = [NSString stringWithFormat:@"%@&uid=%d", URL_PATH_ALL_BUDDY, userinfo.uid.intValue];
+    
     [Network httpGetPath:getPath success:^(NSDictionary *response) {
         for (NSDictionary *oneBuddyDict in response[@"data"]) {
             [[BuddyManager sharedBuddyManager] addBuddyWithDictionary:oneBuddyDict];
