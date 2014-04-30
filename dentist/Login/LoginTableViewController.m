@@ -8,6 +8,7 @@
 
 #import "LoginTableViewController.h"
 #import "AppDelegate.h"
+#import "NSUtil.h"
 
 @interface LoginTableViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *jidTextField;
@@ -94,13 +95,7 @@
     [self setField:pwdStr forKey:kXMPPjoyPassword];
     
     [[self appDelegate] connect];
-//    if ()
-//    {
-//        [self dismissViewControllerAnimated:YES completion:nil];
-//    }else {
-//        UIAlertView *av = [[UIAlertView alloc] initWithTitle:nil message:@"登录失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-//        [av show];
-//    }
+
 }
 
 - (void)didReceiveMemoryWarning

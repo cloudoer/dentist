@@ -27,7 +27,7 @@
                                                     <rect key="frame" x="16" y="0.0" width="288" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" returnKeyType="next"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="v36-7h-mWa" id="PSS-RI-yea"/>
                                                     </connections>
