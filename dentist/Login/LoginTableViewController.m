@@ -87,7 +87,7 @@
     
     [[self appDelegate] disconnect];
     
-    NSString *jidStr = [self.jidTextField.text stringByAppendingString:@"@tijian8.cn"];
+    NSString *jidStr = [self.jidTextField.text stringByAppendingString:[NSString stringWithFormat:@"@%@", XMPP_DOMAIN]];
     NSString *pwdStr = self.pwdTextField.text;
     
     [self setField:jidStr forKey:kXMPPjoyJID];

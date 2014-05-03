@@ -339,7 +339,7 @@
                                                     <rect key="frame" x="18" y="0.0" width="292" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="search"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="TBG-I7-Si0" id="FYe-C3-h6D"/>
                                                     </connections>
@@ -470,12 +470,12 @@
                                                     <rect key="frame" x="45" y="14" width="230" height="36"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.25490196079999999" green="0.71372549019999998" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <state key="normal" title="发消息">
+                                                    <state key="normal" title="添加好友">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="sendMsgOrAddFriends:" destination="GXM-dM-Sa8" eventType="touchUpInside" id="OgV-9Z-TrD"/>
+                                                        <action selector="addBuddy:" destination="GXM-dM-Sa8" eventType="touchUpInside" id="ib7-bO-0vI"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -496,7 +496,6 @@
                         <outlet property="jobTitleLabel" destination="o38-KU-fMF" id="BOJ-Q2-cmk"/>
                         <outlet property="phoneLabel" destination="Iho-Xi-z6j" id="rji-fc-wK8"/>
                         <outlet property="realnameLabel" destination="ERU-x3-M4d" id="d4f-3O-86w"/>
-                        <outlet property="sendOrAddButton" destination="eTw-Zp-VbO" id="Ulx-Hu-V1r"/>
                         <outlet property="unitLabel" destination="fKN-g0-F5r" id="Efu-Mo-Ppd"/>
                     </connections>
                 </tableViewController>

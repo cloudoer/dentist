@@ -69,6 +69,13 @@ AVAudioPlayerDelegate>
     [super viewDidAppear:animated];
     
     [self.tableView reloadData];
+    
+    NSString *bareJIDString = [Tools bareJIDStringFromBuddyClicked];
+    if (bareJIDString != nil) {
+        clickedBareJIDStr = bareJIDString;
+        [self performSegueWithIdentifier:@"MsgList2Detail" sender:self];
+        [Tools setBareJIDStringFromBuddyClicked:nil];
+    }
 }
 
 - (NSFetchedResultsController *)fetchedResultsController

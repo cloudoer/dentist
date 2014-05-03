@@ -19,6 +19,7 @@ typedef enum : NSUInteger {
 
 #define kXMPPLoginSuccess @"kXMPPLoginSuccess"
 
+#define XMPP_DOMAIN @"tijian8.cn"
 #define BaseURLString  @"http://tijian8.cn/yayibao/"
 //#define BaseURLString  @"http://tijian8.cn/"
 

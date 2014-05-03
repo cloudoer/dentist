@@ -68,4 +68,16 @@
     return [UIImage imageWithData:data];
 }
 
+
++ (NSString *)bareJIDStringFromBuddyClicked
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    return [userDefaults stringForKey:@"bareJIDStringFromBuddyClicked"];
+}
+
++ (void)setBareJIDStringFromBuddyClicked:(NSString *)bareJIDStr;
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:bareJIDStr forKey:@"bareJIDStringFromBuddyClicked"];
+}
 @end

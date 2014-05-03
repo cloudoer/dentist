@@ -29,4 +29,7 @@ typedef enum : NSUInteger {
 
 + (UIImage *)imageFromBase64Str:(NSString *)base64Str;
 
++ (NSString *)bareJIDStringFromBuddyClicked;
++ (void)setBareJIDStringFromBuddyClicked:(NSString *)bareJIDStr;
+
 @end

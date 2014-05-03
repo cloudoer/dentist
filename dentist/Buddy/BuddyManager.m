@@ -10,6 +10,7 @@
 #import "Buddy.h"
 #import "BuddyNewMessage.h"
 #import "AppDelegate.h"
+#import "BuddyRequest.h"
 
 
 @implementation BuddyManager
@@ -124,6 +125,28 @@ static BuddyManager *sharedInstance;
 }
 
 
+- (Buddy *)buddyWithPhoneNum:(NSString *)phone
+{
+    NSString *entityName = @"Buddy";
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
+    request.predicate = [NSPredicate predicateWithFormat:@"phone ==[c] %@", phone];
+    NSError *error;
+    NSArray *matches = [context executeFetchRequest:request error:&error];
+    if (!matches || error || matches.count > 1) {
+        // something went wrong!
+    }else if (matches.count == 1) {
+        Buddy *buddy = matches.firstObject;
+        return buddy;
+    }else {
+    }
+    
+    return nil;
+}
+
+
 - (void)addBuddyWithDictionary:(NSDictionary *)oneBuddy
 {
     NSString *entityName = @"Buddy";
@@ -220,9 +243,8 @@ static BuddyManager *sharedInstance;
     else {
         messageListController.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d", num];
     }
-    
-    
 }
+
 - (void)removeBuddyNewMessageFrom:(NSString *)user
 {
     NSString *entityName = @"BuddyNewMessage";
@@ -287,5 +309,93 @@ static BuddyManager *sharedInstance;
     
     return NO;
 }
+
+
+// BuddyRequest
+- (void)buddyRequestAddedFromMe:(BOOL)isFromMe Friend:(NSString *)user success:(BOOL)success;
+{
+    NSString *entityName = @"BuddyRequest";
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
+    request.predicate = [NSPredicate predicateWithFormat:@"user ==[c] %@", user];
+    NSError *error;
+    NSArray *matches = [context executeFetchRequest:request error:&error];
+    if (!matches || error || matches.count > 1) {
+        // something went wrong!
+    }else if (matches.count == 1) {
+        BuddyRequest *buddyRequest = matches.firstObject;
+        buddyRequest.fromMe = [NSNumber numberWithBool:YES];
+        buddyRequest.success = [NSNumber numberWithBool:success];
+    }else {
+        
+        BuddyRequest *buddyRequest = [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:context];
+        buddyRequest.user = user;
+        buddyRequest.fromMe = [NSNumber numberWithBool:YES];
+        buddyRequest.success = [NSNumber numberWithBool:success];
+    }
+    
+    if (![context save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
+}
+
+- (void)buddyRequestReceivedFriend:(NSString *)user
+{
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    
+    NSString *entityName = @"BuddyRequest";
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
+    request.predicate = [NSPredicate predicateWithFormat:@"user ==[c] %@", user];
+    NSError *error;
+    NSArray *matches = [context executeFetchRequest:request error:&error];
+    if (!matches || error || matches.count > 1) {
+        // something went wrong!
+    }else if (matches.count == 1) {
+        // 已经有了, 就自动添加为好友.
+        BuddyRequest *buddyRequest = matches.firstObject;
+        buddyRequest.success = [NSNumber numberWithBool:YES];
+        
+        NSString *jidStr = [NSString stringWithFormat:@"%@@%@", user, XMPP_DOMAIN];
+        XMPPJID *jid = [XMPPJID jidWithString:jidStr];
+        [appDelegate.xmppRoster acceptPresenceSubscriptionRequestFrom:jid andAddToRoster:YES];
+        
+    }else {
+        
+        BuddyRequest *buddyRequest = [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:context];
+        buddyRequest.user = user;
+        buddyRequest.fromMe = [NSNumber numberWithBool:NO];
+        buddyRequest.success = [NSNumber numberWithBool:NO];
+        
+        [self addBadgeForBuddyTab];
+    }
+    
+    if (![context save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
+}
+
+- (void)addBadgeForBuddyTab
+{
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    
+    UITabBarController *tabBarController = (UITabBarController *)appDelegate.window.rootViewController;
+    
+    NSArray *controllers = tabBarController.viewControllers;
+    UIViewController *buddyListController = controllers[3];
+    buddyListController.tabBarItem.badgeValue = @"1";
+//    int num = [self numberOfNewMessageUser];
+//    if (num == 0) {
+//        messageListController.tabBarItem.badgeValue = nil;
+//    }
+//    else {
+//        messageListController.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d", num];
+//    }
+}
+
 
 @end

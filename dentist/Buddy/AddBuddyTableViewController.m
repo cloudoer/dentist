@@ -38,7 +38,20 @@
 {
     [textField resignFirstResponder];
     
-    [Network httpGetPath:URL_PATH_USER_INFO(textField.text) success:^(NSDictionary *response) {
+    NSString *phoneNum = textField.text;
+    
+    Userinfo *userinfo = [LoginFacade sharedUserinfo];
+    if ([phoneNum isEqualToString:userinfo.phone]) {
+        [Tools showAlertViewWithText:@"不能添加自己为好友!"];
+        return YES;
+    }
+    
+    if ([[BuddyManager sharedBuddyManager] buddyWithPhoneNum:phoneNum]) {
+        [Tools showAlertViewWithText:@"该用户已经是你的好友!"];
+        return YES;
+    }
+    
+    [Network httpGetPath:URL_PATH_USER_INFO(phoneNum) success:^(NSDictionary *response) {
         
         if ([Network statusOKInResponse:response]) {
             

@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 1010.am. All rights reserved.
 //
 
+#import "AppDelegate.h"
 #import "ResultBuddyTableViewController.h"
 
 @interface ResultBuddyTableViewController ()
@@ -16,8 +17,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *genderImageView;
 @property (weak, nonatomic) IBOutlet UILabel *unitLabel;
 @property (weak, nonatomic) IBOutlet UILabel *jobTitleLabel;
-
-@property (weak, nonatomic) IBOutlet UIButton *sendOrAddButton;
 
 
 @end
@@ -31,6 +30,11 @@
         // Custom initialization
     }
     return self;
+}
+
+- (AppDelegate *)appDelegate
+{
+	return (AppDelegate *)[[UIApplication sharedApplication] delegate];
 }
 
 - (void)viewDidLoad
@@ -47,17 +51,20 @@
     }
     self.unitLabel.text = userinfo.brand;
     self.jobTitleLabel.text = userinfo.jobTitle;
-    
-    
-    
-    
 }
 
-- (IBAction)sendMsgOrAddFriends:(UIButton *)sender {
+
+- (IBAction)addBuddy:(UIButton *)sender {
     
-    // check if already friends with each other.
+    NSString *jidStr = [NSString stringWithFormat:@"%@@%@", self.searchUser.phone, XMPP_DOMAIN];
+    XMPPJID *jid = [XMPPJID jidWithString:jidStr];
     
+    [[self appDelegate].xmppRoster addUser:jid withNickname:self.searchUser.phone];
+    [[BuddyManager sharedBuddyManager] buddyRequestAddedFromMe:YES Friend:self.searchUser.phone success:NO];
 }
+
+
+
 
 
 - (void)didReceiveMemoryWarning

@@ -2,7 +2,7 @@
 //  BuddyRequest.m
 //  dentist
 //
-//  Created by xiaoyuan wang on 4/30/14.
+//  Created by xiaoyuan wang on 5/3/14.
 //  Copyright (c) 2014 1010.am. All rights reserved.
 //
 
@@ -11,8 +11,8 @@
 
 @implementation BuddyRequest
 
-@dynamic fromMe;
-@dynamic user;
 @dynamic success;
+@dynamic user;
+@dynamic fromMe;
 
 @end
