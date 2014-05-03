@@ -16,6 +16,8 @@
 
 @interface BuddyListTableViewController ()
 
+@property (nonatomic, strong) NSMutableArray *filteredCellObjArray;
+
 @end
 
 @implementation BuddyListTableViewController
@@ -27,6 +29,7 @@
     NSArray *letterArray;
     
     Buddy *theBuddy;
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -131,12 +134,20 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return 1;
+    }
+    
     [self getBuddyDict];
     return 1 + letterArray.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return self.filteredCellObjArray.count;
+    }
+    
     if (section == 0) {
         return 2;
     }else {
@@ -162,6 +173,19 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+            
+        }
+        Buddy *buddy = self.filteredCellObjArray[indexPath.row];
+        cell.textLabel.text = buddy.realname;
+        return cell;
+        
+    }
+    
+    
     if (indexPath.section == 0) {
         BuddyContentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BuddyContentCell" forIndexPath:indexPath];
         if (indexPath.row == 0) {
@@ -183,6 +207,9 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return nil;
+    }
     if (section > 0) {
         
         NSString *key = letterArray[section - 1];
@@ -195,6 +222,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return 0;
+    }
     if (section > 0) {
         return 30;
     }
@@ -203,6 +233,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        theBuddy = self.filteredCellObjArray[indexPath.row];
+        [self performSegueWithIdentifier:@"BuddyList2Profile" sender:self];
+        return;
+    }
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
             [self performSegueWithIdentifier:@"BuddyList2New" sender:self];
@@ -219,10 +254,17 @@
 }
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return nil;
+    }
     return letterArray;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return 1;
+    }
+    
     
     int section = [letterArray indexOfObject:title];
 //    [tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:i] atScrollPosition:UITableViewScrollPositionTop animated:YES];
@@ -239,6 +281,35 @@
     }
 }
 
+-(void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
+    // Remove all objects from the filtered search array
+    [self.filteredCellObjArray removeAllObjects];
+    // Filter the array using NSPredicate
+    //    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.item_name contains[c] %@",searchText];
+    NSPredicate *ind_predicate = [NSPredicate predicateWithFormat:@"SELF.realname contains[c] %@",searchText];
+    
+    NSArray *buddyArray = [self fetchedResultsController].fetchedObjects;
+    //    NSArray *filtedItemArray = [self.itemsArray filteredArrayUsingPredicate:predicate];
+    
+    self.filteredCellObjArray = [[NSMutableArray alloc] initWithArray:[buddyArray filteredArrayUsingPredicate:ind_predicate]];
+}
+
+#pragma mark - UISearchDisplayController Delegate Methods
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
+    // Tells the table data source to reload when text changes
+    [self filterContentForSearchText:searchString scope:
+     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
+    // Return YES to cause the search result table view to be reloaded.
+    return YES;
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption {
+    // Tells the table data source to reload when scope bar selection changes
+    [self filterContentForSearchText:self.searchDisplayController.searchBar.text scope:
+     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
+    // Return YES to cause the search result table view to be reloaded.
+    return YES;
+}
 
 
 - (void)didReceiveMemoryWarning

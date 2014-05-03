@@ -35,6 +35,7 @@
 
 - (void)buddyRequestAddedFromMe:(BOOL)isFromMe Friend:(NSString *)user success:(BOOL)success;
 - (void)buddyRequestReceivedFriend:(NSString *)user;
+- (NSArray *)buddyRequestsArray;
 
 
 // buddy request

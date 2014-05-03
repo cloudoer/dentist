@@ -99,22 +99,59 @@
             </objects>
             <point key="canvasLocation" x="383" y="473"/>
         </scene>
-        <!--Table View Controller - 新好友-->
+        <!--Buddy New Table View Controller - 新好友-->
         <scene sceneID="mXT-g4-aBn">
             <objects>
-                <tableViewController hidesBottomBarWhenPushed="YES" id="L5q-bd-hMQ" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="HGY-kw-dHR">
+                <tableViewController hidesBottomBarWhenPushed="YES" id="L5q-bd-hMQ" customClass="BuddyNewTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="63" sectionHeaderHeight="22" sectionFooterHeight="22" id="HGY-kw-dHR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="U8M-Qm-6sM">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BuddyNewCell" rowHeight="63" id="U8M-Qm-6sM" customClass="BuddyNewCell">
+                                <rect key="frame" x="0.0" y="86" width="320" height="63"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="U8M-Qm-6sM" id="aTd-AA-QKQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="62"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="doctor_avatar_holder.png" translatesAutoresizingMaskIntoConstraints="NO" id="Y5y-fl-uVT">
+                                            <rect key="frame" x="13" y="9" width="43" height="43"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="姓名姓名姓名姓名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XN4-NB-rL3">
+                                            <rect key="frame" x="64" y="9" width="136" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9FP-1a-o91">
+                                            <rect key="frame" x="64" y="31" width="125" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bB-2s-ois">
+                                            <rect key="frame" x="233" y="16" width="67" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.25490196079999999" green="0.71372549019999998" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <state key="normal" title="接受">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="acceptedTheBuddyRequest:" destination="L5q-bd-hMQ" eventType="touchUpInside" id="qX0-KZ-b1p"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="acceptButton" destination="2bB-2s-ois" id="SQP-wl-SH5"/>
+                                    <outlet property="avatarImageView" destination="Y5y-fl-uVT" id="mID-VJ-D95"/>
+                                    <outlet property="nameLabel" destination="XN4-NB-rL3" id="7Ec-FU-Hwo"/>
+                                    <outlet property="phoneLabel" destination="9FP-1a-o91" id="sF6-qs-KDw"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -355,8 +392,15 @@
                             <outlet property="delegate" destination="TBG-I7-Si0" id="evz-KD-3pV"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="添加好友" id="eF5-dx-UrU"/>
+                    <navigationItem key="navigationItem" title="添加好友" id="eF5-dx-UrU">
+                        <barButtonItem key="rightBarButtonItem" title="查找" id="490-iv-KXN">
+                            <connections>
+                                <action selector="findByPhone:" destination="TBG-I7-Si0" id="LxF-bR-qWg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="phoneTextField" destination="Ewa-mM-oeJ" id="ldK-Ql-l9c"/>
                         <segue destination="GXM-dM-Sa8" kind="push" identifier="search2result" id="IcM-X4-DNx"/>
                     </connections>
                 </tableViewController>

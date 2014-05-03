@@ -11,6 +11,7 @@
 #import "ResultBuddyTableViewController.h"
 
 @interface AddBuddyTableViewController () <UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
 
 @end
 
@@ -72,6 +73,40 @@
     
     
     return YES;
+}
+- (IBAction)findByPhone:(id)sender {
+    [self.phoneTextField resignFirstResponder];
+    
+    NSString *phoneNum = self.phoneTextField.text;
+    
+    Userinfo *userinfo = [LoginFacade sharedUserinfo];
+    if ([phoneNum isEqualToString:userinfo.phone]) {
+        [Tools showAlertViewWithText:@"不能添加自己为好友!"];
+        return;
+    }
+    
+    if ([[BuddyManager sharedBuddyManager] buddyWithPhoneNum:phoneNum]) {
+        [Tools showAlertViewWithText:@"该用户已经是你的好友!"];
+        return;
+    }
+    
+    [Network httpGetPath:URL_PATH_USER_INFO(phoneNum) success:^(NSDictionary *response) {
+        
+        if ([Network statusOKInResponse:response]) {
+            
+            NSDictionary *oneBuddy = response[@"data"];
+            
+            searchedUser = [Userinfo userinfoFromHttpget:oneBuddy];
+            
+            [self performSegueWithIdentifier:@"search2result" sender:self];
+        }else {
+            [Tools showAlertViewWithText:@"搜索用户不存在!"];
+        }
+        
+        
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

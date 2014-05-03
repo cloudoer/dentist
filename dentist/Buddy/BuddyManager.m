@@ -358,11 +358,14 @@ static BuddyManager *sharedInstance;
     }else if (matches.count == 1) {
         // 已经有了, 就自动添加为好友.
         BuddyRequest *buddyRequest = matches.firstObject;
-        buddyRequest.success = [NSNumber numberWithBool:YES];
+        if (buddyRequest.fromMe.boolValue == YES) {
+            buddyRequest.success = [NSNumber numberWithBool:YES];
+            
+            NSString *jidStr = [NSString stringWithFormat:@"%@@%@", user, XMPP_DOMAIN];
+            XMPPJID *jid = [XMPPJID jidWithString:jidStr];
+            [appDelegate.xmppRoster acceptPresenceSubscriptionRequestFrom:jid andAddToRoster:YES];
+        }
         
-        NSString *jidStr = [NSString stringWithFormat:@"%@@%@", user, XMPP_DOMAIN];
-        XMPPJID *jid = [XMPPJID jidWithString:jidStr];
-        [appDelegate.xmppRoster acceptPresenceSubscriptionRequestFrom:jid andAddToRoster:YES];
         
     }else {
         
@@ -395,6 +398,23 @@ static BuddyManager *sharedInstance;
 //    else {
 //        messageListController.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d", num];
 //    }
+}
+
+- (NSArray *)buddyRequestsArray
+{
+    NSString *entityName = @"BuddyRequest";
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
+    NSError *error;
+    NSArray *matches = [context executeFetchRequest:request error:&error];
+    if (!matches || error) {
+        return nil;
+    }else {
+        return matches;
+    }
+    
 }
 
 
