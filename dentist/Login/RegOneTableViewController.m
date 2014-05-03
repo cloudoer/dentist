@@ -47,6 +47,8 @@
 
 - (IBAction)nextStep:(UIBarButtonItem *)sender {
    
+    [self performSegueWithIdentifier:@"RegOne2Two" sender:self];
+    return;
     NSString *msg ;
     if (![self regPhoneNO]) {
         msg = @"请检查手机号";
@@ -63,9 +65,13 @@
     
     NSDictionary *params = @{@"username": self.phoneTextField.text,
                              @"captcha": self.captchTextField.text};
-    [Network httpPostPath:URL_PATH_REG_DONE parameters:params success:^(NSDictionary *responseObject) {
+    [Network httpPostPath:URL_PATH_VERIFY_CAPTCHA parameters:params success:^(NSDictionary *responseObject) {
         if ([Network statusOKInResponse:responseObject]) {
-            [self performSegueWithIdentifier:@"RegOne2Two" sender:self];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self performSegueWithIdentifier:@"RegOne2Two" sender:self];
+                [sendTimer invalidate];
+            });
+           
         } else {
             [NSUtil alertNotice:@"错误提示" withMSG:responseObject[@"data"][@"info"] cancleButtonTitle:@"确定" otherButtonTitle:nil];
         }
@@ -108,7 +114,7 @@
         [self.sendBtn setTitle:@"重发验证码" forState:UIControlStateNormal];
         timeDes = TOTAL_TIME;
     } else
-        [self.sendBtn setTitle:[NSString stringWithFormat:@"重发验证码（%d）", timeDes] forState:UIControlStateNormal];
+        [self.sendBtn setTitle:[NSString stringWithFormat:@"重发验证码(%d)", timeDes] forState:UIControlStateNormal];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

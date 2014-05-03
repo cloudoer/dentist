@@ -31,6 +31,13 @@
 {
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(xmppLoginSuccess:) name:kXMPPLoginSuccess object:nil];
+    
+//    Userinfo *userinfo = [LoginFacade sharedUserinfo];
+//    if (userinfo) {
+//        self.jidTextField.text = userinfo.username;
+//        self.pwdTextField.text = userinfo.
+//    }
+
 }
 
 - (void)viewWillDisappear:(BOOL)animated

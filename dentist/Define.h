@@ -35,7 +35,7 @@ typedef enum : NSUInteger {
 
 #define BASE_URL @"http://tijian8.cn/yayibao/"
 
-//* 我的病历*********************
+//* 我的病历 *********************
 #define RELATIVE_URL_RECORDS_INDEX(USERID) [NSString stringWithFormat:@"index.php?r=app/cases/index/uid/%@", (USERID)]
 #define RELATIVE_URL_RECORDS_SUBMIT  @"index.php?r=app/cases/submit"
 #define RELATIVE_URL_MY_RECORDS(USERID) [NSString stringWithFormat:@"index.php?r=app/cases/listByUid/uid/%@", (USERID)]
@@ -55,5 +55,8 @@ typedef enum : NSUInteger {
 #define URL_PATH_REG_DONE @"index.php?r=app/user/register"
 #define URL_PATH_USER_INFO(USERID) [NSString stringWithFormat:@"index.php?r=app/user/getInfo/username/%@", (USERID)]
 #define URL_PATH_VERIFY_CAPTCHA @"index.php?r=app/user/verifyCaptcha"
+#define URL_PATH_CLINIC_LIST @"index.php?r=app/clinic/list"
+#define URL_PATH_JOBTITLE_LIST @"index.php?r=app/clinic/jobTitleList"
+#define URL_PATH_UPDATE_USER_INFO  @"index.php?r=app/user/updateInfo"
 
 #endif
