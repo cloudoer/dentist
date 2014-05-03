@@ -54,7 +54,7 @@
         
         int ind = 0;
         for (BuddyRequest *oneRequest in cdBuddyRequests) {
-            if (oneRequest.fromMe.boolValue == NO) {
+            if (oneRequest.fromMe.boolValue == NO && oneRequest.success.boolValue == NO) {
                 ind++;
                 [Network httpGetPath:URL_PATH_USER_INFO(oneRequest.user) success:^(NSDictionary *response) {
                     if ([Network statusOKInResponse:response]) {
