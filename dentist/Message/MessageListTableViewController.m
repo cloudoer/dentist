@@ -68,6 +68,13 @@ AVAudioPlayerDelegate>
     [super viewDidAppear:animated];
     
     [self.tableView reloadData];
+    
+    NSString *bareJIDString = [Tools bareJIDStringFromBuddyClicked];
+    if (bareJIDString != nil) {
+        clickedBareJIDStr = bareJIDString;
+        [self performSegueWithIdentifier:@"MsgList2Detail" sender:self];
+        [Tools setBareJIDStringFromBuddyClicked:nil];
+    }
 }
 
 - (NSFetchedResultsController *)fetchedResultsController
@@ -223,9 +230,16 @@ AVAudioPlayerDelegate>
     }else {
         cell.msgLabel.text = @"[图片]";
     }
-    
     cell.nameLabel.text = message.bareJidStr;
     cell.redDotImageView.hidden = YES;
+    
+    Buddy *buddy = [[BuddyManager sharedBuddyManager] buddyWithPhoneNum:message.message.from.user];
+    if (buddy) {
+        cell.nameLabel.text = buddy.realname;
+        cell.avatarImageView.image = [Tools imageFromBase64Str:buddy.photoStr];
+    }
+    
+    
     if ([[BuddyManager sharedBuddyManager] containBuddyNewMessegeFrom:message.message.from.user]) {
         cell.redDotImageView.hidden = NO;
     }

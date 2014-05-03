@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Userinfo.h"
 
 @interface ResultBuddyTableViewController : UITableViewController
+
+@property (nonatomic, retain) Userinfo *searchUser;
 
 @end

@@ -598,6 +598,22 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 - (void)xmppStream:(XMPPStream *)sender didReceivePresence:(XMPPPresence *)presence
 {
 	DDLogVerbose(@"%@: %@ - %@", THIS_FILE, THIS_METHOD, [presence fromStr]);
+    
+    
+    NSString *presenceType = [presence type];            // online/offline
+    NSString *myUsername = [[sender myJID] user];
+    NSString *presenceFromUser = [[presence from] user];
+    //
+    //new request from unknow user
+    if (![presenceFromUser isEqualToString:myUsername])
+    {
+        if  ([presenceType isEqualToString:@"subscribe"])
+        {
+            //[_chatDelegate newBuddyOnline:[NSString stringWithFormat:@"%@@%@", presenceFromUser, kHostName]];
+            NSLog(@"presence user wants to subscribe %@",presenceFromUser);
+            [[BuddyManager sharedBuddyManager] buddyRequestReceivedFriend:presenceFromUser];
+        }
+    }
 }
 
 - (void)xmppStream:(XMPPStream *)sender didReceiveError:(id)error

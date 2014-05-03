@@ -2,7 +2,7 @@
 //  BuddyRequest.h
 //  dentist
 //
-//  Created by xiaoyuan wang on 4/30/14.
+//  Created by xiaoyuan wang on 5/3/14.
 //  Copyright (c) 2014 1010.am. All rights reserved.
 //
 
@@ -12,8 +12,8 @@
 
 @interface BuddyRequest : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * fromMe;
-@property (nonatomic, retain) NSString * user;
 @property (nonatomic, retain) NSNumber * success;
+@property (nonatomic, retain) NSString * user;
+@property (nonatomic, retain) NSNumber * fromMe;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Buddy.h"
 
 @interface BuddyManager : NSObject
 
@@ -27,5 +28,18 @@
 - (void)removeBuddyNewMessageFrom:(NSString *)user;
 - (NSInteger)numberOfNewMessageUser;
 - (BOOL)containBuddyNewMessegeFrom:(NSString *)user;
+
+
+// buddy
+- (Buddy *)buddyWithPhoneNum:(NSString *)phone;
+
+- (void)buddyRequestAddedFromMe:(BOOL)isFromMe Friend:(NSString *)user success:(BOOL)success;
+- (void)buddyRequestReceivedFriend:(NSString *)user;
+- (NSArray *)buddyRequestsArray;
+
+
+// buddy request
+
+
 
 @end

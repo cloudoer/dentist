@@ -7,6 +7,8 @@
 //
 
 #import "ProfileTableViewController.h"
+#import "AppDelegate.h"
+#import "MsgDetailViewController.h"
 
 @interface ProfileTableViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
@@ -47,6 +49,16 @@
 
 - (IBAction)talkButtonPressed:(UIButton *)sender {
     NSLog(@"talkButtonPressed..");
+    [self.navigationController popViewControllerAnimated:NO];
+    
+    
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    
+    UITabBarController *tabBarController = (UITabBarController *)appDelegate.window.rootViewController;
+    tabBarController.selectedIndex = 0;
+    
+    NSString *barJIDStr = [NSString stringWithFormat:@"%@@%@", self.buddy.phone, XMPP_DOMAIN];
+    [Tools setBareJIDStringFromBuddyClicked:barJIDStr];
 }
 
 
