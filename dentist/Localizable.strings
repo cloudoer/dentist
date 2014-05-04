@@ -1,0 +1,140 @@
+/* 
+  Localizable.strings
+  baiduHi
+
+  Created by Steve Jobs on 2/13/12.
+  Copyright (c) 2012 Baidu. All rights reserved.
+*/
+//服务器错误以及成功
+
+"Lgoin_Success"="登录成功";
+"Lgoin_DataRecving"="数据获取中...";
+"Login_Out_Message_Title_Tips"="注销后将不再接受消息通知";
+"Login_Clear_All_Message_Title_Tips"="";
+
+"Lgoin_Error_User_NotExist"="用户不存在";
+"Lgoin_Error_User_Has_Exist"="该用户名已被注册";
+"Lgoin_Error_Password_Error"="帐号或密码错误，请重新填写";
+"Lgoin_Error_Account_Forbidden"="对不起,您现在无法登录";
+"Lgoin_Error_NEED_VERIFY_CODE"="需要验证码";
+"Lgoin_Error_REDIRECT_TOO_MANY"="重定向次数过多";
+"Lgoin_Error__NEED_WAIT"="需要等待系统维护";
+"Lgoin_Error_NEED_ROLLBACK"="需要回滚";
+
+"Lgoin_Error_WRONG_VERIFY_CODE"="验证码不正确,请重新输入";
+"Lgoin_Error_VERIFY_CODE_OVERDUE"="验证码超时,请重新输入";
+
+"Lgoin_Error_VERIFY_CODE_NEEDED"="请输入验证码";
+"Lgoin_Error_VERSION_NOT_RELEASE"="版本没有发布";
+"Lgoin_Error_USERNAME_NOTEXIS"="用户名不存在";
+"Lgoin_Error_ONLINE"="已经在线";
+"Lgoin_Error_LOW_VERSION"="版本过低";
+"Lgoin_Error_Common_error"="登录失败,请稍后重试...";
+"Lgoin_Error_EMAIL_NOT_ACTIVE_error"="";
+"Lgoin_Error_Network_Not_IAP"="请检查网络,稍后再试";
+"Lgoin_Error_Network_error"="请检查网络,稍后再试";
+
+"Passport_User_tips"="请输入百度帐号";
+"Passport_password_Tips"="请输入密码";
+"Passport_Token_Expired"="您的帐号已过期, 请重新登录";
+"Lgoin_Error_User_NotNULL"="帐号不能为空";
+"Lgoin_Error_Password_NotNULL"="密码不能为空";
+
+//会话界面
+"Message_Text_Record_Button"="查看本地消息";
+"Message_Send_FailedTips"="发送失败,请重新发送";
+"Message_Send_DownFailedTips"="下载失败,请重新下载";
+
+"Kuaixin_Message_Max_Lenght_Tips"="字数已达上限";
+"Kuaixin_Message_Offline_Tips"="当前离线,请上线后重试";
+"Kuaixin_Message_Title_Tips"="图片格式不对";
+"Kuaixin_Message_Group_Quit_Tips"="您已被请出该群";
+
+"Message_SMS_Tip_SavePhotoSuccess"="保存成功";
+"Message_SMS_Tip_SavePhotoFail"="保存失败";
+
+//最近会话面板
+"MSG_LOGIN_FAILED_TIPS"="连接失败,请稍后重试...";
+"MSG_LOGIN_FAILED_TIPS_CONNECTTING"="网络速度较慢,正在重连...";
+"MSG_LOGIN_FAILED_TIPS_NOTNET"="当前网络不可用,请检查网络连接";
+"MSG_LOGIN_FAILED_TIPS_MSG_INFO"="查看详情";
+"MSG_LOGIN_FAILED_TIPS_MSG_RET"="刷新";
+"MSG_CONNECTINFO_VIEW_TITLE"="网络连接不可用";
+
+//验证码
+"Message_Send_VerifyCode_need"="发送频率过快,请输入验证码";
+"Quit_Group_Send_VerifyCode_need"="退群频率过快,请输入验证码";
+"AddFriend_Send_VerifyCode_need"="请输入验证码";
+
+//好友列表
+"BuddyList_Refresh_loading"="好友列表刷新中...";
+"BuddyList_Refresh_Down_load"="下拉刷新好友列表";
+"BuddyList_Refresh_Release_load"="松手即刷新";
+
+//设置界面
+"SettingList_Title"="设置";
+"SettingList_SetError_Offline" = "当前离线,请上线后重试";
+
+//Update version
+"Current_version_is_fresh" = "该软件是最新版本";
+"Update_later_btn" = "以后再说";
+"Update_immediately_btn" = "马上更新";
+"Update_alert_title" = "软件更新";
+
+//uuap login
+"Uulogin_web_loading" = "正在跳转UUAP";
+"Uulogin_web_title" ="二次认证";
+
+//登录页面
+"Login_Title"="登录百度Hi";
+//会话界面
+"Conversation_Title"="会话";
+//About
+"About_Title"="关于";
+//百度帐号Sapi
+"Sapi_Reg_title" ="注册";
+"Sapi_forgotPass_title" ="找回密码";
+"Sapi_BaiduReg_title" ="注册百度帐号";
+//webview loading
+"CusomWeb_web_loading" = "正在努力加载中...";
+"CusomWeb_web_title" ="Web访问";//Roam"Roam_Title"="云端消息";
+"Roam_Status_Loading"="正在获取云端消息";
+
+"Refresh_Btn_Text"="重新获取";
+
+"Message_CFace_No_MD5" ="[自定义表情]";
+//PushFriend
+"Push_Friend_Get_Loading" = "请稍候...";
+"Push_Friend_Option_Title"="添加";
+"Push_Friend_Address_Title"="通讯录";
+"Push_Friend_Tieba_Title"="贴吧关注";
+"Push_Friend_Space_Title"="空间好友";
+"SendMessage_ToFriend"="百度Hi是百度的特别简单的聊天工具。我已经在用啦，也推荐你用一下。下载地址 \n http://im.baidu.com/m \n用百度帐号就可以登录，记得加我的Hi: ";
+"Send_Message_No_Support"="设备不支持短信发送(?▽?；)";
+"Send_Message_Result_Fail"="短信发送失败了亲(-__-)b";
+"Send_Message_Result_Success"="邀请短信发送成功了~ (≥△≤)";"Share_Choose_Conver_Title"="分享给会话";
+//Share
+"Share_Choose_Conver_Title"="分享给会话";
+"Share_Choose_Friend_Title"="分享给好友";
+"Share_Choose_Group_Title"="分享给群";
+"Share_Message_Sending"="正在分享消息...";
+//云文件
+"CloudFile_Preview_Button_Title"="查看";
+"CloudFile_Transfer_Button_Title"="保存到云";
+"CloudFile_Transfer_Success_Tip"="保存成功";
+"CloudFile_Transfer_Fail_Tip"="保存失败";
+"CloudFile_Transfer_Exist_Tip"="文件已存在";
+"CloudFile_Transfer_NoSpace_Tip"="空间已满";
+"CloudFile_Transfer_FileNoExist_Tip"="原文件已不存在";
+"CloudFile_File_DownloadFail"="文件保存失败";
+"CloudFile_Video_NeedTransfer"="一秒钟保存在云里，然后立即播放";
+//输入面板
+"Voice_Send_Button_Normal"="按住说话";
+"Voice_Send_Button_Down"="松开结束";
+"Voice_Panel_Mark_Normal"="手指上滑，取消发送";
+"Voice_Panel_Mark_Delete"="松开手指，取消发送";
+"Voice_Panel_Mark_Error_TimeTooShort"="时间太短";
+"Voice_Title_PlayType_Speaker"="已切换到扬声器模式";
+"Voice_Title_PlayType_Normal"="已切换到听筒模式";
+//语音消息
+"Voice_message_custom_desc"="语音消息:";

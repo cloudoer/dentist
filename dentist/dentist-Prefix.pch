@@ -29,6 +29,9 @@
 #import "BuddyManager.h"
 #import "MBProgressHUD.h"
 #import "NSUtil.h"
+
+#import "HiImageDefine.h"
+#import "BDImage.h"
 #endif
 
 
