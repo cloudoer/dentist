@@ -195,7 +195,7 @@ typedef enum {
     recoderBtn.layer.cornerRadius = 6.0f;
     [recoderBtn addTarget:self
                    action:@selector(pressRecoderAction:)
-         forControlEvents:UIControlEventTouchUpInside];
+         forControlEvents:UIControlEventTouchDown];
     [self.inputToolBarView addSubview:recoderBtn];
     
     self.selectedMarks = [NSMutableArray new];

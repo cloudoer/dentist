@@ -32,11 +32,13 @@
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(xmppLoginSuccess:) name:kXMPPLoginSuccess object:nil];
     
-//    Userinfo *userinfo = [LoginFacade sharedUserinfo];
-//    if (userinfo) {
-//        self.jidTextField.text = userinfo.username;
-//        self.pwdTextField.text = userinfo.
-//    }
+    NSString *myJID = [[NSUserDefaults standardUserDefaults] stringForKey:kXMPPjoyJID];
+	NSString *myPassword = [[NSUserDefaults standardUserDefaults] stringForKey:kXMPPjoyPassword];
+
+    if (myJID)
+        self.jidTextField.text = myJID;
+    if (myPassword)
+        self.pwdTextField.text = myPassword;
 
 }
 
