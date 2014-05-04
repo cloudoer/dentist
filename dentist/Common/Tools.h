@@ -32,4 +32,6 @@ typedef enum : NSUInteger {
 + (NSString *)bareJIDStringFromBuddyClicked;
 + (void)setBareJIDStringFromBuddyClicked:(NSString *)bareJIDStr;
 
++ (NSData *)base64DataFromString: (NSString *)string;
+
 @end

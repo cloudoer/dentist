@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "JSMessagesViewController.h"
+#import "VoicdHUDViewController.h"
 
-@interface MsgDetailViewController : JSMessagesViewController <NSFetchedResultsControllerDelegate>
+@interface MsgDetailViewController : JSMessagesViewController <NSFetchedResultsControllerDelegate, HIVoiceDelegate>
 
 @property (nonatomic, copy) NSString *bareJIDStr;
 

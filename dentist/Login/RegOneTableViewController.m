@@ -47,8 +47,8 @@
 
 - (IBAction)nextStep:(UIBarButtonItem *)sender {
    
-    [self performSegueWithIdentifier:@"RegOne2Two" sender:self];
-    return;
+//    [self performSegueWithIdentifier:@"RegOne2Two" sender:self];
+//    return;
     NSString *msg ;
     if (![self regPhoneNO]) {
         msg = @"请检查手机号";

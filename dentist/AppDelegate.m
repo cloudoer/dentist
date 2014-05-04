@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 
-
+#import "baiduHiUIWindow.h"
 #import "GCDAsyncSocket.h"
 #import "XMPP.h"
 #import "XMPPReconnect.h"
@@ -63,6 +63,13 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 - (void)setupGlobalAppearence
 {
 //    [[UITabBar appearance] setBackgroundColor:UIColorFromRGB(0x2f3535)];
+}
+
+- (baiduHiUIWindow *)window
+{
+    static baiduHiUIWindow *customWindow = nil;
+    if (!customWindow) customWindow = [[baiduHiUIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    return customWindow;
 }
 
 - (void)setupTheTabBarViewController
