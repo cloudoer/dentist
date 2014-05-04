@@ -133,9 +133,9 @@ AVAudioPlayerDelegate>
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
     [JSMessageSoundEffect playMessageReceivedSound];
-    [self finishSend];
-//	[[self tableView] reloadData];
-//    [self scrollToBottomAnimated:YES];
+//    [self finishSend];
+	[[self tableView] reloadData];
+    [self scrollToBottomAnimated:YES];
 }
 
 #pragma mark - Table view data source

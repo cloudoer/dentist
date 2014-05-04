@@ -17,6 +17,8 @@
 		142E95AD190F4BB400246EEB /* FacialView.m in Sources */ = {isa = PBXBuildFile; fileRef = 142E95A2190F4BB400246EEB /* FacialView.m */; };
 		142E95B3190F596E00246EEB /* faceDelete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 142E95B2190F596E00246EEB /* faceDelete@2x.png */; };
 		142E95B61910A5CA00246EEB /* RegThreeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 142E95B51910A5CA00246EEB /* RegThreeTableViewController.m */; };
+		142E95BA1910EDF900246EEB /* ClinicPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 142E95B91910EDF900246EEB /* ClinicPickView.m */; };
+		142E95BC1910EE2B00246EEB /* ClinicPickView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 142E95BB1910EE2B00246EEB /* ClinicPickView.xib */; };
 		14425CBE190A0FFA00CC46F4 /* NewRecordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14425CBD190A0FFA00CC46F4 /* NewRecordsViewController.m */; };
 		14425CC1190A138700CC46F4 /* MyRecordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14425CC0190A138700CC46F4 /* MyRecordsViewController.m */; };
 		14425CCD190A149C00CC46F4 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 14425CC4190A149C00CC46F4 /* UIImage+Alpha.m */; };
@@ -443,6 +445,9 @@
 		142E95B2190F596E00246EEB /* faceDelete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "faceDelete@2x.png"; sourceTree = "<group>"; };
 		142E95B41910A5CA00246EEB /* RegThreeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegThreeTableViewController.h; sourceTree = "<group>"; };
 		142E95B51910A5CA00246EEB /* RegThreeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegThreeTableViewController.m; sourceTree = "<group>"; };
+		142E95B81910EDF900246EEB /* ClinicPickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClinicPickView.h; sourceTree = "<group>"; };
+		142E95B91910EDF900246EEB /* ClinicPickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClinicPickView.m; sourceTree = "<group>"; };
+		142E95BB1910EE2B00246EEB /* ClinicPickView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClinicPickView.xib; sourceTree = "<group>"; };
 		14425CBC190A0FFA00CC46F4 /* NewRecordsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewRecordsViewController.h; sourceTree = "<group>"; };
 		14425CBD190A0FFA00CC46F4 /* NewRecordsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewRecordsViewController.m; sourceTree = "<group>"; };
 		14425CBF190A138700CC46F4 /* MyRecordsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRecordsViewController.h; sourceTree = "<group>"; };
@@ -1185,6 +1190,16 @@
 				142E95A2190F4BB400246EEB /* FacialView.m */,
 			);
 			path = "Emoji-master";
+			sourceTree = "<group>";
+		};
+		142E95B71910EDCF00246EEB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				142E95B81910EDF900246EEB /* ClinicPickView.h */,
+				142E95B91910EDF900246EEB /* ClinicPickView.m */,
+				142E95BB1910EE2B00246EEB /* ClinicPickView.xib */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		14425CC2190A149C00CC46F4 /* UIImage-Extensions */ = {
@@ -2295,6 +2310,7 @@
 		FB5C643619088183003F7260 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				142E95B71910EDCF00246EEB /* View */,
 				FBC919B41908834C00405A89 /* LoginFacade.h */,
 				FBC919B51908834C00405A89 /* LoginFacade.m */,
 				FBC919B61908834C00405A89 /* Userinfo.h */,
@@ -2833,6 +2849,7 @@
 				FBC91B1B190A32B500405A89 /* messageReceived.aiff in Resources */,
 				FBA6CC041915B585002F95C2 /* n_icon_jiantouD@2x.png in Resources */,
 				FBC91AFB190A32B500405A89 /* bubble-flat-incoming-selected.png in Resources */,
+				142E95BC1910EE2B00246EEB /* ClinicPickView.xib in Resources */,
 				FBA6CC021915B585002F95C2 /* n_guanyu_logoA@2x.png in Resources */,
 				FBA6CC131915B585002F95C2 /* n_kuangB2_down.png in Resources */,
 				FBA6CC081915B585002F95C2 /* n_kuangA1@2x.png in Resources */,
@@ -2905,6 +2922,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBD1FD7F1900F13F00A263F8 /* SDWebImageDecoder.m in Sources */,
+				142E95BA1910EDF900246EEB /* ClinicPickView.m in Sources */,
 				FB4DCF9318F3BA8A006B6722 /* XEP_0223.m in Sources */,
 				FBD1FD821900F13F00A263F8 /* SDWebImageManager.m in Sources */,
 				FB4DCF6418F3BA8A006B6722 /* XMPPvCard.xcdatamodeld in Sources */,

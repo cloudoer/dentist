@@ -22,4 +22,5 @@
 + (void)presentLoginViewControllerFrom:(UIViewController *)fromViewController;
 
 + (void)loginSuccessWithHttpgetPath:(NSDictionary *)dic;
+
 @end

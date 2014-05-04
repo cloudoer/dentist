@@ -47,8 +47,39 @@
 
 - (IBAction)nextStep:(UIBarButtonItem *)sender {
    
+//    [self performSegueWithIdentifier:@"RegOne2Two" sender:self];
+//    return;
+    NSString *msg ;
+    if (![self regPhoneNO]) {
+        msg = @"请检查手机号";
+    } else if (![self regCaptch]) {
+        msg = @"请输入验证码";
+    } else if (![self regPwd]) {
+        msg = @"两次密码不一致";
+    }
    
-    [self performSegueWithIdentifier:@"RegOne2Two" sender:self];
+    if (msg) {
+        [NSUtil alertNotice:@"错误提示" withMSG:msg cancleButtonTitle:@"确定" otherButtonTitle:nil];
+        return;
+    }
+    
+    NSDictionary *params = @{@"username": self.phoneTextField.text,
+                             @"captcha": self.captchTextField.text};
+    [Network httpPostPath:URL_PATH_VERIFY_CAPTCHA parameters:params success:^(NSDictionary *responseObject) {
+        if ([Network statusOKInResponse:responseObject]) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self performSegueWithIdentifier:@"RegOne2Two" sender:self];
+                [sendTimer invalidate];
+            });
+           
+        } else {
+            [NSUtil alertNotice:@"错误提示" withMSG:responseObject[@"data"][@"info"] cancleButtonTitle:@"确定" otherButtonTitle:nil];
+        }
+        
+    } failure:^(NSError *error) {
+        [NSUtil alertNotice:@"错误提示" withMSG:@"请求异常,请稍后重试" cancleButtonTitle:@"确定" otherButtonTitle:nil];
+    }];
+    
     
 }
 
@@ -83,7 +114,7 @@
         [self.sendBtn setTitle:@"重发验证码" forState:UIControlStateNormal];
         timeDes = TOTAL_TIME;
     } else
-        [self.sendBtn setTitle:[NSString stringWithFormat:@"重发验证码（%d）", timeDes] forState:UIControlStateNormal];
+        [self.sendBtn setTitle:[NSString stringWithFormat:@"重发验证码(%d)", timeDes] forState:UIControlStateNormal];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -104,6 +135,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - reg form data
 - (BOOL)regPhoneNO {
     NSString *phoneNO = self.phoneTextField.text;
     NSString *regex   = @"^[1][3-8]+\\d{9}";
@@ -121,6 +153,10 @@
         return YES;
     }
     return NO;
+}
+
+- (BOOL)regCaptch {
+    return self.captchTextField.text.length;
 }
 
 #pragma mark -

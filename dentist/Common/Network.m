@@ -33,6 +33,10 @@
             success:(void (^)(NSDictionary *response))success
             failure:(void (^)(NSError *error))failure
 {
+  
+    MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithWindow:[UIApplication sharedApplication].keyWindow];
+    [HUD show:YES];
+
     NSString *wholePath = [NSString stringWithFormat:@"%@%@", BaseURLString, getPath];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:wholePath]];
     
@@ -40,9 +44,11 @@
     operation.responseSerializer = [AFJSONResponseSerializer serializer];
     operation.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json", nil];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [HUD hide:YES];
         success(responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self httpGetPathWithCache:wholePath success:success failure:failure];
+        [HUD hide:YES];
     }];
     
     [operation start];
@@ -54,13 +60,18 @@
              failure:(void (^)(NSError *error))failure
 {
 
+    MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithWindow:[UIApplication sharedApplication].keyWindow];
+    [HUD show:YES];
+    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json", nil];
     [manager POST:[BaseURLString stringByAppendingPathComponent:path] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [HUD hide:YES];
         success(responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failure(error);
+        [HUD hide:YES];
     }];
 }
 
@@ -68,6 +79,10 @@
 {
     int statusStr = [response[@"status"] intValue];
     return (statusStr == 0);
+}
+
++ (NSString *)statusErrorDes:(NSDictionary *)response {
+    return response[@"data"][@"info"];
 }
 
 @end

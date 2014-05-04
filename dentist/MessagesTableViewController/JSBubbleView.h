@@ -45,6 +45,7 @@ typedef enum {
 typedef enum {
     JSBubbleMediaTypeText = 0,
     JSBubbleMediaTypeImage,
+    JSBubbleMediaTypeRecoder
 }JSBubbleMediaType;
 
 typedef enum {

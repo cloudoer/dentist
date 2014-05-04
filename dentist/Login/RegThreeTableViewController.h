@@ -10,4 +10,6 @@
 
 @interface RegThreeTableViewController : UITableViewController
 
+@property (strong, nonatomic) NSString *username;
+
 @end

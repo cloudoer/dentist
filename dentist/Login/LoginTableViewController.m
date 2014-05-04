@@ -8,6 +8,7 @@
 
 #import "LoginTableViewController.h"
 #import "AppDelegate.h"
+#import "NSUtil.h"
 
 @interface LoginTableViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *jidTextField;
@@ -30,6 +31,15 @@
 {
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(xmppLoginSuccess:) name:kXMPPLoginSuccess object:nil];
+    
+    NSString *myJID = [[NSUserDefaults standardUserDefaults] stringForKey:kXMPPjoyJID];
+	NSString *myPassword = [[NSUserDefaults standardUserDefaults] stringForKey:kXMPPjoyPassword];
+
+    if (myJID)
+        self.jidTextField.text = myJID;
+    if (myPassword)
+        self.pwdTextField.text = myPassword;
+
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -94,13 +104,7 @@
     [self setField:pwdStr forKey:kXMPPjoyPassword];
     
     [[self appDelegate] connect];
-//    if ()
-//    {
-//        [self dismissViewControllerAnimated:YES completion:nil];
-//    }else {
-//        UIAlertView *av = [[UIAlertView alloc] initWithTitle:nil message:@"登录失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-//        [av show];
-//    }
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -109,5 +113,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
 
 @end
