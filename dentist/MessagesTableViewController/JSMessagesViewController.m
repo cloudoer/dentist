@@ -195,9 +195,12 @@ typedef enum {
     recoderBtn.layer.borderColor = [[UIColor colorWithWhite:.8 alpha:1.0] CGColor];
     recoderBtn.layer.borderWidth = 0.65f;
     recoderBtn.layer.cornerRadius = 6.0f;
-    [recoderBtn addTarget:self
-                   action:@selector(pressRecoderAction:)
-         forControlEvents:UIControlEventTouchDown];
+//    [recoderBtn addTarget:self
+//                   action:@selector(pressRecoderAction:)
+//         forControlEvents:UIControlEventTouchDown];
+    UILongPressGestureRecognizer *longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(pressRecoderActionForRecognizer:)];
+    [recoderBtn addGestureRecognizer:longPressRecognizer];
+    
     [self.inputToolBarView addSubview:recoderBtn];
     
     self.selectedMarks = [NSMutableArray new];
@@ -454,6 +457,12 @@ typedef enum {
     status = INPUT_VIEW_STATUS_NORMAL;
     if(self.delegate && [self.delegate respondsToSelector:@selector(longPressBtnPressed:)]){
         [self.delegate longPressBtnPressed:sender];
+    }
+}
+- (void)pressRecoderActionForRecognizer:(UILongPressGestureRecognizer *)sender {
+    status = INPUT_VIEW_STATUS_NORMAL;
+    if(self.delegate && [self.delegate respondsToSelector:@selector(longPressBtnPressed:)]){
+        [self.delegate longPressBtnPressed:nil];
     }
 }
 
