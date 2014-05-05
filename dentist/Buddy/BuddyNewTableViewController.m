@@ -85,12 +85,21 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (requests == nil || requests.count == 0) {
+        return 1;
+    }
     return requests.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (requests == nil || requests.count == 0) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BuddyNewNoneCell"];
+        return cell;
+    }
+    
+    
     BuddyNewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BuddyNewCell" forIndexPath:indexPath];
     
     Userinfo *oneUser = requests[indexPath.row];
@@ -100,6 +109,14 @@
     cell.acceptButton.tag = indexPath.row;
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (requests == nil || requests.count == 0) {
+        return 123;
+    }
+    return 63;
 }
 
 
