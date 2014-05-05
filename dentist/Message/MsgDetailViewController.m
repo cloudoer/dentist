@@ -54,6 +54,12 @@ AVAudioPlayerDelegate>
     [super viewWillDisappear:animated];
     NSString *user = [self.bareJIDStr componentsSeparatedByString:@"@"][0];
     [[BuddyManager sharedBuddyManager] removeBuddyNewMessageFrom:user];
+    
+    
+    if (_player && _player.isPlaying) {
+        [_player stop];
+        return;
+    }
 }
 
 - (void)viewDidLoad
