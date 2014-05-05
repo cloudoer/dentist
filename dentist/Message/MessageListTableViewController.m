@@ -230,6 +230,8 @@ AVAudioPlayerDelegate>
     
     if ([Tools typeForMessage:message] == CHAT_TYPE_TEXT) {
         cell.msgLabel.text = [Tools bodyWithoutPrefixForMessage:message];
+    }else if ([Tools typeForMessage:message] == CHAT_TYPE_AUDIO) {
+        cell.msgLabel.text = @"[录音]";
     }else {
         cell.msgLabel.text = @"[图片]";
     }
