@@ -360,12 +360,13 @@ AVAudioPlayerDelegate>
 
 - (UIImage *)avatarImageForIncomingMessage
 {
-    return nil;
+    return [Tools imageFromBase64Str:self.theBuddy.photoStr];
 }
 
 - (UIImage *)avatarImageForOutgoingMessage
 {
-    return nil;
+    Userinfo *userinfo = [LoginFacade sharedUserinfo];
+    return [Tools imageFromBase64Str:userinfo.photo];
 }
 
 
