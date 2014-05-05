@@ -132,10 +132,22 @@ AVAudioPlayerDelegate>
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
-    [JSMessageSoundEffect playMessageReceivedSound];
+
 //    [self finishSend];
+    
 	[[self tableView] reloadData];
-    [self scrollToBottomAnimated:YES];
+  
+    NSInteger count        = [self.tableView numberOfRowsInSection:0];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:count - 1 inSection:0];
+    XMPPMessageArchiving_Message_CoreDataObject *message = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    BOOL re = message.isOutgoing;
+    if (!re) {
+       [JSMessageSoundEffect playMessageReceivedSound];
+       [self scrollToBottomAnimated:YES];
+    } else {
+        [self finishSend];
+    }
+    
 }
 
 #pragma mark - Table view data source
@@ -271,7 +283,12 @@ AVAudioPlayerDelegate>
     }
     
     if ([Tools typeForMessage:message] == CHAT_TYPE_AUDIO) {
-        return [UIImage imageNamed:@"voice_pic.png"];
+        if (!message.isOutgoing) {
+             return [UIImage imageNamed:@"voice_pic"];
+        } else {
+            return [UIImage imageNamed:@"voice_pic_right"];
+        }
+       
     }
     
     return nil;
@@ -296,6 +313,10 @@ AVAudioPlayerDelegate>
     [self presentViewController:picker animated:YES completion:NULL];
 }
 
+#pragma mark - avator click
+- (void)avatorClick:(BOOL)outGoing {
+    
+}
 
 #pragma mark - Image picker delegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info

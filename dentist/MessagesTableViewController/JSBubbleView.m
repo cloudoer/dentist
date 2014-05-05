@@ -46,6 +46,9 @@ CGFloat const kJSAvatarSize = 50.0f;
 #define kPaddingBottom 12.0f
 #define kBubblePaddingRight 35.0f
 
+#define kLeftVoiceImage [UIImage imageNamed:@"voice_pic"]
+#define kRightVoiceImage [UIImage imageNamed:@"voice_pic_right"]
+
 @interface JSBubbleView()
 
 - (void)setup;
@@ -282,13 +285,28 @@ CGFloat const kJSAvatarSize = 50.0f;
             
             CGSize imageSize = [JSBubbleView imageSizeForImage:recivedImg];
             
-            CGFloat imgX = image.leftCapWidth - 3.0f + (self.type == JSBubbleMessageTypeOutgoing ? bubbleFrame.origin.x : 0.0f);
+            CGFloat imgX = image.leftCapWidth - 3.0f + (self.type == JSBubbleMessageTypeOutgoing ? bubbleFrame.origin.x : 10.0f);
             
             CGRect imageFrame = CGRectMake(imgX - 3.f,
                                           kPaddingTop,
                                           imageSize.width - kPaddingTop - kMarginTop,
                                           imageSize.height - kPaddingBottom + 2.f);
             
+            if (recivedImg == kRightVoiceImage) {
+                
+                imageFrame = CGRectMake(imgX + 33.f + 5.,
+                                               kPaddingTop + 5,
+                                               recivedImg.size.width ,
+                                               recivedImg.size.height + 2.f);
+
+            }
+            
+            if (recivedImg == kLeftVoiceImage) {
+                imageFrame = CGRectMake(imgX,
+                                        kPaddingTop + 5,
+                                        recivedImg.size.width ,
+                                        recivedImg.size.height + 2.f);
+            }
             
             if (self.style == JSBubbleMessageStyleFlat && self.type == JSBubbleMessageTypeOutgoing)
             {
@@ -381,6 +399,11 @@ CGFloat const kJSAvatarSize = 50.0f;
 }
 
 + (CGSize)bubbleSizeForImage:(UIImage *)image{
+    
+//    if (image == kLeftVoiceImage || image == kRightVoiceImage) {
+//        return CGSizeMake(image.size.width, image.size.height);
+//    }
+    
     CGSize imageSize = [JSBubbleView imageSizeForImage:image];
 	return CGSizeMake(imageSize.width,
                       imageSize.height);
@@ -388,7 +411,16 @@ CGFloat const kJSAvatarSize = 50.0f;
 
 + (CGSize)imageSizeForImage:(UIImage *)image{
     CGFloat width = [UIScreen mainScreen].applicationFrame.size.width * 0.75f;
-    CGFloat height = 130.f;
+    CGFloat height =  image.size.height;
+    if (height > 130.) {
+        height = 130;
+    }
+    
+    if (image == kLeftVoiceImage || image == kRightVoiceImage) {
+      return  CGSizeMake(image.size.width + 2 * kBubblePaddingRight,
+                   image.size.height + kPaddingTop + kPaddingBottom);
+    }
+   
     
     return CGSizeMake(width - kJSAvatarSize, height + kJSAvatarSize);
 
@@ -400,6 +432,8 @@ CGFloat const kJSAvatarSize = 50.0f;
 }
 
 + (CGFloat)cellHeightForImage:(UIImage *)image{
+
+    NSLog(@"cellHeightForImage == %f", [JSBubbleView bubbleSizeForImage:image].height + kMarginTop + kMarginBottom);
     return [JSBubbleView bubbleSizeForImage:image].height + kMarginTop + kMarginBottom;
 }
 

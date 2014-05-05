@@ -239,6 +239,9 @@
     }
     
     self.avatarImageView.image = styledImg;
+    
+    self.avatarImageView.userInteractionEnabled = YES;
+    [self.avatarImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avatorClick:)]];
 }
 
 + (CGFloat)neededHeightForText:(NSString *)bubbleViewText timestamp:(BOOL)hasTimestamp avatar:(BOOL)hasAvatar
@@ -376,4 +379,11 @@
     self.bubbleView.selectedToShowCopyMenu = YES;
 }
 
+- (void)avatorClick:(UITapGestureRecognizer *)sender {
+    self.block();
+}
+
+- (void)avatorClicked:(AvatorClick)block {
+    self.block = block;
+}
 @end
