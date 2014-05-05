@@ -40,6 +40,23 @@
     
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [self removeBadgeForBuddyTab];
+}
+- (void)removeBadgeForBuddyTab
+{
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    
+    UITabBarController *tabBarController = (UITabBarController *)appDelegate.window.rootViewController;
+    
+    NSArray *controllers = tabBarController.viewControllers;
+    UIViewController *buddyListController = controllers[3];
+    buddyListController.tabBarItem.badgeValue = nil;
+}
+
 - (void)getBuddyList
 {
     Userinfo *userinfo = [LoginFacade sharedUserinfo];
@@ -190,8 +207,10 @@
         BuddyContentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BuddyContentCell" forIndexPath:indexPath];
         if (indexPath.row == 0) {
             cell.nameLabel.text = @"新好友";
+            cell.avatarImageView.image = [UIImage imageNamed:@"buddy_new_pic.png"];
         }else if (indexPath.row == 1) {
             cell.nameLabel.text = @"服务号";
+            cell.avatarImageView.image = [UIImage imageNamed:@"service_icon.png"];
         }
         
         return cell;
@@ -226,7 +245,7 @@
         return 0;
     }
     if (section > 0) {
-        return 30;
+        return 28;
     }
     return 0;
 }

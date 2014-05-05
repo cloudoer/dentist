@@ -234,7 +234,7 @@ AVAudioPlayerDelegate>
     cell.nameLabel.text = message.bareJidStr;
     cell.redDotImageView.hidden = YES;
     
-    Buddy *buddy = [[BuddyManager sharedBuddyManager] buddyWithPhoneNum:message.message.from.user];
+    Buddy *buddy = [[BuddyManager sharedBuddyManager] buddyWithPhoneNum:message.bareJid.user];
     if (buddy) {
         cell.nameLabel.text = buddy.realname;
         cell.avatarImageView.image = [Tools imageFromBase64Str:buddy.photoStr];

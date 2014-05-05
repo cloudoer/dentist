@@ -117,9 +117,8 @@ AVAudioPlayerDelegate>
     
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
     NSLog(@"startVoiceRecord...");
     if (![_recorder record])
     {
@@ -133,6 +132,12 @@ AVAudioPlayerDelegate>
     }
     
     [self startVolueValueTimer];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
 }
 
 -(void)preHideVoicePanel{
