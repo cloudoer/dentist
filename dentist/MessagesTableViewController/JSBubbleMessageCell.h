@@ -42,6 +42,7 @@ typedef enum {
     JSAvatarStyleNone
 } JSAvatarStyle;
 
+typedef void (^AvatorClick) (void);
 
 @interface JSBubbleMessageCell : UITableViewCell
 
@@ -49,6 +50,7 @@ typedef enum {
 @property (nonatomic, assign) BOOL isSelected;
 @property (nonatomic, readonly, strong) UIImageView *imageView;
 @property (nonatomic, readonly, strong) UIImage *renderedMark;
+@property (nonatomic, copy) AvatorClick block;
 
 #pragma mark - Initialization
 - (id)initWithBubbleType:(JSBubbleMessageType)type
@@ -72,5 +74,6 @@ typedef enum {
                      timestamp:(BOOL)hasTimestamp
                         avatar:(BOOL)hasAvatar;
 
+- (void)avatorClicked:(AvatorClick)block;
 
 @end

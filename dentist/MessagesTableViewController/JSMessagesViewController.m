@@ -63,6 +63,8 @@ typedef enum {
     UIButton *others;
     
     BOOL isNull;           //是否为空
+    
+    BOOL isRecoder;         //是否录音
 }
 
 @property (nonatomic, strong) EmojiView *emojiView;
@@ -103,21 +105,21 @@ typedef enum {
 	{
 
         //*************     录音     **********************************************
-		UIImage* image = [UIImage imageNamed:@"chat_add"];
+		UIImage* image = [UIImage imageNamed:@"ToolViewInputVoice"];
 		CGRect frame = CGRectMake(4, 0, image.size.width, image.size.height);
 		CGFloat yHeight = (INPUT_HEIGHT - frame.size.height) / 2.0f;
 		frame.origin.y = yHeight;
 		
 		// make the button
 		mediaButton = [[UIButton alloc] initWithFrame:frame];
-        [mediaButton setImage:[UIImage imageNamed:@"chat_add"] forState:UIControlStateNormal];
-        [mediaButton setImage:[UIImage imageNamed:@"chat_keyboard"] forState:UIControlStateSelected];
+        [mediaButton setImage:[UIImage imageNamed:@"ToolViewInputVoice"] forState:UIControlStateNormal];
+        [mediaButton setImage:[UIImage imageNamed:@"ToolViewInputText"] forState:UIControlStateSelected];
 		// button action
 		[mediaButton addTarget:self action:@selector(recodingAction:) forControlEvents:UIControlEventTouchUpInside];
         
         
         //*************     +     **********************************************
-        UIImage *othersimage  = [UIImage imageNamed:@"chat_add"];
+        UIImage *othersimage  = [UIImage imageNamed:@"TypeSelectorBtn_Black"];
         CGRect othersframe    = CGRectMake(320 - 4 - othersimage.size.width, 0, othersimage.size.width, othersimage.size.height);
         CGFloat othersHeight = (INPUT_HEIGHT - othersframe.size.height) / 2.0f;
         othersframe.origin.y  = othersHeight;
@@ -125,15 +127,15 @@ typedef enum {
 		// make the button
 		others = [[UIButton alloc] initWithFrame:othersframe];
         
-        [others setImage:[UIImage imageNamed:@"chat_add"] forState:UIControlStateNormal];
+        [others setImage:[UIImage imageNamed:@"TypeSelectorBtn_Black"] forState:UIControlStateNormal];
         //        [others setImage:[UIImage imageNamed:@"chat_keyboard"] forState:UIControlStateSelected];
 		
 		[others addTarget:self action:@selector(othersAction:) forControlEvents:UIControlEventTouchUpInside];
         
         
         //*************     表情     **********************************************
-        UIImage *emoimage  = [UIImage imageNamed:@"chat_emotion"];
-        CGRect emoframe    =         CGRectMake(othersframe.origin.x - emoimage.size.width - 10, 0, emoimage.size.width, emoimage.size.height);//CGRectMake(320 - 4 - emoimage.size.width, 0, emoimage.size.width, emoimage.size.height);
+        UIImage *emoimage  = [UIImage imageNamed:@"ToolViewEmotion"];
+        CGRect emoframe    =  CGRectMake(othersframe.origin.x - emoimage.size.width - 10, 0, emoimage.size.width, emoimage.size.height);//CGRectMake(320 - 4 - emoimage.size.width, 0, emoimage.size.width, emoimage.size.height);
 
         CGFloat emoyHeight = (INPUT_HEIGHT - emoframe.size.height) / 2.0f;
         emoframe.origin.y  = emoyHeight;
@@ -141,8 +143,8 @@ typedef enum {
 		emoji = [[UIButton alloc] initWithFrame:emoframe];
 
 
-		[emoji setImage:[UIImage imageNamed:@"chat_emotion"] forState:UIControlStateNormal];
-        [emoji setImage:[UIImage imageNamed:@"chat_keyboard"] forState:UIControlStateSelected];
+		[emoji setImage:[UIImage imageNamed:@"ToolViewEmotion"] forState:UIControlStateNormal];
+        [emoji setImage:[UIImage imageNamed:@"ToolViewInputText"] forState:UIControlStateSelected];
         
 		// button action
 		[emoji addTarget:self action:@selector(emojiAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -355,10 +357,12 @@ typedef enum {
         [self.inputToolBarView.textView resignFirstResponder];
         self.inputToolBarView.textView.hidden = YES;
         recoderBtn.hidden = NO;
+        isRecoder = YES;
         [self keyboardWillBeDismissed];
     } else {
         self.inputToolBarView.textView.hidden = NO;
         recoderBtn.hidden = YES;
+        isRecoder = NO;
     }
         
     
@@ -509,6 +513,12 @@ typedef enum {
     
     cell.isSelected = [self.selectedMarks containsObject:CellID] ? YES : NO;
     
+    [cell avatorClicked:^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if([self.delegate respondsToSelector:@selector(avatorClicked:)])
+                [self.delegate avatorClick:(type == JSBubbleMessageTypeIncoming ? NO : YES)];
+        });
+    }];
     return cell;
 }
 
@@ -588,7 +598,7 @@ typedef enum {
 {
     [self.inputToolBarView.textView setText:nil];
     [self textViewDidChange:self.inputToolBarView.textView];
-    [self.tableView reloadData];
+//    [self.tableView reloadData];
     [self scrollToBottomAnimated:YES];
 }
 
@@ -642,7 +652,8 @@ typedef enum {
     CGFloat maxHeight = [JSMessageInputView maxHeight];
     CGSize size = [textView sizeThatFits:CGSizeMake(textView.frame.size.width, maxHeight)];
     CGFloat textViewContentHeight = size.height;
-    if (status == INPUT_VIEW_STATUS_OTHER || status == INPUT_VIEW_STATUS_EMOJI) {
+
+    if (status == INPUT_VIEW_STATUS_OTHER || status == INPUT_VIEW_STATUS_EMOJI || isRecoder) {
         self.previousTextViewContentHeight = 35.5;
     }
     // End of textView.contentSize replacement code

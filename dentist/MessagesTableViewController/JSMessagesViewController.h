@@ -81,6 +81,10 @@ typedef enum {
 - (JSMessagesViewAvatarPolicy)avatarPolicy;
 - (JSAvatarStyle)avatarStyle;
 
+
+//avator click
+- (void)avatorClick:(BOOL)outGoing;
+
 @optional
 - (BOOL)hasTimestampForRowAtIndexPath:(NSIndexPath *)indexPath;
 
