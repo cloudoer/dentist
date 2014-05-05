@@ -28,6 +28,7 @@ AVAudioPlayerDelegate>
     NSArray *finalBuddyArray;
     
     NSString *clickedBareJIDStr;
+    Buddy *clickedBuddy;
     
     
     NSMutableDictionary * _recorderSetting;
@@ -72,6 +73,8 @@ AVAudioPlayerDelegate>
     NSString *bareJIDString = [Tools bareJIDStringFromBuddyClicked];
     if (bareJIDString != nil) {
         clickedBareJIDStr = bareJIDString;
+        NSString *user = [clickedBareJIDStr componentsSeparatedByString:@"@"][0];
+        clickedBuddy = [[BuddyManager sharedBuddyManager] buddyWithPhoneNum:user];
         [self performSegueWithIdentifier:@"MsgList2Detail" sender:self];
         [Tools setBareJIDStringFromBuddyClicked:nil];
     }
@@ -233,7 +236,7 @@ AVAudioPlayerDelegate>
     cell.nameLabel.text = message.bareJidStr;
     cell.redDotImageView.hidden = YES;
     
-    Buddy *buddy = [[BuddyManager sharedBuddyManager] buddyWithPhoneNum:message.message.from.user];
+    Buddy *buddy = [[BuddyManager sharedBuddyManager] buddyWithPhoneNum:message.bareJid.user];
     if (buddy) {
         cell.nameLabel.text = buddy.realname;
         cell.avatarImageView.image = [Tools imageFromBase64Str:buddy.photoStr];
@@ -259,6 +262,9 @@ AVAudioPlayerDelegate>
     XMPPMessageArchiving_Message_CoreDataObject *message = finalBuddyArray[indexPath.row];
     clickedBareJIDStr = message.bareJidStr;
     
+    Buddy *buddy = [[BuddyManager sharedBuddyManager] buddyWithPhoneNum:message.bareJid.user];
+    clickedBuddy = buddy;
+    
     [self performSegueWithIdentifier:@"MsgList2Detail" sender:self];
     
 }
@@ -268,6 +274,7 @@ AVAudioPlayerDelegate>
     if ([segue.identifier isEqualToString:@"MsgList2Detail"]) {
         MsgDetailViewController *controller = segue.destinationViewController;
         controller.bareJIDStr = clickedBareJIDStr;
+        controller.theBuddy = clickedBuddy;
     }
 }
 - (IBAction)record:(UIBarButtonItem *)sender {

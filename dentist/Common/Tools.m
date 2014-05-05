@@ -61,7 +61,7 @@
 + (UIImage *)imageFromBase64Str:(NSString *)base64Str {
     
     if (base64Str == nil || base64Str.length <= 0) {
-        return nil;
+        return [UIImage imageNamed:@"doctor_avatar_holder.png"];
     }
     
     NSData* data = [[NSData alloc] initWithBase64EncodedString:base64Str options:0];

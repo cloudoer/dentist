@@ -9,7 +9,9 @@
 #import "AppDelegate.h"
 #import "ResultBuddyTableViewController.h"
 
-@interface ResultBuddyTableViewController ()
+#define AV_TAG_ADDED 243
+
+@interface ResultBuddyTableViewController () <UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
 @property (weak, nonatomic) IBOutlet UILabel *realnameLabel;
@@ -61,8 +63,20 @@
     
     [[self appDelegate].xmppRoster addUser:jid withNickname:self.searchUser.phone];
     [[BuddyManager sharedBuddyManager] buddyRequestAddedFromMe:YES Friend:self.searchUser.phone success:NO];
+    
+    UIAlertView *av = [[UIAlertView alloc] initWithTitle:nil message:@"请求已发送" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    av.tag = AV_TAG_ADDED;
+    [av show];
+    
 }
 
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag == AV_TAG_ADDED) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
 
 
 

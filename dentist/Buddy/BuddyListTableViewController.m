@@ -13,6 +13,7 @@
 #import "Buddy.h"
 #import "pinyin.h"
 #import "ProfileTableViewController.h"
+#import "BuddyRequest.h"
 
 @interface BuddyListTableViewController ()
 
@@ -30,6 +31,7 @@
     
     Buddy *theBuddy;
     
+    BOOL hasNewRequest;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -38,6 +40,41 @@
     
     [self getBuddyList];
     
+    
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    hasNewRequest = NO;
+    NSArray *cdBuddyRequests = [[BuddyManager sharedBuddyManager] buddyRequestsArray];
+    for (BuddyRequest *oneRequest in cdBuddyRequests) {
+        if (oneRequest.fromMe.boolValue == NO && oneRequest.success.boolValue == NO) {
+            hasNewRequest = YES;
+        }
+    }
+    if (hasNewRequest == YES) {
+        [self.tableView reloadData];
+    }
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [self removeBadgeForBuddyTab];
+}
+- (void)removeBadgeForBuddyTab
+{
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    
+    UITabBarController *tabBarController = (UITabBarController *)appDelegate.window.rootViewController;
+    
+    NSArray *controllers = tabBarController.viewControllers;
+    UIViewController *buddyListController = controllers[3];
+    buddyListController.tabBarItem.badgeValue = nil;
 }
 
 - (void)getBuddyList
@@ -77,6 +114,10 @@
     {
         //        DDLogError(@"Error performing fetch: %@", error);
     }
+    
+    
+    self.tableView.sectionIndexColor = [UIColor blackColor];
+    self.tableView.sectionIndexBackgroundColor = [UIColor clearColor];
 }
 
 - (NSFetchedResultsController *)fetchedResultsController
@@ -166,9 +207,7 @@
     
     cell.nameLabel.text = buddy.realname;
     
-    NSData* data = [[NSData alloc] initWithBase64EncodedString:buddy.photoStr options:0];
-    UIImage* image = [UIImage imageWithData:data];
-    cell.avatarImageView.image = image;
+    cell.avatarImageView.image = [Tools imageFromBase64Str:buddy.photoStr];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -188,16 +227,22 @@
     
     if (indexPath.section == 0) {
         BuddyContentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BuddyContentCell" forIndexPath:indexPath];
+        cell.redDotImageview.hidden = YES;
         if (indexPath.row == 0) {
             cell.nameLabel.text = @"新好友";
+            cell.avatarImageView.image = [UIImage imageNamed:@"buddy_new_pic.png"];
+            if (hasNewRequest) {
+                cell.redDotImageview.hidden = NO;
+            }
         }else if (indexPath.row == 1) {
             cell.nameLabel.text = @"服务号";
+            cell.avatarImageView.image = [UIImage imageNamed:@"service_icon.png"];
         }
         
         return cell;
     }else {
         BuddyContentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BuddyContentCell" forIndexPath:indexPath];
-        
+        cell.redDotImageview.hidden = YES;
         [self configureCell:cell atIndexPath:indexPath];
         
         return cell;
@@ -220,13 +265,18 @@
     return nil;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 61;
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         return 0;
     }
     if (section > 0) {
-        return 30;
+        return 28;
     }
     return 0;
 }
