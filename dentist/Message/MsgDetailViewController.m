@@ -11,6 +11,7 @@
 #import "GTMBase64.h"
 #import <AVFoundation/AVFoundation.h>
 #import "amrFileCodec.h"
+#import "ProfileTableViewController.h"
 
 
 @interface MsgDetailViewController () <JSMessagesViewDelegate, JSMessagesViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, AVAudioRecorderDelegate,
@@ -350,7 +351,18 @@ AVAudioPlayerDelegate>
 
 #pragma mark - avator click
 - (void)avatorClick:(BOOL)outGoing {
+    UIStoryboard *storyBoard            = [UIStoryboard storyboardWithName:@"Buddy" bundle:nil];
+    ProfileTableViewController *profile = [storyBoard instantiateViewControllerWithIdentifier:@"buddy_profile"];
+    profile.type                        = PROFILE_BACK_TYPE_CHAT;
+
+    if (!outGoing) {
+        profile.buddy = self.theBuddy;
+    } else {
+        Userinfo *userinfo = [LoginFacade sharedUserinfo];
+        profile.buddy = (Buddy *)userinfo;
+    }
     
+    [self.navigationController pushViewController:profile animated:YES];
 }
 
 #pragma mark - Image picker delegate

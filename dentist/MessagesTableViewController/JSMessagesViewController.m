@@ -524,7 +524,7 @@ typedef enum {
     
     [cell avatorClicked:^{
         dispatch_async(dispatch_get_main_queue(), ^{
-            if([self.delegate respondsToSelector:@selector(avatorClicked:)])
+            if([self.delegate respondsToSelector:@selector(avatorClick:)])
                 [self.delegate avatorClick:(type == JSBubbleMessageTypeIncoming ? NO : YES)];
         });
     }];

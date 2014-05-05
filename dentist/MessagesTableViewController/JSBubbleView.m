@@ -433,7 +433,6 @@ CGFloat const kJSAvatarSize = 50.0f;
 
 + (CGFloat)cellHeightForImage:(UIImage *)image{
 
-    NSLog(@"cellHeightForImage == %f", [JSBubbleView bubbleSizeForImage:image].height + kMarginTop + kMarginBottom);
     return [JSBubbleView bubbleSizeForImage:image].height + kMarginTop + kMarginBottom;
 }
 
