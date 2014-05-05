@@ -508,8 +508,8 @@
 		FB01E04918FF83540056609F /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
 		FB01E04A18FF83540056609F /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		FB01E04B18FF83540056609F /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
-		FB01E05418FF9F040056609F /* AboutTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutTableViewController.h; sourceTree = "<group>"; };
-		FB01E05518FF9F040056609F /* AboutTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutTableViewController.m; sourceTree = "<group>"; };
+		FB01E05418FF9F040056609F /* AboutTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutTableViewController.h; path = ../AboutTableViewController.h; sourceTree = "<group>"; };
+		FB01E05518FF9F040056609F /* AboutTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutTableViewController.m; path = ../AboutTableViewController.m; sourceTree = "<group>"; };
 		FB01E05718FF9FAE0056609F /* about_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about_logo@2x.png"; sourceTree = "<group>"; };
 		FB01E05918FFA0500056609F /* about_new@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about_new@2x.png"; sourceTree = "<group>"; };
 		FB01E05B18FFA0E30056609F /* about_QR_code@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about_QR_code@2x.png"; sourceTree = "<group>"; };
@@ -1345,8 +1345,6 @@
 				FBCE0D3118F64C87007C0489 /* RoomListCell.m */,
 				FBCE0D0518F62A8D007C0489 /* PersonalTableViewController.h */,
 				FBCE0D0618F62A8D007C0489 /* PersonalTableViewController.m */,
-				FB01E05418FF9F040056609F /* AboutTableViewController.h */,
-				FB01E05518FF9F040056609F /* AboutTableViewController.m */,
 				FB01E06018FFD2730056609F /* AddDiscussTableViewController.h */,
 				FB01E06118FFD2730056609F /* AddDiscussTableViewController.m */,
 			);
@@ -2340,6 +2338,8 @@
 				FBC919DC1908866700405A89 /* MeFacade.m */,
 				FBC919DE1908866F00405A89 /* MeTableViewController.h */,
 				FBC919DF1908866F00405A89 /* MeTableViewController.m */,
+				FB01E05418FF9F040056609F /* AboutTableViewController.h */,
+				FB01E05518FF9F040056609F /* AboutTableViewController.m */,
 				14425CBC190A0FFA00CC46F4 /* NewRecordsViewController.h */,
 				14425CBD190A0FFA00CC46F4 /* NewRecordsViewController.m */,
 				14425CBF190A138700CC46F4 /* MyRecordsViewController.h */,
