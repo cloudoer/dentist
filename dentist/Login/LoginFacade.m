@@ -59,4 +59,5 @@
     [[NSUserDefaults standardUserDefaults] setObject:data forKey:kSharedUserinfo];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
+
 @end

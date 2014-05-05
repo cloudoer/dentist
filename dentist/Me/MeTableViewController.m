@@ -34,9 +34,12 @@
     DEFAULT_NAVIGATION_TINT_COLOR
     
    
-    UIImage *avator = PNGIMAGENAMED(@"avator");
-    avator = [avator clipImageWithScaleWithsize:CGSizeMake(49 , 49 )];
-    self.avatorImageView.image = avator;
+    
+    Userinfo *userinfo         = [LoginFacade sharedUserinfo];
+    self.avatorImageView.image = [Tools imageFromBase64Str:userinfo.photo];
+//    UIImage *avator = PNGIMAGENAMED(@"avator");
+//    avator = [avator clipImageWithScaleWithsize:CGSizeMake(49 , 49 )];
+//    self.avatorImageView.image = avator;
     
 }
 

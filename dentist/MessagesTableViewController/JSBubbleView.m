@@ -144,7 +144,9 @@ CGFloat const kJSAvatarSize = 50.0f;
                           floorf(kMarginTop),
                           floorf(bubbleSize.width),
                           floorf(bubbleSize.height));
-    }else{
+    } else if (self.mediaType == JSBubbleMediaTypeRecoder) {
+        return CGRectZero;
+    } else{
         NSLog(@"act对象消息");
         return CGRectMake(0, 0, 0, 0);
     }

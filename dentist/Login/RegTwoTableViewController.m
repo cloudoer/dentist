@@ -10,8 +10,20 @@
 #import "UIActionSheetBlock.h"
 #import "GTMBase64.h"
 #import "UIImage+Cut.h"
+#import "ClinicPickView.h"
+#import "RegThreeTableViewController.h"
 
-@interface RegTwoTableViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface RegTwoTableViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate>
+{
+    NSMutableArray *clinics;
+    NSMutableArray *jobTitles;
+    ClinicPickView *pickView;
+    NSString *imageDataBase64Str;
+}
+
+@property (strong, nonatomic) NSString *clinicId;
+@property (strong, nonatomic) NSString *jobTitleId;
+
 @property (weak, nonatomic) IBOutlet UITextField *realnameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *jobTitleTextField;
 
@@ -44,6 +56,31 @@
 {
     [super viewDidLoad];
     
+    clinics   = [NSMutableArray array];
+    jobTitles = [NSMutableArray array];
+    pickView = [ClinicPickView mainView];
+    
+    pickView.frame = CGRectMake(0, DEVICE_HEIGHT, DEVICE_WIDTH, 206);
+    self.clinicTextField.inputView = pickView;
+    [self.view addSubview:pickView];
+    [pickView pickerViewDidSeleted:^(NSDictionary *dic, BOOL close, NSString *key) {
+        if (close) {
+            [self.clinicTextField resignFirstResponder];
+            [self.jobTitleTextField resignFirstResponder];
+        }
+        if ([key isEqualToString:@"name"]) {
+            self.clinicTextField.text = dic[key];
+            self.clinicId             = dic[@"id"];
+        } else {
+            self.jobTitleTextField.text = dic[key];
+            self.jobTitleId             = dic[@"id"];
+        }
+        
+
+    }];
+
+    self.jobTitleTextField.inputView = pickView;
+    
     self.tableView.tableFooterView = [UIView new];
     
     [self.maleBtn setImage:[UIImage imageNamed:@"individual_publish_circle_h"] forState:UIControlStateSelected];
@@ -54,6 +91,10 @@
     self.maleBtn.selected = YES;
 
     [self addAvatorGesturer];
+    
+    [self fetchClinicList];
+    
+    [self fetchJobTitleList];
 }
 
 - (void)addAvatorGesturer {
@@ -83,35 +124,50 @@
 
 - (IBAction)nextBtnPressed:(UIBarButtonItem *)sender {
     
-}
-
-- (IBAction)finishButtonPressed:(UIButton *)sender {
+    NSString *msg;
+    if (![NSUtil trimSpace:self.realnameTextField.text].length) {
+        msg = @"真实姓名不能为空";
+    } else if (!self.jobTitleId) {
+        msg = @"职称不能为空";
+    } else if (!self.clinicId) {
+        msg = @"诊所不能为空";
+    } else if ([self.goodatTextView.text isEqualToString:@"您所擅长的"] || ![NSUtil trimSpace:self.goodatTextView.text].length) {
+        msg = @"您所擅长的不能为空";
+    }
     
-    NSString *realname = self.realnameTextField.text;
-    NSString *gender = @"1"; // 1 male
-    NSString *clinic = self.clinicTextField.text;
-    NSString *jobTitle = self.jobTitleTextField.text;
+    if (msg) {
+        [NSUtil alertNotice:@"错误提示" withMSG:msg cancleButtonTitle:@"确定" otherButtonTitle:nil];
+        return;
+    }
     
-    NSDictionary *parameters =
-  @{
-    @"username" : self.phone,
-    @"password" : self.password,
-    @"captcha" : self.captcha,
-    @"realname" : realname,
-    @"sex" : gender,
-    @"job_title_id" : jobTitle,
-    @"clinic_id" : clinic
-    };
+    NSDictionary *parameters = @{
+                                 @"username" : self.phone,
+                                 @"password" : self.password,
+                                 @"captcha" : self.captcha,
+                                 @"realname" : self.realnameTextField.text,
+                                 @"sex" : self.maleBtn.selected ? @(1) : @(2),
+                                 @"job_title_id" : self.jobTitleId,
+                                 @"clinic_id" : self.clinicId,
+                                 @"photo": imageDataBase64Str,
+                                 @"photo_ext": @"png",
+                                 @"description": self.goodatTextView.text
+                                  };
     
     
     [Network httpPostPath:URL_PATH_REG_DONE parameters:parameters success:^(NSDictionary *responseObject) {
         if ([Network statusOKInResponse:responseObject]) {
             [Tools showAlertViewWithText:@"注册成功"];
-        }
+            [self performSegueWithIdentifier:@"RegTwo2Three" sender:nil];
+        } else
+            [Tools showAlertViewWithText:[Network statusErrorDes:responseObject]];
     } failure:^(NSError *error) {
-        
+            [Tools showAlertViewWithText:@"链接异常"];
     }];
+
+    
+    
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -135,6 +191,41 @@
 }
 
 #pragma mark - 
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    if (textField == self.clinicTextField) {
+        pickView.datas = clinics;
+        pickView.key   = @"name";
+        if (![pickView isShowing]) {
+            [pickView showInView];            
+        }
+
+    } else if (textField == self.jobTitleTextField) {
+        pickView.datas = jobTitles;
+        pickView.key   = @"title";
+        if (![pickView isShowing]) {
+            [pickView showInView];
+        }
+
+    }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (textField == self.realnameTextField) {
+        [textField resignFirstResponder];
+    }
+    
+    return YES;
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text; {
+    
+    if ([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        return NO;
+    }
+    
+    return YES;
+}
 
 #pragma mark - Image picker delegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
@@ -154,7 +245,7 @@
     }
     
     
-    NSString *imageDataBase64Str = [[NSString alloc] initWithData:[GTMBase64 encodeData:imageData] encoding:NSUTF8StringEncoding];
+    imageDataBase64Str = [[NSString alloc] initWithData:[GTMBase64 encodeData:imageData] encoding:NSUTF8StringEncoding];
     
     self.avator.image = [chosenImage clipImageWithScaleWithsize:CGSizeMake(120, 120)];
 	
@@ -166,6 +257,46 @@
 {
     [self dismissViewControllerAnimated:YES completion:NULL];
     
+}
+
+- (void)fetchClinicList {
+    [Network httpGetPath:URL_PATH_CLINIC_LIST success:^(NSDictionary *response) {
+        if ([Network statusOKInResponse:response]) {//name
+            clinics = response[@"data"];
+        } else {
+            [NSUtil alertNotice:@"错误提示" withMSG:[Network statusErrorDes:response] cancleButtonTitle:@"确定" otherButtonTitle:nil];
+        }
+    } failure:^(NSError *error) {
+        NSLog(@"%@ ->error: %@",URL_PATH_CLINIC_LIST, error);
+    }];
+}
+
+- (void)fetchJobTitleList {
+    [Network httpGetPath:URL_PATH_JOBTITLE_LIST success:^(NSDictionary *response) {
+        if ([Network statusOKInResponse:response]) {//title
+            jobTitles = response[@"data"];
+        } else {
+            [NSUtil alertNotice:@"错误提示" withMSG:[Network statusErrorDes:response] cancleButtonTitle:@"确定" otherButtonTitle:nil];
+        }
+
+    } failure:^(NSError *error) {
+        NSLog(@"%@ ->error: %@",URL_PATH_JOBTITLE_LIST, error);
+    }];
+}
+
+- (IBAction)outsideTapped:(UITapGestureRecognizer *)sender {
+    [self.realnameTextField resignFirstResponder];
+    [self.clinicTextField resignFirstResponder];
+    [self.jobTitleTextField resignFirstResponder];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqual:@"RegTwo2Three"]) {
+        RegThreeTableViewController *controller = segue.destinationViewController;
+        controller.username = self.phone;
+    }
+
 }
 
 @end

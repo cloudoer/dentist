@@ -20,4 +20,6 @@
              failure:(void (^)(NSError *error))failure;
 
 + (BOOL)statusOKInResponse:(NSDictionary *)response;
++ (NSString *)statusErrorDes:(NSDictionary *)response;
+
 @end
