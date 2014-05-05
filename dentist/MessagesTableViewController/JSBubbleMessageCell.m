@@ -138,6 +138,10 @@
                                                  | UIViewAutoresizingFlexibleLeftMargin
                                                  | UIViewAutoresizingFlexibleRightMargin);
         [self.contentView addSubview:self.avatarImageView];
+        
+        self.avatarImageView.userInteractionEnabled = YES;
+        [self.avatarImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avatorClick:)]];
+        
     }
     
     CGRect frame = CGRectMake(bubbleX - offsetX,
@@ -240,8 +244,6 @@
     
     self.avatarImageView.image = styledImg;
     
-    self.avatarImageView.userInteractionEnabled = YES;
-    [self.avatarImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avatorClick:)]];
 }
 
 + (CGFloat)neededHeightForText:(NSString *)bubbleViewText timestamp:(BOOL)hasTimestamp avatar:(BOOL)hasAvatar

@@ -9,8 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "Buddy.h"
 
+typedef enum {
+    PROFILE_BACK_TYPE_NORMAL = 0,
+    PROFILE_BACK_TYPE_CHAT
+}PROFILE_BACK_TYPE;
+
 @interface ProfileTableViewController : UITableViewController
 
 @property (nonatomic, retain) Buddy *buddy;
+
+@property (nonatomic) PROFILE_BACK_TYPE type;
 
 @end

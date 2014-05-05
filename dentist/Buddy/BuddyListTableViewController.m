@@ -328,6 +328,7 @@
     if ([segue.identifier isEqualToString:@"BuddyList2Profile"]) {
         ProfileTableViewController *controller = segue.destinationViewController;
         controller.buddy = theBuddy;
+        controller.type = PROFILE_BACK_TYPE_NORMAL;
     }
 }
 

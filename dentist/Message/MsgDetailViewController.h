@@ -11,9 +11,11 @@
 #import "VoicdHUDViewController.h"
 #import "Buddy.h"
 
+
 @interface MsgDetailViewController : JSMessagesViewController <NSFetchedResultsControllerDelegate, HIVoiceDelegate>
 
 @property (nonatomic, copy) NSString *bareJIDStr;
 @property (nonatomic, retain) Buddy *theBuddy;
+
 
 @end
