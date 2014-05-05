@@ -30,6 +30,9 @@ AVAudioPlayerDelegate>
     AVAudioPlayer       * _player;
     AVAudioRecorder     * _recorder;
     NSString            * _filePath;
+    
+    VoicdHUDViewController *_voicePanelViewController;
+    UINavigationController *nv;
 }
 
 - (AppDelegate *)appDelegate
@@ -70,6 +73,28 @@ AVAudioPlayerDelegate>
     }
     
     [self prepareToTestRecord];
+    
+    [self prepareTheVoiceController];
+}
+
+- (void)prepareTheVoiceController
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    nv = [storyboard instantiateViewControllerWithIdentifier:@"VoiceNav"];
+    
+    [nv.view setBackgroundColor:[UIColor clearColor]];
+    [nv setNavigationBarHidden:YES animated:NO];
+    
+    _voicePanelViewController = nv.viewControllers[0];
+    _voicePanelViewController.delegate = self;
+//    [_voicePanelViewController refreshWithMaskFrame:self.view.frame];
+//    [_voicePanelViewController preShowVoicePanel];
+    
+    
+//    AppDelegate *mydelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+//    UIViewController * controller = mydelegate.window.rootViewController;
+//    controller.modalPresentationStyle = UIModalPresentationCurrentContext;
+//    [controller presentViewController:nv animated:NO completion:nil];
 }
 
 - (void)prepareToTestRecord
@@ -302,17 +327,19 @@ AVAudioPlayerDelegate>
 {
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
     
-    CGFloat compression = 0.9f;
-    CGFloat maxCompression = 0.1f;
-    int maxFileSize = 250*1024;
+//    CGFloat compression = 0.9f;
+//    CGFloat maxCompression = 0.1f;
+//    int maxFileSize = 250*1024;
+//    
+//    NSData *imageData = UIImageJPEGRepresentation(chosenImage, compression);
+//    
+//    while ([imageData length] > maxFileSize && compression > maxCompression)
+//    {
+//        compression -= 0.1;
+//        imageData = UIImageJPEGRepresentation(chosenImage, compression);
+//    }
     
-    NSData *imageData = UIImageJPEGRepresentation(chosenImage, compression);
-    
-    while ([imageData length] > maxFileSize && compression > maxCompression)
-    {
-        compression -= 0.1;
-        imageData = UIImageJPEGRepresentation(chosenImage, compression);
-    }
+    NSData *imageData = UIImagePNGRepresentation(chosenImage);
     
     
     NSString *imageDataBase64Str = [[NSString alloc] initWithData:[GTMBase64 encodeData:imageData] encoding:NSUTF8StringEncoding];
@@ -385,14 +412,14 @@ AVAudioPlayerDelegate>
 
 - (void)longPressBtnPressed:(UIButton *)sender
 {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    UINavigationController *nv = [storyboard instantiateViewControllerWithIdentifier:@"VoiceNav"];
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+//    UINavigationController *nv = [storyboard instantiateViewControllerWithIdentifier:@"VoiceNav"];
+//    
+//    [nv.view setBackgroundColor:[UIColor clearColor]];
+//    [nv setNavigationBarHidden:YES animated:NO];
     
-    [nv.view setBackgroundColor:[UIColor clearColor]];
-    [nv setNavigationBarHidden:YES animated:NO];
-    
-    VoicdHUDViewController *_voicePanelViewController = nv.viewControllers[0];
-    _voicePanelViewController.delegate = self;
+//    VoicdHUDViewController *_voicePanelViewController = nv.viewControllers[0];
+//    _voicePanelViewController.delegate = self;
     [_voicePanelViewController refreshWithMaskFrame:self.view.frame];
     [_voicePanelViewController preShowVoicePanel];
     

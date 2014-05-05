@@ -69,11 +69,16 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" red="0.86274509803921573" green="0.86274509803921573" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
                                         </view>
+                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="room_red_dot.png" translatesAutoresizingMaskIntoConstraints="NO" id="uGW-7N-bgc">
+                                            <rect key="frame" x="291" y="26" width="9" height="9"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="avatarImageView" destination="9lA-LM-UR9" id="z04-T9-1dY"/>
                                     <outlet property="nameLabel" destination="ISu-9i-Ego" id="YiA-8f-sWc"/>
+                                    <outlet property="redDotImageview" destination="uGW-7N-bgc" id="Mmd-om-WZK"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -561,6 +566,7 @@
     <resources>
         <image name="doctor_avatar_holder.png" width="43" height="43"/>
         <image name="gender_female.png" width="13" height="16"/>
+        <image name="room_red_dot.png" width="9" height="9"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
