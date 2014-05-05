@@ -61,7 +61,7 @@ AVAudioPlayerDelegate>
     self.delegate = self;
     self.dataSource = self;
     
-    self.title = self.bareJIDStr;
+    self.title = self.theBuddy.realname;
     
     NSError *error = nil;
     if (![[self fetchedResultsController] performFetch:&error])

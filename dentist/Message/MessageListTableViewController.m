@@ -28,6 +28,7 @@ AVAudioPlayerDelegate>
     NSArray *finalBuddyArray;
     
     NSString *clickedBareJIDStr;
+    Buddy *clickedBuddy;
     
     
     NSMutableDictionary * _recorderSetting;
@@ -259,6 +260,9 @@ AVAudioPlayerDelegate>
     XMPPMessageArchiving_Message_CoreDataObject *message = finalBuddyArray[indexPath.row];
     clickedBareJIDStr = message.bareJidStr;
     
+    Buddy *buddy = [[BuddyManager sharedBuddyManager] buddyWithPhoneNum:message.bareJid.user];
+    clickedBuddy = buddy;
+    
     [self performSegueWithIdentifier:@"MsgList2Detail" sender:self];
     
 }
@@ -268,6 +272,7 @@ AVAudioPlayerDelegate>
     if ([segue.identifier isEqualToString:@"MsgList2Detail"]) {
         MsgDetailViewController *controller = segue.destinationViewController;
         controller.bareJIDStr = clickedBareJIDStr;
+        controller.theBuddy = clickedBuddy;
     }
 }
 - (IBAction)record:(UIBarButtonItem *)sender {
