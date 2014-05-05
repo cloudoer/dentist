@@ -94,6 +94,10 @@
     {
         //        DDLogError(@"Error performing fetch: %@", error);
     }
+    
+    
+    self.tableView.sectionIndexColor = [UIColor blackColor];
+    self.tableView.sectionIndexBackgroundColor = [UIColor clearColor];
 }
 
 - (NSFetchedResultsController *)fetchedResultsController
@@ -237,6 +241,11 @@
         return cell;
     }
     return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 61;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
