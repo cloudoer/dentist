@@ -73,6 +73,8 @@ AVAudioPlayerDelegate>
     NSString *bareJIDString = [Tools bareJIDStringFromBuddyClicked];
     if (bareJIDString != nil) {
         clickedBareJIDStr = bareJIDString;
+        NSString *user = [clickedBareJIDStr componentsSeparatedByString:@"@"][0];
+        clickedBuddy = [[BuddyManager sharedBuddyManager] buddyWithPhoneNum:user];
         [self performSegueWithIdentifier:@"MsgList2Detail" sender:self];
         [Tools setBareJIDStringFromBuddyClicked:nil];
     }
