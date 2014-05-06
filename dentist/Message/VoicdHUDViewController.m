@@ -90,7 +90,7 @@ AVAudioPlayerDelegate>
 //    int duration = fileSize*8 / OPENCORE_AMRNB_BYTE_SIZE_ONSEC ;
     [_recorder updateMeters];
     
-    NSLog(@"meter:%5f", [_recorder averagePowerForChannel:0]);
+//    NSLog(@"meter:%5f", [_recorder averagePowerForChannel:0]);
 //    if (([_recorder averagePowerForChannel:0] < -60.0) && (recordTime > 3.0)) {
 ////        [self commitRecording];
 //        return;
@@ -132,6 +132,8 @@ AVAudioPlayerDelegate>
     }
     
     [self startVolueValueTimer];
+//    [self resetVoicePanelType:HI_VOICEPANEL_TYPE_NORMAL];
+    NSLog(@"lflsjdlfjlsdjfldjf");
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -399,6 +401,7 @@ AVAudioPlayerDelegate>
         _markTitle.text = NSLocalizedString(@"Voice_Panel_Mark_Error_TimeTooShort", nil);
         _optionImageView.image = [BDImage getImage:KX_IMAGE_OF_VOICE_ERROR];
         [self stopSoundWave];
+        [self dismissViewControllerAnimated:YES completion:nil];
     }else{
         
     }
@@ -452,6 +455,7 @@ AVAudioPlayerDelegate>
         [_soundWaveTimer invalidate];
         _soundWaveTimer = nil;
     }
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -601,7 +605,7 @@ AVAudioPlayerDelegate>
     
     NSString * amrDataBase64Str = [[NSString alloc] initWithData:[GTMBase64 encodeData:_amrData] encoding:NSUTF8StringEncoding];
     
-    NSLog(@"armString -> %@", amrDataBase64Str);
+//    NSLog(@"armString -> %@", amrDataBase64Str);
     
     if(HI_VOICEPANEL_TYPE_DELETE == _oldVoicePanelType || HI_VOICEPANEL_TYPE_ERROR == _oldVoicePanelType)
     {
