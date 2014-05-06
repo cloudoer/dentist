@@ -181,6 +181,13 @@ AVAudioPlayerDelegate>
     [self.view setBackgroundColor:[UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:0.5]];
     
     [self prepareToTestRecord];
+    
+    if(!_isNotFrist){
+        _isNotFrist = YES;
+        markRect = [self.view convertRect:markRect fromView:nil];
+        [self initView];
+        [self resetVoicePanelType:HI_VOICEPANEL_TYPE_NORMAL];
+    }
 }
 
 - (void)prepareToTestRecord
@@ -220,12 +227,7 @@ AVAudioPlayerDelegate>
 #pragma mark initView
 -(void)viewWillLayoutSubviews{
     [super viewWillLayoutSubviews];
-    if(!_isNotFrist){
-        _isNotFrist = YES;
-        markRect = [self.view convertRect:markRect fromView:nil];
-        [self initView];
-        [self resetVoicePanelType:HI_VOICEPANEL_TYPE_NORMAL];
-    }
+    
 }
 
 -(void)refreshWithMaskFrame:(CGRect)frame{

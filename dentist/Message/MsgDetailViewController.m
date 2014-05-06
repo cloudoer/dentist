@@ -34,6 +34,8 @@ AVAudioPlayerDelegate>
     
     VoicdHUDViewController *_voicePanelViewController;
     UINavigationController *nv;
+    
+    BOOL isRecording;
 }
 
 - (AppDelegate *)appDelegate
@@ -82,6 +84,8 @@ AVAudioPlayerDelegate>
     [self prepareToTestRecord];
     
     [self prepareTheVoiceController];
+    
+    isRecording = NO;
 }
 
 - (void)prepareTheVoiceController
@@ -457,10 +461,16 @@ AVAudioPlayerDelegate>
     
 //    VoicdHUDViewController *_voicePanelViewController = nv.viewControllers[0];
 //    _voicePanelViewController.delegate = self;
+    
+    if (isRecording) {
+        return;
+    }
+    
+    isRecording = YES;
     [_voicePanelViewController refreshWithMaskFrame:self.view.frame];
     [_voicePanelViewController preShowVoicePanel];
     
-    
+    NSLog(@"---");
     AppDelegate *mydelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     UIViewController * controller = mydelegate.window.rootViewController;
     controller.modalPresentationStyle = UIModalPresentationCurrentContext;
@@ -556,10 +566,11 @@ AVAudioPlayerDelegate>
 }
 - (void)cancelRecord
 {
-    
+    isRecording = NO;
 }
 - (void)finishRecord:(NSString *)audioBase64Str
 {
+    isRecording = NO;
     [self sendTheText:audioBase64Str withKind:CHAT_TYPE_AUDIO];
 }
 
