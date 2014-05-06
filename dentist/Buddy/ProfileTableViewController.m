@@ -10,7 +10,10 @@
 #import "AppDelegate.h"
 #import "MsgDetailViewController.h"
 
-@interface ProfileTableViewController ()
+#define AV_TAG_DELETE_BUDDY 10234
+#define AV_TAG_DELETE_DONE 23943
+
+@interface ProfileTableViewController () <UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
 @property (weak, nonatomic) IBOutlet UILabel *realnameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
@@ -29,6 +32,11 @@
         // Custom initialization
     }
     return self;
+}
+
+- (AppDelegate *)appDelegate
+{
+	return (AppDelegate *)[[UIApplication sharedApplication] delegate];
 }
 
 - (void)viewDidLoad
@@ -55,6 +63,11 @@
     self.unitLabel.text = self.buddy.brand;
     self.jobTitleLabel.text = self.buddy.jobTitle;
     
+    if (self.type == PROFILE_BACK_TYPE_NORMAL) {
+        
+    }else {
+        self.navigationItem.rightBarButtonItem = nil;
+    }
 }
 
 
@@ -77,7 +90,27 @@
     
 }
 
+- (IBAction)deleteBuddy:(UIBarButtonItem *)sender {
+    UIAlertView *av = [[UIAlertView alloc] initWithTitle:nil message:@"确定删除好友?" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
+    av.tag = AV_TAG_DELETE_BUDDY;
+    [av show];
+}
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag == AV_TAG_DELETE_BUDDY && buttonIndex == 0) {
+        NSString *jidStr = [NSString stringWithFormat:@"%@@%@", self.buddy.phone, XMPP_DOMAIN];
+        XMPPJID *jid = [XMPPJID jidWithString:jidStr];
+        [[self appDelegate].xmppRoster removeUser:jid];
+        [[BuddyManager sharedBuddyManager] removeBuddy:self.buddy];
+        
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:nil message:@"删除请求已发出." delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        av.tag = AV_TAG_DELETE_DONE;
+        [av show];
+    }else if (alertView.tag == AV_TAG_DELETE_DONE) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
 
 - (void)didReceiveMemoryWarning
 {

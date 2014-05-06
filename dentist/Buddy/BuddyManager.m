@@ -195,7 +195,40 @@ static BuddyManager *sharedInstance;
     }
 }
 
+- (void)removeBuddy:(Buddy *)theBuddy;
+{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    [context deleteObject:theBuddy];
+    NSError *error;
+    if (![context save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
+}
 
+- (void)removeAllBuddys
+{
+    NSString *entityName = @"Buddy";
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
+    NSError *error;
+    NSArray *matches = [context executeFetchRequest:request error:&error];
+    if (!matches || error || matches.count == 0) {
+        // something went wrong!
+        return;
+    }
+    
+    
+    for (Buddy *theBuddy in matches) {
+        [context deleteObject:theBuddy];
+    }
+    
+    if (![context save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
+}
 
 
 - (void)addBuddyNewMessageFrom:(NSString *)user

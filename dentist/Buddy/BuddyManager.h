@@ -22,7 +22,8 @@
 
 
 - (void)addBuddyWithDictionary:(NSDictionary *)oneBuddy;
-
+- (void)removeBuddy:(Buddy *)theBuddy;
+- (void)removeAllBuddys;
 
 - (void)addBuddyNewMessageFrom:(NSString *)user;
 - (void)removeBuddyNewMessageFrom:(NSString *)user;
