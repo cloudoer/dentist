@@ -36,7 +36,7 @@
 	NSString *myPassword = [[NSUserDefaults standardUserDefaults] stringForKey:kXMPPjoyPassword];
 
     if (myJID)
-        self.jidTextField.text = myJID;
+        self.jidTextField.text = [myJID componentsSeparatedByString:@"@"][0];
     if (myPassword)
         self.pwdTextField.text = myPassword;
 
@@ -63,6 +63,9 @@
         
     }];
     
+    AppDelegate *appDelegate             = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    UITabBarController *tabBarController = (UITabBarController *)appDelegate.window.rootViewController;
+    tabBarController.selectedIndex       = 0;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

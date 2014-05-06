@@ -53,7 +53,8 @@
 
 - (IBAction)exitLogin:(UIButton *)sender {
     
-    
+    [LoginFacade removeUserinfo];
+    [LoginFacade presentLoginViewControllerFrom:self];
 }
 
 @end
