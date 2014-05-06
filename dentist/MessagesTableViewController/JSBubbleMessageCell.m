@@ -312,7 +312,7 @@
     UIMenuController *menu = [UIMenuController sharedMenuController];
     UIMenuItem *saveItem;
     if(self.bubbleView.data){
-        saveItem = [[UIMenuItem alloc] initWithTitle:@"Save" action:@selector(saveImage:)];
+        saveItem = [[UIMenuItem alloc] initWithTitle:@"保存" action:@selector(saveImage:)];
     }else{
         saveItem = nil;
     }
@@ -335,10 +335,6 @@
 
 #pragma mark - Save Image
 -(void)saveImage:(id)sender{
-    
-    
-    
-    
     UIImageWriteToSavedPhotosAlbum(self.bubbleView.data, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
 }
 

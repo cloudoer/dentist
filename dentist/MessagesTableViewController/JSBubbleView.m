@@ -122,6 +122,9 @@ CGFloat const kJSAvatarSize = 50.0f;
 }
 
 - (void)setData:(id)newData{
+    if (!newData) {
+        return;
+    }
     data = newData;
     [self setNeedsDisplay];
 }

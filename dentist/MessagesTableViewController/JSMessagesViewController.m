@@ -436,6 +436,11 @@ typedef enum {
             [self.inputToolBarView.textView resignFirstResponder];
         }
 
+        if (self.inputToolBarView.textView.hidden) {
+            self.inputToolBarView.textView.hidden = NO;
+            recoderBtn.hidden = YES;
+        }
+        
         [UIView animateWithDuration:ANIMATION_TIME animations:^{
             self.otherView.frame = CGRectMake(0, DEVICE_HEIGHT - KEYBOARD_HEIGHT, DEVICE_WIDTH, KEYBOARD_HEIGHT);
             if (Y(_inputToolBarView) != Y(_otherView) - HEIGHT(self.inputToolBarView)) {

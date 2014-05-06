@@ -60,6 +60,7 @@
         UIStoryboard *storyBoard                 = [UIStoryboard storyboardWithName:@"Me" bundle:[NSBundle mainBundle]];
         RecordDetailViewController *recordDetail = [storyBoard instantiateViewControllerWithIdentifier:@"recordDetail"];
         recordDetail.request                     = request;
+        self.hidesBottomBarWhenPushed            = YES;
         [self.navigationController pushViewController:recordDetail animated:YES];
         return NO;
     }

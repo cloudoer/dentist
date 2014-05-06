@@ -12,7 +12,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "amrFileCodec.h"
 #import "ProfileTableViewController.h"
-
+#import "JSBubbleView.h"
 
 @interface MsgDetailViewController () <JSMessagesViewDelegate, JSMessagesViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, AVAudioRecorderDelegate,
 AVAudioSessionDelegate,
@@ -483,6 +483,20 @@ AVAudioPlayerDelegate>
     
     if ([Tools typeForMessage:message] == CHAT_TYPE_AUDIO) {
         [self playWithBase64Str:[Tools bodyWithoutPrefixForMessage:message]];
+        
+//        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+//        for (UIView *tem in cell.contentView.subviews) {
+//            if ([tem isKindOfClass:[JSBubbleView class]]) {
+//                JSBubbleView *view =  (JSBubbleView *)tem;
+//                view.data = [UIImage imageNamed:@"voice_pic"];
+//                UIImageView *im = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"voice_pic_0"]];
+//                im.frame = CGRectMake(30, 10, 30, 30);
+//                [view addSubview:im];
+//                NSLog(@"========%@", NSStringFromCGRect([view bubbleFrame]));
+//                NSLog(@"===%@===",((JSBubbleView *)tem).bubbleImage);
+//            }
+//        }
+
     }
 
 }
