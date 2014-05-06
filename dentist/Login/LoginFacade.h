@@ -23,4 +23,6 @@
 
 + (void)loginSuccessWithHttpgetPath:(NSDictionary *)dic;
 
++ (void)removeUserinfo;
+
 @end

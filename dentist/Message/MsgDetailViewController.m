@@ -164,8 +164,6 @@ AVAudioPlayerDelegate>
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
-
-//    [self finishSend];
     
 	[[self tableView] reloadData];
   

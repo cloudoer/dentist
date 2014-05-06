@@ -60,4 +60,8 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
++ (void)removeUserinfo {
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kSharedUserinfo];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
 @end

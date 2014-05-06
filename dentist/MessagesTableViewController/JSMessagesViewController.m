@@ -65,6 +65,8 @@ typedef enum {
     BOOL isNull;           //是否为空
     
     BOOL isRecoder;         //是否录音
+    
+    CGRect originFrame;
 }
 
 @property (nonatomic, strong) EmojiView *emojiView;
@@ -183,6 +185,7 @@ typedef enum {
 		frame.origin.x += mediaButton.frame.size.width + mediaButton.frame.origin.x;
 		frame.size.width = DEVICE_WIDTH - ( mediaButton.frame.size.width + mediaButton.frame.origin.x + emoji.frame.size.width + others.frame.size.width + 14 + 15);
 		self.inputToolBarView.textView.frame = frame;
+        originFrame = frame;
 	}
 	
     recoderBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -312,7 +315,6 @@ typedef enum {
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    NSLog(@"*** %@: didReceiveMemoryWarning ***", self.class);
 }
 
 - (void)dealloc
@@ -377,6 +379,11 @@ typedef enum {
     if (sender.selected) {
         if ([self.inputToolBarView.textView isFirstResponder]) {
             [self.inputToolBarView.textView resignFirstResponder];
+        }
+        
+        if (self.inputToolBarView.textView.hidden) {
+            self.inputToolBarView.textView.hidden = NO;
+            recoderBtn.hidden = YES;
         }
         
         [UIView animateWithDuration:ANIMATION_TIME animations:^{
@@ -649,14 +656,17 @@ typedef enum {
 
 - (void)textViewDidChange:(UITextView *)textView
 {
+
     CGFloat maxHeight = [JSMessageInputView maxHeight];
     CGSize size = [textView sizeThatFits:CGSizeMake(textView.frame.size.width, maxHeight)];
     CGFloat textViewContentHeight = size.height;
 
     if (status == INPUT_VIEW_STATUS_OTHER || status == INPUT_VIEW_STATUS_EMOJI || isRecoder) {
-        self.previousTextViewContentHeight = 35.5;
+        if (!textView.text || [textView.text isEqualToString:@""]) {
+            self.previousTextViewContentHeight = 35.5;
+        }
     }
-    // End of textView.contentSize replacement code
+
 
     BOOL isShrinking = textViewContentHeight < self.previousTextViewContentHeight;
     CGFloat changeInHeight = textViewContentHeight - self.previousTextViewContentHeight;
@@ -707,9 +717,11 @@ typedef enum {
     } else if (status == INPUT_VIEW_STATUS_OTHER && ![textView isFirstResponder]) {
         self.tableView.contentInset = self.originalTableViewContentInset;
     }
-    
-    isNull = ([textView.text trimWhitespace].length > 0);
 
+    isNull = ([textView.text trimWhitespace].length > 0);
+//    if (HEIGHT(_inputToolBarView) ! = ) {
+//        <#statements#>
+//    }
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text; {
@@ -773,6 +785,7 @@ typedef enum {
                              
                              self.tableView.contentInset = insets;
                              self.tableView.scrollIndicatorInsets = insets;
+
                          }
                          completion:^(BOOL finished) {
                          }];
@@ -782,6 +795,7 @@ typedef enum {
 - (void)adjustTableView:(NSDictionary *)info {
     
     UIEdgeInsets insets = self.originalTableViewContentInset;
+   
     insets.bottom = self.view.frame.size.height - Y(self.inputToolBarView) - HEIGHT(self.inputToolBarView);
     self.tableView.contentInset = insets;
     self.tableView.scrollIndicatorInsets = insets;
@@ -804,40 +818,54 @@ typedef enum {
     }
     
    
-    CGRect inputViewFrame = self.inputToolBarView.frame;
+    CGSize size = self.view.frame.size;
+    CGRect inputViewFrame = CGRectMake(0.0f, size.height - INPUT_HEIGHT, size.width, INPUT_HEIGHT);
     inputViewFrame.origin.y = DEVICE_HEIGHT - inputViewFrame.size.height;
+    self.inputToolBarView.textView.frame = originFrame;
     
-    if (Y(_emojiView) != DEVICE_HEIGHT) {
+    if (Y(_emojiView) != DEVICE_HEIGHT && fabs(Y(_emojiView) - DEVICE_HEIGHT) > 0.5) {
         [UIView animateWithDuration:ANIMATION_TIME animations:^{
             CGRect emojiViewFrame = self.emojiView.frame;
             emojiViewFrame.origin.y = DEVICE_HEIGHT;
             self.emojiView.frame = emojiViewFrame;
             self.inputToolBarView.frame = inputViewFrame;
             emoji.selected = NO;
-            [self adjustTableView:nil];
+            [self adjustTableView:@{@"from": @"scroll"}];
         }];
         
     }
     
-    if (Y(_otherView) != DEVICE_HEIGHT) {
+    if (Y(_otherView) != DEVICE_HEIGHT && fabs(Y(_otherView) - DEVICE_HEIGHT) > 0.5) {
         [UIView animateWithDuration:ANIMATION_TIME animations:^{
             CGRect otherFrame = self.otherView.frame;
             otherFrame.origin.y = DEVICE_HEIGHT;
             self.otherView.frame = otherFrame;
             self.inputToolBarView.frame = inputViewFrame;
             others.selected = NO;
-            [self adjustTableView:nil];
+            [self adjustTableView:@{@"from": @"scroll"}];
         }];
         
     }
     
-    if (Y(_inputToolBarView) != DEVICE_HEIGHT - INPUT_HEIGHT) {
+    if (Y(_inputToolBarView) != DEVICE_HEIGHT - INPUT_HEIGHT && fabs(Y(_inputToolBarView) - (DEVICE_HEIGHT - INPUT_HEIGHT)) > 0.5) {
         [UIView animateWithDuration:ANIMATION_TIME animations:^{
             self.inputToolBarView.frame = inputViewFrame;
-            [self adjustTableView:nil];
+            [self adjustTableView:@{@"from": @"scroll"}];
         }];
     }
+    
 
+
+    if (!UIEdgeInsetsEqualToEdgeInsets(self.tableView.contentInset, UIEdgeInsetsMake(0, 0, 0.5, 0))) {
+        self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0.5, 0);
+    }
+
+    if (!UIEdgeInsetsEqualToEdgeInsets(self.tableView.scrollIndicatorInsets, UIEdgeInsetsMake(0, 0, 0.5, 0))) {
+        self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0.5, 0);
+    }
+    
+//    NSLog(@"inset====%@", NSStringFromUIEdgeInsets(self.tableView.contentInset));
+//    NSLog(@"self.tableView.scrollIndicatorInsets_end=====%@", NSStringFromUIEdgeInsets(self.tableView.scrollIndicatorInsets));
 }
 
 - (void)keyboardWillSnapBackToPoint:(CGPoint)pt
