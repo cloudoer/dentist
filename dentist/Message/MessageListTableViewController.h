@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WEPopoverController.h"
 
-@interface MessageListTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+@interface MessageListTableViewController : UITableViewController <NSFetchedResultsControllerDelegate, WEPopoverControllerDelegate, UIPopoverControllerDelegate>
+{
+    Class popoverClass;
+}
+
+@property (nonatomic, retain) WEPopoverController *popoverController;
 
 @end
