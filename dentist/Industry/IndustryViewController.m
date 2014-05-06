@@ -7,10 +7,13 @@
 //
 
 #import "IndustryViewController.h"
+#import "IndustryDetailViewController.h"
 
 @interface IndustryViewController () <UIWebViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (strong, nonatomic) NSURLRequest *request;
+
 @end
 
 @implementation IndustryViewController
@@ -41,30 +44,41 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - UIWebView delegate
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+
+    if ([request.URL.relativeString hasPrefix:@"http://tijian8.cn/yayibao/index.php?r=app/news/list"]) {
+        self.request = request;
+        [self performSegueWithIdentifier:@"news2detail" sender:nil];
+        return NO;
+    }
+    
     return YES;
 }
+
 - (void)webViewDidStartLoad:(UIWebView *)webView {
     
 }
+
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     [MBProgressHUD hideAllHUDsForView:self.webView animated:YES];
 }
+
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     [MBProgressHUD hideAllHUDsForView:self.webView animated:YES];
     [NSUtil alertNotice:@"提示" withMSG:@"数据请求失败,请稍后重试" cancleButtonTitle:@"确定" otherButtonTitle:nil];
 }
 
-
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"news2detail"]) {
+        IndustryDetailViewController *detail = segue.destinationViewController;
+        detail.request = self.request;
+    }
 }
-*/
+
 
 @end

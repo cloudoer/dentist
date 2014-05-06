@@ -33,6 +33,7 @@
 
 @property (weak, nonatomic) IBOutlet PhotoesView *photoView;
 
+@property (weak, nonatomic) IBOutlet UILabel *tagLabel;
 
 - (IBAction)switchSex:(UIButton *)sender;
 
@@ -56,6 +57,7 @@
 
     self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, .001)];
     
+    //设置性别
     [self.maleBtn setImage:[UIImage imageNamed:@"individual_publish_circle_h"] forState:UIControlStateSelected];
     [self.maleBtn setImage:[UIImage imageNamed:@"individual_publish_circle"] forState:UIControlStateNormal];
     [self.femalBtn setImage:[UIImage imageNamed:@"individual_publish_circle_h"] forState:UIControlStateSelected];
@@ -64,6 +66,7 @@
     self.maleBtn.selected = YES;
     
     
+    //添加图片
     PhotoesView *photoV = [[PhotoesView alloc] initWithFrame:CGRectMake(0, 0, WIDTH(self.tableView), 84)];
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]];
     [cell addSubview:photoV];
@@ -86,8 +89,7 @@
 #pragma mark - other btn click
 - (void)otherPhotoBtnPressed {
     ELCImagePickerController *elcPicker = [[ELCImagePickerController alloc] initImagePicker];
-//    elcPicker.maximumImagesCount = 4;
-    elcPicker.returnsOriginalImage = NO; //Only return the fullScreenImage, not the fullResolutionImage
+    elcPicker.returnsOriginalImage = NO;
 	elcPicker.imagePickerDelegate = self;
     
     [self presentViewController:elcPicker animated:YES completion:nil];
@@ -123,8 +125,6 @@
         
         status = 1;
         
-        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
-        
         NSString *msg;
         if (![NSUtil trimSpace:self.recordsName.text].length) {
             msg = @"病历名称不能为空";
@@ -135,7 +135,7 @@
         } else if (![NSUtil trimSpace:self.recordsDes.text].length) {
             msg = @"病历描述不能为空";
             status = 0;
-        } else if (!cell.textLabel.text.length) {
+        } else if (!self.tagLabel.text.length || [self.tagLabel.text isEqualToString:@"添加标签"]) {
             msg = @"标签不能为空";
             status = 0;
         }
@@ -164,13 +164,17 @@
             }
         }
         
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [Network httpPostPath:RELATIVE_URL_RECORDS_SUBMIT parameters:dics success:^(NSDictionary *responseObject) {
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
             if (![responseObject[@"status"] intValue]) {
                 [NSUtil alertNotice:@"提示" withMSG:@"提交成功" cancleButtonTitle:@"确定" otherButtonTitle:nil];
             } else
                 [NSUtil alertNotice:@"提示" withMSG:responseObject[@"data"][@"info"] cancleButtonTitle:@"确定" otherButtonTitle:nil];
+            
         } failure:^(NSError *error) {
             NSLog(@"%@ -> %@", RELATIVE_URL_RECORDS_SUBMIT, error);
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
             [NSUtil alertNotice:@"提示" withMSG:@"提交失败" cancleButtonTitle:@"确定" otherButtonTitle:nil];
         }];
     } else
@@ -261,12 +265,23 @@
                 }
             }
         
-            UITableViewCell *cell    = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
-            cell.textLabel.text      = str;
-            cell.textLabel.textColor = [UIColor blackColor];
-            cell.textLabel.alpha     = 1.;
+            self.tagLabel.text      = str;
+            self.tagLabel.textColor = [UIColor blackColor];
+            self.tagLabel.alpha     = 1.;
+           
         }];
     }
 }
+
+- (IBAction)handleTap:(UITapGestureRecognizer *)sender {
+    [self.recordsName resignFirstResponder];
+    [self.age resignFirstResponder];
+    [self.recordsDes resignFirstResponder];
+}
+
+- (IBAction)addTags:(UIButton *)sender {
+    [self performSegueWithIdentifier:@"tags" sender:nil];
+}
+
 
 @end
