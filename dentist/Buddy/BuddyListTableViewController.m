@@ -83,6 +83,8 @@
     NSString *getPath = [NSString stringWithFormat:@"%@&uid=%d", URL_PATH_ALL_BUDDY, userinfo.uid.intValue];
     
     [Network httpGetPath:getPath success:^(NSDictionary *response) {
+        
+        [[BuddyManager sharedBuddyManager] removeAllBuddys];
         for (NSDictionary *oneBuddyDict in response[@"data"]) {
             [[BuddyManager sharedBuddyManager] addBuddyWithDictionary:oneBuddyDict];
         }

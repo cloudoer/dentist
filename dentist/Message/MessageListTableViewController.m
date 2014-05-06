@@ -174,6 +174,12 @@ AVAudioPlayerDelegate>
     
     latestMsgArray = [[NSMutableArray alloc] initWithCapacity:20];
     for (XMPPMessageArchiving_Message_CoreDataObject *msg in [self fetchedResultsController].fetchedObjects) {
+        
+        Buddy *buddy = [[BuddyManager sharedBuddyManager] buddyWithPhoneNum:msg.bareJid.user];
+        if (buddy == nil) {
+            continue;
+        }
+        
         if (latestMsgArray.count == 0) {
             [latestMsgArray addObject:msg];
         }else {
