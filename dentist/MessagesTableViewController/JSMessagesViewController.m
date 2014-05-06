@@ -222,7 +222,9 @@ typedef enum {
 
 - (void)init4EmojiView {
     self.emojiView = [[EmojiView alloc] initWithFrame:CGRectMake(0, DEVICE_HEIGHT, DEVICE_WIDTH, KEYBOARD_HEIGHT)];
+    
     [self.view addSubview:_emojiView];
+    
     [self.emojiView emojiSeleted:^(NSString *emotion) {
 
         UITextView *textView = self.inputToolBarView.textView;
@@ -236,9 +238,11 @@ typedef enum {
                 }
                 textView.text=newStr;
             }
-        }else{
+        } else {
             self.inputToolBarView.textView.text = [NSString stringWithFormat:@"%@%@",textView.text,emotion];
         }
+        
+        [self textViewDidChange:textView];
     }];
     
     [self.emojiView emojiSend:^{
@@ -304,6 +308,7 @@ typedef enum {
 											 selector:@selector(handleWillHideKeyboard:)
 												 name:UIKeyboardWillHideNotification
                                                object:nil];
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -617,7 +622,16 @@ typedef enum {
     [self.inputToolBarView.textView setText:nil];
     [self textViewDidChange:self.inputToolBarView.textView];
 //    [self.tableView reloadData];
+//    if (!UIEdgeInsetsEqualToEdgeInsets(self.tableView.contentInset, UIEdgeInsetsMake(0, 0, 0.5, 0))) {
+//        self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0.5, 0);
+//    }
+//    
+//    if (!UIEdgeInsetsEqualToEdgeInsets(self.tableView.scrollIndicatorInsets, UIEdgeInsetsMake(0, 0, 0.5, 0))) {
+//        self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0.5, 0);
+//    }
+
     [self scrollToBottomAnimated:YES];
+    
 }
 
 - (void)setBackgroundColor:(UIColor *)color
@@ -668,11 +682,11 @@ typedef enum {
 - (void)textViewDidChange:(UITextView *)textView
 {
 
-    CGFloat maxHeight = [JSMessageInputView maxHeight];
-    CGSize size = [textView sizeThatFits:CGSizeMake(textView.frame.size.width, maxHeight)];
+    CGFloat maxHeight             = [JSMessageInputView maxHeight];
+    CGSize size                   = [textView sizeThatFits:CGSizeMake(textView.frame.size.width, maxHeight)];
     CGFloat textViewContentHeight = size.height;
 
-    if (status == INPUT_VIEW_STATUS_OTHER || status == INPUT_VIEW_STATUS_EMOJI || isRecoder) {
+    if (status == INPUT_VIEW_STATUS_OTHER  || isRecoder) {
         if (!textView.text || [textView.text isEqualToString:@""]) {
             self.previousTextViewContentHeight = 35.5;
         }
@@ -690,8 +704,6 @@ typedef enum {
     }
 
     if(changeInHeight != 0.0f) {
-        //        if(!isShrinking)
-        //            [self.inputToolBarView adjustTextViewHeightBy:changeInHeight];
         
         [UIView animateWithDuration:0.25f
                          animations:^{
@@ -715,7 +727,6 @@ typedef enum {
                                                                       inputViewFrame.size.width,
                                                                       inputViewFrame.size.height + changeInHeight);
                              
-                             
                              if(!isShrinking) {
                                  [self.inputToolBarView adjustTextViewHeightBy:changeInHeight];
                              }
@@ -723,16 +734,15 @@ typedef enum {
                          completion:^(BOOL finished) {
                          }];
         
-        
+        NSLog(@"previous == %f", self.previousTextViewContentHeight);
         self.previousTextViewContentHeight = MIN(textViewContentHeight, maxHeight);
+
     } else if (status == INPUT_VIEW_STATUS_OTHER && ![textView isFirstResponder]) {
         self.tableView.contentInset = self.originalTableViewContentInset;
     }
 
     isNull = ([textView.text trimWhitespace].length > 0);
-//    if (HEIGHT(_inputToolBarView) ! = ) {
-//        <#statements#>
-//    }
+
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text; {
@@ -769,7 +779,7 @@ typedef enum {
 	UIViewAnimationCurve curve = [[notification.userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] integerValue];
 	double duration = [[notification.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     
-    if (status == INPUT_VIEW_STATUS_NORMAL || [notification.name isEqualToString:UIKeyboardWillShowNotification]) {
+    if (status == INPUT_VIEW_STATUS_NORMAL || [notification.name isEqualToString:UIKeyboardWillShowNotification] ) {
         [UIView animateWithDuration:duration
                               delay:0.0f
                             options:[UIView animationOptionsForCurve:curve]
@@ -811,6 +821,10 @@ typedef enum {
     self.tableView.contentInset = insets;
     self.tableView.scrollIndicatorInsets = insets;
     [self scrollToBottomAnimated:NO];
+    
+    if(!self.previousTextViewContentHeight)
+		self.previousTextViewContentHeight = self.inputToolBarView.textView.contentSize.height;
+    
 }
 
 #pragma mark - Dismissive text view delegate
@@ -864,19 +878,6 @@ typedef enum {
             [self adjustTableView:@{@"from": @"scroll"}];
         }];
     }
-    
-
-
-    if (!UIEdgeInsetsEqualToEdgeInsets(self.tableView.contentInset, UIEdgeInsetsMake(0, 0, 0.5, 0))) {
-        self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0.5, 0);
-    }
-
-    if (!UIEdgeInsetsEqualToEdgeInsets(self.tableView.scrollIndicatorInsets, UIEdgeInsetsMake(0, 0, 0.5, 0))) {
-        self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0.5, 0);
-    }
-    
-//    NSLog(@"inset====%@", NSStringFromUIEdgeInsets(self.tableView.contentInset));
-//    NSLog(@"self.tableView.scrollIndicatorInsets_end=====%@", NSStringFromUIEdgeInsets(self.tableView.scrollIndicatorInsets));
 }
 
 - (void)keyboardWillSnapBackToPoint:(CGPoint)pt

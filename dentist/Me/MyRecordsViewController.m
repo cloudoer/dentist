@@ -10,8 +10,12 @@
 #import "RecordDetailViewController.h"
 
 @interface MyRecordsViewController ()<UIWebViewDelegate>
+{
+    UIRefreshControl *refreshControl;
+}
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+
 @end
 
 @implementation MyRecordsViewController
@@ -28,9 +32,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
    
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[BaseURLString stringByAppendingPathComponent:RELATIVE_URL_MY_RECORDS(@(1))]]]];
     [MBProgressHUD showHUDAddedTo:self.webView animated:YES];
+    
+   
+    refreshControl      = [[UIRefreshControl alloc] init];
+    self.refreshControl = refreshControl;
+    [refreshControl addTarget:self
+                       action:@selector(refreshControlHandler)
+             forControlEvents:UIControlEventValueChanged];
+
+}
+
+- (void)refreshControlHandler {
+    
+    [self.webView reload];
 }
 
 - (void)didReceiveMemoryWarning
@@ -94,10 +112,12 @@
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     [MBProgressHUD hideAllHUDsForView:self.webView animated:YES];
+    [refreshControl endRefreshing];
 }
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     [MBProgressHUD hideAllHUDsForView:self.webView animated:YES];
     [NSUtil alertNotice:@"提示" withMSG:@"数据请求失败,请稍后重试" cancleButtonTitle:@"确定" otherButtonTitle:nil];
+    [refreshControl endRefreshing];
 }
 
 @end

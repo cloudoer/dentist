@@ -423,7 +423,6 @@ AVAudioPlayerDelegate>
         
     }
     
-
 }
 
 - (UIImage *)avatarImageForIncomingMessage
