@@ -198,9 +198,9 @@ typedef enum {
     recoderBtn.layer.borderColor = [[UIColor colorWithWhite:.8 alpha:1.0] CGColor];
     recoderBtn.layer.borderWidth = 0.65f;
     recoderBtn.layer.cornerRadius = 6.0f;
-    [recoderBtn addTarget:self
-                   action:@selector(pressRecoderAction:)
-         forControlEvents:UIControlEventTouchDown | UIControlEventTouchUpInside];
+//    [recoderBtn addTarget:self
+//                   action:@selector(pressRecoderAction:)
+//         forControlEvents:UIControlEventTouchDown | UIControlEventTouchUpInside];
 //    UILongPressGestureRecognizer *longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(pressRecoderActionForRecognizer:)];
 //    [recoderBtn addGestureRecognizer:longPressRecognizer];
     
@@ -309,7 +309,49 @@ typedef enum {
 												 name:UIKeyboardWillHideNotification
                                                object:nil];
     
+    [self addScreenTouchObserver];
+    
 }
+
+#pragma mark - 移除触摸观察者
+- (void)removeScreenTouchObserver{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"nScreenTouch" object:nil];//移除nScreenTouch事件
+}
+#pragma mark - 添加触摸观察者
+- (void)addScreenTouchObserver{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onScreenTouch:) name:@"nScreenTouch" object:nil];
+}
+
+
+- (void)onScreenTouch:(NSNotification *)notification {
+    UIEvent *event=[notification.userInfo objectForKey:@"data"];
+    NSSet *allTouches = event.allTouches;
+    
+    if (recoderBtn.hidden) {
+        return;
+    }
+    
+    UITouch *touch = allTouches.anyObject;
+    CGPoint point = [touch locationInView:self.inputToolBarView];
+    
+//    NSLog(@"%@ %@", NSStringFromCGRect(recoderBtn.frame), NSStringFromCGPoint(point));
+    if (CGRectContainsPoint(recoderBtn.frame, point)) {
+//        NSLog(@"yes..");
+        [self pressRecoderActionForRecognizer:nil];
+    }
+//    //如果未触摸或只有单点触摸
+//    if ((curTouchPoint.x == CGPointZero.x && curTouchPoint.y == CGPointZero.y) || allTouches.count == 1)
+//        [self transferTouch:[allTouches anyObject]];
+//    else{
+//        //遍历touch,找到最先触摸的那个touch
+//        for (UITouch *touch in allTouches){
+//            CGPoint prePoint = [touch previousLocationInView:nil];
+//            if (prePoint.x == curTouchPoint.x && prePoint.y == curTouchPoint.y)
+//                [self transferTouch:touch];
+//        }
+//    }
+}
+
 
 - (void)viewWillDisappear:(BOOL)animated
 {
@@ -319,6 +361,8 @@ typedef enum {
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+    
+    [self removeScreenTouchObserver];
 }
 
 - (void)didReceiveMemoryWarning

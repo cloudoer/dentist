@@ -14,6 +14,9 @@
 #import "GTMBase64.h"
 #import "MsgListCell.h"
 
+#import "WEPopoverContentViewController.h"
+#import "UIBarButtonItem+WEPopover.h"
+
 @interface MessageListTableViewController () <AVAudioRecorderDelegate,
 AVAudioSessionDelegate,
 AVAudioPlayerDelegate>
@@ -36,6 +39,8 @@ AVAudioPlayerDelegate>
     AVAudioRecorder     * _recorder;
     NSString            * _filePath;
 }
+
+@synthesize popoverController;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -132,6 +137,9 @@ AVAudioPlayerDelegate>
     }
     
     [self prepareToTestRecord];
+    
+    
+    popoverClass = [WEPopoverController class];
 }
 
 - (void)prepareToTestRecord
@@ -408,6 +416,39 @@ AVAudioPlayerDelegate>
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+- (IBAction)addPopover:(UIBarButtonItem *)sender {
+    if (!self.popoverController) {
+		
+		UIViewController *contentViewController = [[WEPopoverContentViewController alloc] initWithStyle:UITableViewStylePlain];
+		self.popoverController = [[popoverClass alloc] initWithContentViewController:contentViewController];
+		self.popoverController.delegate = self;
+		self.popoverController.passthroughViews = [NSArray arrayWithObject:self.navigationController.navigationBar];
+		
+		[self.popoverController presentPopoverFromBarButtonItem:sender
+									   permittedArrowDirections:(UIPopoverArrowDirectionUp|UIPopoverArrowDirectionDown)
+													   animated:YES];
+        
+	} else {
+		[self.popoverController dismissPopoverAnimated:YES];
+		self.popoverController = nil;
+	}
+
+}
+
+- (void)popoverControllerDidDismissPopover:(WEPopoverController *)thePopoverController {
+	//Safe to release the popover here
+	self.popoverController = nil;
+}
+
+- (BOOL)popoverControllerShouldDismissPopover:(WEPopoverController *)thePopoverController {
+	//The popover is automatically dismissed if you click outside it, unless you return NO here
+	return YES;
+}
+
+
+
 
 
 @end
